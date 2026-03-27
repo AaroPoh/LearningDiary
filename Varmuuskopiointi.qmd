@@ -1,0 +1,43 @@
+---
+title: "Varmuuskopiointi"
+---
+
+## Git ja github 
+
+```{r}
+#| eval: false 
+
+usethis::use_git()
+```
+
+Luo olemassa olevalle R-projektille git repositorion
+
+-   uutta projektia luodessa voi rastittaa saman heti alkuun
+
+-   git repositorioon voi tallentaa varmuuskopion aina kun haluaa
+
+    -   se tehdään yläoikealta git välilehdeltä valitsemalla tehdyt muutokset ja painamalla commit
+
+```{r}
+#| eval: false 
+
+.Rproj.user
+.Rhistory
+.RData
+.httr-oauth
+.DS_Store
+.quarto
+/.quarto/
+**/*.quarto_ipynb
+_book/
+_site/
+site_libs/
+```
+
+## .gitignore 
+
+-   Gemini suositteli lisäämään yllä olevat asiat gitignore tiedostoon
+
+    -   sieltä määritetään, mitä ei varmuuskopioida
+
+    -   Turhia asioita ei kannata varmuuskopioida, jotta git pysyy selkeänä ja sulavana

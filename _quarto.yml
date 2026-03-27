@@ -29,6 +29,7 @@ book:
         - Tilastotesteja.qmd
         - Matemaattisia_funktioita.qmd
         - Tekstikomentoja.qmd 
+        - Varmuuskopiointi.qmd
     - summary.qmd
     - references.qmd
 
