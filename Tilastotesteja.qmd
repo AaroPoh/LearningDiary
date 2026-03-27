@@ -30,7 +30,7 @@ Mitä tietoja testi näyttää
 
 -   sample estimates: ryhmien omat keskiarvot
 
-### T-testi kaavamuodossa (tällöin voidaan hakea tieto dataframesta) 
+### T-testi kaavamuodossa (tällöin voidaan hakea tieto dataframesta)
 
 ```{r}
 R1 <- rnorm(50,0)
@@ -41,7 +41,7 @@ data <- data.frame(arvo = c(R1,R2), ryhmä = rep(c(1,2), each=50))
 t.test(arvo ~ ryhmä, data = data) 
 ```
 
-## Korrelaatio 
+## Korrelaatio
 
 ```{r}
 x <- c(1, 2, 3, 4, 5)

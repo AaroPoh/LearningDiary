@@ -32,7 +32,7 @@ Permutaatioiden määrää lisäämällä sadaan p-arvo laskettua tarkemmin. Vil
 
 @thulin2024modern kirjassa neuvotaan nyrkkisääntönä käyttämään 9 999 permutaatiota, koska tällöin p arvo ainakaan usein ei asetu tasan 0,05 vaan sen alle tai yli
 
-## Permutaatiotesti ja bootstrap 
+## Permutaatiotesti ja bootstrap
 
 Permutaatio tarkoittaa yhtä lukujoukon tai R-kontekstissa vektorin järjestystä. Kun ne järjestetään uudelleen, saadaan toinen permutaatio. Esimerkiksi lukujoukolla (1,2,3) on yhteensä kuusi eri permutaatiota. Tilastotieteessä permutaatiota käytetään etenkin permutaatiotestissä, jonka avulla voidaan määrittää p-arvo. Permutaatiotesti on siitä, hyvä työkalu, että se ei oleta aineiston olevan normaalisti jakautunutta, eli sitä voidaan käyttää käytännössä millä hyvänsä aineistolla.
 

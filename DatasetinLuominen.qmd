@@ -2,7 +2,7 @@
 title: "Datasetin luominen"
 ---
 
-## rnorm() 
+## rnorm()
 
 ```{r}
 #| eval: false 
@@ -46,7 +46,7 @@ data.frame(N10 = c(m1,sd1), N100 = c(m2,sd2), N1000 = c(m3, sd3), row.names = Ri
 
 Isommalla n:llä näyttäisi osuvan vielä tarkemmin kohdalleen.
 
-## Data framen luominen 
+## Data framen luominen
 
 ```{r}
 R1 <- rnorm(5,0)
@@ -72,7 +72,7 @@ data.frame(sarake1, sarake2, sarake3, ...)
 
         -   RivNimet \<- c("Keskiarvo" , "Keskihajonta")
 
-## Satunnaistaminen tai satunnaisnumero sample() funktiolla 
+## Satunnaistaminen tai satunnaisnumero sample() funktiolla
 
 ```{r}
 #| eval: false 
@@ -100,7 +100,7 @@ sample(x, size, replace = FALSE, prob = NULL)
 
         -   bootstrap menetelmässä arvoja puolestaan käytetään useampaan otteeseseen
 
-## Uuden kansion luominen dir.create() 
+## Uuden kansion luominen dir.create()
 
 ```{r}
 #| eval: false 
@@ -128,7 +128,7 @@ Hyvä muistaa
 
     -   vain yksi kenoviiva kansioiden välille
 
-## Kansion luominen if-lauseen kanssa 
+## Kansion luominen if-lauseen kanssa
 
 ```{r}
 
@@ -157,7 +157,7 @@ if (!dir.exists(uusi_paakansio)) {
 
     -   ilman ! merkkiä ehto menisi siis: jos uusi_paakansio on olemassa niin tee seuraava asia
 
-## Tiedosto ja kansiopolun muuttaminen file.rename() 
+## Tiedosto ja kansiopolun muuttaminen file.rename()
 
 ```{r}
 #| eval: false 
@@ -190,7 +190,7 @@ Esim.
 
     -   koko "kurssi" kansio siirtyy eli sen alla oleva viikko1 siirtyy samalla
 
-## Tiedostopolun kirjoittaminen file.path() funktiolla 
+## Tiedostopolun kirjoittaminen file.path() funktiolla
 
 ```{r}
 #| eval: false 

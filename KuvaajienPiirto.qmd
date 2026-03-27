@@ -41,7 +41,7 @@ abline(0,0.5, col="red")
 
     -   vaakasuoran puolestaan abline(h=a)
 
-## Pylväsdiagrammi 
+## Pylväsdiagrammi
 
 ```{r}
 heights_var <- c(a=150,b= 160,c= 170,d= 180,e= 190)

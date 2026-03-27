@@ -2,7 +2,7 @@
 title: "Matemaattisia funktioita"
 ---
 
-## Kertoma: factorial() 
+## Kertoma: factorial()
 
 ```{r}
 factorial(3)
@@ -18,7 +18,7 @@ Laskee kertoman (!) eli sen kuinka moneen eri järjestykseen tietty määrä luk
 
 -   10 lukua -\> 3 628 800 järjestystä
 
-## Kombinaatiot: choose() 
+## Kombinaatiot: choose()
 
 ```{r}
 # choose(n, k) 

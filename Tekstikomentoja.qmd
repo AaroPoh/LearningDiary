@@ -23,7 +23,7 @@ writeLines(teksti, "matikkatehtavat.txt")
 
     -   tyhjän rivin saa tehtyä merkkaamalla vektoriin alkioksi pelkät hipsut "" , kuten riveillä 3 ja 5
 
-## Merkkijonojen yhdistäminen Paste() funktiolla 
+## Merkkijonojen yhdistäminen Paste() funktiolla
 
 ```{r}
 tallennettu <- 120

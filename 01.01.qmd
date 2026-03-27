@@ -1,4 +1,4 @@
-# Lähteiden merkkaaminen ja viittaus quarto kirjassa 
+# Lähteiden merkkaaminen ja viittaus quarto kirjassa
 
 Merkataan references.bib tiedostoon seuraavalla tyylillä
 
