@@ -1,0 +1,25 @@
+# Lähteiden merkkaaminen ja viittaus quarto kirjassa 
+
+Merkataan references.bib tiedostoon seuraavalla tyylillä
+
+```{r}
+#| eval: false
+@book{thulin2024modern,
+  title={Modern Statistics with R: From wrangling and exploring data to inference and predictive modelling},
+  author={Thulin, M{\aa}ns},
+  year={2024},
+  publisher={Chapman and Hall/CRC},
+  url = {https://www.modernstatisticswithr.com}
+```
+
+Aiemmin opittua tästä kirjasta @navarro2025learning
+
+See @thulin2024modern for additional discussion of literate programming.
+
+kokeilu @analysisandmodelling
+
+```{r}
+
+x <- sample(100)
+plot(x)
+```

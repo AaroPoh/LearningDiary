@@ -1,0 +1,5 @@
+---
+title: "R-komentoja"
+---
+
+Tänne kerään kurssin mittaan kootusti R-komentoja, funktioita, koodinpätkiä eri aiheisiin liittyen.

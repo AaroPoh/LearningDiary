@@ -1,0 +1,49 @@
+---
+title: "Kuvaajien piirtäminen"
+---
+
+## Histogrammi
+
+Histogrammi piirretään hist() funktiolla
+
+```{r}
+#| eval: false
+hist(x , breaks = 30,  xlim=c(-20,60))
+
+```
+
+-   x —\> data, josta histogrammi piirretään
+
+-   breaks = —\> voidaan määrittää millä välein palkkeja piirretään
+
+-   xlim=c(alkupiste,loppupiste) —\> voidaan määritellä mikä osa x-akselista näkyy
+
+Komennolla: abline() voidaan piirtää viivoja histogramiin
+
+```{r}
+
+#luodaan aineisto
+x_akseli <- rnorm(100, 10)
+
+# piirretään histogrammi ja kaksi viivaa 
+hist(x_akseli, breaks = 25, xlim=c(0,15)) # 
+abline(v= 10, col="green")
+abline(0,0.5, col="red")
+```
+
+-   abline(a,b) funktiossa
+
+    -   a = vakio eli y-akselin leikkauskohta \# ( eli y:n arvo, kun x = 0),
+
+    -   b = kulmakerroin
+
+    -   pystysuoran viivan voi piirtää abline(v=a) komennolla, v = vertical tässä kontekstissa
+
+    -   vaakasuoran puolestaan abline(h=a)
+
+## Pylväsdiagrammi 
+
+```{r}
+heights_var <- c(a=150,b= 160,c= 170,d= 180,e= 190)
+barplot(heights_var)
+```

@@ -1,0 +1,413 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "Vanhat.html",
+    "href": "Vanhat.html",
+    "title": "Tutkimusmenetelmät 1 - oppimispäiväkirja",
+    "section": "",
+    "text": "Tähän oppimispäiväkirjaan lisään etenkin hyödylliseksi kokemiani muistiinpanoja Jamovin ja r-\nkielen käytöstä ja opiskelusta. Lisäksi saatan kommentoida, mitkä asiat tuntuivat vaikeilta oppia ja mihin täytyy perehtyä tarkemmin myöhemmin. Pidän pääpainon kuitenkin omasta mielestä hyödyllisissä muistiinpanoissa, joita uskon voivani tarvita myöhemminkin. Iso osa muistiinpanoista on kuvankaappauksia luentodioista, joihin olen sitten lisännyt omia huomioita tai asiaa, joita videolla on kerrottu.",
+    "crumbs": [
+      "Tutkimusmenetelmät 1 - oppimispäiväkirja"
+    ]
+  },
+  {
+    "objectID": "V1.html",
+    "href": "V1.html",
+    "title": "1  Kuvaavat tunnusluvut, varianssi ja keskihajonta",
+    "section": "",
+    "text": "Varianssi on siis keskihajonta korotettuna toiseen.",
+    "crumbs": [
+      "Tutkimusmenetelmät 1 - oppimispäiväkirja",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Kuvaavat tunnusluvut, varianssi ja keskihajonta</span>"
+    ]
+  },
+  {
+    "objectID": "Osa01.html",
+    "href": "Osa01.html",
+    "title": "Osa 1",
+    "section": "",
+    "text": "R-ohjelmointikielen kurssin ensimmäisen viikon muistiinpanot.",
+    "crumbs": [
+      "Osa 1"
+    ]
+  },
+  {
+    "objectID": "01.01.html",
+    "href": "01.01.html",
+    "title": "2  Lähteiden merkkaaminen ja viittaus quarto kirjassa",
+    "section": "",
+    "text": "Merkataan references.bib tiedostoon seuraavalla tyylillä\n\n@book{thulin2024modern,\n  title={Modern Statistics with R: From wrangling and exploring data to inference and predictive modelling},\n  author={Thulin, M{\\aa}ns},\n  year={2024},\n  publisher={Chapman and Hall/CRC},\n  url = {https://www.modernstatisticswithr.com}\n\nAiemmin opittua tästä kirjasta Navarro and Foxcroft (2025)\nSee Thulin (2024) for additional discussion of literate programming.\nkokeilu Speekenbrink (2023)\n\nx &lt;- sample(100)\nplot(x)\n\n\n\n\n\n\n\n\n\n\n\n\nNavarro, Danielle, and David Foxcroft. 2025. Learning Statistics with JAMOVI: A Tutorial for Beginners in Statistical Analysis.\n\n\nSpeekenbrink, M. 2023. Statistics: Data Analysis and Modelling. Open Book Publishers. https://mspeekenbrink.github.io/sdam-book/.\n\n\nThulin, Måns. 2024. Modern Statistics with r: From Wrangling and Exploring Data to Inference and Predictive Modelling. Chapman; Hall/CRC. https://www.modernstatisticswithr.com.",
+    "crumbs": [
+      "Osa 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lähteiden merkkaaminen ja viittaus quarto kirjassa</span>"
+    ]
+  },
+  {
+    "objectID": "01.02.html",
+    "href": "01.02.html",
+    "title": "3  Video 4: Quarto kirjan luominen",
+    "section": "",
+    "text": "Video 4: Quarto kirjan luominen\ntehdään kirja / nettisivusto, josta voi aina nopeasti etsiä apua\n\nquarto dokumentit ovat .qmd tiedostoja\nControl + L —&gt; tyhjentää konsolin\nquarto install tinytex\n\njotta quarto osaa tehdä pdf:iä täytyy asentaa tinytex\nvoi tehdä myös terminaalissa\nvielä epäselvää mikä on konsolin ja terminaalin ero ja miksi nämä komennot tehtiin nimenomaan terminaalissa\n\n\n\n#quarto render\n\n\nkomento tekee html kirjan\n\n\n#quarto render --to pdf \n\n\n(eli kaksi viivaa ja to pdf quarto renderin perään)\n\n\n\ntekee pdf:n projektista\n\n\n#quarto preview \n\n\ntekee html version joka toimii local host nettisivulla\n\nKaikki yllä olevat komennot tehtiin terminaalissa\nYML tiedosto\n\nyml fileen voidaan tehdä muokkuksia ja esim. lisätä kirjan kappaleita\nyml tiedostoon siis riittää, että listataan tiedoston nimi\nqmd tiedostoon voidaan sitten kirjoittaa mitä halutaan\nesim. tehtiin chapter1.qmd tiedosto\n\nQuarto kirja\n\nyml tiedoston chapters kohtaan listataan kappaleeet\n\n. jokaisesta kappaleesta täytyy olla oma .qmd tiedosto\n\nreferences.bib\n\ntiedostoon voidaan lisätä lähteitä bib text muodossa\n\n\n\nlähteisiin voidaan viitata @ merkillä ja nimellä, jolloin ne näkyvät näin:\n\n\n\n\nyläoikealla olevasta vihreästä c kuvakkeesta voidaan lisätä koodinpätkiä\n\nse lisää alhaalla näkyvän harmaan laatikon, johon voi kirjoittaa r-koodia (voi valita muitakin ohjelmointikieliä)\n\n\n\n1 + 1 \n\n[1] 2\n\n2 * 2\n\n[1] 4\n\n4 / 5 \n\n[1] 0.8\n\n\n\nLisätyt koodinpätkät näyttävät tältä.\nJos haluaa koodinpätkän, jota ei suoriteta kannattaa käyttää komentoa\n\n#| eval: false\n\n\n\ninstall.packages(c(\"swirl\", \"swirlify\"))\nlibrary(swirl)\nlibrary(swirlify)\nswirl::install_course(\"R Programming\")\nswirl::install_course(\"The R Programming Environment\")\nswirl::install_course(\"Advanced R Programming\")\nswirl()\n\n\nNyt boksiin laitettua koodinpätkää ei suoriteta, mutta näyttää kuitenkin hyvältä ja sen voi suoraan kopioida\nYllä näkyvä swirl paketti on R-kielen opetuspaketti. Sen avulla voi myös opetella kieltä.\n\n\n\nkoodi näkyy kirjassa yllä olevalla tavalla\n\nharmaan koodipalkin oikeasta reunasta voi kopsata koodin",
+    "crumbs": [
+      "Osa 1",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Video 4: Quarto kirjan luominen</span>"
+    ]
+  },
+  {
+    "objectID": "Osa02.html",
+    "href": "Osa02.html",
+    "title": "Osa 2",
+    "section": "",
+    "text": "R-ohjelmointikielen kurssin toisen viikon muistiinpanot ja tehtävät.",
+    "crumbs": [
+      "Osa 2"
+    ]
+  },
+  {
+    "objectID": "02.01.html",
+    "href": "02.01.html",
+    "title": "4  apply, quantile ja aggregate funktiot",
+    "section": "",
+    "text": "4.1 Apply, quantile & aggregate\nEnsiksi luotiin datafreimi data.frame() funktiolla\ndata &lt;- data.frame(\n  Group = as.factor(rep(c(\"GroupA\",\"GroupB\",\"GroupC\"),10, each=10)), \n  Age = as.numeric(sample(18:65, 300, replace=TRUE)),\n  WM =  as.numeric(sample(1:100, 300, replace=TRUE))\n)\n\naggregate(Age ~ Group, data = data, FUN = mean)\n\n   Group   Age\n1 GroupA 43.98\n2 GroupB 41.09\n3 GroupC 43.13\n\nquantile(data$WM, probs = seq(0, 1, 0.9))\n\n 0% 90% \n  1  89 \n\napply(data[,2:3], 2, mean) \n\n     Age       WM \n42.73333 48.39667\nAggregate funktiossa ensiksi valitaan numeerinen freimi datasetistä, josta keskiarvo (tai jokin muu) lasketaan, sitten ~ merkin jälkeen # ryhmittelevä tekijä, eli se minkä mukaan data jaotellaan. # data = kohtaan datasetti, # FUN = kohtaan käytettävä funktio, jota käytetään.\nQuantile fuktiolla saadaan laskettua kvantiili. Quantile funktiossa ensiksi valitaan data, josta kvantiili otetaan. Kohtaan seq( , ,kolmanteen väliin kvantiili, joka halutaan)\nApply funktiolla voidaan käyttää haluttua funktiota datasetin valittuihin riveihin tai sarakkeisiin. Apply funktiossa ensiksi datasetti, [hakasulkeissa] voidaan indeksien avulla määritellä # mitkä rivit tai sarakkeet datasta otetaan käyttöön. Menee aina näin: [rivit, sarakkeet] Nyt valittiin [2:3] komennolla 2. ja 3. sarake datasta Ekan pilkun jälkeen laitetaan 1 tai 2. Jos laitetaan 1, niin silloin jaotellaan data rivien mukaan. Jos taas 2, niin se jaotellaan sarakkeiden mukaan.",
+    "crumbs": [
+      "Osa 2",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>apply, quantile ja aggregate funktiot</span>"
+    ]
+  },
+  {
+    "objectID": "02.01.html#apply-quantile-aggregate",
+    "href": "02.01.html#apply-quantile-aggregate",
+    "title": "4  apply, quantile ja aggregate funktiot",
+    "section": "",
+    "text": "4.1.1 Teoriaa kvantiileista\nKvantiilit / persentiilit\n\nx-Kvantiili kuvaa sitä pistettä jonka alle jää x prosenttiosuus ja ylle y prosenttiosuus havainnoista (y= 100%-x)\n\nesim. mediaanin (50-persentiili) alle jää 50 % havainnoista ja ylle 50%\ntai 90-persentiilin alle 90% ja ylle 10%\nEsim.\n\nManuaalisesti saadaan haettua siten, että asetetaan luvut suuruusjärjestykseen ja etsitään oikea kohta. Esim 7 luvun sarjassa (1,2,3,4,5,6,7) mediaani on 4. Yläpuolelle jää 3 lukua ja alapuolelle 3.\n90.-persentiili sarjassa (1,2,3,4,5,6,7) asettuu lukujen 6 ja 7 välille. Kun luku ei osu suoraan kohdalle täytyy se interpoloida.\n\nkvantiili kuvaa siis alueiden rajalla olevaa pistettä\n\nR-kielellä kvantiilin saa etsittyä quantile() funktiolla\n\n\nquantile(c(1,2,3,4,5,6,7), probs = seq(0, 1, 0.5), na.rm = FALSE,\n         names = TRUE)\n\n  0%  50% 100% \n   1    4    7 \n\n\n\n    quantile(x, prob = seq(0, 1, 0.5), na.rm = FALSE, \n  names = TRUE, type = 7)\n\n\nx = data/vektori, josta kvantiili otetaan\nprobs = seq(0, 1, 0.25) –&gt; ekat kaksi numeroa pidetään aina 0 ja ykkösenä. Määrittää sekvenssin rajat. Viimeinen luku määrittää miten sekvenssi jaetaan\n\ntoisin sanottonu 0,25 kohtaan laitetaan haluttu kvantiili\n\n0,25 niin tulee persentiilit 25% välein\n0,90 tulee 90-persentiili ja 0,5 mediaani\n\n\nna.rm = FALSE, saa tarvittaessa puuttuvat arvot jätettyä huomiotta. Tällöin merkattava TRUE, jolloin poistaa puuttuvat arvot.\nnames = TRUE, näyttää prosentit\ntype =, valitaan tyyppi, toimii ilmankin.\n\nseq()\n\nseq(0,10,3)\n\n[1] 0 3 6 9\n\n#sekvenssi, 1. numero kertoo alkupisteen, toinen loppupisteen ja 3. numero\n#   sen millä välein sekvenssi jatkuu eli numerot lisätään. \n\n\nrep(1:4,times =3)\n\n [1] 1 2 3 4 1 2 3 4 1 2 3 4\n\n#Repeat a vector ; 1. mitä toistetaan, 2. montako kertaa voi kirjoittaa times =, tai pelkästään numeron toimii molemmilla \n\n\nrep(1:3, each=5)\n\n [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3\n\n#Repeat elements of a vector: 1. mitä toistetaan 2. each =, komennolla toistetaan jokainen elementti haluttu määrä kertoja \n\nlist()\n\nl &lt;- list(x = 1:5, y = c('a', 'b'), z = rep(1:4,times =3))\nl\n\n$x\n[1] 1 2 3 4 5\n\n$y\n[1] \"a\" \"b\"\n\n$z\n [1] 1 2 3 4 1 2 3 4 1 2 3 4\n\n\nlist() funktio tekee annetuista syötteistä listat. Voivat olla erilaisia ja eri mittaisia.\n\nmy_list &lt;- list(a = 1, b = 2, c = 3)\nmy_list$d &lt;- 4\nmy_list\n\n$a\n[1] 1\n\n$b\n[1] 2\n\n$c\n[1] 3\n\n$d\n[1] 4\n\n\nLisätään listaan uusi alkio (viljamin?) tyyli\n\nlista &lt;- list(x = 1:5, y = 6:10)\nlista &lt;- c(lista, list(z = 50:55))\nlista\n\n$x\n[1] 1 2 3 4 5\n\n$y\n[1]  6  7  8  9 10\n\n$z\n[1] 50 51 52 53 54 55\n\n\nToinen mahdollinen tyyli lisätä alkio listaan.\n\n\n4.1.2 Pylväsdiagrammin piirtäminen\n\nheights_var &lt;- c(150, 160, 170, 180, 190)\nbarplot(heights_var)\n\n\n\n\n\n\n\n\n\n\n4.1.3 Dataframen tallentaminen .csv muotoon\n\ndf &lt;- data.frame(name = c(\"John\", \"Jane\", \"Doe\"), age = c(23, 25, 28))\nwrite.csv(df, \"new_data.csv\")\n\n\nwrite.csv() komennolla: ekaan väliin tallennettava data, tokaan väliin luotavan tiedoston nimi\nwrite.csv() luomassa tiedostossa piste (.) toimii desimaalien erottajana ja pilkku (,) sarakkeiden erottelijana.\nwrite.csv2() käyttää suomalaistyyliin pilkkua (,) desimaalierottelijana ja puolipistettä (;) sarakkeiden erottelijana\n\nvoi olla hyödyllinen, kun halutaan viedä suomenkieliseen exceliin.\ntosin excel kysyy csv. tiedostoa tuotaessa, että millä se erotellaan",
+    "crumbs": [
+      "Osa 2",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>apply, quantile ja aggregate funktiot</span>"
+    ]
+  },
+  {
+    "objectID": "02.Luento2.html",
+    "href": "02.Luento2.html",
+    "title": "5  Luento2 ja datansyöttötehtävä",
+    "section": "",
+    "text": "5.1 Luento 2\nkysy havaintojen lukumäärä\nnObs &lt;- readline(prompt = \"Anna havaintojen lukumäärä: \")\nmuodosta tyhjä vektori havaintojen arvojen tallentamista varten\nMyVar &lt;- numeric(nObs)\ntee loop, jossa kysytään jokaisen havainnon arvo\nfor (i in 1:nObs) { MyVar[i] &lt;- readline(prompt = paste('Anna havainnon', i, 'arvo: ')) }\ntalleta arvot datakehikkoon\ndata3 &lt;- data.frame(Kurssipisteet = MyVar)\ntulosta konsoliin\nprint(data3)",
+    "crumbs": [
+      "Osa 2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Luento2 ja datansyöttötehtävä</span>"
+    ]
+  },
+  {
+    "objectID": "02.Luento2.html#osan-datansyöttötehtävä",
+    "href": "02.Luento2.html#osan-datansyöttötehtävä",
+    "title": "5  Luento2 ja datansyöttötehtävä",
+    "section": "5.2 2. osan datansyöttötehtävä",
+    "text": "5.2 2. osan datansyöttötehtävä\nTehtävänanto:\nTee ohjelma, jolla voit syöttää muuttujalle arvot. Eli ohjelma ensin kysyy käyttäjältä kuinka monta havaintoa talletetaan ja sitten ohjelma kysyy jokaisen havainnon arvon. Ja nämä talletetaan data.frame:en. lopuksi skripti tulostaa datan. palauta R-skripti\nLisähaasteena voit tehdä niin, että ohjelma kysyy kuinka monta muuttujaa talletetaan, ja muuttujien nimet, ja sitten vuorotellen kaikille muuttujille havaintojen arvot. \nTarpeellisia funktiota voi olla: readline() , esim: readline(prompt = “Anna havaintojen määrä:”) data.frame() , uuden data-kehikon luominen paste() , muuttujien yhdistäminen, esim. paste(“Anna havainnon”, i, “arvo:”) for-loop, esim. \nfor (i in 1:num_obs) {\n  ….\n} names(data) , data-kehikon muuttujien nimet print()\nRatkaisu:\n\n#kysy havaintojen lukumäärä \nnObs &lt;-as.numeric(readline(prompt = \"Anna havaintojen lukumäärä: \"))\n\n#kysy muuttujien lukumäärä \n\nMuutLkm &lt;- as.numeric(readline(prompt = \"Anna muuttujien lukumäärä: \"))\n\n#muuttujien nimet \n\nMuutNimet &lt;- character(MuutLkm)\n\nfor (i in 1:MuutLkm){\n  \n  MuutNimet[i] &lt;- readline( prompt = paste('Anna muuttujan',i, 'nimi: '))\n  }\n\n#luodaan datafreimi\n\ndatafreimi &lt;- data.frame(matrix(nrow = nObs, ncol = MuutLkm,))\ncolnames(datafreimi) &lt;- MuutNimet\n\n#lisätään havaintoarvot datafremiin muuttuja kerrallaan\n\nfor (i in 1:MuutLkm){ \n  for (j in 1:nObs){\n    datafreimi[j,i] &lt;- readline(prompt = paste(\"anna muuttujan\", MuutNimet[i], \"havainnon\", j, \"arvo: \"))  \n    \n  }\n  \n}\n\nprint(datafreimi)",
+    "crumbs": [
+      "Osa 2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Luento2 ja datansyöttötehtävä</span>"
+    ]
+  },
+  {
+    "objectID": "02.Luento2.html#funktiot-readline-paste-data.frame-for-loop-as.numeric-numeric-character-matrix",
+    "href": "02.Luento2.html#funktiot-readline-paste-data.frame-for-loop-as.numeric-numeric-character-matrix",
+    "title": "5  Luento2 ja datansyöttötehtävä",
+    "section": "5.3 Funktiot: readline(), paste(), data.frame(), for loop(){}, as.numeric(), numeric(), character(), matrix()",
+    "text": "5.3 Funktiot: readline(), paste(), data.frame(), for loop(){}, as.numeric(), numeric(), character(), matrix()\n\nnObs &lt;- as.numeric(readline(prompt = \"Anna havaintojen lukumäärä: \"))\n\nreadline()\n\nR-kielen komento, jonka avulla ohjelma pysähtyy ja odottaa, että käyttäjä kirjoittaa jotain näppäimistöllä konsoliin.\nKun R kohtaa readline()-komennon, se ei jatka koodin suorittamista ennen kuin painat Enter. Kaikki, mitä kirjoitat ennen Enteriä, tallennetaan muuttujaan.\nTärkeää muistaa: Se palauttaa aina tekstiä\n\nTämä on yleisin virhe readline()-funktion kanssa. Vaikka kirjoittaisit numeron (esim. 25), R tallentaa sen tekstinä (“25”), ei lukuna.\nJos haluat käyttää syötettä laskutoimituksissa, sinun täytyy muuttaa se numeroksi as.numeric()-funktiolla:\n\n\nprompt =\n\nOn tärkeää huomata, että R-kielessä prompt ei ole itsenäinen “komento” samalla tavalla kuin vaikkapa print(), vaan se on argumentti (eli lisäasetus), jota käytetään muiden funktioiden sisällä.\nYleisimmin esiintyy readline()-funktion yhteydessä.\nPrompt tarkoittaa suomeksi kehotetta. Sen tehtävä on kertoa käyttäjälle, mitä hänen odotetaan tekevän. Se tulostaa tekstin konsoliin ja jättää kursorin odottamaan käyttäjän kirjoitusta.\nIlman prompt-asetusta tietokone vain pysähtyisi odottamaan syötettä, ja käyttäjä olisi ihmeissään, miksi mitään ei tapahdu.\n\nas.numeric()\n\nmuuttaa syötteen tekstista numeeriseksi\ntämän myötä esimerkiksi laskutoimitukset onnistuvat\n\n\nnumeric(5)\n\n[1] 0 0 0 0 0\n\n\nnumeric()\n\nLuo tyhjän numeerisen vektorin, jonka voi täyttää\nSulkuihin voi määritellä montako paikkaa vektoriin tulee\n\nesim. numeric(5) luo vektorin, jossa 5 nollaa eli 5 tyhjää paikkaa täytettäväksi\nvoi laittaa myös muuttujan sulkeisiin, jolloin paikkoja tulee muuttujan arvon verran\n\n\n\ncharacter(6)\n\n[1] \"\" \"\" \"\" \"\" \"\" \"\"\n\n\ncharacter()\n\nLuo tyhjän tekstipohjaisen “vektorin” / listan, jossa ennalta määritelty määrä paikkoja\nesim character(6) vektorissa 6 paikkaa\nSulkuihin voi laittaa myös muuttujan, jolloin paikkojen lukumäärä tulee muuttujan arvon mukaan esim. character(Muuttuja)\n\n\ndatafreimi &lt;- data.frame(matrix(nrow = nObs, ncol = MuutLkm,))\ncolnames(datafreimi) &lt;- MuutNimet\n\ndata.frame()\n\nluo dataframen\nSarakkeiden määrä määräytyy siitä, kuinka monta vektoria annat syötteeksi.\n\n\n\nRivien määrä määräytyy annettujen vektorien pituudesta.\n\n\n data.frame(Eka = c(3,4,5,2),\n            Toka = seq(2,8,2), \n            Kolmas = c(\"Matti\", \"Jesse\", \"Katja\", \"Joni\")\n            )\n\n  Eka Toka Kolmas\n1   3    2  Matti\n2   4    4  Jesse\n3   5    6  Katja\n4   2    8   Joni\n\n\n\nYllä olevaan frameen laitettiin kolme vektoria, jotka kaikki olivat pituudeltaan 4 alkiota, joten syntyi kolmen sarakkeen ja neljän rivin datafreimi.\nSarakkeet pystyy nimeämään luomisvaiheessa (Eka, Toka, Kolmas) tai myöhemmin colnames() funktiolla\n\n\ndf &lt;- data.frame(matrix(nrow = 5, ncol = 5))\ncolnames(df) &lt;- c(\"Ikä\", \"Pituus\", \"Paino\", \"Ekstroversio\", \"Avoimuus\")\ndf\n\n  Ikä Pituus Paino Ekstroversio Avoimuus\n1  NA     NA    NA           NA       NA\n2  NA     NA    NA           NA       NA\n3  NA     NA    NA           NA       NA\n4  NA     NA    NA           NA       NA\n5  NA     NA    NA           NA       NA\n\n\n\nHalutessaan dataframeen voi valmiiksi määrittää pohjalle tietyn määrän rivejä ja sarakkeita matrix() funktion avulla\n\n\n\nmatrix(nrow = 5, ncol = 5)\n\nnrow ja ncol määrittävät rivien ja sarakkeiden lukumäärän\n\ncolnames() funktiolla saa sarakkeiden nimet määritettyä\nc() komento yhdistää sisällön yhdeksi vektoriksi\n\npaste()\n\nprint(paste(\"Hei,\", nimi)",
+    "crumbs": [
+      "Osa 2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Luento2 ja datansyöttötehtävä</span>"
+    ]
+  },
+  {
+    "objectID": "03.alkutehtavat.html",
+    "href": "03.alkutehtavat.html",
+    "title": "6  Osa 3. alkutehtävät",
+    "section": "",
+    "text": "Tehtävänanto: Kirjoita R-skripti, joka kysyy numeroa ja kertoo onko numero positiinen vai negatiivinen.\n\nNum &lt;- as.numeric(readline(prompt = \"Syötä numero: \"))\n\nif (Num == 0){ print(\"Nolla\") } else {\n\nif (Num &gt; 0){\n  print(\"positiivinen\")\n} else {\n  print(\"negatiivinen\")\n} \n\n}\n\nTehtävänanto: Kirjoita R-skripti, joka kysyy kurssin arvosanaa (0-100) #ja kertoo onko kurssin suoritus hyväksytty vain hylätty. #Opiskelijan pitää saada vähintään 50 pistettä.\n\nNum &lt;- as.numeric(readline(prompt = \"Syötä kurssin arvosana 0-100: \"))\n\nif (Num &lt; 50){ print(\"Hylätty\") }else { print(\"Hyväksytty\") }\n\nTehtävänanto: Kirjoita R-skripti, joka kysyy numeroa ja kertoo onko numero parillinen vai pariton.\n\nNum &lt;- as.numeric(readline(prompt = \"Syötä numero: \"))\n\nif (Num %% 2 ==0){ print(\"Parillinen\") } else { print(\"Pariton\") }\n\n#parillisuus saadaan tsekattua jakojäännöksellä, jos 2 jaettaessa nolla -&gt; parillinen # jakojäännös lasketaan %% operaattorilla\n10 %% 2 10 %% 3 11 %% 2\n#esim. 10/2 jakojäännös on 0 ; 10/3 jakojäännös 1 ; 11 / 2 jakojäännös 1\nTehtävänanto: Kirjoita for-silmukka, joka tulostaa numerot 1-10.\n\nfor (i in 1:10){ print(i) }\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10\n\n\nTehtävänanto: Kirjoita for-silmukka, joka tulostaa lukujen 1:10 neliön.\n\nfor (i in 1:10){ print(i * i ) }\n\n[1] 1\n[1] 4\n[1] 9\n[1] 16\n[1] 25\n[1] 36\n[1] 49\n[1] 64\n[1] 81\n[1] 100\n\nfor (i in 1:10){ print(i^2 ) }\n\n[1] 1\n[1] 4\n[1] 9\n[1] 16\n[1] 25\n[1] 36\n[1] 49\n[1] 64\n[1] 81\n[1] 100\n\nfor (i in 1:10){ print(i**2 ) }\n\n[1] 1\n[1] 4\n[1] 9\n[1] 16\n[1] 25\n[1] 36\n[1] 49\n[1] 64\n[1] 81\n[1] 100\n\n\nKolme eri tapaa\nTehtävänanto: Kirjoita for-silmukka, joka laskee lukujen 1:100 summan.\n\nsumma &lt;- 0\n\nfor (i in 1:100){ summa &lt;- summa + i } \nprint(summa)\n\n[1] 5050",
+    "crumbs": [
+      "Osa 3",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Osa 3. alkutehtävät</span>"
+    ]
+  },
+  {
+    "objectID": "03.Permutaatiotesti.html",
+    "href": "03.Permutaatiotesti.html",
+    "title": "7  Permutaatiotesti",
+    "section": "",
+    "text": "7.1 Teoriaa permutaatiosta\nPermutaatio tarkoittaa järjestystä tai uudelleenjärjestelyä\nP(n)=n!\nKertoma lasketaan R-kielellä factorial() funktiolla\nfactorial(4)\n\n[1] 24\nPermutaatiotesti on ei-parametrinen eli toimii millä tahansa aineistoilla\nPermutaatiotestillä saadaan laskettua p-arvo eli kuinka todennäköisesti sattumalta saadaan sama tulos.\nPermutaatioiden määrää lisäämällä sadaan p-arvo laskettua tarkemmin. Viljamin videoilla käytettiin 1000 tai 10 000 permutaatiota.\nThulin (2024) kirjassa neuvotaan nyrkkisääntönä käyttämään 9 999 permutaatiota, koska tällöin p arvo ainakaan usein ei asetu tasan 0,05 vaan sen alle tai yli",
+    "crumbs": [
+      "Osa 3",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Permutaatiotesti</span>"
+    ]
+  },
+  {
+    "objectID": "03.Permutaatiotesti.html#teoriaa-permutaatiosta",
+    "href": "03.Permutaatiotesti.html#teoriaa-permutaatiosta",
+    "title": "7  Permutaatiotesti",
+    "section": "",
+    "text": "Esim. lukujoukko (1,2,3) tai kirjainsarja (A, B, C) voivat saada 6 eri permutaatiota eli uniikkia järjestystä\nMahdollisten permutaatioden määrä lasketaan käyttämällä kertomaa (merkitään !)\n\n\n\nmissä P tarkoittaa permutaatioden määrää ja n alkioiden lukumäärää\nEsim. kun 4 alkiota lasketaan 4! = 4 * 3 * 2 * 1 = 24\nTai kun 3 alkiota 3! = 3 * 2 * 1 = 6\n\n\n\n\n\nDatan ei tarvitse siis täyttää normaalisuusoletusta",
+    "crumbs": [
+      "Osa 3",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Permutaatiotesti</span>"
+    ]
+  },
+  {
+    "objectID": "03.Permutaatiotesti.html#permutaatiotesti-ja-bootstrap",
+    "href": "03.Permutaatiotesti.html#permutaatiotesti-ja-bootstrap",
+    "title": "7  Permutaatiotesti",
+    "section": "7.2 Permutaatiotesti ja bootstrap",
+    "text": "7.2 Permutaatiotesti ja bootstrap\nPermutaatio tarkoittaa yhtä lukujoukon tai R-kontekstissa vektorin järjestystä. Kun ne järjestetään uudelleen, saadaan toinen permutaatio. Esimerkiksi lukujoukolla (1,2,3) on yhteensä kuusi eri permutaatiota. Tilastotieteessä permutaatiota käytetään etenkin permutaatiotestissä, jonka avulla voidaan määrittää p-arvo. Permutaatiotesti on siitä, hyvä työkalu, että se ei oleta aineiston olevan normaalisti jakautunutta, eli sitä voidaan käyttää käytännössä millä hyvänsä aineistolla.\nEsimerkiksi, jos kahdelta ryhmältä on mitattu koesuoritus ja halutaan tietää, onko ryhmien suoritusten välillä tilastollisesti merkitsevä ero, niin ensiksi lasketaan suorituspisteiden keskiarvojen erotus. Sen jälkeen sekoitetaan ryhmätunnisteita siten, että ryhmät jakautuvat esim. 9 999 uuteen permutaatioon ja lasketaan jokaisen permutaation kohdalla ryhmien keskiarvoero. Sitten verrataan, kuinka moni permutaatioiden keskiarvoeroista oli yhtä suuria tai suurempia kuin mitattu ero. Mikäli alle 5 % permutaatioista oli suurempia tai yhtä suuria kuin mitattu ero, niin p-arvo on alle 0,05 eli tilastollisesti merkitsevä ja nollahypoteesi voidaan hylätä.\nBootsrap on hiukan vastaava menetelmä kuin permutaatiotesti, mutta se eroaa siten, että siinä sekoitusvaiheessa alkiot arvotaan satunnaisesti uuteen ”otokseen” siten, että osa saattaa esiintyä useamman kerran ja osa ei ollenkaan. Eli kun permutaatiotestissä jokaisessa permutaatiossa on kaikki alkiot mukana, mutta vain eri järjestyksessä, niin bootstrapissä on hiukan eri kokoelma alkiota valikoituneena alkuperäisestä otoksesta. Yhdessä ”otoksessa” jokin alkio saattaa siis esiintyä vaikkapa kolme kertaa ja jokin ei kertaakaan. Samalla tavalla kuin permutaatiotestissä tuo satunnaistus toistetaan esim. 10 000 kertaa ja bootstrapissä ideana on arvioida kuinka hyvin alkuperäinen otos kuvaa perusjoukkoa, jota uudet satunnaisesti luodut otokset ikään kuin kuvaavat. Sen myötä bootstrapillä voidaan arvioida luottamusvälejä eli sitä, kuinka todennäköisesti mitattu suure osuu määritellylle välille. Yleensä luottamusvälit arvioidaan 95% tasolle, joka tarkoittaa, että jos mittaus toistettaisiin 100 kertaa niin 95 kertana luottamusvälit arvioitaisiin oikein ja perusjoukon todellinen arvo olisi niiden sisällä ja 5 kertaa taas ulkopuolella.\nPermutaatiotesti: Sekoittaa ryhmätunnisteet (luo nollahypoteesin rikkomalla yhteyden tiedon ja ryhmän välillä).\n\n#permutaatiotesti \n\n# tehdään kokeilumielessä aineisto, jossa ryhmät selkeästi eroavat toisistaan \ngroup1 &lt;- 1:50 \ngroup2 &lt;- 51:100\n\n# luodaan dataframe, jossa value on ryhmien arvot ja rep() funktiolla tehdään labelit rymhmille eli 1 ja 2 \ndata &lt;- data.frame(value = c(group1, group2), group = rep(c(1,2), each=50))\n\n\n# lasketaan ryhmien keskiarvojen ero \n\n#         yksinkertaisesti GrpDiff &lt;-  mean(group2) - mean(group1) \n\n# Viljamin parempi tyyli, jolla saadaan haettua tieto dataframesta myöhemmminkin  \n\n\nGrpDiff &lt;- mean( data$value[ data$group==2]) - mean( data$value[ data$group==1])\n\n#Luodaan datasta permutaatioita ja lasketaan permutaatioiden keskiarvoerot \n\nNperms = 100; \n\n# alustetaan numeric() funktiolla muuttujaan oikea määrä paikkoja permutaatioille \n\nPermDiffs &lt;- numeric(Nperms) \n\n# for loopissa sample funktiolla luodaan Nperms kertaa uusi permutaatio labeleille \n#   eli 1 ja 2 sekoitetaan uuteen järjestykseen\n# sitten lasketaan keskiarvoerot uudella permutaatiolla ja talletetaan PermDiffs muuttujaan \n#   indeksoituna [i] \n# tämä toistetaan Nperms kertaa \n\n\nfor(i in 1:Nperms){\n  \n  # shuffle labels \n  #     sample funktio arpoo otoksen lukuarvot satunnaiseen järjestykseen eli tekee uuden permutaation \n  PermLabels &lt;- sample(data$group)\n  \n  # lasketaan ryhmien keskiarvojen erotus Nperms määrälle permutaatioita\n  \n  PermDiffs[i] &lt;- mean( data$value[ PermLabels==2]) - mean(data$value[ PermLabels==1])\n  \n}\n\n# Histogrammista voidaan katsoa onko havaittu keskiarvoero suurempi kuin \n    # 95 % satunnaisista permutaatioista \n\n# abline() komennolla voidaan piirtää pystyviivat histogramiin \n#   abline(a,b) funktiossa a = vakio eli x-akselin leikkauskohta, b = kulmakerroin \n  #   pystysuoran viivan voi piirtää abline(v=a) komennolla, v = vertical tässä kontekstissa \n# todellinen keskiarvoero saadaan piirrettyä lisäämällä se abline(v= ) komentoon \n\n# kohta, jossa 95% permutaatioista on pienempiä saadaan quantile(x , 0.95) funktiolla \n# se talletetaan OneSided muuttujaan \n\nOneSided &lt;- quantile(PermDiffs, .95)\n\nhist(PermDiffs, breaks = 30,  xlim=c(-20,60))\nabline(v=GrpDiff, col=\"green\")\nabline(v=OneSided, col=\"red\")\n\n\n\n\n\n\n\n#myös voidaan manuaalisesti etsiä kohta, jossa permutaatioiden keskiarvoero on sama, kuin todellinen \n  #   ryhmien ero, ja katsoa onko kuinka iso osa permutaatioista sen alle \n# sortataan permutaatiot sort() funktiolla \n\nsort(PermDiffs)\n\n  [1] -16.32 -14.12 -13.56 -12.40 -11.28 -10.20  -8.72  -8.64  -8.16  -8.00\n [11]  -7.92  -7.72  -7.64  -7.52  -7.16  -6.88  -5.76  -5.60  -5.44  -5.04\n [21]  -5.04  -4.96  -4.80  -4.44  -4.44  -4.28  -4.04  -3.92  -3.84  -3.60\n [31]  -3.36  -2.56  -2.52  -1.80  -1.48  -1.08  -1.08  -0.84  -0.80  -0.76\n [41]  -0.56  -0.56  -0.48  -0.40  -0.20   0.00   0.16   0.16   0.44   0.52\n [51]   0.60   1.24   1.32   1.40   1.52   1.80   2.24   2.28   2.28   2.36\n [61]   2.44   2.80   3.08   3.16   3.44   3.48   3.52   3.52   3.64   3.64\n [71]   3.72   3.84   3.92   4.16   4.20   4.32   4.56   4.76   4.88   4.92\n [81]   4.96   5.00   5.60   5.68   5.84   5.92   6.64   6.68   6.72   6.76\n [91]   6.80   7.04   7.08   7.76   7.92   8.76  10.08  10.56  12.28  12.28\n\n# tässä tapauksessa kaikki permutaatioiden keskiarvoerot jäävät todellisen keskiarvoeron alle eli sen \n  # mukaan ero on hyvinkin merkitsevä \n  # sen vuoksi myöskään Viljamin tapa laskea p-arvo ei toimi, koska ei indeksistä ei tule yhtään osumaa\n  # toimii silloin, kun permutaatioista vähintään 1 on yli havaitun keskiarvoeron \n#p-arvon laskeminen \n\n#SortedDiffs &lt;- sort(PermDiffs) \n#FirstIndex &lt;- min(which( SortedDiffs &gt; GrpDiff))\n#Pval &lt;- 1 - FirstIndex/Nperms\n\n\n# geminin ehdottama tapa laskea p-arvo \n\n# sum() laskee TRUE-arvojen määrän (TRUE = 1, FALSE = 0)\n  # eli laskee niiden kertojen lukumäärän, kun permutaatioiden ero, on suurempi kuin havaittu ero \nOsumat &lt;- sum(PermDiffs &gt;= GrpDiff)\nPval &lt;- Osumat  / Nperms\n\n# gemini myös suositteli lisäämään 1 sekä osoittajaan, että nimittäjään, jolla vältetään\n#  tasan 0 p-arvo \n  # tasan 0 p-arvo on teoreettisesti mahdoton, koska alkuperäinen havainto on oikeasti yksi permutaatioista \n\nOsumat &lt;- sum(PermDiffs &gt;= GrpDiff)\nPval &lt;- (Osumat + 1)/(Nperms + 1) \nPval\n\n[1] 0.00990099\n\n# t.test(arvot ~ ryhmä, data = aineisto)\n\nt.test(value ~ group, data = data) \n\n\n    Welch Two Sample t-test\n\ndata:  value by group\nt = -17.15, df = 98, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0\n95 percent confidence interval:\n -55.78567 -44.21433\nsample estimates:\nmean in group 1 mean in group 2 \n           25.5            75.5 \n\nt.test(group1, group2)\n\n\n    Welch Two Sample t-test\n\ndata:  group1 and group2\nt = -17.15, df = 98, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -55.78567 -44.21433\nsample estimates:\nmean of x mean of y \n     25.5      75.5 \n\n\n\n\n\n\nThulin, Måns. 2024. Modern Statistics with r: From Wrangling and Exploring Data to Inference and Predictive Modelling. Chapman; Hall/CRC. https://www.modernstatisticswithr.com.",
+    "crumbs": [
+      "Osa 3",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Permutaatiotesti</span>"
+    ]
+  },
+  {
+    "objectID": "R_komentoja.html",
+    "href": "R_komentoja.html",
+    "title": "R-komentoja",
+    "section": "",
+    "text": "Tänne kerään kurssin mittaan kootusti R-komentoja, funktioita, koodinpätkiä eri aiheisiin liittyen.",
+    "crumbs": [
+      "R-komentoja"
+    ]
+  },
+  {
+    "objectID": "KuvaajienPiirto.html",
+    "href": "KuvaajienPiirto.html",
+    "title": "8  Kuvaajien piirtäminen",
+    "section": "",
+    "text": "8.1 Histogrammi\nHistogrammi piirretään hist() funktiolla\nhist(x , breaks = 30,  xlim=c(-20,60))\nKomennolla: abline() voidaan piirtää viivoja histogramiin\n#luodaan aineisto\nx_akseli &lt;- rnorm(100, 10)\n\n# piirretään histogrammi ja kaksi viivaa \nhist(x_akseli, breaks = 25, xlim=c(0,15)) # \nabline(v= 10, col=\"green\")\nabline(0,0.5, col=\"red\")",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Kuvaajien piirtäminen</span>"
+    ]
+  },
+  {
+    "objectID": "KuvaajienPiirto.html#histogrammi",
+    "href": "KuvaajienPiirto.html#histogrammi",
+    "title": "8  Kuvaajien piirtäminen",
+    "section": "",
+    "text": "x —&gt; data, josta histogrammi piirretään\nbreaks = —&gt; voidaan määrittää millä välein palkkeja piirretään\nxlim=c(alkupiste,loppupiste) —&gt; voidaan määritellä mikä osa x-akselista näkyy\n\n\n\n\nabline(a,b) funktiossa\n\na = vakio eli y-akselin leikkauskohta # ( eli y:n arvo, kun x = 0),\nb = kulmakerroin\npystysuoran viivan voi piirtää abline(v=a) komennolla, v = vertical tässä kontekstissa\nvaakasuoran puolestaan abline(h=a)",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Kuvaajien piirtäminen</span>"
+    ]
+  },
+  {
+    "objectID": "KuvaajienPiirto.html#pylväsdiagrammi",
+    "href": "KuvaajienPiirto.html#pylväsdiagrammi",
+    "title": "8  Kuvaajien piirtäminen",
+    "section": "8.2 Pylväsdiagrammi",
+    "text": "8.2 Pylväsdiagrammi\n\nheights_var &lt;- c(a=150,b= 160,c= 170,d= 180,e= 190)\nbarplot(heights_var)",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Kuvaajien piirtäminen</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html",
+    "href": "DatasetinLuominen.html",
+    "title": "9  Datasetin luominen",
+    "section": "",
+    "text": "9.1 rnorm()\nrnorm(n, mean, sd)\nrnorm(10, 6, 2) \n\n [1] 7.044504 6.862561 5.501062 5.831666 7.147221 2.882727 9.171874 3.784720\n [9] 5.834423 3.857053\nTarkistetaan, että keskiarvo ja keskihajonta pitävät paikkansa.\nvekt10 &lt;- rnorm(10,6,2) \nvekt100 &lt;- rnorm(100,6,2) \nvekt1000 &lt;- rnorm(1000,6,2) \n\nm1 &lt;- mean(vekt10) \nsd1 &lt;- sd(vekt10) \nm2 &lt;- mean(vekt100) \nsd2 &lt;- sd(vekt100) \nm3 &lt;- mean(vekt1000) \nsd3 &lt;- sd(vekt1000) \nRivNimet &lt;- c(\"Keskiarvo\", \"Keskihajonta\")\n\ndata.frame(N10 = c(m1,sd1), N100 = c(m2,sd2), N1000 = c(m3, sd3), row.names = RivNimet)\n\n                  N10     N100    N1000\nKeskiarvo    6.106365 5.918489 6.121000\nKeskihajonta 1.182211 1.919874 2.025645\nIsommalla n:llä näyttäisi osuvan vielä tarkemmin kohdalleen.",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html#rnorm",
+    "href": "DatasetinLuominen.html#rnorm",
+    "title": "9  Datasetin luominen",
+    "section": "",
+    "text": "luo normaalijakaumaa noudattavan vektorin, jossa\n\nn —&gt; lukumäärä\nmean —&gt; keskiarvo (oletuksena 0)\nsd —&gt; keskihajonta (oletuksena 1)\n\nEsim. alla luodaan normaalijakaumaa noudattava 10 alkion vektori, jonka keskiarvo on 6 ja keskihajonta 2.",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html#data-framen-luominen",
+    "href": "DatasetinLuominen.html#data-framen-luominen",
+    "title": "9  Datasetin luominen",
+    "section": "9.2 Data framen luominen",
+    "text": "9.2 Data framen luominen\n\nR1 &lt;- rnorm(5,0)\nR2 &lt;- rnorm(5,1)\n\ndata &lt;- data.frame(arvo = c(R1,R2), ryhmä = rep(c(1,2), each=5))\ndata\n\n         arvo ryhmä\n1   0.2525517     1\n2   2.1341160     1\n3  -1.4825342     1\n4  -0.1207210     1\n5   1.9155540     1\n6   0.8296448     2\n7  -0.1376527     2\n8   1.8557234     2\n9   1.4849202     2\n10  0.4506254     2\n\n\ndata.frame(sarake1, sarake2, sarake3, …)\n\nEli sulkuihin erotellaan pilkuilla eri sarakkeisiin menevä data\nsarakkeet pystyy nimeämään laittamalla arvojen eteen nimen ja = (esim. arvo=R1)\nesimerkissä käytetty c() eli combine funktiota, joka yhdistää kahdesta vektorista yhden\n\nc() funktiolla saa siis yhdistettyä useamman vektorin yhden sarakkeen alle\n\nrow.names= argumentilla saa rivit nimettyä\n\ntäytyy viitata vektoriin esim. ylemmässä keskiarvo ja keskihajonta tehtävässä luotiin kirjainvektori RivNimet, johon sitten viitattiin\n\nRivNimet &lt;- c(“Keskiarvo” , “Keskihajonta”)",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html#satunnaistaminen-tai-satunnaisnumero-sample-funktiolla",
+    "href": "DatasetinLuominen.html#satunnaistaminen-tai-satunnaisnumero-sample-funktiolla",
+    "title": "9  Datasetin luominen",
+    "section": "9.3 Satunnaistaminen tai satunnaisnumero sample() funktiolla",
+    "text": "9.3 Satunnaistaminen tai satunnaisnumero sample() funktiolla\n\nsample(x, size, replace = FALSE, prob = NULL) \n\n\nx -&gt; datajoukko, josta numerot vedetään\n\nesim. 1:10, generoi numeroita väliltä 1-10\nvoi myös viitata muuttujaan\n\nsize -&gt; montako numeroa otetaan\n\nesim 1 palauttaa yhden lukuarvon ja 2 2 lukuarvoa jne\n\nreplace = FALSE -&gt; palautetaanko jo nostetut arvot koriin, jolloin niitä voidaan käyttää uudelleen vai käytetäänko jokaista arvoa maksimissaan kerran\n\noletuksena FALSE eli arvoja käytetään vain kerran\n\nesim. permutaatiotestissä joka arvoa käyteetään vain kerran\n\njos vaihtaa TRUE niin arvoja voidaan käyttää useampaan otteeseen\n\nbootstrap menetelmässä arvoja puolestaan käytetään useampaan otteeseseen",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  },
+  {
+    "objectID": "Tilastotesteja.html",
+    "href": "Tilastotesteja.html",
+    "title": "10  Tilastotestejä",
+    "section": "",
+    "text": "10.1 T-testi\nTestaa onko kahden ryhmän keskiarvojen välinen ero tilastollisesti merkitsevä.",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tilastotestejä</span>"
+    ]
+  },
+  {
+    "objectID": "Tilastotesteja.html#t-testi",
+    "href": "Tilastotesteja.html#t-testi",
+    "title": "10  Tilastotestejä",
+    "section": "",
+    "text": "10.1.1 T-testi syöttämällä suoraan kaksi ryhmää\n\nR1 &lt;- rnorm(50,0)\nR2 &lt;- rnorm(50,1)\n\nt.test(R1, R2)\n\n\n    Welch Two Sample t-test\n\ndata:  R1 and R2\nt = -3.5011, df = 97.999, p-value = 0.0006992\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -1.0956101 -0.3029106\nsample estimates:\n  mean of x   mean of y \n-0.01428581  0.68497450 \n\n\nMitä tietoja testi näyttää\n\nt-arvo: montako keskivirheen mittaa ryhmien keskiarvot eroavat\ndf = degrees of freedom = vapausasteet\np-value eli p-arvo\n95 percent confidence interval = luottamusväli eli Väli, jolla ryhmien todellinen keskiarvojen erotus on 95 % todennäköisyydellä.\n\neli 95 kertaa sadasta keskiarvojen erotus osuu välille ja 5 kertaa sadasta ulkopuolelle\n\nsample estimates: ryhmien omat keskiarvot\n\n\n\n10.1.2 T-testi kaavamuodossa (tällöin voidaan hakea tieto dataframesta)\n\nR1 &lt;- rnorm(50,0)\nR2 &lt;- rnorm(50,1)\n\ndata &lt;- data.frame(arvo = c(R1,R2), ryhmä = rep(c(1,2), each=50)) \n\nt.test(arvo ~ ryhmä, data = data) \n\n\n    Welch Two Sample t-test\n\ndata:  arvo by ryhmä\nt = -4.6984, df = 97.486, p-value = 8.605e-06\nalternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0\n95 percent confidence interval:\n -1.4249311 -0.5786279\nsample estimates:\nmean in group 1 mean in group 2 \n     -0.1082040       0.8935755",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tilastotestejä</span>"
+    ]
+  },
+  {
+    "objectID": "Tilastotesteja.html#korrelaatio",
+    "href": "Tilastotesteja.html#korrelaatio",
+    "title": "10  Tilastotestejä",
+    "section": "10.2 Korrelaatio",
+    "text": "10.2 Korrelaatio\n\nx &lt;- c(1, 2, 3, 4, 5)\ny &lt;- c(2, 4, 5, 4, 6)\n\ncor(x, y) \n\n[1] 0.8528029\n\n\ncor(x,y)\n\nlaskee x:n ja y:n korrelaation, jos ne ovat vektoreita\n\njos matriiseja niin laskee sarakkeiden x:n ja y:n sarakkeiden välisen korrelaation\n\noletuksena pearsonin korrelaatio\n\nvoi muuttaa spearmanin tai kendallin korrelaatioon argumentilla method =\n\nmethod = “spearman”, method = “kendall”, method = “pearson”\n\n\nuse = \"pairwise.complete\" NA arvot jätetään huomioimatta Thulin (2024)\n\n\n\n\n\nThulin, Måns. 2024. Modern Statistics with r: From Wrangling and Exploring Data to Inference and Predictive Modelling. Chapman; Hall/CRC. https://www.modernstatisticswithr.com.",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tilastotestejä</span>"
+    ]
+  },
+  {
+    "objectID": "Matemaattisia_funktioita.html",
+    "href": "Matemaattisia_funktioita.html",
+    "title": "11  Matemaattisia funktioita",
+    "section": "",
+    "text": "11.1 Kertoma: factorial()\nfactorial(3)\n\n[1] 6\n\nfactorial(4)\n\n[1] 24\n\nfactorial(10)\n\n[1] 3628800\nLaskee kertoman (!) eli sen kuinka moneen eri järjestykseen tietty määrä lukuja voidaan laittaa",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Matemaattisia funktioita</span>"
+    ]
+  },
+  {
+    "objectID": "Matemaattisia_funktioita.html#kertoma-factorial",
+    "href": "Matemaattisia_funktioita.html#kertoma-factorial",
+    "title": "11  Matemaattisia funktioita",
+    "section": "",
+    "text": "3 lukua –&gt; 6 järjestystä\n4 lukua -&gt; 24 järjestystä\n10 lukua -&gt; 3 628 800 järjestystä",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Matemaattisia funktioita</span>"
+    ]
+  },
+  {
+    "objectID": "Matemaattisia_funktioita.html#kombinaatiot-choose",
+    "href": "Matemaattisia_funktioita.html#kombinaatiot-choose",
+    "title": "11  Matemaattisia funktioita",
+    "section": "11.2 Kombinaatiot: choose()",
+    "text": "11.2 Kombinaatiot: choose()\n\n# choose(n, k) \nchoose(4, 2)\n\n[1] 6\n\n\nKuinka monella eri tavalla voimme valita k alkiot n alkion joukosta, kun järjestyksellä ei ole väliä?\n\nEli montako eri tapaa on valita tietty joukko (k) isommasta joukosta (n).\n\nPermutaatiotestissä lasketaan nimenomaan kombinaatioita",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Matemaattisia funktioita</span>"
+    ]
+  },
+  {
+    "objectID": "Tekstikomentoja.html",
+    "href": "Tekstikomentoja.html",
+    "title": "12  Tekstikomentoja",
+    "section": "",
+    "text": "12.1 Tekstin kirjoittaminen ja .txt tekstitiedoston luominen\nteksti &lt;- c(\"Tehtävämoniste 1 - 4 luokkalaisille\", \n            \"Ratkaise seuraavat 10 tehtävää:\", \n            \"\", \n            \"Tehtävä 1:\", \n            \"\")\n\nwriteLines(teksti, \"matikkatehtavat.txt\")",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Tekstikomentoja</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "13  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Navarro, Danielle, and David Foxcroft. 2025. Learning Statistics\nwith JAMOVI: A Tutorial for Beginners in Statistical Analysis.\n\n\nSpeekenbrink, M. 2023. Statistics: Data Analysis and Modelling.\nOpen Book Publishers. https://mspeekenbrink.github.io/sdam-book/.\n\n\nThulin, Måns. 2024. Modern Statistics with r: From Wrangling and\nExploring Data to Inference and Predictive Modelling. Chapman;\nHall/CRC. https://www.modernstatisticswithr.com.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "Tekstikomentoja.html#tekstin-kirjoittaminen-ja-.txt-tekstitiedoston-luominen",
+    "href": "Tekstikomentoja.html#tekstin-kirjoittaminen-ja-.txt-tekstitiedoston-luominen",
+    "title": "12  Tekstikomentoja",
+    "section": "",
+    "text": "Jokainen vektorin alkio menee writeLines() funktiolla tallennettuun tiedostoon omalle riville\n\neli pilkulla erottamalla saa tehtyä rivinvaihdon\nteksti kohtaan vektori, jota teksti / sisältö haetaan ja pilkun jälkeen uuden tiedoston nimi\ntyhjän rivin saa tehtyä merkkaamalla vektoriin alkioksi pelkät hipsut “” , kuten riveillä 3 ja 5",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Tekstikomentoja</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html#uuden-kansion-luominen-dir.create",
+    "href": "DatasetinLuominen.html#uuden-kansion-luominen-dir.create",
+    "title": "9  Datasetin luominen",
+    "section": "9.4 Uuden kansion luominen dir.create()",
+    "text": "9.4 Uuden kansion luominen dir.create()\n\ndir.create(\"uusi_kansio\") \n\n\nLuo uuden kansion työskentelykansioon\n\ntyöskentelykansion voi aina tarkistaa getwd() funktiolla\n\n\n\ndir.create(\"kurssi/viikko1\", recursive = TRUE)\n\n\nrecursive = TRUE -&gt; mahdollistaa yhdellä kerralla kansion ja alikansion luomisen\n\nesimerkissä luo kansion kurssi ja siihen alikansion viikko1 kansion\n\n\nHyvä muistaa\n\nEi ylikirjoita olemassaolevien kansioiden päälle, vaan antaa varoituksen\nvarmista, että nojaviivat ovat eteenpäin, jos ei toimi\n\nvain yksi kenoviiva kansioiden välille",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html#kansion-luominen-if-lauseen-kanssa",
+    "href": "DatasetinLuominen.html#kansion-luominen-if-lauseen-kanssa",
+    "title": "9  Datasetin luominen",
+    "section": "9.5 Kansion luominen if-lauseen kanssa",
+    "text": "9.5 Kansion luominen if-lauseen kanssa\n\n#| eval: false \nuusi_paakansio &lt;- \"Koulutehtava\"\n\nif (!dir.exists(uusi_paakansio)) {\n  dir.create(uusi_paakansio)\n}\n\n\nKansio voi olla järkevää luoda if lausekkeen kanssa koska\n\nse yrittää luoda kansion, vain jos sen nimistä kansiota ei vielä ole olemassa\nEli sen jälkeen, kun kansio on jo luotu, niin seuraavilla ajokerroilla ei yritetä turhaan luoda sitä uudestaan\n\nolemassa olevalle kansiolle ei käy mitään uusilla ajokerroilla, vaikka sitä pyrittäisiin luomaan uudestaan, mutta se antaa virheilmoituksen/varoituksen konsoliin, joka tekee siitä sekavamman\n\n\n! &lt;- merkki tarkoittaa loogista ei operaattoria\n\neli if lauseen ehto menee: jos uusi_paakansio nimistä kansiota ei ole olemassa niin tee seuraava asia\n\nluo uusi kansio dir.create() funktiolla\n\nilman ! merkkiä ehto menisi siis: jos uusi_paakansio on olemassa niin tee seuraava asia",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html#tiedosto-ja-kansiopolun-muuttaminen-file.rename",
+    "href": "DatasetinLuominen.html#tiedosto-ja-kansiopolun-muuttaminen-file.rename",
+    "title": "9  Datasetin luominen",
+    "section": "9.6 Tiedosto ja kansiopolun muuttaminen file.rename()",
+    "text": "9.6 Tiedosto ja kansiopolun muuttaminen file.rename()\n\nfile.rename(from, to) \n\n\nfile.rename() funktiossa\n\nfrom kohtaan alkuperäinen siirrettävän kansion nimi\nto kohtaan uuden yläkansion nimi / siirrettävän kansion nimi\n\n\n\ndir.create(\"kurssi/viikko1\", recursive = TRUE)\ndir.create(\"Salatut_elamat\")\n\nfile.rename(\"kurssi\",\"Salatut_elamat/kurssi\")\n\nEsim.\n\nLuotiin kansio kurssi ja sen alakansio viikko1\nLisäksi luotiin kansio Salatut_elamat\nfile.rename() funktiolla saadaan siirrettyä kurssi kansio Salatut_elamat kansion alle\n\nkoko “kurssi” kansio siirtyy eli sen alla oleva viikko1 siirtyy samalla",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  },
+  {
+    "objectID": "DatasetinLuominen.html#tiedostopolun-kirjoittaminen-file.path-funktiolla",
+    "href": "DatasetinLuominen.html#tiedostopolun-kirjoittaminen-file.path-funktiolla",
+    "title": "9  Datasetin luominen",
+    "section": "9.7 Tiedostopolun kirjoittaminen file.path() funktiolla",
+    "text": "9.7 Tiedostopolun kirjoittaminen file.path() funktiolla\n\nfile.path(\"tietokone\", \"käyttäjä\", \"omatkansiot\", \"data\", \"measures\")\n\nKun kirjoittaa file.path() funktioon esimerkin mukaisesti R rakentaa sen näin:\n\nOttaa sanan tietokone\nLisää erottimen /\nOttaa sanan käyttäjä\nLisää erottimen / jne.\n\n\nEli file.path() funktiolla saa tiedostopolun helposti talteen ilman virheitä ja kenoviivojen kanssa sähläämistä",
+    "crumbs": [
+      "R-komentoja",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Datasetin luominen</span>"
+    ]
+  }
+]

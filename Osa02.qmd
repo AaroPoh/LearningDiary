@@ -1,0 +1,5 @@
+---
+title: "Osa 2"
+---
+
+R-ohjelmointikielen kurssin toisen viikon muistiinpanot ja tehtävät.

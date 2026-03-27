@@ -1,0 +1,112 @@
+---
+title: "Video 4: Quarto kirjan luominen"
+---
+
+**Video 4: Quarto kirjan luominen**
+
+tehdään kirja / nettisivusto, josta voi aina nopeasti etsiä apua
+
+-   quarto dokumentit ovat .qmd tiedostoja
+
+-   Control + L —\> tyhjentää konsolin
+
+-   quarto install tinytex
+
+    -   jotta quarto osaa tehdä pdf:iä täytyy asentaa tinytex
+
+    -   voi tehdä myös terminaalissa
+
+    -   vielä epäselvää mikä on konsolin ja terminaalin ero ja miksi nämä komennot tehtiin nimenomaan terminaalissa
+
+```{r}
+#quarto render
+```
+
+-   komento tekee html kirjan
+
+```{r}
+#quarto render --to pdf 
+```
+
+-   (eli kaksi viivaa ja to pdf quarto renderin perään)
+
+<!-- -->
+
+-   tekee pdf:n projektista
+
+```{r}
+#quarto preview 
+```
+
+-   tekee html version joka toimii local host nettisivulla
+
+Kaikki yllä olevat komennot tehtiin terminaalissa
+
+YML tiedosto
+
+-   yml fileen voidaan tehdä muokkuksia ja esim. lisätä kirjan kappaleita
+
+-   yml tiedostoon siis riittää, että listataan tiedoston nimi
+
+-   qmd tiedostoon voidaan sitten kirjoittaa mitä halutaan
+
+-   esim. tehtiin chapter1.qmd tiedosto
+
+Quarto kirja
+
+-   yml tiedoston chapters kohtaan listataan kappaleeet
+
+. jokaisesta kappaleesta täytyy olla oma .qmd tiedosto
+
+![](images/clipboard-3663053904.png)
+
+references.bib
+
+-   tiedostoon voidaan lisätä lähteitä bib text muodossa
+
+![](images/clipboard-1143546947.png)
+
+-   lähteisiin voidaan viitata \@ merkillä ja nimellä, jolloin ne näkyvät näin:
+
+![](images/clipboard-12089599.png)
+
+![](images/clipboard-486244988.png)
+
+-   yläoikealla olevasta vihreästä c kuvakkeesta voidaan lisätä koodinpätkiä
+
+    -   se lisää alhaalla näkyvän harmaan laatikon, johon voi kirjoittaa r-koodia (voi valita muitakin ohjelmointikieliä)
+
+```{r}
+1 + 1 
+2 * 2
+4 / 5 
+```
+
+-   Lisätyt koodinpätkät näyttävät tältä.
+
+-   Jos haluaa koodinpätkän, jota ei suoriteta kannattaa käyttää komentoa
+
+    -   #\| eval: false
+
+```{r}
+#| eval: false
+
+install.packages(c("swirl", "swirlify"))
+library(swirl)
+library(swirlify)
+swirl::install_course("R Programming")
+swirl::install_course("The R Programming Environment")
+swirl::install_course("Advanced R Programming")
+swirl()
+
+```
+
+-   Nyt boksiin laitettua koodinpätkää ei suoriteta, mutta näyttää kuitenkin hyvältä ja sen voi suoraan kopioida
+
+-   Yllä näkyvä swirl paketti on R-kielen opetuspaketti. Sen avulla voi myös opetella kieltä.
+
+![](images/clipboard-4286453426.png)
+
+-   koodi näkyy kirjassa yllä olevalla tavalla
+
+    -   harmaan koodipalkin oikeasta reunasta voi kopsata koodin

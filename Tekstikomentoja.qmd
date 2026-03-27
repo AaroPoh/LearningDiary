@@ -1,0 +1,57 @@
+---
+title: "Tekstikomentoja"
+---
+
+## Tekstin kirjoittaminen ja .txt tekstitiedoston luominen
+
+```{r}
+teksti <- c("Tehtävämoniste 1 - 4 luokkalaisille", 
+            "Ratkaise seuraavat 10 tehtävää:", 
+            "", 
+            "Tehtävä 1:", 
+            "")
+
+writeLines(teksti, "matikkatehtavat.txt")
+
+```
+
+-   Jokainen vektorin alkio menee writeLines() funktiolla tallennettuun tiedostoon omalle riville
+
+    -   eli pilkulla erottamalla saa tehtyä rivinvaihdon
+
+    -   teksti kohtaan vektori, josta teksti / sisältö haetaan ja pilkun jälkeen uuden tiedoston nimi
+
+    -   tyhjän rivin saa tehtyä merkkaamalla vektoriin alkioksi pelkät hipsut "" , kuten riveillä 3 ja 5
+
+## Merkkijonojen yhdistäminen Paste() funktiolla 
+
+```{r}
+tallennettu <- 120
+
+paste<- paste("jotakin", "jotakin", tallennettu)
+paste0 <- paste0("jotakin", "jotakin", tallennettu) 
+
+print(paste)
+print(paste0)
+```
+
+-   paste funktiolla saa siis yhdistettyä useita tekstijonoja yhdeksi tekstijonoksi
+
+    -   paste() laittaa oletksena välilyönnin joukkojen väliin
+
+    -   paste0() ei laita välilyöntiä väleihin
+
+    -   
+
+Voi myös hyödyntää esimerkiksi jos for loopilla luo juoksevan nimeämisen tiedostoille. Alla olevassa esimerkissä siirretään kansioita uuteen kansioon. For loopin avulla saadaan haettua kaikki Koulu(1-7) nimiset kansiot. Siinä siis paste0() funktiolla yhdistetään "Koulu ja juokseva numero yhdeksi kirjainjonoksi Koulu1, Koulu2, Koulu3 jne.
+
+```{r}
+#| eval: false 
+for (i in 1:7) {
+  vanha_nimi <- paste0("Koulu", i)
+  uusi_nimi <- file.path(uusi_paakansio, vanha_nimi)
+  
+  # file.rename siirtää koko kansion sisältöineen päivineen
+  file.rename(from = vanha_nimi, to = uusi_nimi)
+}
+```

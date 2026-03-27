@@ -1,0 +1,48 @@
+project:
+  type: book
+
+book:
+  title: "Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit"
+  author: "Aaro Pohjalainen"
+  date: "3/5/2026"
+  chapters:
+    - index.qmd
+    - part: Vanhat.qmd
+      chapters: 
+        - V1.qmd
+    - part: Osa01.qmd
+      chapters: 
+        - 01.01.qmd
+        - 01.02.qmd
+    - part: Osa02.qmd 
+      chapters: 
+        - 02.01.qmd
+        - 02.Luento2.qmd
+    - part: Osa03.qmd
+      chapters: 
+        - 03.alkutehtavat.qmd
+        - 03.Permutaatiotesti.qmd
+    - part: R_komentoja.qmd 
+      chapters: 
+        - KuvaajienPiirto.qmd
+        - DatasetinLuominen.qmd
+        - Tilastotesteja.qmd
+        - Matemaattisia_funktioita.qmd
+        - Tekstikomentoja.qmd 
+    - summary.qmd
+    - references.qmd
+
+      
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

@@ -1,0 +1,75 @@
+---
+title: "Osa 3. alkutehtävät"
+---
+
+Tehtävänanto: Kirjoita R-skripti, joka kysyy numeroa ja kertoo onko numero positiinen vai negatiivinen.
+
+```{r}
+#| eval: false
+Num <- as.numeric(readline(prompt = "Syötä numero: "))
+
+if (Num == 0){ print("Nolla") } else {
+
+if (Num > 0){
+  print("positiivinen")
+} else {
+  print("negatiivinen")
+} 
+
+}
+```
+
+Tehtävänanto: Kirjoita R-skripti, joka kysyy kurssin arvosanaa (0-100) #ja kertoo onko kurssin suoritus hyväksytty vain hylätty. #Opiskelijan pitää saada vähintään 50 pistettä.
+
+```{r}
+#| eval: false
+Num <- as.numeric(readline(prompt = "Syötä kurssin arvosana 0-100: "))
+
+if (Num < 50){ print("Hylätty") }else { print("Hyväksytty") }
+
+
+```
+
+Tehtävänanto: Kirjoita R-skripti, joka kysyy numeroa ja kertoo onko numero parillinen vai pariton.
+
+```{r}
+#| eval: false
+Num <- as.numeric(readline(prompt = "Syötä numero: "))
+
+if (Num %% 2 ==0){ print("Parillinen") } else { print("Pariton") }
+```
+
+#parillisuus saadaan tsekattua jakojäännöksellä, jos 2 jaettaessa nolla -\> parillinen \# jakojäännös lasketaan %% operaattorilla
+
+10 %% 2 10 %% 3 11 %% 2
+
+#esim. 10/2 jakojäännös on 0 ; 10/3 jakojäännös 1 ; 11 / 2 jakojäännös 1
+
+Tehtävänanto: Kirjoita for-silmukka, joka tulostaa numerot 1-10.
+
+```{r}
+for (i in 1:10){ print(i) }
+```
+
+Tehtävänanto: Kirjoita for-silmukka, joka tulostaa lukujen 1:10 neliön.
+
+```{r}
+for (i in 1:10){ print(i * i ) }
+
+for (i in 1:10){ print(i^2 ) }
+
+for (i in 1:10){ print(i**2 ) }
+
+
+```
+
+Kolme eri tapaa
+
+Tehtävänanto: Kirjoita for-silmukka, joka laskee lukujen 1:100 summan.
+
+```{r}
+summa <- 0
+
+for (i in 1:100){ summa <- summa + i } 
+print(summa)
+```
