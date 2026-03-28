@@ -1,0 +1,83 @@
+---
+title: "Tekoäly ohjelmoinnin tukena"
+---
+
+## Ohjelmointia tekoälyn avustamana, luento 26.03
+
+### AI:n käyttö 
+
+-   koodin kirjoittaminen
+
+-   debuggaaminen ja koodin arviointi
+
+-   koodin selittäminen
+
+-   koodin optimointi
+
+### AI-työkaluja 
+
+-   Yliopiston suosittelemat (tietoturvan vuoksi, etenkin currechat)
+
+    -   Currechat
+
+    -   Copilot
+
+### R-koodin tuottaminen 
+
+-   yksityiskohtaiset promptit
+
+-   englanti voi toimia paremmin kuin suomi
+
+-   tarkat tilastolliset termit
+
+    -   esim. reverse coding items/variables
+
+-   kerro mitkä ovat data framen/tiedoston nimi & kerro muutttujien nimet
+
+    -   skripti toimii suoraan
+
+-   Ole tarkkana, että skripti tekee kaiken minkä pyydät
+
+-   ole skeptinen, AI tekee oikopolkuja
+
+-   jos vähänkin epäilet, niin pyydä tarkennusta
+
+-   Kehitä skriptiä iteratiivisesti – pyydä lisää ominaisuuksia / tarkennuksia; pyydä vaihtoehtoisia tapoja ratkaista asia
+
+-   Jos virhe, syötä se AI:lle ja pyydä korjaamaan
+
+-   Tee tehtävät huolellisesti
+
+    -   jos et itse ymmärrä niin todnäk ovat virheellisiä
+
+### Skriptien optimointi ja organisointi 
+
+-   For-loop voi olla hidas, löytyy muitakin mahdollisia toteutuksia esim. replicate/apply
+
+    -    ei vakava ongelma, koska laskentatehoa riittää
+
+    -   kannattaa tehdä skriptejä, joita itse ymmärtää
+
+-   kommentoi tarkasti
+
+-   Tee funktioita
+
+    -   silloin voi soveltaa muihinkin aineistoihin
+
+    -   automatisoi mahd. paljon
+
+-   esim. viimeistele visualisoinnit
+
+-   kerro tekoälylle suoraan muuttujien nimet, data-frame nimi yms. niin koodi toimii suoraan
+
+-   Tee erillisiä skriptejä
+
+    -   yksi, joka tekee preprosessoinnin
+
+    -   toinen, joka tekee tilastoanalyysit
+
+    -   kolmas, joka tekee visualisoinnit
+
+    -   ja pääskripti, jossa tehdään kaikki/tarvittavat vaiheet oikeassa järjestyksessä
+
+@Salmela

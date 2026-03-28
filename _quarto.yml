@@ -22,6 +22,9 @@ book:
       chapters: 
         - 03.alkutehtavat.qmd
         - 03.Permutaatiotesti.qmd
+    - part: Osa04.qmd 
+      chapters: 
+        - AI_ohjelmoinnin_tukena.qmd
     - part: R_komentoja.qmd 
       chapters: 
         - KuvaajienPiirto.qmd
@@ -30,6 +33,8 @@ book:
         - Matemaattisia_funktioita.qmd
         - Tekstikomentoja.qmd 
         - Varmuuskopiointi.qmd
+        - Indeksointi.qmd
+        - Sekalaista.qmd
     - summary.qmd
     - references.qmd
 

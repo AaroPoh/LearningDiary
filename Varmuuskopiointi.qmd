@@ -2,7 +2,7 @@
 title: "Varmuuskopiointi"
 ---
 
-## Git ja github 
+## Git ja github
 
 ```{r}
 #| eval: false 
@@ -17,6 +17,14 @@ Luo olemassa olevalle R-projektille git repositorion
 -   git repositorioon voi tallentaa varmuuskopion aina kun haluaa
 
     -   se tehdään yläoikealta git välilehdeltä valitsemalla tehdyt muutokset ja painamalla commit
+
+## .gitignore
+
+-   Gemini suositteli lisäämään alla olevat asiat gitignore tiedostoon
+
+    -   sieltä määritetään, mitä ei varmuuskopioida
+
+    -   Turhia asioita ei kannata varmuuskopioida, jotta git pysyy selkeänä ja sulavana
 
 ```{r}
 #| eval: false 
@@ -33,11 +41,3 @@ _book/
 _site/
 site_libs/
 ```
-
-## .gitignore 
-
--   Gemini suositteli lisäämään yllä olevat asiat gitignore tiedostoon
-
-    -   sieltä määritetään, mitä ei varmuuskopioida
-
-    -   Turhia asioita ei kannata varmuuskopioida, jotta git pysyy selkeänä ja sulavana

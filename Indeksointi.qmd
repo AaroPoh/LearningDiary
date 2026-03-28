@@ -1,0 +1,101 @@
+---
+title: "Indeksointi / subsetting"
+---
+
+Kun käyttää hakasulkeita \[\], antaa R-kielelle ohjeen poimia tietyn osan datasta. Toisin sanottuna indeksoinnilla saa poimittua mistä vain datasta osajoukon. Indeksointia on kahta päätyyppiä:
+
+## Numeerinen indeksointi 
+
+Kerrotaan suoraan havainnon järjestysnumero.
+
+```{r}
+data <- c(2,4,6,8,10)
+
+data[1]
+```
+
+-   data\[1\] Poimii indeksin ensimmäisen arvon
+
+```{r}
+
+data <- c(seq(0,100, by = 5))
+data[1:10]
+```
+
+-   data\[1:10\] poimii indeksin arvot 1-10
+
+```{r}
+data <- c(seq(0,100, by = 5))
+data[15:length(data)]
+
+data <- c(2,4,6,8,10)
+data[length(data)]
+```
+
+-   data\[15:length(data)\]
+
+    -   poimii indeksin arvot 15 alkaen loppuun asti
+
+    -   length(data) palauttaa siis indeksin päätepisteen
+
+-   data\[length(data)\]
+
+    -   poimii vain indeksin viimeisen arvon eli 10
+
+```{r}
+data <- c(2,4,6,8,10)
+
+data[c(-1,-2)]
+```
+
+Negatiiviset indeksit palauttavat koko vektorin lukuunottamatta näitä indeksejä
+
+-   yllä 1. ja 2. indeksi jäävät pois
+
+@Rmoniste
+
+## Looginen indeksointi
+
+Ei anneta tarkkaa järjestysnumeroa, vaan ehto, jonka on täytyttävä.
+
+```{r}
+data <- c(2,4,6,8,10)
+data[data > 5]
+```
+
+-   data\[data \> 5\] poimii kaikki arvot, jotka ovat suurempia kuin 5
+
+Kun laittaa hakasulkeiden sisään ehdon, kuten data \> 5, R tekee taustalla näkymättömän listan, joka koostuu vain sanoista TRUE ja FALSE
+
+-   Toimii käytännössä näin:
+
+    -   R käy jokaisen luvun läpi ja antaa sille leiman:
+
+        -   Luku on ehdon sisällä –\> TRUE
+
+        -   luku on ehdon ulkopuolella -\> FALSE
+
+    -   komento palauttaa kaikki TRUE arvot
+
+Loogisen indeksoinnin voi tehdä myös subset() funktiolla
+
+```{r}
+
+data <- c(2,4,6,8,10)
+
+subset(data, data > 5)   
+```
+
+subset(data, ehto)
+
+-   data kohtaan muuttuja, josta halutaan osajoukko
+
+-   ehto kohtaan ehto, jonka mukaan osajoukko määritellään.
+
+## Kaksiulotteinen indeksi 
+
+Indeksointi sana tulee siitä, että jokaisella tiedonpalasella on oma "osoitteensa" eli indeksi.
+
+-   Yksiulotteisessa datassa (kuten sinun data-vektorisi) on vain yksi indeksi: data\[rivi\].
+
+-   Kaksiulotteisessa datassa (kuten taulukko tai data.frame) on kaksi indeksiä: data\[rivi, sarake\].

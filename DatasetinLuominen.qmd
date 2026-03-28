@@ -1,5 +1,7 @@
 ---
 title: "Datasetin luominen"
+filters: 
+  - webr
 ---
 
 ## rnorm()
@@ -45,6 +47,80 @@ data.frame(N10 = c(m1,sd1), N100 = c(m2,sd2), N1000 = c(m3, sd3), row.names = Ri
 ```
 
 Isommalla n:llä näyttäisi osuvan vielä tarkemmin kohdalleen.
+
+## set.seed() funktio 
+
+```{r}
+#| eval: false 
+
+set.seed(123)
+
+```
+
+-   Määrittää mitä satunnaislukuja käytetään
+
+-   laitetaan (yleensä) vain kerran skriptin alkuun
+
+-   Hyöty on se, että määrittää joka kerta samat satunnaisluvut eli jos ajaa saman skriptin kaksi kertaa molemmilla kerroilla laskelmiin tulee samat luvut ja kuvaajat näyttävät samanlaisilta
+
+### Havainnollistava esimerkki 
+
+```{r}
+set.seed(123) 
+
+Alkupiste <- rnorm(1)
+Jatkopiste <- rnorm(1) 
+
+data.frame("Alku" = Alkupiste, "Jatkopiste" = Jatkopiste)
+```
+
+-   Ensimmäinen luotu satunnaisluku eli Alkupiste on set.seed(123) listan ensimmäinen luku
+
+-   Toinen luotu satunnaisluku eli Jatkopiste on set.seed(123) listan toinen luku
+
+```{r}
+set.seed(123)
+alkupiste <- rnorm(1)
+
+set.seed(123)
+uusialkupiste <- rnorm(1)
+
+data.frame("Alku" = alkupiste, "UusiAlku" = uusialkupiste)
+```
+
+-   Ensimmäinen satunnaisluku set.seed(123) listan ensimmäinen luku
+
+-   Koska set.seed(123) laitettiin skriptiin uudelleen se nollaa listan ja sitä lähdetään käymään uudelleen läpi
+
+    -   Siksi toinen luotu satunnaisluku eli UusiAlku on sama
+
+#### Ero rnorm() funktiossa set.seed() kanssa ja ilman 
+
+Set.seedin() kanssa rnorm() luo siis satunnaisluvut tietystä listasta ja ne toistuvat jokaisella ajokerralla samalla tavalla. Ilman set.seed() funktiota jokaisella ajokerralla rnorm() luo eri satunnaisluvut.
+
+Set.seedin kanssa
+
+```{webr-r}
+set.seed(123)
+AinaSamat <- numeric(10) 
+for( i in 1:10){
+AinaSamat[i] <- rnorm(1)
+}
+AinaSamat
+```
+
+Ilman set.seedia
+
+```{webr-r}
+
+AinaErit <- numeric(10)
+for( i in 1:10){
+  AinaErit[i] <- rnorm(1)
+}
+AinaErit
+```
+
+Yllä voi kokeilla ajaa koodinpätkät niiin monta kertaa kuin haluaa. Set.seedin kanssa jokaisella ajokerralla tulee samat luvut, kun ilman sitä joka kerta tulee eri luvut.
 
 ## Data framen luominen
 

@@ -47,3 +47,10 @@ abline(0,0.5, col="red")
 heights_var <- c(a=150,b= 160,c= 170,d= 180,e= 190)
 barplot(heights_var)
 ```
+
+## Plot
+
+```{r}
+x <- sample(100)
+plot(x)
+```

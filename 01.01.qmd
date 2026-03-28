@@ -18,8 +18,14 @@ See @thulin2024modern for additional discussion of literate programming.
 
 kokeilu @analysisandmodelling
 
-```{r}
+Jos on useampi kirjoittaja, niin kirjoittajat erotellaan and sanalla tähän tyyliin
 
-x <- sample(100)
-plot(x)
+```{r}
+#| eval: false
+@article{Rmoniste,
+  title={R-tutuksi [oppimateriaali]},
+  author={Hyvönen, Ville and Karttunen, Henri and Lehtonen, Toni and Leivonen, Aku and Virolainen, Savi},
+  year={2018},
+  publisher={Helsingin yliopisto, Matematiikan ja tilastotieteen laitos}
+
 ```

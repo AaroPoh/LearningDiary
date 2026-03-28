@@ -301,6 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#tekstin-kirjoittaminen-ja-.txt-tekstitiedoston-luominen" id="toc-tekstin-kirjoittaminen-ja-.txt-tekstitiedoston-luominen" class="nav-link active" data-scroll-target="#tekstin-kirjoittaminen-ja-.txt-tekstitiedoston-luominen"><span class="header-section-number">12.1</span> Tekstin kirjoittaminen ja .txt tekstitiedoston luominen</a></li>
+  <li><a href="#merkkijonojen-yhdistäminen-paste-funktiolla" id="toc-merkkijonojen-yhdistäminen-paste-funktiolla" class="nav-link" data-scroll-target="#merkkijonojen-yhdistäminen-paste-funktiolla"><span class="header-section-number">12.2</span> Merkkijonojen yhdistäminen Paste() funktiolla</a></li>
   </ul>
 </nav>
     </div>
@@ -336,6 +337,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">""</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(teksti, <span class="st">"matikkatehtavat.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>Jokainen vektorin alkio menee writeLines() funktiolla tallennettuun tiedostoon omalle riville</p>
+<ul>
+<li><p>eli pilkulla erottamalla saa tehtyä rivinvaihdon</p></li>
+<li><p>teksti kohtaan vektori, josta teksti / sisältö haetaan ja pilkun jälkeen uuden tiedoston nimi</p></li>
+<li><p>tyhjän rivin saa tehtyä merkkaamalla vektoriin alkioksi pelkät hipsut “” , kuten riveillä 3 ja 5</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="merkkijonojen-yhdistäminen-paste-funktiolla" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="merkkijonojen-yhdistäminen-paste-funktiolla"><span class="header-section-number">12.2</span> Merkkijonojen yhdistäminen Paste() funktiolla</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tallennettu <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>paste<span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"jotakin"</span>, <span class="st">"jotakin"</span>, tallennettu)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>paste0 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"jotakin"</span>, <span class="st">"jotakin"</span>, tallennettu) </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(paste)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "jotakin jotakin 120"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(paste0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "jotakinjotakin120"</code></pre>
+</div>
+</div>
+<ul>
+<li><p>paste funktiolla saa siis yhdistettyä useita tekstijonoja yhdeksi tekstijonoksi</p>
+<ul>
+<li><p>paste() laittaa oletksena välilyönnin joukkojen väliin</p></li>
+<li><p>paste0() ei laita välilyöntiä väleihin</p></li>
+<li></li>
+</ul></li>
+</ul>
+<p>Voi myös hyödyntää esimerkiksi jos for loopilla luo juoksevan nimeämisen tiedostoille. Alla olevassa esimerkissä siirretään kansioita uuteen kansioon. For loopin avulla saadaan haettua kaikki Koulu(1-7) nimiset kansiot. Siinä siis paste0() funktiolla yhdistetään “Koulu ja juokseva numero yhdeksi kirjainjonoksi Koulu1, Koulu2, Koulu3 jne.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  vanha_nimi <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Koulu"</span>, i)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  uusi_nimi <span class="ot">&lt;-</span> <span class="fu">file.path</span>(uusi_paakansio, vanha_nimi)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># file.rename siirtää koko kansion sisältöineen päivineen</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">file.rename</span>(<span class="at">from =</span> vanha_nimi, <span class="at">to =</span> uusi_nimi)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
