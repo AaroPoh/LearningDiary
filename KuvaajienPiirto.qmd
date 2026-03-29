@@ -4,7 +4,7 @@ title: "Kuvaajien piirtäminen"
 
 ## Histogrammi
 
-Histogrammi piirretään hist() funktiolla
+Histogrammi piirretään **hist()** funktiolla
 
 ```{r}
 #| eval: false
@@ -18,7 +18,9 @@ hist(x , breaks = 30,  xlim=c(-20,60))
 
 -   xlim=c(alkupiste,loppupiste) —\> voidaan määritellä mikä osa x-akselista näkyy
 
-Komennolla: abline() voidaan piirtää viivoja histogramiin
+<br><br>
+
+Komennolla: **abline()** voidaan piirtää viivoja histogramiin
 
 ```{r}
 
@@ -31,7 +33,7 @@ abline(v= 10, col="green")
 abline(0,0.5, col="red")
 ```
 
--   abline(a,b) funktiossa
+-   **abline(a,b)** funktiossa
 
     -   a = vakio eli y-akselin leikkauskohta \# ( eli y:n arvo, kun x = 0),
 
@@ -41,12 +43,16 @@ abline(0,0.5, col="red")
 
     -   vaakasuoran puolestaan abline(h=a)
 
+<br><br>
+
 ## Pylväsdiagrammi
 
 ```{r}
 heights_var <- c(a=150,b= 160,c= 170,d= 180,e= 190)
 barplot(heights_var)
 ```
+
+<br><br>
 
 ## Plot
 

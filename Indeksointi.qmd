@@ -4,9 +4,13 @@ title: "Indeksointi / subsetting"
 
 Kun käyttää hakasulkeita \[\], antaa R-kielelle ohjeen poimia tietyn osan datasta. Toisin sanottuna indeksoinnilla saa poimittua mistä vain datasta osajoukon. Indeksointia on kahta päätyyppiä:
 
-## Numeerinen indeksointi 
+## Numeerinen indeksointi
 
 Kerrotaan suoraan havainnon järjestysnumero.
+
+<br> <br>
+
+**data\[1\]** Poimii indeksin ensimmäisen arvon
 
 ```{r}
 data <- c(2,4,6,8,10)
@@ -14,7 +18,9 @@ data <- c(2,4,6,8,10)
 data[1]
 ```
 
--   data\[1\] Poimii indeksin ensimmäisen arvon
+<br> <br> <br>
+
+**data\[1:10\]** poimii indeksin arvot 1-10
 
 ```{r}
 
@@ -22,25 +28,47 @@ data <- c(seq(0,100, by = 5))
 data[1:10]
 ```
 
--   data\[1:10\] poimii indeksin arvot 1-10
+<br> <br> <br>
+
+**data\[15:length(data)\]**
+
+-   poimii indeksin arvot 15 alkaen loppuun asti
+
+-   length(data) palauttaa siis indeksin päätepisteen
 
 ```{r}
 data <- c(seq(0,100, by = 5))
 data[15:length(data)]
 
+
+```
+
+<br> <br> <br>
+
+**data\[length(data)\]**
+
+-   poimii vain indeksin viimeisen arvon eli 10
+
+```{r}
 data <- c(2,4,6,8,10)
 data[length(data)]
 ```
 
--   data\[15:length(data)\]
+-   <br> <br> <br>
 
-    -   poimii indeksin arvot 15 alkaen loppuun asti
+Itsekseen **length()** näyttää montako montako arvoa vektoriin kuuluu
 
-    -   length(data) palauttaa siis indeksin päätepisteen
+```{r}
+data <- c(2,4,6,8,10)
 
--   data\[length(data)\]
+length(data)
+```
 
-    -   poimii vain indeksin viimeisen arvon eli 10
+<br> <br> <br>
+
+**Negatiiviset indeksit** palauttavat koko vektorin lukuunottamatta näitä indeksejä
+
+-   alla 1. ja 2. indeksi jäävät pois
 
 ```{r}
 data <- c(2,4,6,8,10)
@@ -48,22 +76,22 @@ data <- c(2,4,6,8,10)
 data[c(-1,-2)]
 ```
 
-Negatiiviset indeksit palauttavat koko vektorin lukuunottamatta näitä indeksejä
-
--   yllä 1. ja 2. indeksi jäävät pois
-
 @Rmoniste
 
 ## Looginen indeksointi
 
 Ei anneta tarkkaa järjestysnumeroa, vaan ehto, jonka on täytyttävä.
 
+<br><br>
+
+-   **data\[data \> 5\]** poimii kaikki arvot, jotka ovat suurempia kuin 5
+
 ```{r}
 data <- c(2,4,6,8,10)
 data[data > 5]
 ```
 
--   data\[data \> 5\] poimii kaikki arvot, jotka ovat suurempia kuin 5
+<br>
 
 Kun laittaa hakasulkeiden sisään ehdon, kuten data \> 5, R tekee taustalla näkymättömän listan, joka koostuu vain sanoista TRUE ja FALSE
 
@@ -77,7 +105,9 @@ Kun laittaa hakasulkeiden sisään ehdon, kuten data \> 5, R tekee taustalla nä
 
     -   komento palauttaa kaikki TRUE arvot
 
-Loogisen indeksoinnin voi tehdä myös subset() funktiolla
+<br><br>
+
+Loogisen indeksoinnin voi tehdä myös **subset()** funktiolla
 
 ```{r}
 
@@ -92,10 +122,12 @@ subset(data, ehto)
 
 -   ehto kohtaan ehto, jonka mukaan osajoukko määritellään.
 
-## Kaksiulotteinen indeksi 
+<br><br>
+
+## Kaksiulotteinen indeksi
 
 Indeksointi sana tulee siitä, että jokaisella tiedonpalasella on oma "osoitteensa" eli indeksi.
 
--   Yksiulotteisessa datassa (kuten sinun data-vektorisi) on vain yksi indeksi: data\[rivi\].
+-   Yksiulotteisessa datassa vain yksi indeksi: data\[rivi\].
 
--   Kaksiulotteisessa datassa (kuten taulukko tai data.frame) on kaksi indeksiä: data\[rivi, sarake\].
+-   Kaksiulotteisessa datassa (kuten taulukko tai data.frame) on kaksi indeksiä: data\[rivi, sarake\]

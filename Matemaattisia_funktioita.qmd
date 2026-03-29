@@ -34,3 +34,37 @@ Eli montako eri tapaa on valita tietty joukko (k) isommasta joukosta (n).
 ![](images/clipboard-2676583055.png){width="437"}
 
 Permutaatiotestissä lasketaan nimenomaan kombinaatioita
+
+<br><br>
+
+## Vektorien laskutoimitukset
+
+Vektori ja yksittäinen arvo
+
+-   jokainen vektorin arvo käydään läpi ja tehdään sille sama laskutoimitus. Esim. alla vektorin jokaisesta arvosta vähennetään 3 ja palautetaan indeksin joka kohdan tulos.
+
+```{r}
+c(2,4,6,8,10) - 3 
+```
+
+<br><br>
+
+Kaksi vektoria
+
+-   Kahdella yhtä pitkällä vektorilla voi tehdä laskutoimituksia keskenään
+
+-   Keskenään lasketaan aina saman indeksinumeron arvo
+
+    -   Jos lasketaan esimerkikis V1 + V2, jossa V1 = c(1,2,3) ja V2 = c(2,4,6)
+
+        -   lasketaan 1. V1\[1\] + V2\[1\] = 1 + 2 = 3
+
+        -   2\. V1\[2\] + V2\[2\] = 2 + 4 = 6
+
+        -   3\. V1\[3\] + V2\[3\] = 3 + 6 = 9
+
+        ```{r}
+
+        c(1,2,3) + c(2,4,6)
+
+        ```

@@ -29,3 +29,17 @@ Jos on useampi kirjoittaja, niin kirjoittajat erotellaan and sanalla tähän tyy
   publisher={Helsingin yliopisto, Matematiikan ja tilastotieteen laitos}
 
 ```
+
+BibTeX saattaa muuttaa otsikon kaikki kirjaimet pieniksi (paitsi ensimmäisen). Jos haluat säilyttää esimerkiksi sanan "R" isona tai pitää "\[oppimateriaali\]"-tekstin juuri sellaisenaan, se kannattaa suojata aaltosulkeilla.
+
+```{r}
+#| eval: false
+@manual{Rmoniste,
+  title = {{R}-tutuksi [{O}ppimateriaali]},
+  author = {Hyvönen, Ville and Karttunen, Henri and Lehtonen, Toni and Leivonen, Aku and Virolainen, Savi},
+  year = {2018},
+  organization = {Helsingin yliopisto, Matematiikan ja tilastotieteen laitos},
+  note = {Luettavissa verkossa},
+  url = {https://www.mv.helsinki.fi/home/mjxpirin/medstat_course/material/Rmoniste_tiltu1.pdf}
+}
+```

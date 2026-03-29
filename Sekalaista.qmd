@@ -50,3 +50,33 @@ Näiden vaiheiden jälkeen kyseisestä chunkista ei suoraan tulostu tuloksia siv
 4/4
 5+5
 ```
+
+<br><br>
+
+## Piilotettava / foldattava koodilohko quarto-kirjaan
+
+Koodilohkoista eli code chunkeista saa tehtyä avattavia ja suljettavia kirjoittamalla koodilohkon alkuun seuraavat asiat.
+
+```{r}
+#| eval: false
+  
+
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+```
+
+-   Yläkulmassa saa ja täytyy olla normaalisti {r}, nämä komennot sen alle
+
+-   code-summary: —\> kohtaan voi kirjoittaa haluamansa tekstin, joka näkyy napissa, josta koodinpätkän voi avata.
+
+<br>
+
+```{r}
+#| code-fold: true
+#| code-summary: "Tästä voit avata esimerkkikoodin"
+
+aineisto <- seq(1,1000,by=5)
+
+mean(aineisto)
+
+```

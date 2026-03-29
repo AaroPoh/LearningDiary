@@ -34,7 +34,11 @@ book:
         - Tekstikomentoja.qmd 
         - Varmuuskopiointi.qmd
         - Indeksointi.qmd
+        - FunktionLuominenJaKutsuminen.qmd
         - Sekalaista.qmd
+    - part: Tilastotiede.qmd
+      chapters: 
+        - PoikkeavatHavainnot.qmd
     - summary.qmd
     - references.qmd
 
