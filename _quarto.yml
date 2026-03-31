@@ -7,38 +7,30 @@ book:
   date: "3/5/2026"
   chapters:
     - index.qmd
-    - part: Vanhat.qmd
+    - part: Tutkimusmenetelmat_1/Tutkimusmenetelmat1.qmd
       chapters: 
-        - V1.qmd
-    - part: Osa01.qmd
+        - Tutkimusmenetelmat_1/V1.qmd
+    - part: R_kurssi/R_kurssinMT.qmd 
       chapters: 
-        - 01.01.qmd
-        - 01.02.qmd
-    - part: Osa02.qmd 
+        - R_kurssi/Osa01.qmd 
+        - R_kurssi/Osa02.qmd 
+        - R_kurssi/Osa03.qmd
+        - R_kurssi/Osa04.qmd 
+    - part: R_komentoja/R_komentoja.qmd 
       chapters: 
-        - 02.01.qmd
-        - 02.Luento2.qmd
-    - part: Osa03.qmd
+        - R_komentoja/KuvaajienPiirto.qmd
+        - R_komentoja/DatasetinLuominen.qmd
+        - R_komentoja/Tilastotesteja.qmd
+        - R_komentoja/Matemaattisia_funktioita.qmd
+        - R_komentoja/Tekstikomentoja.qmd 
+        - R_komentoja/Varmuuskopiointi.qmd
+        - R_komentoja/Indeksointi.qmd
+        - R_komentoja/FunktionLuominenJaKutsuminen.qmd
+        - R_komentoja/Sekalaista.qmd
+    - part: Tilastotiede/Tilastotiede.qmd
       chapters: 
-        - 03.alkutehtavat.qmd
-        - 03.Permutaatiotesti.qmd
-    - part: Osa04.qmd 
-      chapters: 
-        - AI_ohjelmoinnin_tukena.qmd
-    - part: R_komentoja.qmd 
-      chapters: 
-        - KuvaajienPiirto.qmd
-        - DatasetinLuominen.qmd
-        - Tilastotesteja.qmd
-        - Matemaattisia_funktioita.qmd
-        - Tekstikomentoja.qmd 
-        - Varmuuskopiointi.qmd
-        - Indeksointi.qmd
-        - FunktionLuominenJaKutsuminen.qmd
-        - Sekalaista.qmd
-    - part: Tilastotiede.qmd
-      chapters: 
-        - PoikkeavatHavainnot.qmd
+        - Tilastotiede/PoikkeavatHavainnot.qmd
+        - Tilastotiede/NormaalisuudenTestaaminen.qmd
     - summary.qmd
     - references.qmd
 

@@ -1,0 +1,65 @@
+---
+title: "Tilastotestejä"
+---
+
+## T-testi
+
+Testaa onko kahden ryhmän keskiarvojen välinen ero tilastollisesti merkitsevä.
+
+### T-testi syöttämällä suoraan kaksi ryhmää
+
+```{r}
+R1 <- rnorm(50,0)
+R2 <- rnorm(50,1)
+
+t.test(R1, R2)
+
+```
+
+Mitä tietoja testi näyttää
+
+-   t-arvo: montako keskivirheen mittaa ryhmien keskiarvot eroavat
+
+-   df = degrees of freedom = vapausasteet
+
+-   p-value eli p-arvo
+
+-   95 percent confidence interval = luottamusväli eli Väli, jolla ryhmien todellinen keskiarvojen erotus on 95 % todennäköisyydellä.
+
+    -   eli 95 kertaa sadasta keskiarvojen erotus osuu välille ja 5 kertaa sadasta ulkopuolelle
+
+-   sample estimates: ryhmien omat keskiarvot
+
+### T-testi kaavamuodossa (tällöin voidaan hakea tieto dataframesta)
+
+```{r}
+R1 <- rnorm(50,0)
+R2 <- rnorm(50,1)
+
+data <- data.frame(arvo = c(R1,R2), ryhmä = rep(c(1,2), each=50)) 
+
+t.test(arvo ~ ryhmä, data = data) 
+```
+
+## Korrelaatio
+
+```{r}
+x <- c(1, 2, 3, 4, 5)
+y <- c(2, 4, 5, 4, 6)
+
+cor(x, y) 
+```
+
+cor(x,y)
+
+-   laskee x:n ja y:n korrelaation, jos ne ovat vektoreita
+
+    -   jos matriiseja niin laskee sarakkeiden x:n ja y:n sarakkeiden välisen korrelaation
+
+-   oletuksena pearsonin korrelaatio
+
+    -   voi muuttaa spearmanin tai kendallin korrelaatioon argumentilla method =
+
+        -   method = "spearman", method = "kendall", method = "pearson"
+
+-   `use = "pairwise.complete"` NA arvot jätetään huomioimatta (@thulin2024modern)

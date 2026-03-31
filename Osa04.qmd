@@ -1,5 +1,0 @@
----
-title: "Osa 4 - Tekoälyn käyttö ohjelmoinnin tukena"
----
-
-Tässä osassa asiaa luennoista, joissa käsitellään tekoälyn käyttöä ohjelmoinnissa.

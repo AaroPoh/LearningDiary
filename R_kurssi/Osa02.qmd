@@ -1,0 +1,355 @@
+---
+title: "Osa 2 - R-ohjelmoinnin perusteet"
+---
+
+R-ohjelmointikielen kurssin toisen viikon muistiinpanot ja tehtävät.
+
+<br><br><br>
+
+## Apply, quantile & aggregate
+
+Ensiksi luotiin datafreimi data.frame() funktiolla
+
+```{r}
+data <- data.frame(
+  Group = as.factor(rep(c("GroupA","GroupB","GroupC"),10, each=10)), 
+  Age = as.numeric(sample(18:65, 300, replace=TRUE)),
+  WM =  as.numeric(sample(1:100, 300, replace=TRUE))
+)
+
+aggregate(Age ~ Group, data = data, FUN = mean)
+quantile(data$WM, probs = seq(0, 1, 0.9))
+apply(data[,2:3], 2, mean) 
+```
+
+Aggregate funktiossa ensiksi valitaan numeerinen freimi datasetistä, josta keskiarvo (tai jokin muu) lasketaan, sitten \~ merkin jälkeen \# ryhmittelevä tekijä, eli se minkä mukaan data jaotellaan. \# data = kohtaan datasetti, \# FUN = kohtaan käytettävä funktio, jota käytetään.
+
+Quantile fuktiolla saadaan laskettua kvantiili. Quantile funktiossa ensiksi valitaan data, josta kvantiili otetaan. Kohtaan seq( , ,kolmanteen väliin kvantiili, joka halutaan)
+
+Apply funktiolla voidaan käyttää haluttua funktiota datasetin valittuihin riveihin tai sarakkeisiin. Apply funktiossa ensiksi datasetti, \[hakasulkeissa\] voidaan indeksien avulla määritellä \# mitkä rivit tai sarakkeet datasta otetaan käyttöön. Menee aina näin: \[rivit, sarakkeet\] Nyt valittiin \[2:3\] komennolla 2. ja 3. sarake datasta Ekan pilkun jälkeen laitetaan 1 tai 2. Jos laitetaan 1, niin silloin jaotellaan data rivien mukaan. Jos taas 2, niin se jaotellaan sarakkeiden mukaan.
+
+### Teoriaa kvantiileista
+
+Kvantiilit / persentiilit
+
+-   x-Kvantiili kuvaa sitä pistettä jonka alle jää x prosenttiosuus ja ylle y prosenttiosuus havainnoista (y= 100%-x)
+
+    -   esim. mediaanin (50-persentiili) alle jää 50 % havainnoista ja ylle 50%
+
+    -   tai 90-persentiilin alle 90% ja ylle 10%
+
+    -   Esim.
+
+        -   Manuaalisesti saadaan haettua siten, että asetetaan luvut suuruusjärjestykseen ja etsitään oikea kohta. Esim 7 luvun sarjassa (1,2,3,4,5,6,7) mediaani on 4. Yläpuolelle jää 3 lukua ja alapuolelle 3.
+
+        -   90.-persentiili sarjassa (1,2,3,4,5,6,7) asettuu lukujen 6 ja 7 välille. Kun luku ei osu suoraan kohdalle täytyy se interpoloida.
+
+    -   kvantiili kuvaa siis alueiden rajalla olevaa pistettä
+
+-   R-kielellä kvantiilin saa etsittyä quantile() funktiolla
+
+```{r}
+quantile(c(1,2,3,4,5,6,7), probs = seq(0, 1, 0.5), na.rm = FALSE,
+         names = TRUE)
+
+
+```
+
+```{r}
+#| eval: false
+    quantile(x, prob = seq(0, 1, 0.5), na.rm = FALSE, 
+  names = TRUE, type = 7)
+
+```
+
+-   x = data/vektori, josta kvantiili otetaan
+
+-   probs = seq(0, 1, 0.25) –\> ekat kaksi numeroa pidetään aina 0 ja ykkösenä. Määrittää sekvenssin rajat. Viimeinen luku määrittää miten sekvenssi jaetaan
+
+    -   toisin sanottonu 0,25 kohtaan laitetaan haluttu kvantiili
+
+        -   0,25 niin tulee persentiilit 25% välein
+
+        -   0,90 tulee 90-persentiili ja 0,5 mediaani
+
+-   na.rm = FALSE, saa tarvittaessa puuttuvat arvot jätettyä huomiotta. Tällöin merkattava TRUE, jolloin poistaa puuttuvat arvot.
+
+-   names = TRUE, näyttää prosentit
+
+-   type =, valitaan tyyppi, toimii ilmankin.
+
+seq()
+
+```{r}
+seq(0,10,3)
+
+#sekvenssi, 1. numero kertoo alkupisteen, toinen loppupisteen ja 3. numero
+#   sen millä välein sekvenssi jatkuu eli numerot lisätään. 
+```
+
+```{r}
+rep(1:4,times =3)
+
+#Repeat a vector ; 1. mitä toistetaan, 2. montako kertaa voi kirjoittaa times =, tai pelkästään numeron toimii molemmilla 
+
+
+rep(1:3, each=5)
+
+#Repeat elements of a vector: 1. mitä toistetaan 2. each =, komennolla toistetaan jokainen elementti haluttu määrä kertoja 
+
+```
+
+list()
+
+```{r}
+l <- list(x = 1:5, y = c('a', 'b'), z = rep(1:4,times =3))
+l
+```
+
+list() funktio tekee annetuista syötteistä listat. Voivat olla erilaisia ja eri mittaisia.
+
+```{r}
+my_list <- list(a = 1, b = 2, c = 3)
+my_list$d <- 4
+my_list
+```
+
+Lisätään listaan uusi alkio @viljamin tyyli
+
+```{r}
+lista <- list(x = 1:5, y = 6:10)
+lista <- c(lista, list(z = 50:55))
+lista
+```
+
+Toinen mahdollinen tyyli lisätä alkio listaan.
+
+### Pylväsdiagrammin piirtäminen
+
+```{r}
+heights_var <- c(150, 160, 170, 180, 190)
+barplot(heights_var)
+```
+
+### Dataframen tallentaminen .csv muotoon
+
+```{r}
+df <- data.frame(name = c("John", "Jane", "Doe"), age = c(23, 25, 28))
+write.csv(df, "new_data.csv")
+```
+
+-   write.csv() komennolla: ekaan väliin tallennettava data, tokaan väliin luotavan tiedoston nimi
+
+-   write.csv() luomassa tiedostossa piste (.) toimii desimaalien erottajana ja pilkku (,) sarakkeiden erottelijana.
+
+-   write.csv2() käyttää suomalaistyyliin pilkkua (,) desimaalierottelijana ja puolipistettä (;) sarakkeiden erottelijana
+
+    -   voi olla hyödyllinen, kun halutaan viedä suomenkieliseen exceliin.
+
+    -   tosin excel kysyy csv. tiedostoa tuotaessa, että millä se erotellaan
+
+<br><br>
+
+## Luento 2
+
+kysy havaintojen lukumäärä
+
+```{r}
+#| eval: false
+nObs <- readline(prompt = "Anna havaintojen lukumäärä: ")
+```
+
+muodosta tyhjä vektori havaintojen arvojen tallentamista varten
+
+```{r}
+#| eval: false
+MyVar <- numeric(nObs)
+```
+
+tee loop, jossa kysytään jokaisen havainnon arvo
+
+```{r}
+#| eval: false
+for (i in 1:nObs) { MyVar[i] <- readline(prompt = paste('Anna havainnon', i, 'arvo: ')) }
+```
+
+talleta arvot datakehikkoon
+
+```{r}
+#| eval: false
+data3 <- data.frame(Kurssipisteet = MyVar)
+
+```
+
+tulosta konsoliin
+
+```{r}
+#| eval: false
+print(data3)
+```
+
+### **2. osan datansyöttötehtävä**
+
+Tehtävänanto:
+
+Tee ohjelma, jolla voit syöttää muuttujalle arvot. Eli ohjelma ensin kysyy käyttäjältä kuinka monta havaintoa talletetaan ja sitten ohjelma kysyy jokaisen havainnon arvon. Ja nämä talletetaan data.frame:en. lopuksi skripti tulostaa datan. palauta R-skripti
+
+Lisähaasteena voit tehdä niin, että ohjelma kysyy kuinka monta muuttujaa talletetaan, ja muuttujien nimet, ja sitten vuorotellen kaikille muuttujille havaintojen arvot. 
+
+Tarpeellisia funktiota voi olla: readline() , esim: readline(prompt = "Anna havaintojen määrä: ") data.frame() , uuden data-kehikon luominen paste() , muuttujien yhdistäminen, esim. paste("Anna havainnon", i, "arvo: ") for-loop, esim. 
+
+for (i in 1:num_obs) {\
+  ....\
+} names(data) , data-kehikon muuttujien nimet print()
+
+Ratkaisu:
+
+```{r}
+#| eval: false
+
+#kysy havaintojen lukumäärä 
+nObs <-as.numeric(readline(prompt = "Anna havaintojen lukumäärä: "))
+
+#kysy muuttujien lukumäärä 
+
+MuutLkm <- as.numeric(readline(prompt = "Anna muuttujien lukumäärä: "))
+
+#muuttujien nimet 
+
+MuutNimet <- character(MuutLkm)
+
+for (i in 1:MuutLkm){
+  
+  MuutNimet[i] <- readline( prompt = paste('Anna muuttujan',i, 'nimi: '))
+  }
+
+#luodaan datafreimi
+
+datafreimi <- data.frame(matrix(nrow = nObs, ncol = MuutLkm,))
+colnames(datafreimi) <- MuutNimet
+
+#lisätään havaintoarvot datafremiin muuttuja kerrallaan
+
+for (i in 1:MuutLkm){ 
+  for (j in 1:nObs){
+    datafreimi[j,i] <- readline(prompt = paste("anna muuttujan", MuutNimet[i], "havainnon", j, "arvo: "))  
+    
+  }
+  
+}
+
+print(datafreimi)
+```
+
+## Funktiot: readline(), paste(), data.frame(), for loop(){}, as.numeric(), numeric(), character(), matrix()
+
+```{r}
+#| eval: false
+nObs <- as.numeric(readline(prompt = "Anna havaintojen lukumäärä: "))
+```
+
+readline()
+
+-   R-kielen komento, jonka avulla ohjelma pysähtyy ja odottaa, että käyttäjä kirjoittaa jotain näppäimistöllä konsoliin.
+
+-   Kun R kohtaa readline()-komennon, se ei jatka koodin suorittamista ennen kuin painat Enter. Kaikki, mitä kirjoitat ennen Enteriä, tallennetaan muuttujaan.
+
+-   Tärkeää muistaa: Se palauttaa aina tekstiä
+
+    -   Tämä on yleisin virhe readline()-funktion kanssa. Vaikka kirjoittaisit numeron (esim. 25), R tallentaa sen tekstinä ("25"), ei lukuna.
+
+    -   Jos haluat käyttää syötettä laskutoimituksissa, sinun täytyy muuttaa se numeroksi as.numeric()-funktiolla:
+
+prompt =
+
+-   On tärkeää huomata, että R-kielessä prompt ei ole itsenäinen "komento" samalla tavalla kuin vaikkapa print(), vaan se on **argumentti** (eli lisäasetus), jota käytetään muiden funktioiden sisällä.
+
+-   Yleisimmin esiintyy readline()-funktion yhteydessä.
+
+-   Prompt tarkoittaa suomeksi **kehotetta**. Sen tehtävä on kertoa käyttäjälle, mitä hänen odotetaan tekevän. Se tulostaa tekstin konsoliin ja jättää kursorin odottamaan käyttäjän kirjoitusta.
+
+    Ilman prompt-asetusta tietokone vain pysähtyisi odottamaan syötettä, ja käyttäjä olisi ihmeissään, miksi mitään ei tapahdu.
+
+as.numeric()
+
+-   muuttaa syötteen tekstista numeeriseksi
+
+-   tämän myötä esimerkiksi laskutoimitukset onnistuvat
+
+```{r}
+numeric(5)
+```
+
+numeric()
+
+-   Luo tyhjän numeerisen vektorin, jonka voi täyttää
+
+-   Sulkuihin voi määritellä montako paikkaa vektoriin tulee
+
+    -   esim. numeric(5) luo vektorin, jossa 5 nollaa eli 5 tyhjää paikkaa täytettäväksi
+    -   voi laittaa myös muuttujan sulkeisiin, jolloin paikkoja tulee muuttujan arvon verran
+
+```{r}
+character(6)
+```
+
+character()
+
+-   Luo tyhjän tekstipohjaisen "vektorin" / listan, jossa ennalta määritelty määrä paikkoja
+
+-   esim character(6) vektorissa 6 paikkaa
+
+-   Sulkuihin voi laittaa myös muuttujan, jolloin paikkojen lukumäärä tulee muuttujan arvon mukaan esim. character(Muuttuja)
+
+```{r}
+#| eval: false
+datafreimi <- data.frame(matrix(nrow = nObs, ncol = MuutLkm,))
+colnames(datafreimi) <- MuutNimet
+```
+
+data.frame()
+
+-   luo dataframen
+
+-   **Sarakkeiden määrä** määräytyy siitä, kuinka monta vektoria annat syötteeksi.
+
+<!-- -->
+
+-   **Rivien määrä** määräytyy annettujen vektorien pituudesta.
+
+```{r}
+ data.frame(Eka = c(3,4,5,2),
+            Toka = seq(2,8,2), 
+            Kolmas = c("Matti", "Jesse", "Katja", "Joni")
+            )
+ 
+```
+
+-   Yllä olevaan frameen laitettiin kolme vektoria, jotka kaikki olivat pituudeltaan 4 alkiota, joten syntyi kolmen sarakkeen ja neljän rivin datafreimi.
+
+-   Sarakkeet pystyy nimeämään luomisvaiheessa (Eka, Toka, Kolmas) tai myöhemmin colnames() funktiolla
+
+```{r}
+df <- data.frame(matrix(nrow = 5, ncol = 5))
+colnames(df) <- c("Ikä", "Pituus", "Paino", "Ekstroversio", "Avoimuus")
+df
+```
+
+-   Halutessaan dataframeen voi valmiiksi määrittää pohjalle tietyn määrän rivejä ja sarakkeita matrix() funktion avulla
+
+<!-- -->
+
+-   matrix(nrow = 5, ncol = 5)
+
+    -   nrow ja ncol määrittävät rivien ja sarakkeiden lukumäärän
+
+-   colnames() funktiolla saa sarakkeiden nimet määritettyä
+
+-   c() komento yhdistää sisällön yhdeksi vektoriksi
+
+paste()
+
+```{r}
+#| eval: false
+print(paste("Hei,", nimi)
+```

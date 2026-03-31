@@ -1,5 +1,0 @@
----
-title: "Osa 3 - Raja-arvolause ja permutaatiotesti"
----
-
-Osan 3 muistiinpanot ja tehtävät.

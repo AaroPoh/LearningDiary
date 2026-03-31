@@ -1,5 +1,0 @@
----
-title: "Osa 1 - Quarto-kirja"
----
-
-R-ohjelmointikielen kurssin ensimmäisen viikon muistiinpanot ja tehtävät.

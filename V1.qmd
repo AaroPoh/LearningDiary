@@ -1,7 +1,0 @@
----
-title: "Kuvaavat tunnusluvut, varianssi ja keskihajonta"
----
-
-![](images/clipboard-209777777.png)
-
-Varianssi on siis keskihajonta korotettuna toiseen.
