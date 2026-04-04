@@ -4,6 +4,112 @@ filters:
   - webr
 ---
 
+## Datan avaaminen 
+
+```{r}
+#| eval: false
+library(readr)
+
+PerceptualLearnData <- read_csv("data/PerceptualLearn/PerceptualLearnData.csv")
+
+View(PerceptualLearnData)
+
+```
+
+-   readr paketista saa csv tiedostojen lukemisen komennot
+
+-   read_csv()
+
+    -   hakee tiedoston
+
+    -   tiedoston täytyy olla projektikansiossa ja mikäli se sijaitsee projektikansion alakansiossa täytyy kirjoittaa koko polku projektikansiosta eteenpäin
+
+        -   Esim. Projektikansiossa alakansio data ja sen alakansio PerceptualLearn, jossa tiedosto sijaitsee
+
+        -   kirjoitetaan "data/PerceptualLearn/PerceptualLearnData.csv"
+
+-   View()
+
+    -   näyttää haetun ja muuttujaan talletetun tiedoston
+
+<br><br>
+
+## Datasetin kuvailu 
+
+aggregate() funktiolla
+
+```{r}
+#| eval: false
+aggregate(Confidence ~ Session, data = PerceptualLearnData, FUN = mean)
+```
+
+-   Voidaan laskea annettusta datasetistä asioita halutulla funktioilla ryhmitellen
+
+-   data = \<- datasetti, josta tiedot haetaan
+
+    -   datasetistä PerceptualLearnData löytyy sarakkeet Confidence ja Session
+
+-   "Confidence" paikalle sarake, jossa on haluttu tieto
+
+-   "Session" paikalle ryhmittelevä muuttuja eli sarake, jonka mukaan tiedot jaetaan ryhmiin
+
+    -   Esimerkissiä oli 3 eri sessiota, jossa mitattiin itseluottamusta
+
+    -   Tuloksena tulee siis 3:n eri session itseluottamusten keskiarvot eriteltynä
+
+-   FUN = \<- funktio, jotka käytetään. Esimerkissä mean() eli keskiarvo
+
+<br>
+
+Havainnollistava esimerkki
+
+```{r}
+R1 <- rnorm(1000,1)
+R2 <- rnorm(1000,3)
+
+data <- data.frame(arvo = c(R1,R2), ryhmä = rep(c(1,2), each=1000))
+
+aggregate(arvo ~ ryhmä, data = data, FUN = mean)
+
+
+```
+
+-   Tässä havainnollistuksen vuoksi laskettiin aggregate funktiolla keskiarvot ryhmille 1 ja 2.
+
+-   R1 keskiarvoksi määritettiin rnorm() funktiolla 1 ja R2 funktiolle 3
+
+-   aggregate() funktiolla saatiin laskettua ryhmitellyt keskiarvot
+
+<br><br>
+
+summary() funktiolla
+
+```{r}
+#| eval: false 
+summary(PerceptualLearnData$Confidence)
+```
+
+-   antaa datasetin minimin, 1. kvartiilin mediaanin, keskiarvon, 3. kvartiilin ja maksimin sarakkeittain
+
+-   voi valita myös vain yhden sarakkeen viittaamalla \$ merkillä
+
+<br><br>
+
+names() funktiolla
+
+```{r}
+R1 <- rnorm(5,0)
+R2 <- rnorm(5,1)
+
+data <- data.frame(arvo = c(R1,R2), ryhmä = rep(c(1,2), each=5))
+
+names(data)
+```
+
+-   palauttaa datasetin sarakkeiden nimet
+
+<br><br>
+
 ## rnorm()
 
 ```{r}

@@ -110,19 +110,19 @@ Quarto kirja
 
 . jokaisesta kappaleesta täytyy olla oma .qmd tiedosto
 
-![](images/clipboard-3663053904.png)
+![](/images/clipboard-3663053904.png)
 
 references.bib
 
 -   tiedostoon voidaan lisätä lähteitä bib text muodossa
 
-![](images/clipboard-1143546947.png)
+![](/images/clipboard-1143546947.png)
 
 -   lähteisiin voidaan viitata \@ merkillä ja nimellä, jolloin ne näkyvät näin:
 
-![](images/clipboard-12089599.png)
+![](/images/clipboard-12089599.png)
 
-![](images/clipboard-486244988.png)
+![](/images/clipboard-486244988.png)
 
 -   yläoikealla olevasta vihreästä c kuvakkeesta voidaan lisätä koodinpätkiä
 
@@ -157,7 +157,7 @@ swirl()
 
 -   Yllä näkyvä swirl paketti on R-kielen opetuspaketti. Sen avulla voi myös opetella kieltä.
 
-![](images/clipboard-4286453426.png)
+![](/images/clipboard-4286453426.png)
 
 -   koodi näkyy kirjassa yllä olevalla tavalla
 

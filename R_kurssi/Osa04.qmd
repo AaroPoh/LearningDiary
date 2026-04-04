@@ -85,3 +85,51 @@ Tässä osassa asiaa luennoista, joissa käsitellään tekoälyn käyttöä ohje
     -   ja pääskripti, jossa tehdään kaikki/tarvittavat vaiheet oikeassa järjestyksessä
 
 @Salmela
+
+<br><br>
+
+## PreProsessointi funktio tehtävä
+
+<br><br>
+
+unlist()
+
+-   muuntaa datan matriisi tai dataframe muodosta takaisin vektoriksi
+
+-   esim.
+
+```{r}
+#| eval: false 
+ numarvot <- as.numeric(unlist(data[ ,1:32]))
+```
+
+-   unlist() komennolla pois kehikkomuodosta ja as.numeric() komennolla varmistetaan, että tallentuu numeerisena
+
+<!-- -->
+
+-   numarvot \<- as.numeric(unlist(data\[ ,1:32\]))
+
+<br> <br>
+
+! huutomerkki tarkoittaa loogista ei operaattoria, && ja if lausekkeessa
+
+-   esim.
+
+    ```{r}
+    #| eval: false 
+
+    if (!is.null(r_variables) && length(r_variables) > 0)
+
+    ```
+
+-   huutomerkki tarkoittaa komennossa !is.null(), sitä että kun r_variables muuttuja ei ole tyhjä niin ehto täyttyy –\> ts. is not null
+
+-   && merkki tarkoittaa JA eli sitä, että molempien ehtojen täytyy täyttyä, jotta if lausekkeen ehdot toteutuvat
+
+    -   kahta && merkkiä käytetään lähinnä if lausekkeissa, muualla yhtä & merkki
+
+-   Tai puolestaan merkitään \| pystyviivalla, if lausekkeessa kannattaa käyttää kahta \|\| ja muualla yksi \| riittää
+
+    -   eli merkitsee if lausekkeessa sitä, että jomman kumman ehdon täyttyminen riittää
+
+<br><br>
