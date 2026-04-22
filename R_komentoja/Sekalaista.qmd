@@ -83,7 +83,7 @@ mean(aineisto)
 
 <br><br><br>
 
-## \| ja & merkit 
+## \| ja & merkit
 
 \| merkki tarkoittaa tai
 

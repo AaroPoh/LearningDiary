@@ -4,7 +4,7 @@ filters:
   - webr
 ---
 
-## Datan avaaminen 
+## Datan avaaminen
 
 ```{r}
 #| eval: false
@@ -34,7 +34,7 @@ View(PerceptualLearnData)
 
 <br><br>
 
-## Datasetin kuvailu 
+## Datasetin kuvailu
 
 aggregate() funktiolla
 
@@ -392,3 +392,16 @@ Kun kirjoittaa file.path() funktioon esimerkin mukaisesti R rakentaa sen näin:
 4.  Lisää erottimen / jne.
 
 -   Eli file.path() funktiolla saa tiedostopolun helposti talteen ilman virheitä ja kenoviivojen kanssa sähläämistä
+
+## Tiedostojen hakeminen ylä- tai alakansioista
+
+..
+
+-   kaksi pistettä tiedostonimessä tarkoittaa, että siirrytään yksi kansiotaso ylöspäin
+
+```{r}
+#| eval: false 
+data <- read_csv("../data/PerceptualLearnData.csv")
+```
+
+-   esimerkissä skripti on pääkansion alakansiossa ja haluttiin siirtyä yläkansioon ja sieltä toiseen alakansioon nimeltä data, jossa PerceptualLearnData.csv sijaitsee.

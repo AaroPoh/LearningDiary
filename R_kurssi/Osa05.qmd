@@ -1,0 +1,862 @@
+---
+title: "Osa5 - Versionhallinta, Anova ja Regressio"
+---
+
+Tässä osassa kahden luennon muistiinpanot.
+
+<br><br>
+
+## Luento 09.04: Versionhallinta, organisointi, kommentointi
+
+### Versionhallinta
+
+-   dokumentoidaan skripitien versiot ja niihin tehdyt muutokset, hyötyjä:
+
+-   helpottaa yhdessä työskentelyä
+
+-   virheen tullessa voi palata edelliseen versioon
+
+-   jos tulee yhteensopivuusongelma toisen ohjelman tai paketin kanssa voidaan käyttää aiempaa versiota
+
+<br>
+
+Git, Gitlab, Github
+
+-   skriptit kopioituna pilvessä
+
+-   pull -\> ladataan uusin versio pilvestä
+
+-   push -\>päivitetään muutokset pilveen
+
+-   HY:llä käytössä gitLab
+
+<br>
+
+Skriptien ja datojen organisointi
+
+-   Skriptit, data, kuvat yms omissa kansioissaan
+
+-   Nimetkää järkevästi/erottuvasti
+
+-   ÄLÄ koske Rstudion tai Quarton automaattisesti tekemiin tiedostoihin.
+
+-   eivät ole turhia!
+
+-   Poistamalla tai siirtämällä saattaa aiheuttaa vahinkoa
+
+-   Ajan mittaan kertyy paljon skriptejä, dataa ja kuvia yms. joten järkevää järjestellä, jotta löytyy helposti jatkossa
+
+<br>
+
+Skriptien kommentointi
+
+-   Kirjoita kuvaus mitä tekee, miten toimii, mitä haluaa inputiksi, mitä tuottaa
+
+-   jokaisen rivin / osan alkuun kuvaus mitä tekee
+
+<br>
+
+Skriptien parantelu AI:n avulla
+
+-   AI:tä voi pyytää tekemään kommentoinnit ja kuvaukset
+
+-   Voi myös pyytää tehostamaan koodia
+
+-   Skriptistä funktio, itse tai AI:n avulla
+
+-   yhteen tehtävään spesifi skripti vs. yleisesti toimiva funktio
+
+    -   jos samantyyppistä pitää toistaa niin funktio on kätevä
+
+    -   tai skripti, jota voi muutamalla muutoksella soveltaa uuteen aineistoon
+
+-   Tekoälyä voi myös pyytää tekemään promptin, jolla voi generoida skriptin
+
+Klusterointi
+
+-   Klusterianalyysi, cluster analysis
+
+-   kmeans() funktio
+
+-   ok myös miettiä itse perusteet klusteroinnille
+
+@Salmela
+
+<br><br>
+
+## Luento 16.04: Anova & Regressio
+
+<br>
+
+### Tilastotestit
+
+Mallin valinta
+
+-   yleensä useita muuttujia -\> lineaarinen regressio / lineaarinen sekamalli
+
+-   kokeellisessa tutkimuksessa perinteisesti ANOVA / toistomittausANOVA
+
+-   Korrelaatiomatriisi, jos paljon jatkuvia muuttujia
+
+-   T-testi, jos ensin tehty jokin mallinnus tms.
+
+-   esim. kontrolloitu muut vaikuttavat muuttujat, häiriömuuttujat
+
+-   Mallin / mallien rakentaminen
+
+-   Päävaikutukset
+
+-   Interaktiot
+
+-   Satunnaisvaikutukset
+
+```         
+-   astetta monimutkaisempi
+```
+
+-   jos lineaarinen sekamalli, lniear mixed effects model
+
+-   Linkki -funktio ja residuaalien jakauma
+
+    -   vielä astetta monimutkaisempi
+
+-   jos yleistetty lineaarinen malli, generalized linear model
+
+```         
+-   dentity, log, logit …. normal, gamma, poisson
+```
+
+-   linkkifunktiot vasta maisterivaiheessa
+
+<br>
+
+Yksi vai useampi malli?
+
+-   Esim mediaation testaaminen
+
+-   Lähtökohtaisesti yksinkertaisempi malli on parempi, monimutkaiset eivät välttämättä konvegoidu
+
+-   Muuttujien ja mallin rakentaminen teorian pohjalta
+
+<br>
+
+Mallien sovitus
+
+-   likelihood
+
+-   REML (restricted maximum likelihood)
+
+<br>
+
+Mallien vertailu
+
+-   malli vs. nolla-malli
+
+-   monta mallia, selitysosuus / AIC
+
+<br>
+
+### 1-suuntainen anova
+
+-   Testataan keskiarvoeroja silloin kun ryhmiä on enemmän kuin 2 ja voidaan ottaa huomioon muitakin muuttujia
+
+-   Varianssi aineistossa voi aiheutua
+
+    -   Ryhmien välisestä vaihtelusta
+
+    -   Ryhmien sisäisestä vaihtelusta
+
+<br>
+
+Varianssien suhde
+
+-   Anovassa verrataan ryhmien välistä vaihtelua ryhmien sisäiseen vaihteluun
+
+-   F = MSbetween / MSwithin
+
+-   Testataan F-testillä
+
+-   Anova taulukko
+
+    -   SS = sum of squares = neliösumma
+
+    -   MS = Mean squares = keskineliö = varianssi
+
+    -   df = degrees of freedom
+
+    -   F-arvo = anovan testisuure
+
+    -   i = henkilö
+
+    -   yms tsekkaa kaavat ja opetttele laskemaan
+
+<br>
+
+### Faktoriaalinen anova
+
+-   2 tai useampia faktoreita
+
+    -   jokaisella 2 tai useampia tasoja (level)
+
+    -   mitataan kaikki kombinaatiot
+
+-   Puretaan vaihtelu / varianssi osiin:
+
+-   Kokonaisneliösumma koostuu
+
+    -   Faktorin A (ikä) neliösumma
+
+        -   rivit
+
+    -   Faktori B (ryhmä) neliösumma
+
+        -   Sarakkeet
+
+<br>
+
+### Useampisuuntainen anova
+
+-   3 suuntaisessa 3 päävaikutusta
+
+    -   3 kaksisuuntaista interaktiota
+
+    -   yksi kolmesuuntainen interaktio
+
+<br>
+
+### ANCOVA
+
+-   kun halutaan ottaa jatkuvia muuttujia mukaan
+
+-   kovariaatiksi jokin jatkuva muuttuja
+
+-   Esim ikää tutkittaessa voidaan pitää se kategorisena tai jatkuvana
+
+    -   Ikä kategorisena
+
+        -   2 suuntainen anova, ikä faktoriksi, interaktio mukaan
+
+    -   Ikä jatkuvana
+
+<br>
+
+### ANOVAN oletukset
+
+-   Varianssit ovat saman suuruisia eli homogeenisiä
+
+-   Aineisto on normaalijakautunuttta
+
+-   virhevarianssi on normaalijakutunut
+
+```         
+-   QQ plot
+```
+
+-   Anova suht robusti
+
+-   Sfäärisyys oletus
+
+```         
+-   jos toistomittaus niin eri tasoilla sama varianssi
+
+-    Mauchlys sphericity test
+
+-   Jos sfäärisyys oletus rikkoutuu, tehdään Greenhouse Geisser korjaus vapausasteitiin ja niiden kautta myös p-arvoon
+```
+
+<br>
+
+### ToistomittausANOVA
+
+-   usein kaikki koehenkilöt mittaavat monta tilannetta
+
+-   Anovan solut eivät enää toisistaan riippumattomia
+
+-   Toistomittaus-analyysi
+
+```         
+-   Otetaan huomioon, että sama kohenkilö tekee monta tilannetta
+
+-    tilastollinen voima parempi
+
+-   varianssi vähenee, koska sama henkilö tekee useita tehtäviä
+
+-   otetaan huomioon yksilölliset vaihtelut tiltateiden yli
+```
+
+<br>
+
+R:llä suuri määrä eri paketteja Anovan tekemiseen
+
+Nekliösumman tyyppi
+
+-   Tyypin 1 neliösumma
+
+    -   R-studio käyttää tätä oletuksena
+
+    -   järjestyksellä on väliä
+
+-   Tyypin 2 neliösuma
+
+    -   interaktio jätetään huomiomatta
+
+-   Tyypin 3 neliösumma
+
+    -   Tätä käytetään useimmiten tutkimuksessa
+
+    -   otetaan huomioon kaikki efektit
+
+    -   järjestyksellä ei väliä ja interaktio otetaan huomioon
+
+    -   kaikki efektit kontrolloituna
+
+    -   car paketti
+
+    -   Anova(res, type=3)
+
+<br>
+
+### Puuttuvat arvot Anovassa
+
+-   jos yksikin arvo puuttuu anovassa koko koehenkilö hylätään
+
+-- pyri varmistamaan, että kaikilta koehenkilöiltä saadaan kaikki mittaukset
+
+-   jos yksittäinen arvo puuttuu voi korvata / imputioida keskiarvolla
+
+-   imputointi = puuttuvien arvojen korvaaminen
+
+-   jos enemmän puuttuvia arvoja voi kokeilla MICE alogoritmia
+
+    -   multiple imputation by chained equations
+
+-   Paras tapa: käytä lineaarista sekamallia, se sallii puuttuvat arvot
+
+    -   automaattisesti sallii puuttuvat arvot
+
+<br>
+
+### Post Hoc testit ja kontrastit
+
+-   Anovan jälkeen parittaiset vertailut -\> post hoc t- testit
+
+-   P-arvojen korjaus & efektikoko
+
+```         
+-   Tukey, Bonferroni, Holm, jne.
+```
+
+-   Tai kontrastit (painotetut neliösummat)
+
+    -    Usein etukäteen (a priori) tideossa mikä efekti kiinnostaa
+
+    -   Testataan vain se -\> enemmän tilastollista voimaa, koska vähemmän vertailuja
+
+-   Voi olla lineaaeisia tai quadraattisia tai jotakin muuta
+
+<br>
+
+### Anova vs GLM
+
+-   GLM = yleistetty lineaarinen malli
+
+-   voi olla mikä tahansa linkkijakauma, mikä tahansa aineisto
+
+-   Lineaarinen malli GLM:n erityistapaus, jossa oletetaan, että yhteys on lineaarinen
+
+-   Anova on lineaarisen regression erityistapaus
+
+-   usein voi tehdä anovan sijaan regression ja saa identtisen tuloksen
+
+-   Joskus anova on tulkinnallisesti helpompi ymmärtää
+
+<br>
+
+### Mallit Anova & lineaarinen regressio
+
+-   Mallien sovitus dataan
+
+    -   Anova
+
+    ```         
+    -   aov()
+    ```
+
+    -   regressio
+
+        -   lm()
+
+    -   lineaarinen sekamalli
+
+        -   lmer()
+
+<br>
+
+-   Mallien tarkastelu
+
+    -   summary()
+
+    -   anova()
+
+    -   library(car)
+
+    -   car::Anova(res, type=3)
+
+    -   car paketin anovassa voi päättää sen tyypin, tyyppi 3 paras
+
+<br>
+
+-   Mallin rakentaminen
+
+    -   vainpäävaikutukset
+
+-   F arvo on t-arvo toiseen (F = t\^2)
+
+-   plot() funktiolla voi piirtää sitä sun tätä
+
+-   emmeans paketilla posthoc testit
+
+    -   emmeans()
+
+-   sjstats paketilla efektikoko
+
+    -   anova_stats()
+
+<!-- -->
+
+-   :: kaksoispiste notaatio tarkoittaa, että haetaan tietystä paketista tietty funktio
+
+    -   esim. sjstats::anova_stats
+
+    -   sjtats paketista haetaan funktio anova_stats
+
+@Salmela
+
+<br><br>
+
+## Toistettava ja avoin tiede (luentovideo)
+
+-   OSF = Open Science Framework
+
+    -   <https://osf.io>
+
+    -   yksi paikka johon julkaistaan tutkimusten skriptejä ja dataa
+
+-   BIDS = Brain Imaging Data Structure
+
+    -   tietty tyyli, jolla dataa järjestellään neurotutkimuksessa
+
+        -   Kansioidaan kuvat
+
+            -   anat
+
+            -   fmap
+
+            -   func
+
+-   OpenNeuro
+
+    -   <https://openneuro.org>
+
+    -   Avoin tietokanta, josta löytyy neurokuvantamisen dataa
+
+@Salmela
+
+<br><br>
+
+## Erilaisia aineistoja ja niiden erityispiirteitä (luentovideo)
+
+-   Aineiston esikäsittely iso-osa tutkimustyötä ja tilastollista päättelyä
+
+-   Kyselyaineisto
+
+    -   yleensä vain numeerista tai kategorista
+
+    -   siivous helppoa
+
+-   Kokeellinen tutkimus
+
+    -   Useampia trialeita eli koekertoja –\> kymmeniä / satoja vastauksia
+
+        -   Ei kannata ottaa kaikkea tilastotaulukkoon, vaan pitää preprosessoida
+
+    -   Saattaa mennä niin monimutkaiseksi ettei onnistu pelkästään R-studiolla, vaan vaatii erityisohjelmia
+
+        -   Esim. EEG kokeissa, fMRI kokeissa, geenitesteissä yms.
+
+-   Tekstiaineistot
+
+    -   Haastattelu
+
+        -   litterointi tekstiksi
+
+        -   laadullinen analyysi ja luokittelu tai sisältöanalyysi
+
+    -   Tekstitietokannat / corpus
+
+    -   R-studioon löytyy paketteja
+
+        -   <https://content-analysis-with-r.com>
+
+-   Internet / Some / keskustelupalstat
+
+    -   Nykyään yleinen tapa kerätä aineistoa
+
+    -   vaatii myös eettisen ennakkoarvioinnin
+
+        -   ei voi vain suoraan vapautuneesti käyttää
+
+-   Pelit / sovellukset
+
+    -   Peliyhtiöt keräävät ja analysoivat
+
+        -   käyttäjien vastaukset / reagoinnit, käyttöaika yms.
+
+    -   Samoin muut sovelluskehittäjät
+
+        -   Organisaation käyttämä oma sovellus / ohjelma
+
+            -   Esim. teams, kalenteri yms.
+
+@Salmela
+
+<br><br>
+
+## Replicate funktio for-loopin sijaan (luentovideo)
+
+Skriptien tehokkuus ja selkeys
+
+-   videolla korvattiin for-looppi replicate funktiolla permutaatiotesti-skriptissä
+
+-   Ihmettelin, että miksi p-arvo lasketaan Viljamin skriptissä mean() funktiolla
+
+    -   p -arvo laskettiin videolla seuraavalla koodilla, jossa CorrelationsPermuted muuttuja sisältää vektorin, johon on tallennettu permutaatioiden korrelaatiot ja Correlation muuttuja sisältää alkuperäisen kahden ryhmän korrelaation
+
+        ```{r}
+        #| eval: false 
+
+        pval <- mean(CorrelationsPermuted>=Correlation)
+
+        ```
+
+        -   Jos mean() funktion sisään asettaa loogisen ehdon niin se ei laskekaan annettujen numerojen keskiarvoa, vaan sen kuinka suuri osuus tapauksista täyttää ehdon
+
+            -   Esimerkiksi alla funktio laskee, että luvuista 1-10 50 % ovat yli 5.
+
+                ```{r}
+
+                mean(1:10>5)
+                ```
+
+        <br>
+
+    -   Eli koodi mean(CorrelationsPermuted\>=Correlation) laskee kuinka suuri osuus permutoiduista korrelaatiosta on suurempia tai yhtäsuuria kuin alkuperäinen mitattu korrelaatio.
+
+        <br>
+
+    -   Se toimii laskee siis saman kuin koodinpätkä, jota käytin omassa permutaatiotestissäni
+
+        ```{r}
+        #| eval: false 
+        p_arvo <- sum(abs(PermDiffs) >= abs (ogcor)) / Npermutations
+        ```
+
+        -   Kun summafunktiolle sum() annetaan looginen ehto se laskee yhteen kuinka monta kertaa ehto täyttyy.
+
+            -   Esimerkiksi alla sum() funktio laskee, että ehto täyttyy 5 kertaa
+
+                ```{r}
+                sum(1:10>5)
+                ```
+
+<br><br>
+
+## Skriptistä funktio (luentovideo)
+
+-   funktio luodaan function() funktiolla
+
+-   Funktion sisältävää skriptiä kutsutaan source() komennolla
+
+    -   source() komennon jälkeen funktiota voidaan käyttää normaalisti
+
+@Salmela
+
+<br><br>
+
+## Skriptien ja funktioiden kuvaus (luentovideo)
+
+-   On hyvä tapa kommentoida ja kuvata selvästi tekemiään funktioita
+
+-   Heti skriptin alkuun kannattaa kirjata otsikko, kuvaus, argumentit ja käyttö
+
+-   Yksi tyyli selkeyttää otsikkoa on laittaa risuaitoja sen ympärille
+
+    ```{r}
+    #| eval: false 
+
+    #########################
+    # Otsikko 
+    #########################
+
+    # KUVAUS 
+    # tämä funktio tekee sitä ja tätä 
+
+    # ARGUMENTIT 
+    # mitä argumetteja funktiolle voi antaa 
+
+    # KÄYTTÖ 
+    # miten skriptiä käytetään 
+
+    # TULOSTE
+    # mitä skripti tulostaa 
+
+    # Kuka tehnyt ja milloin viimeiseksi muokattu 
+    ```
+
+## Matikka-aineiston käsittelytehtävä 
+
+Tehtävänanto:
+
+> Tutkimusavustajan tehtävät jatkuvat. Matikkatutkimuksen aineisto on kerätty ja oppilaiden täyttämät vastauslomakkeet digitoitu. Ohessa zip-tiedosto, jossa aineisto. Ohessa myös tiedot tehtävistä (tehtävän vaikeustaso, 1=helppo, 2=vaikea; oikea vastaus a-d). Tee 3 skriptiä. Yksi, joka koostaa yksittäiset tekstitiedostot data-kehikoksi, eli poimii tiedot erillisistä tiedostoista. Sitten yhdistä nämä kaksi data-kehikkoa (poimitut datat ja taustatiedot) ID:n perusteella, ja koostaa tiedoista tarvittavat muuttujat (ensin tarkistaa mitkä tehtävät oikein, sitten laskee %-oikein keskiarvon). Toinen skripti, joka tekee aineistolle ANOVAn (koulun x luokka x sukupuoli vaikutus %-oikein) ja raportoi sen tulokset ymmärrettävässä muodossa taulukoin/sanallisesti. eli kirjoita muutamalla lauseella löytyikö merkitseviä tuloksia ja mikä tuloksen aiheutti. Kolmas skripti, joka visualisoi tulokset (keskimääriin %-oikein +/- 95% luottamusvälit, koulu x luokka x sukupuoli).
+>
+> **Huom! Tehtävällä vastausaikaa 27.4. asti.** Tehtävä kuuluu osiin 5 ja 6. Voi olla haastava tehtävä. Skripti 1, datan koostaminen yhteen usein hankalaa. Skripti 2, anova, yritä löytää merkitsevät efektit ja keksiä mistä syntyvät (kontrastit, parittaiset vertailut). Skripti 3, piirrä siistit kuvat tuloksista.
+>
+> palauta 3 skirptiä ja tuloskuvat pdf.nä
+
+Materiaalit:
+
+```{r}
+#| eval: false 
+
+
+Taustatiedot csv:  "data/MatikkaAineistonKasittelyTehtava/DataTaustaTiedot.csv"
+Oppilaiden vastauksien tekstitiedostot: "data/MatikkaAineistonKasittelyTehtava/MatikkaLomakkeet.zip"
+
+```
+
+Vastaus:
+
+### Skripti 1 
+
+```{r}
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+#| eval: false 
+
+#####################################
+# Matikka-aineiston preprosessointi
+#####################################
+
+
+
+
+library(readr) 
+library(tidyverse)
+library(dplyr)
+
+# Puretaan tiedostot väliaikaiseen kansioon
+zip_polku <- "data/MatikkaAineistonKasittely.zip"
+purku_kansio <- "data/MatikkaLomakkeet2"
+# unzip() funktiolla saa zip tiedoston purettua haluaamaansa kansioon 
+unzip(zip_polku, exdir = purku_kansio)
+
+# luetaan read.csv() funktiolla taustatiedot csv tiedosto ja talletetaan se Tausta muuttujaan 
+Tausta <- read.csv("data/MatikkaLomakkeet2/MatikkaAineistonKasittely/DataTaustaTiedot.csv")
+
+
+
+# Haetaan lista kaikista tekstitiedostoista 
+tiedostot <- list.files(purku_kansio, pattern = "\\.txt$", full.names = TRUE, recursive = TRUE)
+
+# Luodaan funktio, joka lukee yhden tiedoston ja poimii tarvittavat tiedot
+lue_oppilas <- function(polku) {
+  # Luetaan tiedoston sisältö (oletetaan, että tiedot ovat riveillä tai sarakkeissa)
+  # Jos ID on esimerkiksi ensimmäisellä rivillä ja vastaukset sen alla:
+  sisalto <- readLines(polku)
+  
+  # ID on rivillä 5, sukupuoli rivillä 7 ja tehtävien vastaukset riveillä 11, 13, 15, ... , 29
+  oppilas_id <- sisalto[5] 
+  sukupuoli <- sisalto[7]
+  vastaukset <- sisalto[seq(11,29, by = 2)]
+  
+  # Luodaan yhden rivin data frame
+  res <- data.frame(
+    ID = oppilas_id,
+    T1 = vastaukset[1], T2 = vastaukset[2], T3 = vastaukset[3], T4 = vastaukset[4],
+    T5 = vastaukset[5], T6 = vastaukset[6], T7 = vastaukset[7], T8 = vastaukset[8],
+    T9 = vastaukset[9], T10 = vastaukset[10], Sukupuoli = sukupuoli, 
+    stringsAsFactors = FALSE
+  )
+  return(res)
+}
+# Suoritetaan lukeminen kaikille 8400 tiedostolle lapply funktiolla 
+# Tämä palauttaa listan, jossa on 8400 pientä data framea
+lista_tuloksista <- lapply(tiedostot, lue_oppilas)
+
+# Yhdistetään lista yhdeksi suureksi data frameksi kaikki_data 
+kaikki_data <- do.call(rbind, lista_tuloksista)
+
+
+
+# 1. Poistetaan teksti "ID: " ja kaikki välilyönnit
+# "" tarkoittaa, että korvataan löydetty teksti "tyhjällä"
+kaikki_data$ID <- gsub("ID: ", "", kaikki_data$ID)
+# Varmuuden vuoksi poistetaan mahdolliset reunavälilyönnit trimws() funktiolla 
+kaikki_data$ID <- trimws(kaikki_data$ID) 
+
+# 2. Varmistetaan vielä, että Tausta framen ID on samassa muodossa (pelkkä numero tekstinä) ilman välilyöntejä 
+Tausta$ID <- as.character(IdJaOikeat$ID)
+Tausta$ID <- trimws(IdJaOikeat$ID)
+
+
+# Poistetaan tekstit kaikista vastaussarakkeista, jotta pystytään vertailemaan niitä oikeiden vastausten kanssa 
+sarakkeet <- c("T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "Sukupuoli")
+
+# lapply ajaa gsub-komennon jokaiselle listatulle sarakkeelle ja poistaa sieltä turhan tekstin 
+kaikki_data[sarakkeet] <- lapply(kaikki_data[sarakkeet], function(x) gsub(".*: ", "", x))
+
+
+
+
+# Yhdistetään Tausta ja kaikki_data yhdeksi dataframeksi siten, että se jaottelee ne ID:n mukaan 
+yhdistetty_data <- left_join(kaikki_data, Tausta, by = "ID")
+
+
+# poistetaan tyhjät välilyönnit ID:n lisäksi koko muustakin datasetistä trimws() funktiolla 
+yhdistetty_data[, 2:35] <- lapply(yhdistetty_data[, 2:35], trimws)
+
+# Luodaan uusi sarake 'Pisteet', joka laskee oikeat vastaukset per rivi
+# Vertaa sarakkeita T1-T10 (2:11) sarakkeisiin Oikea1-Oikea10 (26:35)
+yhdistetty_data$Pisteet <- rowSums(yhdistetty_data[, 2:11] == yhdistetty_data[, 26:35])
+
+# Lasketaan onnistumisprosentti (koska tehtäviä on 10)
+yhdistetty_data$Pisteet_Prt <- (yhdistetty_data$Pisteet / 10) * 100
+
+# Katsotaan tulos
+head(yhdistetty_data[, c("ID", "Pisteet", "Pisteet_Prt")])
+
+head(yhdistetty_data)
+
+mean(yhdistetty_data[ ,2:11] == yhdistetty_data[26:35])
+
+
+```
+
+-   unzip()
+
+    -   unzip(zip_polku, exdir = purku_kansio)
+
+    -   purkaa pakatun tiedoston haluttuun kansioon
+
+    -   ekaan argumenttiin tulee purettava tiedosto ja exdir= argumenttiin kansio, johon tiedosto puretaan
+
+    -   read.csv()
+
+        -   lukee .csv tiedoston ja sen voi tallettaa muuttujaan
+
+-   list.files()
+
+    -   tiedostot \<- list.files(purku_kansio, pattern = "\\\\.txt\$", full.names = TRUE, recursive = TRUE)
+
+    -   listaa annetun kansion sisältämät tiedostot, jos ajaa ilman määrityksiä niin listaa kaikki projektikansion sisältämät tiedostot
+
+    -   Olennaisia argumenttejä @gemini
+
+        > path: Mistä kansiosta etsitään? (Esim. path = "data/lomakkeet")
+        >
+        > pattern: Millaisia tiedostoja etsitään? Tämä käyttää säännöllisiä lausekkeita (regex).
+        >
+        > -   Esim. pattern = "\\\\.txt\$" etsii vain .txt-päätteisiä tiedostoja.
+        >
+        > full.names = TRUE: Tämä on kriittinen!
+        >
+        > -   Jos tämä on FALSE (oletus), saat vain tiedoston nimen (esim. "lomake1.txt").
+        >
+        > -   Jos tämä on TRUE, saat koko polun ("data/lomakkeet/lomake1.txt"), jolloin voit antaa polun suoraan funktioille kuten readLines() tai read.csv().
+        >
+        > recursive = TRUE: Jos kansiosi sisällä on alikansioita, tämä asetus käskee R:n "sukeltamaan" myös niihin ja hakemaan tiedostot kaikilta tasoilta.
+
+<br>
+
+-   regex lausekkeet
+
+    -   lyhenne sanoista regular expressions eli yleiset ilmaisut
+
+    -   tietynlainen hakukieli
+
+    -   Voi etsiä, poimia tai korvata tekstiä sen avulla
+
+    -   tiedostot \<- list.files(purku_kansio, pattern = "\\.txt\$", full.names = TRUE, recursive = TRUE)
+
+        -   "\\\\.txt\$"
+
+            -   \\ –\> (Escape-merkki): Kun laitat pisteen eteen kenoviivan \\., "kumoat" pisteen erikoistarkoituksen. Kerrot tietokoneelle: "Tarkoitan ihan oikeaa, tavallista pistettä".
+
+            -   \\\\ –\> Koodissa on kaksi kenoviivaa, koska R vaatii yhden kenoviivan "suojellakseen" toista kenoviivaa, joka taas suojelee pistettä.
+
+            -   \$ -\> dollarimerkki tarkoittaa rivin loppua eli list.files() etsii vain tiedostoja, jotka päättyvät .txt
+
+            -   saman voi tehdä ilman regex logiikkaa lisäämällä fixed = TRUE argumentin
+
+            ```{r}
+            #| eval: false 
+            # Tämä etsii kirjaimia ".txt" ilman regex-logiikkaa
+            list.files(pattern = ".txt", fixed = TRUE)
+            ```
+
+|  |  |  |
+|----|----|----|
+| **Merkki** | **Merkitys** | **Esimerkki** |
+| **`.`** | Mikä tahansa yksittäinen merkki (paitsi rivinvaihto). | `k.t` löytää "kat", "kot", "k-t". |
+| **`^`** | Rivin alku. | `^Moi` löytää vain rivit, jotka alkavat sanalla "Moi". |
+| **`$`** | Rivin loppu. | `loppu$` löytää vain rivit, jotka päättyvät sanaan "loppu". |
+| **`*`** | Edellinen merkki toistuu 0 tai useita kertoja. | `ab*` löytää "a", "ab", "abbb". |
+| **`+`** | Edellinen merkki toistuu 1 tai useita kertoja. | `ab+` löytää "ab", "abbb", mutta ei "a". |
+| **`[ ]`** | Merkkiperhe: mikä tahansa sulkujen sisällä oleva merkki. | `[abc]` löytää a:n, b:n tai c:n. |
+| **`\\d`** | Mikä tahansa numero (R-kielessä tarvitaan kaksi kenoviivaa). | `\\d+` löytää luvun, kuten "123". |
+
+**Taulukko 5.1.** *Regexin perusaakkosia. Taulukko on @gemini :n tekemä.*
+
+<br>
+
+-   readLines()
+
+    -   sisalto \<- readLines()
+
+        -   lukee annetun tekstitiedoston ja tallentaa sen riveittäin vektoriksi. Eli rivi 1 tallentuu omaksi alkioksi ja rivi 2 omakseen jne. Sitten voi hakea muuttujasta indeksin mukaan halutun rivin. Esim. sisalto\[3\] palauttaa tekstitiedoston kolmannella rivillä olleen tekstin.
+
+<br>
+
+-   lapply()
+
+    -   lista_tuloksista \<- lapply(tiedostot, lue_oppilas)
+
+        -   lapply() funktio ottaa ensimmäiseen argumenttiin annetun listan (tiedostot) ja suorittaa sille toiseen argumenttiin laitetun funktion (lue_oppilas) jokaiselle listan alkiolle.
+
+        -   palauttaa listan, jossa on funktion tulokset
+
+        -   apply() funktioperheen jäsen, jonka erikoisominaisuus on, että käsittelee listoja ja palauttaa aina listan
+
+<br>
+
+-   do.call()
+
+    -   kutsuu tiettyä funktiota
+
+    -   kokoaa annetun aineiston. Eli esimerkiksi ottaa listan ja asettaa sen kerralla yhdelle funktiolle. @gemini kuvasi näin: "do.call() ei itse osaa toistaa asioita tai käydä läpi listoja rivi riviltä. Sen sijaan se osaa ottaa kasan laatikoita ja antaa ne kaikki kerralla yhdelle funktiolle"
+
+    -   kaikki_data \<- do.call(rbind, lista_tuloksista)
+
+        -   tässä do.call funktio syöttää rbind funktiolle kerralla koko lista_tuloksista listan
+
+        -   rbind()
+
+            -   lyhenne sanoista rowbind
+
+            -   Liittää annetun aineiston rivit yhteen
+
+            -   2 vaatimusta, että toimii
+
+                -   Annettujen taulukoiden sarakkeet täytyy olla nimetty samalla tavalla
+
+                -   Sarakkeita täytyy olla yhtä monta

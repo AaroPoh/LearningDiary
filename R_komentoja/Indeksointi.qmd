@@ -122,6 +122,31 @@ subset(data, ehto)
 
 -   ehto kohtaan ehto, jonka mukaan osajoukko määritellään.
 
+<br>
+
+**%in%** operaattori
+
+-   "kuuluu joukkoon" operaattori
+
+-   tarkistaa löytyykö annetusta aineistosta arvot ja palauttaa ne TRUE ja FALSE arvoina
+
+```{r}
+#| eval: false
+vaikeimmat <- oikeinbydiagnoosi$SelectedDiag[oikeinbydiagnoosi$Correct < 0.6884807]
+
+vaikeat <- subset(PerceptualLearnData, SelectedDiag %in% vaikeimmat)
+
+aggregate(Correct ~ Session, data = vaikeat, FUN = mean)
+```
+
+-   koodi tarkistaa PerceptualLearnData datasetin sarakkeen SelectedDiag sisältä mitkä kaikki ovat vastaavia kuin vaikeimmat muuttujaan määritellyt arvot. Sitten subset funktio tallettaa uuden datasetin, jossa SelectedDiag sarakkeessa on vain vaikeimmat ehdon täyttäneet arvot.
+
+<br>
+
+Ei kuulu joukkoon eli !%in%
+
+-   huutomerkillä (!) eli looogisella ei operaattorilla voi muuntaa kuuluu joukkoon operaattorista %in% ei kuulu joukkoon operaattorin !%in%
+
 <br><br>
 
 ## Kaksiulotteinen indeksi
@@ -131,3 +156,17 @@ Indeksointi sana tulee siitä, että jokaisella tiedonpalasella on oma "osoittee
 -   Yksiulotteisessa datassa vain yksi indeksi: data\[rivi\].
 
 -   Kaksiulotteisessa datassa (kuten taulukko tai data.frame) on kaksi indeksiä: data\[rivi, sarake\]
+
+<br>
+
+## Yhdet vs. kahdet hakasulkeet
+
+Yksinkertaiset hakasulkeet \[\]
+
+-   Yksittäiset sulkeet palauttavat aina saman tyyppisen olion kuin alkuperäinen on, mutta pienempänä. Jos leikkaat palan listasta, saat **pienemmän listan**.
+
+    -   Tulos: Alilista (sub-list).
+
+Tuplahakasulkeet \[\[\]\] (Sisältö)
+
+-   Tuplahakasulkeet "murtavat" rakenteen ja hakevat sieltä pelkän sisällön.

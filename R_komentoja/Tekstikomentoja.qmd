@@ -15,7 +15,7 @@ writeLines(teksti, "matikkatehtavat.txt")
 
 ```
 
--   Jokainen vektorin alkio menee writeLines() funktiolla tallennettuun tiedostoon omalle riville
+-   Jokainen vektorin alkio menee **writeLines()** funktiolla tallennettuun tiedostoon omalle riville
 
     -   eli pilkulla erottamalla saa tehtyä rivinvaihdon
 
@@ -37,9 +37,9 @@ print(paste0)
 
 -   paste funktiolla saa siis yhdistettyä useita tekstijonoja yhdeksi tekstijonoksi
 
-    -   paste() laittaa oletksena välilyönnin joukkojen väliin
+    -   **paste()** laittaa oletksena välilyönnin joukkojen väliin
 
-    -   paste0() ei laita välilyöntiä väleihin
+    -   **paste0()** ei laita välilyöntiä väleihin
 
     -   
 
@@ -55,3 +55,171 @@ for (i in 1:7) {
   file.rename(from = vanha_nimi, to = uusi_nimi)
 }
 ```
+
+<br>
+
+## PDF tiedoston luominen ja siihen asioiden kirjoittaminen
+
+PDF luodaan komennolla **pdf()**
+
+```{r}
+#| eval: false
+pdf("VisualisointiDiagnoosiTeht.pdf", width = 8, height = 6)
+```
+
+-   tämän jälkeisille riveille laitetun koodin tulokset tulostuvat kyseiseen pdf tiedostoon
+
+<br>
+
+PDF:n kirjoitus täytyy sulkea komennolla **dev.off()**
+
+```{r}
+#| eval: false
+# Suljetaan PDF:n kirjoitus 
+dev.off()
+```
+
+<br>
+
+Ennen **pdf()** komentoa voi olla järkevää laittaa while looppi, joka varmistaa, että kaikki aiemmat PDF yhteydet ovat sulkeutuneet.
+
+```{r}
+#| eval: false
+#  Suljetaan mahdolliset aiemmat jumiutuneet PDF-yhteydet
+while(!is.null(dev.list())) dev.off()
+```
+
+<br>
+
+**gridExtra** ja **grid** pakettiin kuuluvilla komennoilla saadaan kirjoitettua tekstiä PDF:n
+
+```{r}
+#| eval: false
+library(gridExtra)
+library(grid)
+
+otsikko2 <- textGrob("Oppimimisen erot klustereittain", 
+                    gp = gpar(fontsize = 18, fontface = "bold"))
+
+teksti_sisalto2 <- "Kuten edellisen sivun kuvaajista nähdään, vaikeimmissa diagnooseissa 
+                    \n oppimisen kehitys oli suurinta ja helpommissa pienintä."
+
+leipateksti2 <- textGrob(teksti_sisalto2, 
+                        x = 0.1, # Aloituskohta vasemmalta (0-1)
+                        just = "left", # Tasaus vasempaan reunaan
+                        gp = gpar(fontsize = 12))
+
+grid.arrange(otsikko2, leipateksti2, ncol = 1, heights = c(0.1, 0.9))
+```
+
+-   **textGrob()**
+
+    -   ekaan väliin sisällytettävä teksti
+
+    -   gp = gpar(fontsize = , fontface = )
+
+        -   tekstin muotoilut
+
+    -   oletuksena piirtää tekstin keskelle (x = 0.5)
+
+        -   jos merkataan x = 0.1 niin aloittaa tekstin vasemmasta reunasta
+
+    -   just = "left"
+
+        -   tasataan teksti vasempaan reunaan
+
+-   **grid.arrange()**
+
+    -   tällä piirretään textGrob() funktiolla muotoillut muuttujat PDF tiedostoon
+
+    -   Syötetään kirjoitettavat muuttujat pilkuilla eroteltuina
+
+    -   ncol = 1 -\> kertoo sarakkeiden määrän, kun on yksi niin teksti tulee sivulle normaalisti yhteen sarakkeeseen
+
+    -   heights() -\> määrittää muuttujien viemän tilan y-akselin suunnassa. Eli toisin sanottuna korkeuden.
+
+        -   Esim. jos heights( 0.1, 0.9)
+
+            -   Ensimmäinen muuttuja vie 10 % y-akselista ja toinen 90%
+
+<br>
+
+**print()** komennolla voidaan tulostaa kuva PDF tiedostoon
+
+```{r}
+#| eval: false
+print(ggplot(PerceptualLearnData, aes(x = as.factor(SelectedDiag), y = Correct)) +
+        # Piirretään keskiarvopylväät
+        stat_summary(fun = "mean", geom = "bar", color = "blue", fill = "blue", width = 0.5, na.rm = TRUE) +
+        # Lisätään virhejanat (Standard Error)
+        stat_summary(fun.data = "mean_se", geom = "errorbar",color = "red",  width = 0.3,na.rm = TRUE) +
+        
+        labs(title = "Oikeiden vastausten osuus diagnooseittain",
+             x = "Diagnoosi",
+             y = "Osuus vastauksista oikein") +
+        theme_minimal())
+```
+
+<br>
+
+Jos halutaan tulostaa useampi samankaltainen kuva hiukan muuttuvilla parametreillä voidaan käyttää for-looppia
+
+```{r}
+#| eval: false
+
+library(ggplot2)
+library(patchwork)
+
+datasetti <- list(vaikeat, helpot, keski)
+kuvaaja_lista2 <- list()
+nimet <- list("Vaikeat", "Helpot", "Keskimääräiset")
+
+for( i in 1:length(datasetti)){
+  p <- ggplot(datasetti[[i]], aes(x = as.factor(Session), y = Correct, fill = Session)) +
+    stat_summary(fun = "mean", geom = "bar", color = "black", width = 0.8, na.rm = TRUE) +
+    stat_summary(fun.data = "mean_se", geom = "errorbar", color = "red", width = 0.3, na.rm = TRUE) +
+    labs(title = nimet[i], 
+         x = "Sessio",
+         y = "Oikeiden diagnoosien osuus") +
+    theme_minimal() +
+    theme(legend.position = "none")
+  
+  kuvaaja_lista2[[i]] <- p 
+}
+
+wrap_plots(kuvaaja_lista2, ncol = 3)
+```
+
+-   kuvaaja_lista2 \<- list()
+
+    -   **list()** komennolla alustetaan kuvaaja_lista2 muuttuja listamuotoiseksi, jolloin sinne voidaan tallettaa asioita listana
+
+-   datasetti muuttujaan talletetaan kolme hiukan erilaista data.framea listana **list()** komennolla
+
+-   nimet muuttujaan puolestaan datasettien nimet
+
+-   for-looppi suorittaa 1 -\> datasetin pituus kertoja (tässä tapauksessa 3, eli 1:3) sen sisältämän koodin siten, että i tilalle asetetaan in jälkeen annetut arvot
+
+    -   eli ensimmäisellä kierroksella i = 1
+
+    -   toisella i = 2
+
+    -   kolmannella i = 3
+
+-   datasetti\[\[i\]\]
+
+    -   kaksilla hakasulkeilla viitattuna saadaan listasta datasetti haettua indeksinumerolla muuttuja
+
+-   p muuttujaan talletetaan aina luotu kuva ja se puolestaan talletetaan kuvaaja_lista2:n
+
+    -   kuvaaja_lista2\[\[i\]\] \<- p
+
+-   wrap_plots(kuvaaja_lista2, ncol = 3)
+
+    -   wrap_plots() funktiolla piirretään kuvaajat
+
+        -   kuuluu patchwork pakettiin
+
+    -   ncol= määrittää sarakkeiden määrän. Jos se on kolme niin yhdelle riville tulee kolme kuvaa vierekkäin
+
+    -   

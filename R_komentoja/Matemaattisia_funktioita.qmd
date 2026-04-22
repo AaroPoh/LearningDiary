@@ -31,7 +31,7 @@ Kuinka monella eri tavalla voimme valita k alkiot n alkion joukosta, kun järjes
 
 Eli montako eri tapaa on valita tietty joukko (k) isommasta joukosta (n).
 
-![](/images/clipboard-2676583055.png)
+![](/images/clipboard-2676583055.png){width="437"}
 
 Permutaatiotestissä lasketaan nimenomaan kombinaatioita
 

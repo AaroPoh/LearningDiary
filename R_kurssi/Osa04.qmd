@@ -90,7 +90,183 @@ Tässä osassa asiaa luennoista, joissa käsitellään tekoälyn käyttöä ohje
 
 ## PreProsessointi funktio tehtävä
 
+Tehtävänanto:
+
+> *Tee funktio, jolle voi antaa 5 argumenttia: data-kehikon, muuttujat joita ei käännetä, muuttujat jotka käännetään (reverse coding), muuttujien minimin ja maksimin.*
+>
+> *Funktio sitten muuntaa asteikon ulkopuolella olevat arvot puuttuviksi havainnoiksi, laskee summamuuttujan, tarkistaa poikkeavat havainnot, tekee tilastotestin summamuuttujan normaalijakautuneisuudelle, raportoi sen tuloksen selväsanaisesti (onko vai ei, mikä oli tulos), piirtää kuvan jossa kolme kuvaa vierekkäin: summamuuttujan histogrammi, summamuuttujan Q-Q plotin, summammuuttujaa vastaavan simuloidun normaalijakauman Q-Q plotin.*
+>
+> *Sovella funktiota HSQ-aineistoon (Humor Styles Questionnaire)*
+>
+> *palauta 2 tiedostoa, R-skripti ja pdf, jossa neljän HSQ-summamuuttujan jakaumat*
+
 <br><br>
+
+Tehtävän ratkaisu:
+
+```{r}
+#| eval: false 
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+
+
+#ladataan data 
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+HSQdata <- read_csv("HSQdata.csv")
+
+# HSQ käännettävät muuttujat 'Q1', 'Q7', 'Q9', 'Q15', 'Q16', 'Q17', 'Q22', 'Q23', 'Q25', 'Q29', 'Q31, 
+
+
+affiliative <- c("Q1", "Q5", "Q9", "Q13", "Q17", "Q21", "Q25", "Q29")
+
+selfenhancing <- c("Q2", "Q6", "Q10","Q14", "Q18", "Q22","Q26", "Q30")
+
+aggressive <- c("Q3", "Q7", "Q11", "Q15", "Q19", "Q23", "Q27", "Q31") 
+
+selfdefeating <- c("Q4", "Q8", "Q12", "Q16", "Q20", "Q24", "Q28", "Q32")
+
+
+
+PreProsFunktio<- function(data, variables = NULL, r_variables = NULL,  min = 1, max = 5, SumMuut, Otsikko = deparse(substitute(SumMuut))){
+  
+  # r_variables kohtaan sarakkeet, jotka käännetään
+  # variables kohtaan muut 
+  
+  
+  # Tarkistetaan, onko r_variables annettu ja onko siinä sisältöä
+  if (!is.null(r_variables) && length(r_variables) > 0){
+    
+    data[, r_variables] <- (max + min) - data[, r_variables]
+    message("Käänteiset muuttujat käännetty.")
+  } else {
+    message("Ei käännettäviä muuttujia, ohitetaan kääntö.")
+  }
+  
+    
+  
+  #merkataan asteikon ulkopuoliset arvot puuttuviksi 
+  # katsotaan mitkä arvot ovat liian pieniä TAI liian suuria
+  virheelliset <- data < min | data > max
+  
+  # Korvataan nämä kohdat NA-arvolla
+  data[virheelliset] <- NA
+  message("Asteikon ulkopuoliset arvot poistettu")
+  # tarkistetaan poikkeavat havainnot MAD-kriteerillä 
+  
+  # luodaan datafreimistä vektori, johon voidaan käyttääm mad() ja median() funktioita
+  
+  numarvot <- as.numeric(unlist(data[ ,1:32]))
+  
+  
+  mad_value <- mad(na.omit(numarvot)) 
+  median_value <- median(na.omit(numarvot))
+  
+  #Jos poikkeava havainto niin ilmoitetaan löytyi poikkeavia havaintoja, jos ei niin päinvastoin
+  
+  
+  threshold <- 3 * mad_value
+  
+  filtered_data <- data[abs(data - median_value) >= threshold]
+  
+  if(length(filtered_data) > 0){
+    message("Löytyi poikkeavia arvoja")
+  } else {
+    message("Ei poikkeavia arvoja")}
+  
+  #tehdään summamuuttujat eri huumorityypeille
+  
+  SummaMuuttuja <- rowMeans(data[ ,SumMuut], na.rm = TRUE)
+  
+  data$SummaMuuttuja <- SummaMuuttuja
+  
+ntesti <- shapiro.test(na.omit(SummaMuuttuja))
+
+p_arvo <- as.numeric(ntesti) 
+
+if(p_arvo[1] < 0.05){
+  message("Shapiro-wilk testin p < 0.05, Summamuuttuja ei siis ole normaalisti jakautunut")
+}else {
+  message("Shapiro-wilk testin p > 0.05, Summamuuttuja on normaalisti jakautunut")
+}
+
+# Summamuuttujaa vastaava simuloitu normaalijakauma 
+
+set.seed(123)
+SimuloituJakauma <- rnorm(length(na.omit(SummaMuuttuja)), mean(SummaMuuttuja, na.rm = TRUE), sd(SummaMuuttuja, na.rm = TRUE))
+  
+Simdata <- data.frame(SimuloituJakauma)
+
+# luodaan muuuttuja, johon tulee vain annetun summamuuttujan nimi
+Labs <- deparse(substitute(SumMuut))
+  
+# Piirretään kuvaajat ggplotilla, qqplot, simuloidun jakauman qqplot ja histogrammi 
+ p1 <- ggplot(data, aes(sample = SummaMuuttuja )) +
+    geom_qq() +
+    geom_qq_line(color = "red") +
+    labs(title = paste(Otsikko, "QQ-plot")) +
+    theme_minimal()
+ 
+ p2 <- ggplot(Simdata, aes( sample = SimuloituJakauma )) + 
+   geom_qq() +
+   geom_qq_line(color = "red") +
+   labs(title = "Simuloidun jakauman QQ-plot") +
+   theme_minimal()
+ 
+  
+  
+ p3 <- ggplot(data, aes( x = SummaMuuttuja)) + 
+           geom_histogram(fill = "lightblue", color = "black", bins = 10) +
+           labs(title = paste(Otsikko, "jakauma"), x = "Keskiarvo", y = "Frekvenssi") +
+           theme_minimal()
+  print(p1 + p2 + p3)
+  
+}
+
+
+
+
+PreProsFunktio(HSQdata,  , c("Q1", "Q7", "Q9", "Q15", "Q16", "Q17", "Q22", "Q23", "Q25", "Q29", "Q31"), 1, 5, selfenhancing)
+
+
+#Piirretään kuvaajat yhteeen pdf tiedostoon 
+
+# luodaan lista, johon on tallennettu summamuuttujat 
+kaikki_tyylit <- list(
+  affiliative = affiliative, 
+  selfenhancing = selfenhancing, 
+  aggressive = aggressive, 
+  selfdefeating = selfdefeating)
+
+# while komento varmistaa, ettei pdf:n kirjoitus ole jäänyt auki aiemmin 
+while (!is.null(dev.list())) dev.off()
+
+#pdf komento avaa pdf:n kirjoituksen 
+pdf("Summamuuttujien_kuvaajat.pdf", width = 14, height = 5)
+
+try({
+  for (i in 1:length(kaikki_tyylit)) {
+  
+
+  # napataan listasta yksi huumorityyli kerrallaan
+  nykyinen_setti <- kaikki_tyylit[[i]]
+  
+  
+  PreProsFunktio(data = HSQdata, ,
+                 c("Q1", "Q7", "Q9", "Q15", "Q16", "Q17", "Q22", "Q23", "Q25", "Q29", "Q31"), 
+                 min = 1, 
+                 max = 5, 
+                 SumMuut = nykyinen_setti,
+                 Otsikko = names(kaikki_tyylit)[i])
+  }
+})
+dev.off()
+# Tämä sulkee pdf:n kirjoittamisen 
+
+
+```
 
 unlist()
 
@@ -133,3 +309,226 @@ unlist()
     -   eli merkitsee if lausekkeessa sitä, että jomman kumman ehdon täyttyminen riittää
 
 <br><br>
+
+## Visualisointitehtävä
+
+Tehtävänanto :
+
+> *Oheisessa data-setissä on tutkittu lääketieteen opiskelijoiden visuaalisen asiantuntijuuden (professional vision/perceptual learning) kehittymistä osana dermatologian kurssia. Diagnoosien erottelu-kokeet tehtiin kurssin aluksi, keskellä ja lopuksi (Session:1-3, pre-mid-post). Oppimista mitattiin kolmella muuttujalla: %-oikein, reaktioaika, confidence-rating,*
+>
+> *Tee R-skripti, joka visualisoi tulokset, eli oppimisen/muutoksen kurssin aikana (pre-mid-post) kolmen outcome muuttujan suhteen.*
+>
+> *Tutki dataa lisää, kokeessa oli 47 eri diagnoosia. Mitkä diagnoosit käyttäytyvät samanlaisesti? Klusteroi diagnooseja yhteen ja visualisoi oppiminen. Missä diagnooseissa opiskelijat tekivät eniten virheitä? Luokittele vaikeat/helpot diagnoosit ja visualisoi oppiminen. Ideoita/esimerkkejä voi katsoa artikkeleista (data osittain eri) tai keksiä ihan uusia tapoja.*
+>
+> *Palauta R-skripti ja erikseen kuvat pdf:nä.*
+
+```{r}
+#| eval: false 
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+
+
+# Skripti tulostaa PDF tiedoston, jossa on kuvaajat kaikille outcome muuttujille sessioittain,
+  # kuvaus siitä miten diagnooseja on jaoteltu klustereihin ja kuvaajat oppimisen kehityksestä 
+    # klustereittain
+
+# oppimisen muutokset kurssin aikana pre-mid-post 
+# 47 eri diagnoosia, mitkä käyttäytyvät samanlaisesti
+
+# klusteroi diagnooseja yhteen ja visualisoi oppiminen 
+# missä tehtiin eniten virheitä
+# luokittelet vaikeat ja helpot diagnoosit ja visualisoi oppiminen 
+
+# "Correct"      	%-correct
+# "respRT"       	decision time, ms
+# "Confidence"   	confidence rating, 1-5
+
+# Jokaisella on 47 vastausta per sessio ja 2 eri moduulia = 282 vastausta
+
+library(gridExtra)
+library(grid)
+library(readr)
+library(ggplot2)
+library(patchwork)
+
+PerceptualLearnData <- read_csv("data/PerceptualLearn/PerceptualLearnData.csv")
+#haetaan data
+
+
+
+
+
+oikeinbydiagnoosi <- aggregate(Correct ~ SelectedDiag, data = PerceptualLearnData, FUN = mean)
+#
+
+
+keskikvartiiliväli <- oikeinbydiagnoosi$SelectedDiag[oikeinbydiagnoosi$Correct > 0.763 & oikeinbydiagnoosi$Correct < 0.8613]
+IQRtekstinä <- paste(keskikvartiiliväli, collapse = ", ")
+
+vaikeimmat <- oikeinbydiagnoosi$SelectedDiag[oikeinbydiagnoosi$Correct < 0.6884807]
+vaikeimmatTekst <- paste(vaikeimmat, collapse = ",") 
+
+helpoimmat <- oikeinbydiagnoosi$SelectedDiag[oikeinbydiagnoosi$Correct > 0.9159686]
+helpoimmatTekst <- paste(helpoimmat, collapse = ",") 
+
+quantile(oikeinbydiagnoosi$Correct, probs = seq(0, 1, 0.1))
+
+# 10 persentiili = 68,85 % 
+# 90 persentiili = 91,60 % 
+# keskikvartiiliväli =  76,30 % < oikein < 86,13 % 
+
+# havainnollistetaan vaikeimpien diagnoosien kehitys sessioittain
+  # haetaan selectedDiag sarakkeesta vain tietyt diagnoosit ja katsotaan miten ne meni oikein per sessio
+    # se onnistuu subset() funktiolla 
+
+vaikeat <- subset(PerceptualLearnData, SelectedDiag %in% vaikeimmat)
+kehitysVaikeat <- aggregate(Correct ~ Session, vaikeat, FUN = mean)
+
+# tehdään sama helpoimmille ja keskikvartiilivälille 
+
+helpot <- subset(PerceptualLearnData, SelectedDiag %in% helpoimmat)
+kehitysHelpot <- aggregate(Correct ~ Session, helpot, FUN = mean)
+
+keski <- subset(PerceptualLearnData, SelectedDiag %in% keskikvartiiliväli)
+kehitysKeski <- aggregate(Correct ~ Session, data = keski, FUN = mean)
+
+
+print(ggplot(PerceptualLearnData, aes(x = as.factor(SelectedDiag), y = Correct)) +
+  # Piirretään keskiarvopylväät
+  stat_summary(fun = "mean", geom = "bar", color = "black", width = 0.5, na.rm = TRUE) +
+  # Lisätään virhejanat (Standard Error)
+  stat_summary(fun.data = "mean_se", geom = "errorbar",color = "red",  width = 0.3,na.rm = TRUE) +
+  
+  labs(title = "Mittaustulokset sessioittain",
+       x = "diagnoosi",
+       y = "Osuus vastauksista oikein") +
+  theme_minimal())
+
+
+#  Määritellään sarakkeet, jotka halutaan y-akselille
+y_muuttujat <- c("respRT", "Correct", "Confidence") # Vaihda nämä omiin sarakkeisiisi
+
+
+#  Suljetaan mahdolliset aiemmat jumiutuneet PDF-yhteydet
+while(!is.null(dev.list())) dev.off()
+
+#  Avataan PDF:n kirjoitus 
+pdf("VisualisointiDiagnoosiTeht.pdf", width = 8, height = 6)
+
+kuvaaja_lista <- list()
+
+# for-looppi, joka piirtää kuvaajat 
+for (i in y_muuttujat) {
+  
+  p <- ggplot(PerceptualLearnData, aes(x = as.factor(Session), y = .data[[i]], fill = Session)) +
+    stat_summary(fun = "mean", geom = "bar", color = "black", width = 0.8, na.rm = TRUE) +
+    stat_summary(fun.data = "mean_se", geom = "errorbar", color = "red", width = 0.3, na.rm = TRUE) +
+    labs(title = paste("Mittaustulokset:", i),
+         x = "Sessio",
+         y = paste("Keskiarvo (", i, ")", sep = "")) +
+    theme_minimal() +
+    theme(legend.position = "none") # Piilotetaan turha selite
+  
+  
+  kuvaaja_lista[[i]] <- p
+}
+otsikko_teksti <- textGrob("Visualisointitehtävä", 
+                           gp = gpar(fontsize = 20, fontface = "bold"))
+
+# Tulostetaan otsikko omalle sivulleen
+grid.arrange(otsikko_teksti)
+
+
+#tulostetaan sessioiden mittaustulokset 
+wrap_plots(kuvaaja_lista, ncol = 2)
+
+# tulostetaan oikeinvastaamisprosentti diagnoosittain
+
+print(ggplot(PerceptualLearnData, aes(x = as.factor(SelectedDiag), y = Correct)) +
+        # Piirretään keskiarvopylväät
+        stat_summary(fun = "mean", geom = "bar", color = "blue", fill = "blue", width = 0.5, na.rm = TRUE) +
+        # Lisätään virhejanat (Standard Error)
+        stat_summary(fun.data = "mean_se", geom = "errorbar",color = "red",  width = 0.3,na.rm = TRUE) +
+        
+        labs(title = "Oikeiden vastausten osuus diagnooseittain",
+             x = "Diagnoosi",
+             y = "Osuus vastauksista oikein") +
+        theme_minimal())
+
+
+
+# Luodaan sivu, jossa kerrotaan, miten diagnooseja klusteroitiin 
+otsikko <- textGrob("Diagnoosien klusterointi", 
+                    gp = gpar(fontsize = 18, fontface = "bold"))
+
+#  Luodaan leipäteksti
+teksti_sisalto <- paste("Diagnooseja jaoteltiin kolmeen eri klusteriin:
+                    \n
+                    \n 1. desiliiliin ja 10. desiiliin sekä keskikvartiiliväliin oikein vastaamisen osuuden mukaan.
+                    \n 1. desiiliin kuuluvat alle 10 persentiilin alle jäävät, 10. desiiliin 90 persentiilin ylitse
+                    \n menevät ja keskikvartiiliväliin 1. ja 3. kvartiilin välille asettuvat. 1. desiilissä ovat siis 
+                    \n kaikista haastavimmat diagnoosit, 10. desiilissa kaikista helpoimmat ja keskikvartiilivälillä 
+                    \n haastavuudeltaan keskimääräiset diagnoosit. 
+                    \n
+                    \n 10 persentiili = 68,85 % diagnooseista oikein
+                    \n 90 persentiili = 91,60 % diagnooseista oikein
+                    \n keskikvartiiliväli =  76,30 % < diagnooseista oikein < 86,13 % 
+                    \n
+                    \n
+                    \n 1. desiiliin kuuluvat eli vaikeimmat diagnoosit:", vaikeimmatTekst, 
+                    "\n\n 10. desiiliin kuuluvat eli helpoimmat diagnoosit:", helpoimmatTekst, 
+                    "\n\n Keskikvartiilivälille kuuluvat diagnoosit:",IQRtekstinä)
+
+
+leipateksti <- textGrob(teksti_sisalto, 
+                        x = 0.1, # Aloituskohta vasemmalta (0-1)
+                        just = "left", # Tasaus vasempaan reunaan
+                        gp = gpar(fontsize = 8))
+
+
+
+
+# grid.arrange asettaa ne allekkain. heights määrittää tilan jaon (otsikko vie 1/10, teksti 9/10)
+grid.arrange(otsikko, leipateksti, ncol = 1, heights = c(0.1, 0.9))
+
+# tulostetaan oikein vastaamisen kehitys vaikeissa, helpoissa ja keskitasoisissa kysymyksissä sessioittain
+
+datasetti <- list(vaikeat, helpot, keski)
+kuvaaja_lista2 <- list()
+nimet <- list("Vaikeat", "Helpot", "Keskimääräiset")
+
+for( i in 1:length(datasetti)){
+  p <- ggplot(datasetti[[i]], aes(x = as.factor(Session), y = Correct, fill = Session)) +
+    stat_summary(fun = "mean", geom = "bar", color = "black", width = 0.8, na.rm = TRUE) +
+    stat_summary(fun.data = "mean_se", geom = "errorbar", color = "red", width = 0.3, na.rm = TRUE) +
+    labs(title = nimet[i], 
+         x = "Sessio",
+         y = "Oikeiden diagnoosien osuus") +
+    theme_minimal() +
+    theme(legend.position = "none")
+  
+  kuvaaja_lista2[[i]] <- p 
+}
+
+wrap_plots(kuvaaja_lista2, ncol = 3)
+
+# Luodaan sivu, jossa kerrotaan diagnosoinnin oppimisesta 
+otsikko2 <- textGrob("Oppimimisen erot klustereittain", 
+                    gp = gpar(fontsize = 18, fontface = "bold"))
+
+teksti_sisalto2 <- "Kuten edellisen sivun kuvaajista nähdään, vaikeimmissa diagnooseissa 
+                    \n oppimisen kehitys oli suurinta ja helpommissa pienintä."
+
+leipateksti2 <- textGrob(teksti_sisalto2, 
+                        x = 0.1, # Aloituskohta vasemmalta (0-1)
+                        just = "left", # Tasaus vasempaan reunaan
+                        gp = gpar(fontsize = 12))
+
+grid.arrange(otsikko2, leipateksti2, ncol = 1, heights = c(0.1, 0.9))
+
+
+# Suljetaan PDF:n kirjoitus 
+dev.off()
+
+
+```

@@ -1,0 +1,28 @@
+---
+title: "Matematiikan laskusääntöjä"
+format: html
+---
+
+## Kymmenpotenssi (e) 
+
+-   R merkkaa kymmenpotensseja tähän tyyliin
+
+    -   p-value \< 2.2e-16
+
+    -   e = kymmenpotenssi
+
+        -   2.2e-16 = 2.2 \* 10\^-16
+
+            ```{r}
+            format(2.2 * 10^-16, scientific = FALSE)
+            ```
+
+        -   format( ,scientific = FALSE) funktiolla saa esitettyä luvun desimaalimuodossa
+
+-   Kymmenpotenssissa siirretään aina pilkkua
+
+    -   300 \* 10\^-2 = 3
+
+    -   300 \* 10\^2 = 30 000
+
+<br> <br>

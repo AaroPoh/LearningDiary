@@ -15,10 +15,12 @@ book:
         - R_kurssi/Osa01.qmd 
         - R_kurssi/Osa02.qmd 
         - R_kurssi/Osa03.qmd
-        - R_kurssi/Osa04.qmd 
+        - R_kurssi/Osa04.qmd
+        - R_kurssi/Osa05.qmd
     - part: R_komentoja/R_komentoja.qmd 
       chapters: 
         - R_komentoja/KuvaajienPiirto.qmd
+        - R_komentoja/ggplot.qmd
         - R_komentoja/DatasetinLuominen.qmd
         - R_komentoja/Tilastotesteja.qmd
         - R_komentoja/Matemaattisia_funktioita.qmd
@@ -31,6 +33,7 @@ book:
       chapters: 
         - Tilastotiede/PoikkeavatHavainnot.qmd
         - Tilastotiede/NormaalisuudenTestaaminen.qmd
+        - Tilastotiede/MatematiikanLaskusääntöjä.qmd
     - summary.qmd
     - references.qmd
 
