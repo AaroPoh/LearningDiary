@@ -26,7 +26,7 @@ title: "Normaalisuuden testaaminen"
 
 -   Kaavassa Yi on siis yksi normaalijakauman havainto
 
--   \~ merkki tarkoittaa, että Y on satunnaisesti annetusta jakaumasta otettu alkio
+-   \~ merkki tarkoittaa, että Y on annetusta jakaumasta satunnaisesti otettu alkio
 
 -   μ tarkoittaa keskiarvoa
 

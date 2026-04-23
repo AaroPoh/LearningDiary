@@ -3,7 +3,7 @@ title: "Matematiikan laskusääntöjä"
 format: html
 ---
 
-## Kymmenpotenssi (e) 
+## Kymmenpotenssi (e)
 
 -   R merkkaa kymmenpotensseja tähän tyyliin
 

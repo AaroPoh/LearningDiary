@@ -281,8 +281,6 @@ unlist()
 
 -   unlist() komennolla pois kehikkomuodosta ja as.numeric() komennolla varmistetaan, että tallentuu numeerisena
 
-<!-- -->
-
 -   numarvot \<- as.numeric(unlist(data\[ ,1:32\]))
 
 <br> <br>
