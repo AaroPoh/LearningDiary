@@ -333,6 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#git-ja-github" id="toc-git-ja-github" class="nav-link active" data-scroll-target="#git-ja-github"><span class="header-section-number">13.1</span> Git ja github</a></li>
   <li><a href="#gitignore" id="toc-gitignore" class="nav-link" data-scroll-target="#gitignore"><span class="header-section-number">13.2</span> .gitignore</a></li>
+  <li><a href="#quarto-kirja-nettisivuksi-githubin-avulla" id="toc-quarto-kirja-nettisivuksi-githubin-avulla" class="nav-link" data-scroll-target="#quarto-kirja-nettisivuksi-githubin-avulla"><span class="header-section-number">13.3</span> Quarto-kirja nettisivuksi githubin avulla</a></li>
   </ul>
 </nav>
     </div>
@@ -417,6 +418,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>_site<span class="sc">/</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>site_libs<span class="sc">/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="quarto-kirja-nettisivuksi-githubin-avulla" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="quarto-kirja-nettisivuksi-githubin-avulla"><span class="header-section-number">13.3</span> Quarto-kirja nettisivuksi githubin avulla</h2>
+<p>Quarto kirjan saa githubin kautta nettisivuksi muutamalla simppelillä työvaiheella. Aivan ensiksi quarto-kirjan projektikansion täytyy löytyä githubista eli suorita <strong>usethis::use_git()</strong> ja <strong>usethis::use_github()</strong> mikäli et ole niitä jo tehnyt. Ensiksi täytyy lisätä quarto.yml tiedostoon: “<strong>output-dir: docs</strong>”. Se lisää projektiin kansion docs, jota käytetään nettisivun lähdekansiona.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  type<span class="sc">:</span> book</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">-</span>dir<span class="sc">:</span> docs </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>Sen lisäksi .gitignore tiedostosta täytyy poistaa tai kommentoida muutama asia, jotta docs kansioon, gitiin ja githubiin tallentuu mukaan tarvittavat tiedostot. .gitignoresta täytyy poistaa tai kommentoida <strong>book/</strong>, <strong>site/</strong> ja <strong>site_libs/</strong>. Ne ovat kirjastotiedostoja ja lisättiin gitignoreen alunperin, koska niitä tallentuu aina renderöidessä paljon ja voivat hidastaa gitin toimintaa. Nettisivuja tehdessä niidenkin tiedostojen täytyy siirtyä gitiin ja githubiin, joten siksi ne poistetaan .gitignore tiedostosta.</p>
+<p>Kirjani .gitignore tiedosto näyttää tältä:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>.Rproj.user</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>.Rhistory</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>.RData</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>.httr<span class="sc">-</span>oauth</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>.DS_Store</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>.quarto</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>.quarto<span class="sc">/</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="er">**/*</span>.quarto_ipynb</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># _book/</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># _site/</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># site_libs/</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>.positai</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>Noiden valmistelujen lisäksi projektikansioon täytyy lisätä tiedosto “<strong>.nojekyll</strong>”. Se lisätään, koska github pyrkii muotoilemaan nettisivut jekyll tyylillä, joka puolestaan estää quarton muotoilujen käyttämisen. .nojekyll tiedosto kertoo githubille, että käytetään quarton muotoiluja ja silloin nettisivut saa näyttämään samalta, kuin html preview tilassa. Tässä on tärkeää muistaa renderöidä projekti tiedoston luomisen jälkeen, koska muuten tiedosto ei generoidu myös docs kansioon, jossa sitä tarvitaan.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">file.create</span>(<span class="st">".nojekyll"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>.nojekyll on piilotiedosto eli sitä ei tarvitse ihmetellä, jos se ei näy files näkymässä. Voit tarkistaa onnistuitko luomaan sen komennolla <strong>list.files()</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">list.files</span>(<span class="at">all.files =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">"jekyll"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>Mikäli muotoilut eivät mene oikein voidaan ajaa terminaalissa komennot “git add docs/” ja “git add -f docs/site_libs/”, jotka pakottava lisäämään gitiin site_libs/ ja docs/ tiedostot. <strong>Tee nämä vain jos kohtaat ongelmia eli muotoilut nettisivuilla eivät näytä oikealta.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ajetaan terminaalissa </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>git add docs<span class="sc">/</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">-</span>f docs<span class="sc">/</span>site_libs<span class="sc">/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>Kun on tehnyt määritykset quarto.yml ja .gitignore tiedostoihin on tärkeää muistaa renderöidä koko projekti html muodossa. Sen jälkeen täytyy commitata muutokset gitiin ja sitten vielä pushata ne githubiin. Tämän jälkeen voidaan siirtyä githubiin viimeistelemään nettisivu.</p>
+<p>Työvaiheet ovat siis: Määritykset yml ja gitignore tiedostoihin –&gt; luo .nojekyll tiedosto –&gt; renderöi projekti –&gt; commit -&gt; push</p>
+<p><br></p>
+<p>Mene githubiin ja avaa sieltä kyseisen projektin repositorio. Actions välilehdeltä voi tarkistaa onko viimeisin push komento jo suoritettuna ja ajan tasalla. Sen kohdalla on punainen pallo, jos on ongelmaa, keltainen jos suorittaminen on kesken ja vihreä jos kaikki on valmiina. Mene repositorion settings välilehdelle ja valitse vasemmalla reunalla olevasta listasta Pages.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-915949178.png" class="img-fluid figure-img"></p>
+<figcaption><br></figcaption>
+</figure>
+</div>
+<p>Pages sivulla build and deployement kohdalla säilytä tai valitse source kohtaan deploy from a branch (Minulla se oli jo valmiiksi siinä). Sitten valitse branch kohtaan master ja folder kohtaan docs ja paina save. Sen myötä sinulle täytyisi syntyä nettisivut muodossa “https://käyttäjänimi.github.io/ProjektiRepositorio/”</p>
+<p><img src="images/clipboard-2812852038.png" class="img-fluid"></p>
 
 
 </section>

@@ -70,3 +70,82 @@ _book/
 _site/
 site_libs/
 ```
+
+## Quarto-kirja nettisivuksi githubin avulla 
+
+Quarto kirjan saa githubin kautta nettisivuksi muutamalla simppelillä työvaiheella. Aivan ensiksi quarto-kirjan projektikansion täytyy löytyä githubista eli suorita **usethis::use_git()** ja **usethis::use_github()** mikäli et ole niitä jo tehnyt. Ensiksi täytyy lisätä quarto.yml tiedostoon: "**output-dir: docs**". Se lisää projektiin kansion docs, jota käytetään nettisivun lähdekansiona.
+
+```{r}
+#| eval: false
+project:
+  type: book
+  output-dir: docs 
+```
+
+<br>
+
+Sen lisäksi .gitignore tiedostosta täytyy poistaa tai kommentoida muutama asia, jotta docs kansioon, gitiin ja githubiin tallentuu mukaan tarvittavat tiedostot. .gitignoresta täytyy poistaa tai kommentoida **book/**, **site/** ja **site_libs/**. Ne ovat kirjastotiedostoja ja lisättiin gitignoreen alunperin, koska niitä tallentuu aina renderöidessä paljon ja voivat hidastaa gitin toimintaa. Nettisivuja tehdessä niidenkin tiedostojen täytyy siirtyä gitiin ja githubiin, joten siksi ne poistetaan .gitignore tiedostosta.
+
+Kirjani .gitignore tiedosto näyttää tältä:
+
+```{r}
+#| eval: false
+.Rproj.user
+.Rhistory
+.RData
+.httr-oauth
+.DS_Store
+.quarto
+
+/.quarto/
+**/*.quarto_ipynb
+# _book/
+# _site/
+# site_libs/
+.positai
+
+```
+
+<br>
+
+Noiden valmistelujen lisäksi projektikansioon täytyy lisätä tiedosto "**.nojekyll**". Se lisätään, koska github pyrkii muotoilemaan nettisivut jekyll tyylillä, joka puolestaan estää quarton muotoilujen käyttämisen. .nojekyll tiedosto kertoo githubille, että käytetään quarton muotoiluja ja silloin nettisivut saa näyttämään samalta, kuin html preview tilassa. Tässä on tärkeää muistaa renderöidä projekti tiedoston luomisen jälkeen, koska muuten tiedosto ei generoidu myös docs kansioon, jossa sitä tarvitaan.
+
+```{r}
+#| eval: false
+> file.create(".nojekyll")
+```
+
+.nojekyll on piilotiedosto eli sitä ei tarvitse ihmetellä, jos se ei näy files näkymässä. Voit tarkistaa onnistuitko luomaan sen komennolla **list.files()**
+
+```{r}
+#| eval: false
+> list.files(all.files = TRUE, pattern = "jekyll")
+```
+
+<br>
+
+Mikäli muotoilut eivät mene oikein voidaan ajaa terminaalissa komennot "git add docs/" ja "git add -f docs/site_libs/", jotka pakottava lisäämään gitiin site_libs/ ja docs/ tiedostot. **Tee nämä vain jos kohtaat ongelmia eli muotoilut nettisivuilla eivät näytä oikealta.**
+
+```{r}
+#| eval: false
+# ajetaan terminaalissa 
+git add docs/
+git add -f docs/site_libs/
+
+```
+
+<br>
+
+Kun on tehnyt määritykset quarto.yml ja .gitignore tiedostoihin on tärkeää muistaa renderöidä koko projekti html muodossa. Sen jälkeen täytyy commitata muutokset gitiin ja sitten vielä pushata ne githubiin. Tämän jälkeen voidaan siirtyä githubiin viimeistelemään nettisivu.
+
+Työvaiheet ovat siis: Määritykset yml ja gitignore tiedostoihin –\> luo .nojekyll tiedosto –\> renderöi projekti –\> commit -\> push
+
+<br>
+
+Mene githubiin ja avaa sieltä kyseisen projektin repositorio. Actions välilehdeltä voi tarkistaa onko viimeisin push komento jo suoritettuna ja ajan tasalla. Sen kohdalla on punainen pallo, jos on ongelmaa, keltainen jos suorittaminen on kesken ja vihreä jos kaikki on valmiina. Mene repositorion settings välilehdelle ja valitse vasemmalla reunalla olevasta listasta Pages.
+
+![<br> ](images/clipboard-915949178.png)
+
+Pages sivulla build and deployement kohdalla säilytä tai valitse source kohtaan deploy from a branch (Minulla se oli jo valmiiksi siinä). Sitten valitse branch kohtaan master ja folder kohtaan docs ja paina save. Sen myötä sinulle täytyisi syntyä nettisivut muodossa "https://käyttäjänimi.github.io/ProjektiRepositorio/"
+
+![](images/clipboard-2812852038.png)
