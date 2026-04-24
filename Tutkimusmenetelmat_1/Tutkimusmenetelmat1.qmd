@@ -2,6 +2,8 @@
 title: "Tutkimusmenetelmät 1 - oppimispäiväkirja"
 ---
 
-Tähän oppimispäiväkirjaan lisään etenkin hyödylliseksi kokemiani muistiinpanoja Jamovin ja r-
+Tässä osassa on kopioituna aiemman kurssin Tutkimusmenetelmät 1 oppimispäiväkirja.
 
-kielen käytöstä ja opiskelusta. Lisäksi saatan kommentoida, mitkä asiat tuntuivat vaikeilta oppia ja mihin täytyy perehtyä tarkemmin myöhemmin. Pidän pääpainon kuitenkin omasta mielestä hyödyllisissä muistiinpanoissa, joita uskon voivani tarvita myöhemminkin. Iso osa muistiinpanoista on kuvankaappauksia luentodioista, joihin olen sitten lisännyt omia huomioita tai asiaa, joita videolla on kerrottu.
+<br>
+
+Tähän oppimispäiväkirjaan lisään etenkin hyödylliseksi kokemiani muistiinpanoja Jamovin ja r-kielen käytöstä ja opiskelusta. Lisäksi saatan kommentoida, mitkä asiat tuntuivat vaikeilta oppia ja mihin täytyy perehtyä tarkemmin myöhemmin. Pidän pääpainon kuitenkin omasta mielestä hyödyllisissä muistiinpanoissa, joita uskon voivani tarvita myöhemminkin. Iso osa muistiinpanoista on kuvankaappauksia luentodioista, joihin olen sitten lisännyt omia huomioita tai asiaa, joita videolla on kerrottu.
