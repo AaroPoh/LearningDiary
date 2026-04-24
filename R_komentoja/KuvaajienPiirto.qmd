@@ -12,11 +12,11 @@ hist(x , breaks = 30,  xlim=c(-20,60))
 
 ```
 
--   x —\> data, josta histogrammi piirretään
+- x —\> data, josta histogrammi piirretään
 
--   breaks = —\> voidaan määrittää millä välein palkkeja piirretään
+- breaks = —\> voidaan määrittää millä välein palkkeja piirretään
 
--   xlim=c(alkupiste,loppupiste) —\> voidaan määritellä mikä osa x-akselista näkyy
+- xlim=c(alkupiste,loppupiste) —\> voidaan määritellä mikä osa x-akselista näkyy
 
 <br><br>
 
@@ -33,15 +33,15 @@ abline(v= 10, col="green")
 abline(0,0.5, col="red")
 ```
 
--   **abline(a,b)** funktiossa
+- **abline(a,b)** funktiossa
 
-    -   a = vakio eli y-akselin leikkauskohta \# ( eli y:n arvo, kun x = 0),
+  - a = vakio eli y-akselin leikkauskohta \# ( eli y:n arvo, kun x = 0),
 
-    -   b = kulmakerroin
+  - b = kulmakerroin
 
-    -   pystysuoran viivan voi piirtää abline(v=a) komennolla, v = vertical tässä kontekstissa
+  - pystysuoran viivan voi piirtää abline(v=a) komennolla, v = vertical tässä kontekstissa
 
-    -   vaakasuoran puolestaan abline(h=a)
+  - vaakasuoran puolestaan abline(h=a)
 
 <br><br>
 

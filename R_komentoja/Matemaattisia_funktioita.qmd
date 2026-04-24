@@ -12,11 +12,11 @@ factorial(10)
 
 Laskee kertoman (!) eli sen kuinka moneen eri järjestykseen tietty määrä lukuja voidaan laittaa
 
--   3 lukua –\> 6 järjestystä
+- 3 lukua –\> 6 järjestystä
 
--   4 lukua -\> 24 järjestystä
+- 4 lukua -\> 24 järjestystä
 
--   10 lukua -\> 3 628 800 järjestystä
+- 10 lukua -\> 3 628 800 järjestystä
 
 ## Kombinaatiot: choose()
 
@@ -41,7 +41,7 @@ Permutaatiotestissä lasketaan nimenomaan kombinaatioita
 
 Vektori ja yksittäinen arvo
 
--   jokainen vektorin arvo käydään läpi ja tehdään sille sama laskutoimitus. Esim. alla vektorin jokaisesta arvosta vähennetään 3 ja palautetaan indeksin joka kohdan tulos.
+- jokainen vektorin arvo käydään läpi ja tehdään sille sama laskutoimitus. Esim. alla vektorin jokaisesta arvosta vähennetään 3 ja palautetaan indeksin joka kohdan tulos.
 
 ```{r}
 c(2,4,6,8,10) - 3 
@@ -51,60 +51,92 @@ c(2,4,6,8,10) - 3
 
 Kaksi vektoria
 
--   Kahdella yhtä pitkällä vektorilla voi tehdä laskutoimituksia keskenään
+- Kahdella yhtä pitkällä vektorilla voi tehdä laskutoimituksia keskenään
 
--   Keskenään lasketaan aina saman indeksinumeron arvo
+- Keskenään lasketaan aina saman indeksinumeron arvo
 
-    -   Jos lasketaan esimerkikis V1 + V2, jossa V1 = c(1,2,3) ja V2 = c(2,4,6)
+  - Jos lasketaan esimerkikis V1 + V2, jossa V1 = c(1,2,3) ja V2 = c(2,4,6)
 
-        -   lasketaan 1. V1\[1\] + V2\[1\] = 1 + 2 = 3
+    - lasketaan 1. V1\[1\] + V2\[1\] = 1 + 2 = 3
 
-        -   2\. V1\[2\] + V2\[2\] = 2 + 4 = 6
+    - 2\. V1\[2\] + V2\[2\] = 2 + 4 = 6
 
-        -   3\. V1\[3\] + V2\[3\] = 3 + 6 = 9
+    - 3\. V1\[3\] + V2\[3\] = 3 + 6 = 9
 
-        ```{r}
+    ```{r}
 
-        c(1,2,3) + c(2,4,6)
+    c(1,2,3) + c(2,4,6)
 
-        ```
+    ```
 
 ## Summafunktiot: sum(), colSums() ja rowSums()
 
 sum()
 
--   laskee annetun aineiston kaikkien arvojen summan
+- laskee annetun aineiston kaikkien arvojen summan
 
--   Esim dataframessa siis jokaisen solun summa eli kaikki rivit ja kaikki sarakkeet
+- Esim dataframessa siis jokaisen solun summa eli kaikki rivit ja kaikki sarakkeet
 
 <br><br>
 
 colSums()
 
--   laskee annetun aineiston kolumnien summat
+- laskee annetun aineiston kolumnien summat
 
--   eli, jos datafreimissä on 20 saraketta ja 10 riviä, niin antaa vastauksena 20 summaa
+- eli, jos datafreimissä on 20 saraketta ja 10 riviä, niin antaa vastauksena 20 summaa
 
-    -   laskee siis sarakkeen 1. 10 arvoa yhteen, sarakkeen 2. 10 arvoa yhteen, sarakkeen 3. 10 arvoa yhteen jne.
+  - laskee siis sarakkeen 1. 10 arvoa yhteen, sarakkeen 2. 10 arvoa yhteen, sarakkeen 3. 10 arvoa yhteen jne.
 
 <br><br>
 
 rowSums()
 
--   laskee annetun aineiston rivien summat
+- laskee annetun aineiston rivien summat
 
-    jos datafreimissä 20 saraketta ja 10 riviä, niin antaa vastauksena 10 summaa
+  jos datafreimissä 20 saraketta ja 10 riviä, niin antaa vastauksena 10 summaa
 
-    -   laskee rivin 1. 20 arvoa yhteen, rivin 2. 20 arvoa yhteen, rivin 3. 20 arvoa yhteen jne.
+  - laskee rivin 1. 20 arvoa yhteen, rivin 2. 20 arvoa yhteen, rivin 3. 20 arvoa yhteen jne.
 
 <br><br>
 
 nrow()
 
--   kertoo montako riviä on annetussa aineistossa
+- kertoo montako riviä on annetussa aineistossa
 
 <br><br>
 
 ncol()
 
--   kertoo montako saraketta on annetussa aineistossa
+- kertoo montako saraketta on annetussa aineistossa
+
+<br><br>
+
+## Matemaattisia operaattoreita 
+
+- `abs(x)`: laskee itseisarvon|x|.
+
+- `sqrt(x)`: laskee neliöjuuren √x.
+
+- `log(x)`: laskee logaritmin x jossa luonnollinen luku e on perustana.
+
+- `log(x, base = a)`: laskee logaritmin x jossa luku a on perustana.
+
+- `a^x`: laskee a potenssiin x
+
+- `exp(x)`: laskee e potenssiin x
+
+- `sin(x)`:laskee sin(x).
+
+- `sum(x)`: kun `x` on vektori x=(x1,x2,x3,…,xn), laskee summan sen elementeistä `x`: ∑ni=1xi.
+
+- `prod(x)`: kun `x` on vektori x=(x1,x2,x3,…,xn), computes the product of the elements of `x`: ∏ni=1xi.
+
+- `pi`: a built-in variable with value π, the ratio of the circumference of a circle to its diameter.
+
+- `x %% a`: computes x modulo a.
+
+- `factorial(x)`: laskee kertoman x!.
+
+- `choose(n,k)`: laskee kombinaatiot (nk).
+
+  Selitykset ovat suoraan Modern statistics with R kirjasta (@thulin2024modern).

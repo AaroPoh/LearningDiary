@@ -25,30 +25,30 @@ ggplot(data, aes(x = as.factor(ryhmä), y = arvo, fill = ryhmä)) +
 
 ```
 
--   ggplot(data, aes(x = ryhmä, y = arvo, fill = ryhmä))
+- ggplot(data, aes(x = ryhmä, y = arvo, fill = ryhmä))
 
-    -   data –\> datasetti
+  - data –\> datasetti
 
-    -   aes(x = sarake, joka tulee x-akselille, y = sarake, joka tulee y-akselille, fill = muuttaa väriä arvoa sarakkeen alkiosta toiseen)
+  - aes(x = sarake, joka tulee x-akselille, y = sarake, joka tulee y-akselille, fill = muuttaa väriä arvoa sarakkeen alkiosta toiseen)
 
-        -   as.factor(ryhmä) –\> kun merkataan as.factor saadaan tulostettua vain luvut 1 ja 2. Eli ei tule desimaaleja niiden väliin
+    - as.factor(ryhmä) –\> kun merkataan as.factor saadaan tulostettua vain luvut 1 ja 2. Eli ei tule desimaaleja niiden väliin
 
--   stat_summary(fun = "mean", geom = "bar", color = "black", width = 0.9, na.rm = TRUE)
+- stat_summary(fun = "mean", geom = "bar", color = "black", width = 0.9, na.rm = TRUE)
 
-    -   fun = käytettävä funktio
+  - fun = käytettävä funktio
 
-    -   geom = mikä muoto piirretään
+  - geom = mikä muoto piirretään
 
-    -   color = väri
+  - color = väri
 
-    -   width = palkin leveys
+  - width = palkin leveys
 
-    -   na.rm = poistetaan puuttuvat arvot
+  - na.rm = poistetaan puuttuvat arvot
 
--   stat_summary(fun.data = "mean_se", geom = "errorbar",color = "red", width = 0.3,na.rm = TRUE)
+- stat_summary(fun.data = "mean_se", geom = "errorbar",color = "red", width = 0.3,na.rm = TRUE)
 
-    -   luottamusvälien / virhepalkkien piirto
+  - luottamusvälien / virhepalkkien piirto
 
--   labs() –\> otsikot
+- labs() –\> otsikot
 
--   theme_minimal() –\> teema
+- theme_minimal() –\> teema

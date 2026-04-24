@@ -10,79 +10,79 @@ Tässä osassa asiaa luennoista, joissa käsitellään tekoälyn käyttöä ohje
 
 ### AI:n käyttö
 
--   koodin kirjoittaminen
+- koodin kirjoittaminen
 
--   debuggaaminen ja koodin arviointi
+- debuggaaminen ja koodin arviointi
 
--   koodin selittäminen
+- koodin selittäminen
 
--   koodin optimointi
+- koodin optimointi
 
 ### AI-työkaluja
 
--   Yliopiston suosittelemat (tietoturvan vuoksi, etenkin currechat)
+- Yliopiston suosittelemat (tietoturvan vuoksi, etenkin currechat)
 
-    -   Currechat
+  - Currechat
 
-    -   Copilot
+  - Copilot
 
 ### R-koodin tuottaminen
 
--   yksityiskohtaiset promptit
+- yksityiskohtaiset promptit
 
--   englanti voi toimia paremmin kuin suomi
+- englanti voi toimia paremmin kuin suomi
 
--   tarkat tilastolliset termit
+- tarkat tilastolliset termit
 
-    -   esim. reverse coding items/variables
+  - esim. reverse coding items/variables
 
--   kerro mitkä ovat data framen/tiedoston nimi & kerro muutttujien nimet
+- kerro mitkä ovat data framen/tiedoston nimi & kerro muutttujien nimet
 
-    -   skripti toimii suoraan
+  - skripti toimii suoraan
 
--   Ole tarkkana, että skripti tekee kaiken minkä pyydät
+- Ole tarkkana, että skripti tekee kaiken minkä pyydät
 
--   ole skeptinen, AI tekee oikopolkuja
+- ole skeptinen, AI tekee oikopolkuja
 
--   jos vähänkin epäilet, niin pyydä tarkennusta
+- jos vähänkin epäilet, niin pyydä tarkennusta
 
--   Kehitä skriptiä iteratiivisesti – pyydä lisää ominaisuuksia / tarkennuksia; pyydä vaihtoehtoisia tapoja ratkaista asia
+- Kehitä skriptiä iteratiivisesti – pyydä lisää ominaisuuksia / tarkennuksia; pyydä vaihtoehtoisia tapoja ratkaista asia
 
--   Jos virhe, syötä se AI:lle ja pyydä korjaamaan
+- Jos virhe, syötä se AI:lle ja pyydä korjaamaan
 
--   Tee tehtävät huolellisesti
+- Tee tehtävät huolellisesti
 
-    -   jos et itse ymmärrä niin todnäk ovat virheellisiä
+  - jos et itse ymmärrä niin todnäk ovat virheellisiä
 
 ### Skriptien optimointi ja organisointi
 
--   For-loop voi olla hidas, löytyy muitakin mahdollisia toteutuksia esim. replicate/apply
+- For-loop voi olla hidas, löytyy muitakin mahdollisia toteutuksia esim. replicate/apply
 
-    -   ei vakava ongelma, koska laskentatehoa riittää
+  - ei vakava ongelma, koska laskentatehoa riittää
 
-    -   kannattaa tehdä skriptejä, joita itse ymmärtää
+  - kannattaa tehdä skriptejä, joita itse ymmärtää
 
--   kommentoi tarkasti
+- kommentoi tarkasti
 
--   Tee funktioita
+- Tee funktioita
 
-    -   silloin voi soveltaa muihinkin aineistoihin
+  - silloin voi soveltaa muihinkin aineistoihin
 
-    -   automatisoi mahd. paljon
+  - automatisoi mahd. paljon
 
--   esim. viimeistele visualisoinnit
+- esim. viimeistele visualisoinnit
 
--   kerro tekoälylle suoraan muuttujien nimet, data-frame nimi yms. niin koodi toimii suoraan
+- kerro tekoälylle suoraan muuttujien nimet, data-frame nimi yms. niin koodi toimii suoraan
 
--   Tee erillisiä skriptejä
+- Tee erillisiä skriptejä
 
-    -   yksi, joka tekee preprosessoinnin
+  - yksi, joka tekee preprosessoinnin
 
-    -   toinen, joka tekee tilastoanalyysit
+  - toinen, joka tekee tilastoanalyysit
 
-    -   kolmas, joka tekee visualisoinnit
+  - kolmas, joka tekee visualisoinnit
 
-    -   ja pääskripti, jossa tehdään kaikki/tarvittavat vaiheet oikeassa järjestyksessä
+  - ja pääskripti, jossa tehdään kaikki/tarvittavat vaiheet oikeassa järjestyksessä
 
 @Salmela
 
@@ -270,41 +270,41 @@ dev.off()
 
 unlist()
 
--   muuntaa datan matriisi tai dataframe muodosta takaisin vektoriksi
+- muuntaa datan matriisi tai dataframe muodosta takaisin vektoriksi
 
--   esim.
+- esim.
 
 ```{r}
 #| eval: false 
  numarvot <- as.numeric(unlist(data[ ,1:32]))
 ```
 
--   unlist() komennolla pois kehikkomuodosta ja as.numeric() komennolla varmistetaan, että tallentuu numeerisena
+- unlist() komennolla pois kehikkomuodosta ja as.numeric() komennolla varmistetaan, että tallentuu numeerisena
 
--   numarvot \<- as.numeric(unlist(data\[ ,1:32\]))
+- numarvot \<- as.numeric(unlist(data\[ ,1:32\]))
 
 <br> <br>
 
 ! huutomerkki tarkoittaa loogista ei operaattoria, && ja if lausekkeessa
 
--   esim.
+- esim.
 
-    ```{r}
-    #| eval: false 
+  ```{r}
+  #| eval: false 
 
-    if (!is.null(r_variables) && length(r_variables) > 0)
+  if (!is.null(r_variables) && length(r_variables) > 0)
 
-    ```
+  ```
 
--   huutomerkki tarkoittaa komennossa !is.null(), sitä että kun r_variables muuttuja ei ole tyhjä niin ehto täyttyy –\> ts. is not null
+- huutomerkki tarkoittaa komennossa !is.null(), sitä että kun r_variables muuttuja ei ole tyhjä niin ehto täyttyy –\> ts. is not null
 
--   && merkki tarkoittaa JA eli sitä, että molempien ehtojen täytyy täyttyä, jotta if lausekkeen ehdot toteutuvat
+- && merkki tarkoittaa JA eli sitä, että molempien ehtojen täytyy täyttyä, jotta if lausekkeen ehdot toteutuvat
 
-    -   kahta && merkkiä käytetään lähinnä if lausekkeissa, muualla yhtä & merkki
+  - kahta && merkkiä käytetään lähinnä if lausekkeissa, muualla yhtä & merkki
 
--   Tai puolestaan merkitään \| pystyviivalla, if lausekkeessa kannattaa käyttää kahta \|\| ja muualla yksi \| riittää
+- Tai puolestaan merkitään \| pystyviivalla, if lausekkeessa kannattaa käyttää kahta \|\| ja muualla yksi \| riittää
 
-    -   eli merkitsee if lausekkeessa sitä, että jomman kumman ehdon täyttyminen riittää
+  - eli merkitsee if lausekkeessa sitä, että jomman kumman ehdon täyttyminen riittää
 
 <br><br>
 

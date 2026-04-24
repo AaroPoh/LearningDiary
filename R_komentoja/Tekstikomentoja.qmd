@@ -15,13 +15,13 @@ writeLines(teksti, "matikkatehtavat.txt")
 
 ```
 
--   Jokainen vektorin alkio menee **writeLines()** funktiolla tallennettuun tiedostoon omalle riville
+- Jokainen vektorin alkio menee **writeLines()** funktiolla tallennettuun tiedostoon omalle riville
 
-    -   eli pilkulla erottamalla saa tehtyä rivinvaihdon
+  - eli pilkulla erottamalla saa tehtyä rivinvaihdon
 
-    -   teksti kohtaan vektori, josta teksti / sisältö haetaan ja pilkun jälkeen uuden tiedoston nimi
+  - teksti kohtaan vektori, josta teksti / sisältö haetaan ja pilkun jälkeen uuden tiedoston nimi
 
-    -   tyhjän rivin saa tehtyä merkkaamalla vektoriin alkioksi pelkät hipsut "" , kuten riveillä 3 ja 5
+  - tyhjän rivin saa tehtyä merkkaamalla vektoriin alkioksi pelkät hipsut "" , kuten riveillä 3 ja 5
 
 ## Merkkijonojen yhdistäminen Paste() funktiolla
 
@@ -35,13 +35,13 @@ print(paste)
 print(paste0)
 ```
 
--   paste funktiolla saa siis yhdistettyä useita tekstijonoja yhdeksi tekstijonoksi
+- paste funktiolla saa siis yhdistettyä useita tekstijonoja yhdeksi tekstijonoksi
 
-    -   **paste()** laittaa oletksena välilyönnin joukkojen väliin
+  - **paste()** laittaa oletksena välilyönnin joukkojen väliin
 
-    -   **paste0()** ei laita välilyöntiä väleihin
+  - **paste0()** ei laita välilyöntiä väleihin
 
-    -   
+  - 
 
 Voi myös hyödyntää esimerkiksi jos for loopilla luo juoksevan nimeämisen tiedostoille. Alla olevassa esimerkissä siirretään kansioita uuteen kansioon. For loopin avulla saadaan haettua kaikki Koulu(1-7) nimiset kansiot. Siinä siis paste0() funktiolla yhdistetään "Koulu ja juokseva numero yhdeksi kirjainjonoksi Koulu1, Koulu2, Koulu3 jne.
 
@@ -67,7 +67,7 @@ PDF luodaan komennolla **pdf()**
 pdf("VisualisointiDiagnoosiTeht.pdf", width = 8, height = 6)
 ```
 
--   tämän jälkeisille riveille laitetun koodin tulokset tulostuvat kyseiseen pdf tiedostoon
+- tämän jälkeisille riveille laitetun koodin tulokset tulostuvat kyseiseen pdf tiedostoon
 
 <br>
 
@@ -112,35 +112,35 @@ leipateksti2 <- textGrob(teksti_sisalto2,
 grid.arrange(otsikko2, leipateksti2, ncol = 1, heights = c(0.1, 0.9))
 ```
 
--   **textGrob()**
+- **textGrob()**
 
-    -   ekaan väliin sisällytettävä teksti
+  - ekaan väliin sisällytettävä teksti
 
-    -   gp = gpar(fontsize = , fontface = )
+  - gp = gpar(fontsize = , fontface = )
 
-        -   tekstin muotoilut
+    - tekstin muotoilut
 
-    -   oletuksena piirtää tekstin keskelle (x = 0.5)
+  - oletuksena piirtää tekstin keskelle (x = 0.5)
 
-        -   jos merkataan x = 0.1 niin aloittaa tekstin vasemmasta reunasta
+    - jos merkataan x = 0.1 niin aloittaa tekstin vasemmasta reunasta
 
-    -   just = "left"
+  - just = "left"
 
-        -   tasataan teksti vasempaan reunaan
+    - tasataan teksti vasempaan reunaan
 
--   **grid.arrange()**
+- **grid.arrange()**
 
-    -   tällä piirretään textGrob() funktiolla muotoillut muuttujat PDF tiedostoon
+  - tällä piirretään textGrob() funktiolla muotoillut muuttujat PDF tiedostoon
 
-    -   Syötetään kirjoitettavat muuttujat pilkuilla eroteltuina
+  - Syötetään kirjoitettavat muuttujat pilkuilla eroteltuina
 
-    -   ncol = 1 -\> kertoo sarakkeiden määrän, kun on yksi niin teksti tulee sivulle normaalisti yhteen sarakkeeseen
+  - ncol = 1 -\> kertoo sarakkeiden määrän, kun on yksi niin teksti tulee sivulle normaalisti yhteen sarakkeeseen
 
-    -   heights() -\> määrittää muuttujien viemän tilan y-akselin suunnassa. Eli toisin sanottuna korkeuden.
+  - heights() -\> määrittää muuttujien viemän tilan y-akselin suunnassa. Eli toisin sanottuna korkeuden.
 
-        -   Esim. jos heights( 0.1, 0.9)
+    - Esim. jos heights( 0.1, 0.9)
 
-            -   Ensimmäinen muuttuja vie 10 % y-akselista ja toinen 90%
+      - Ensimmäinen muuttuja vie 10 % y-akselista ja toinen 90%
 
 <br>
 
@@ -190,36 +190,36 @@ for( i in 1:length(datasetti)){
 wrap_plots(kuvaaja_lista2, ncol = 3)
 ```
 
--   kuvaaja_lista2 \<- list()
+- kuvaaja_lista2 \<- list()
 
-    -   **list()** komennolla alustetaan kuvaaja_lista2 muuttuja listamuotoiseksi, jolloin sinne voidaan tallettaa asioita listana
+  - **list()** komennolla alustetaan kuvaaja_lista2 muuttuja listamuotoiseksi, jolloin sinne voidaan tallettaa asioita listana
 
--   datasetti muuttujaan talletetaan kolme hiukan erilaista data.framea listana **list()** komennolla
+- datasetti muuttujaan talletetaan kolme hiukan erilaista data.framea listana **list()** komennolla
 
--   nimet muuttujaan puolestaan datasettien nimet
+- nimet muuttujaan puolestaan datasettien nimet
 
--   for-looppi suorittaa 1 -\> datasetin pituus kertoja (tässä tapauksessa 3, eli 1:3) sen sisältämän koodin siten, että i tilalle asetetaan in jälkeen annetut arvot
+- for-looppi suorittaa 1 -\> datasetin pituus kertoja (tässä tapauksessa 3, eli 1:3) sen sisältämän koodin siten, että i tilalle asetetaan in jälkeen annetut arvot
 
-    -   eli ensimmäisellä kierroksella i = 1
+  - eli ensimmäisellä kierroksella i = 1
 
-    -   toisella i = 2
+  - toisella i = 2
 
-    -   kolmannella i = 3
+  - kolmannella i = 3
 
--   datasetti\[\[i\]\]
+- datasetti\[\[i\]\]
 
-    -   kaksilla hakasulkeilla viitattuna saadaan listasta datasetti haettua indeksinumerolla muuttuja
+  - kaksilla hakasulkeilla viitattuna saadaan listasta datasetti haettua indeksinumerolla muuttuja
 
--   p muuttujaan talletetaan aina luotu kuva ja se puolestaan talletetaan kuvaaja_lista2:n
+- p muuttujaan talletetaan aina luotu kuva ja se puolestaan talletetaan kuvaaja_lista2:n
 
-    -   kuvaaja_lista2\[\[i\]\] \<- p
+  - kuvaaja_lista2\[\[i\]\] \<- p
 
--   wrap_plots(kuvaaja_lista2, ncol = 3)
+- wrap_plots(kuvaaja_lista2, ncol = 3)
 
-    -   wrap_plots() funktiolla piirretään kuvaajat
+  - wrap_plots() funktiolla piirretään kuvaajat
 
-        -   kuuluu patchwork pakettiin
+    - kuuluu patchwork pakettiin
 
-    -   ncol= määrittää sarakkeiden määrän. Jos se on kolme niin yhdelle riville tulee kolme kuvaa vierekkäin
+  - ncol= määrittää sarakkeiden määrän. Jos se on kolme niin yhdelle riville tulee kolme kuvaa vierekkäin
 
-    -   
+  - 
