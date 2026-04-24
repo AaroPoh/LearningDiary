@@ -18,6 +18,7 @@ book:
     - part: Tutkimusmenetelmat_1/Tutkimusmenetelmat1.qmd
       chapters: 
         - Tutkimusmenetelmat_1/V1.qmd
+        - Tutkimusmenetelmat_1/V2.qmd
     - part: R_komentoja/R_komentoja.qmd 
       chapters: 
         - R_komentoja/KuvaajienPiirto.qmd

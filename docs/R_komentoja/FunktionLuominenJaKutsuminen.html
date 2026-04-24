@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Funktion luominen ja kutsuminen – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
+<title>16&nbsp; Funktion luominen ja kutsuminen – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_komentoja/R_komentoja.html">R-komentoja</a></li><li class="breadcrumb-item"><a href="../R_komentoja/FunktionLuominenJaKutsuminen.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_komentoja/R_komentoja.html">R-komentoja</a></li><li class="breadcrumb-item"><a href="../R_komentoja/FunktionLuominenJaKutsuminen.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -204,7 +204,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tutkimusmenetelmat_1/V1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Kuvaavat tunnusluvut, varianssi ja keskihajonta</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Hajontalukuja, jakauman kuvailua, muuttujamuunnoksia ja hypoteesintestausta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutkimusmenetelmat_1/V2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tilastotestit</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,61 +227,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/KuvaajienPiirto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kuvaajien piirtäminen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kuvaajien piirtäminen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ggplot paketti</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ggplot paketti</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/DatasetinLuominen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datasetin luominen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datasetin luominen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Tilastotesteja.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tilastotestejä</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tilastotestejä</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Matemaattisia_funktioita.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matemaattisia funktioita</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Matemaattisia funktioita</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Tekstikomentoja.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tekstikomentoja</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tekstikomentoja</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Varmuuskopiointi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Varmuuskopiointi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Varmuuskopiointi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Indeksointi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Indeksointi / subsetting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Indeksointi / subsetting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/FunktionLuominenJaKutsuminen.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Sekalaista.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sekalaista</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sekalaista</span></span></a>
   </div>
 </li>
       </ul>
@@ -292,19 +298,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tilastotiede/PoikkeavatHavainnot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Poikkeavat havainnot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Poikkeavat havainnot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tilastotiede/NormaalisuudenTestaaminen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Normaalisuuden testaaminen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Normaalisuuden testaaminen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tilastotiede/MatematiikanLaskusääntöjä.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></span></a>
   </div>
 </li>
       </ul>
@@ -312,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -331,10 +337,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#funktion-luominen-function" id="toc-funktion-luominen-function" class="nav-link active" data-scroll-target="#funktion-luominen-function"><span class="header-section-number">15.1</span> Funktion luominen: function()</a>
+  <li><a href="#funktion-luominen-function" id="toc-funktion-luominen-function" class="nav-link active" data-scroll-target="#funktion-luominen-function"><span class="header-section-number">16.1</span> Funktion luominen: function()</a>
   <ul class="collapse">
-  <li><a href="#perusrakenne" id="toc-perusrakenne" class="nav-link" data-scroll-target="#perusrakenne"><span class="header-section-number">15.1.1</span> Perusrakenne</a></li>
-  <li><a href="#argumentit" id="toc-argumentit" class="nav-link" data-scroll-target="#argumentit"><span class="header-section-number">15.1.2</span> Argumentit</a></li>
+  <li><a href="#perusrakenne" id="toc-perusrakenne" class="nav-link" data-scroll-target="#perusrakenne"><span class="header-section-number">16.1.1</span> Perusrakenne</a></li>
+  <li><a href="#argumentit" id="toc-argumentit" class="nav-link" data-scroll-target="#argumentit"><span class="header-section-number">16.1.2</span> Argumentit</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -342,9 +348,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_komentoja/R_komentoja.html">R-komentoja</a></li><li class="breadcrumb-item"><a href="../R_komentoja/FunktionLuominenJaKutsuminen.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_komentoja/R_komentoja.html">R-komentoja</a></li><li class="breadcrumb-item"><a href="../R_komentoja/FunktionLuominenJaKutsuminen.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></h1>
 </div>
 
 
@@ -361,10 +367,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="funktion-luominen-function" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="funktion-luominen-function"><span class="header-section-number">15.1</span> Funktion luominen: function()</h2>
-<section id="perusrakenne" class="level3" data-number="15.1.1">
-<h3 data-number="15.1.1" class="anchored" data-anchor-id="perusrakenne"><span class="header-section-number">15.1.1</span> Perusrakenne</h3>
+<section id="funktion-luominen-function" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="funktion-luominen-function"><span class="header-section-number">16.1</span> Funktion luominen: function()</h2>
+<section id="perusrakenne" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="perusrakenne"><span class="header-section-number">16.1.1</span> Perusrakenne</h3>
 <p>Funktion luominen koostuu neljästä pääosasta:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nimi<span class="sc">&lt;</span>−<span class="fu">function</span>(argumentti1, argumentti2){ suoritettava koodi}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -414,8 +420,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><br><br></p>
 </section>
-<section id="argumentit" class="level3" data-number="15.1.2">
-<h3 data-number="15.1.2" class="anchored" data-anchor-id="argumentit"><span class="header-section-number">15.1.2</span> Argumentit</h3>
+<section id="argumentit" class="level3" data-number="16.1.2">
+<h3 data-number="16.1.2" class="anchored" data-anchor-id="argumentit"><span class="header-section-number">16.1.2</span> Argumentit</h3>
 <p>Argumenttejä voi lisätä niin monta kuin haluaa ja kaikki ne samalla tavalla toimivat “paikan pitäjinä”</p>
 <ul>
 <li><p>Niiden järjestyksellä on merkitystä sillä funktiota käytettäessä luvut / muuttujat syötetään järjestyksen mukaan. Esim. jos on tehty useita() niminen funktio, jossa on kolme argumenttia</p>
@@ -844,12 +850,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../R_komentoja/Indeksointi.html" class="pagination-link" aria-label="Indeksointi / subsetting">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Indeksointi / subsetting</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Indeksointi / subsetting</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../R_komentoja/Sekalaista.html" class="pagination-link" aria-label="Sekalaista">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sekalaista</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sekalaista</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

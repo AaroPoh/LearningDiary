@@ -50,7 +50,7 @@ Normaalijakaumaa piikikkäämpi on siis kurtoosiltaan positiivinen ja normaalija
 
 ### Noudattaako jakauma normaalijakaumaa? 
 
-### Tehdään tilastotesti
+#### Tehdään tilastotesti
 
 - Shapiro-wilk test
 
@@ -66,7 +66,7 @@ Shapiro-wilk ja Kolmogorov-Smirnov testien toimivuus riippuu aineiston koosta, v
 
 -  Kolmogorov-Smirnov parempi isolla
 
-### Verrataan jakauman muotoa normaalijakaumaan —\> Piirrä Q-Q-Plot 
+#### Verrataan jakauman muotoa normaalijakaumaan —\> Piirrä Q-Q-Plot 
 
 - verrataan jakaumaa teoreettiseen jakaumaan tai kahta jakaumaa keskenään
 

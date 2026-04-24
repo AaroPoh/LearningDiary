@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20&nbsp; Matematiikan laskusääntöjä – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
+<title>7&nbsp; Tilastotestit – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -68,8 +33,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../summary.html" rel="next">
-<link href="../Tilastotiede/NormaalisuudenTestaaminen.html" rel="prev">
+<link href="../R_komentoja/R_komentoja.html" rel="next">
+<link href="../Tutkimusmenetelmat_1/V1.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +85,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Tilastotiede/Tilastotiede.html">Tilastotiede</a></li><li class="breadcrumb-item"><a href="../Tilastotiede/MatematiikanLaskusääntöjä.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Tutkimusmenetelmat_1/Tutkimusmenetelmat1.html">Tutkimusmenetelmät 1 - oppimispäiväkirja</a></li><li class="breadcrumb-item"><a href="../Tutkimusmenetelmat_1/V2.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tilastotestit</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -209,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Tutkimusmenetelmat_1/V2.html" class="sidebar-item-text sidebar-link">
+  <a href="../Tutkimusmenetelmat_1/V2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tilastotestit</span></span></a>
   </div>
 </li>
@@ -309,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Tilastotiede/MatematiikanLaskusääntöjä.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Tilastotiede/MatematiikanLaskusääntöjä.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></span></a>
   </div>
 </li>
@@ -337,16 +302,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#kymmenpotenssi-e" id="toc-kymmenpotenssi-e" class="nav-link active" data-scroll-target="#kymmenpotenssi-e"><span class="header-section-number">20.1</span> Kymmenpotenssi (e)</a></li>
+  <li><a href="#tilastotestin-valinta" id="toc-tilastotestin-valinta" class="nav-link active" data-scroll-target="#tilastotestin-valinta"><span class="header-section-number">7.1</span> Tilastotestin valinta</a>
+  <ul class="collapse">
+  <li><a href="#parametrinen-vs.-ei-parametrinen-testi" id="toc-parametrinen-vs.-ei-parametrinen-testi" class="nav-link" data-scroll-target="#parametrinen-vs.-ei-parametrinen-testi"><span class="header-section-number">7.1.1</span> Parametrinen vs.&nbsp;ei-parametrinen testi</a></li>
+  <li><a href="#kategoriset-muuttujat-tee-chi-square-testi" id="toc-kategoriset-muuttujat-tee-chi-square-testi" class="nav-link" data-scroll-target="#kategoriset-muuttujat-tee-chi-square-testi"><span class="header-section-number">7.1.2</span> Kategoriset muuttujat – tee Chi square testi</a></li>
+  <li><a href="#yksi-jatkuva-muuttuja-yksi-keskiarvo---tee-yhden-otoksen-t-testi" id="toc-yksi-jatkuva-muuttuja-yksi-keskiarvo---tee-yhden-otoksen-t-testi" class="nav-link" data-scroll-target="#yksi-jatkuva-muuttuja-yksi-keskiarvo---tee-yhden-otoksen-t-testi"><span class="header-section-number">7.1.3</span> Yksi jatkuva muuttuja – yksi keskiarvo -&gt; tee yhden otoksen t-testi</a></li>
+  <li><a href="#yksi-jatkuva-muuttuja-between-subjects-kahden-rymän-keskiarvojen-ero---tee-riippumattomien-otoksien-t-testi" id="toc-yksi-jatkuva-muuttuja-between-subjects-kahden-rymän-keskiarvojen-ero---tee-riippumattomien-otoksien-t-testi" class="nav-link" data-scroll-target="#yksi-jatkuva-muuttuja-between-subjects-kahden-rymän-keskiarvojen-ero---tee-riippumattomien-otoksien-t-testi"><span class="header-section-number">7.1.4</span> Yksi jatkuva muuttuja – between subjects – kahden rymän keskiarvojen ero -&gt; tee riippumattomien otoksien t-testi</a></li>
+  <li><a href="#jatkuva-muuttuja-within-subjects-kahden-tilanteen-keskiarvojen-ero---tee-riippuvien-otosten-t-testi" id="toc-jatkuva-muuttuja-within-subjects-kahden-tilanteen-keskiarvojen-ero---tee-riippuvien-otosten-t-testi" class="nav-link" data-scroll-target="#jatkuva-muuttuja-within-subjects-kahden-tilanteen-keskiarvojen-ero---tee-riippuvien-otosten-t-testi"><span class="header-section-number">7.1.5</span> Jatkuva muuttuja – within subjects – kahden tilanteen keskiarvojen ero -&gt; tee riippuvien otosten t-testi</a></li>
+  <li><a href="#kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-korrelaatio" id="toc-kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-korrelaatio" class="nav-link" data-scroll-target="#kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-korrelaatio"><span class="header-section-number">7.1.6</span> Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -&gt; Laske korrelaatio</a></li>
+  <li><a href="#kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-regressio" id="toc-kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-regressio" class="nav-link" data-scroll-target="#kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-regressio"><span class="header-section-number">7.1.7</span> Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -&gt; laske regressio</a></li>
+  <li><a href="#enemmän-kuin-2-muuttujaa" id="toc-enemmän-kuin-2-muuttujaa" class="nav-link" data-scroll-target="#enemmän-kuin-2-muuttujaa"><span class="header-section-number">7.1.8</span> Enemmän kuin 2 muuttujaa</a></li>
+  <li><a href="#enemmän-kuin-2-muuttujaa-ja-muuttujien-kontrollointi-adjustointi" id="toc-enemmän-kuin-2-muuttujaa-ja-muuttujien-kontrollointi-adjustointi" class="nav-link" data-scroll-target="#enemmän-kuin-2-muuttujaa-ja-muuttujien-kontrollointi-adjustointi"><span class="header-section-number">7.1.9</span> Enemmän kuin 2 muuttujaa ja muuttujien kontrollointi (adjustointi)</a></li>
+  <li><a href="#keskiarvojen-ero-kun-enemmän-kuin-2-ryhmää-tai-2-koetilannetta" id="toc-keskiarvojen-ero-kun-enemmän-kuin-2-ryhmää-tai-2-koetilannetta" class="nav-link" data-scroll-target="#keskiarvojen-ero-kun-enemmän-kuin-2-ryhmää-tai-2-koetilannetta"><span class="header-section-number">7.1.10</span> Keskiarvojen ero kun enemmän kuin 2 ryhmää tai 2 koetilannetta</a></li>
+  <li><a href="#tilastotestien-yhteyksiä-toisiinsa" id="toc-tilastotestien-yhteyksiä-toisiinsa" class="nav-link" data-scroll-target="#tilastotestien-yhteyksiä-toisiinsa"><span class="header-section-number">7.1.11</span> Tilastotestien yhteyksiä toisiinsa</a></li>
+  <li><a href="#taustaoletukset" id="toc-taustaoletukset" class="nav-link" data-scroll-target="#taustaoletukset"><span class="header-section-number">7.1.12</span> Taustaoletukset</a></li>
+  <li><a href="#poikkeavat-havainnot" id="toc-poikkeavat-havainnot" class="nav-link" data-scroll-target="#poikkeavat-havainnot"><span class="header-section-number">7.1.13</span> Poikkeavat havainnot</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Tilastotiede/Tilastotiede.html">Tilastotiede</a></li><li class="breadcrumb-item"><a href="../Tilastotiede/MatematiikanLaskusääntöjä.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Tutkimusmenetelmat_1/Tutkimusmenetelmat1.html">Tutkimusmenetelmät 1 - oppimispäiväkirja</a></li><li class="breadcrumb-item"><a href="../Tutkimusmenetelmat_1/V2.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tilastotestit</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tilastotestit</span></h1>
 </div>
 
 
@@ -363,33 +343,351 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="kymmenpotenssi-e" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="kymmenpotenssi-e"><span class="header-section-number">20.1</span> Kymmenpotenssi (e)</h2>
+<section id="tilastotestin-valinta" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="tilastotestin-valinta"><span class="header-section-number">7.1</span> Tilastotestin valinta</h2>
+<p>Tilastotestin valinta</p>
 <ul>
-<li><p>R merkkaa kymmenpotensseja tähän tyyliin</p>
+<li><p>Muuttujan tyypistä riippuu mitä tilastotestiä voi käyttää</p></li>
+<li><p>on tärkeää valita oikeanlainen tilastotesti, asiaan vaikuttavat</p>
 <ul>
-<li><p>p-value &lt; 2.2e-16</p></li>
-<li><p>e = kymmenpotenssi</p>
-<ul>
-<li><p>2.2e-16 = 2.2 * 10^-16</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fl">2.2</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^-</span><span class="dv">16</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "0.00000000000000022"</code></pre>
-</div>
-</div></li>
-<li><p>format( ,scientific = FALSE) funktiolla saa esitettyä luvun desimaalimuodossa</p></li>
-</ul></li>
-</ul></li>
-<li><p>Kymmenpotenssissa siirretään aina pilkkua</p>
-<ul>
-<li><p>300 * 10^-2 = 3</p></li>
-<li><p>300 * 10^2 = 30 000</p></li>
+<li><p>Onko muuttuja kategorinen vai jatkuva</p></li>
+<li><p>Onko vertailu koehenkilöiden sisäinen (within-subject) vai välillä (between subjects)</p></li>
+<li><p>Tutkitaanko keskiarvojen eroja (esim. t-testit, anova), muuttujien välistä yhteyttä (esim. korrelaatio, regressio) vai jakauman eroja (chi-square)</p></li>
 </ul></li>
 </ul>
-<p><br> <br></p>
+<p><img src="images/clipboard-2530271620.png" class="img-fluid"></p>
+<p><br></p>
+<section id="parametrinen-vs.-ei-parametrinen-testi" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="parametrinen-vs.-ei-parametrinen-testi"><span class="header-section-number">7.1.1</span> Parametrinen vs.&nbsp;ei-parametrinen testi</h3>
+<p>parametrinen testi</p>
+<ul>
+<li><p>olettaa normaalisti jakautuneen aineiston</p></li>
+<li><p>otoksen perusteella estimoidaan populaation parametreja ja niiden luottamusvälejä</p></li>
+<li><p>enemmän tilastollista voimaa</p></li>
+<li><p>varmemmin löytää eron, jos sellainen todellisuudessa on</p></li>
+<li><p>voi tehdä monimutkaisemman tilastoanalyysin</p>
+<ul>
+<li>esim. multiple regression</li>
+</ul></li>
+</ul>
+<p>ei-parametrinen testi</p>
+<ul>
+<li><p>ei tee oletuksia aineiston jakaumista; voi soveltaa melkein mihin vain aineistoon</p></li>
+<li><p>usein riittää, että saamme selville eron/yhteyden tilastollisen merkitsevyyden</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3339980100.png" class="img-fluid figure-img"></p>
+<figcaption>Parametrinen vs.&nbsp;ei-parametrinen tilastotesti</figcaption>
+</figure>
+</div>
+<p><br></p>
+</section>
+<section id="kategoriset-muuttujat-tee-chi-square-testi" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="kategoriset-muuttujat-tee-chi-square-testi"><span class="header-section-number">7.1.2</span> Kategoriset muuttujat – tee Chi square testi</h3>
+<ul>
+<li><p>yksi kategorinen muuttuja -&gt; ovatko lukumäärät samanlaisia/odotuksenmukaisia eri kategorioissa -&gt; x<sup>2</sup> goodness of fit</p>
+<ul>
+<li>esim. onko potilaiden ja kontrollien määrä sama? onko eri ikäryhmien koko samanlainen?</li>
+</ul></li>
+<li><p>kaksi tai useampi kategorinen muuttuja -&gt; ovatko lukumäärät eri kategorioissa odotuksenmukaisessa yhteydessä toisiinsa -&gt; x<sup>2</sup> test of association</p>
+<ul>
+<li><p>efektikoko Cramer’s V</p></li>
+<li><p>esim. onko eri asuinalueilla samanlainen koulutustaso? Onko eri ikäryhmissä saman verran eri interventioihin osallistuneita?</p></li>
+</ul></li>
+<li><p>testit ei parametrisiä, jakaumavapaita, ei oletuksia</p></li>
+<li><p>visualisoi tulokset palkki/bar kuvalla</p></li>
+</ul>
+<p><img src="images/clipboard-490181072.png" class="img-fluid" width="500"></p>
+<p>Onko jokaisella asuinalueella eri koulutustasojen jakauma samanlainen?</p>
+<p><br></p>
+</section>
+<section id="yksi-jatkuva-muuttuja-yksi-keskiarvo---tee-yhden-otoksen-t-testi" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="yksi-jatkuva-muuttuja-yksi-keskiarvo---tee-yhden-otoksen-t-testi"><span class="header-section-number">7.1.3</span> Yksi jatkuva muuttuja – yksi keskiarvo -&gt; tee yhden otoksen t-testi</h3>
+<p>Yksi ryhmä ja yksi muuttuja, poikkeaako keskiarvo nollasta tai jostain tietystä arvosta -&gt; One sample T-test</p>
+<ul>
+<li><p>Studentin t-testi</p></li>
+<li><p>efektikoko Cohenin d</p></li>
+<li><p>Oletuksena muuttujan normaalijakautuneisuus</p>
+<ul>
+<li><p>Shapiro-Wilk testi, jos pieni N</p></li>
+<li><p>Kolmogorov-Smirnov testi, jos on iso N</p></li>
+<li><p>Q-Q-plot, histogrammi</p></li>
+</ul></li>
+<li><p>Voi laskea myös Bayes faktorin</p></li>
+<li><p>Jos normaalisuusoletus ei täyty niin tee ei-parametrinen Wilcoxon rank-testi</p>
+<ul>
+<li>efektikoko Rank biserial correlation</li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="yksi-jatkuva-muuttuja-between-subjects-kahden-rymän-keskiarvojen-ero---tee-riippumattomien-otoksien-t-testi" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="yksi-jatkuva-muuttuja-between-subjects-kahden-rymän-keskiarvojen-ero---tee-riippumattomien-otoksien-t-testi"><span class="header-section-number">7.1.4</span> Yksi jatkuva muuttuja – between subjects – kahden rymän keskiarvojen ero -&gt; tee riippumattomien otoksien t-testi</h3>
+<p>kaksi ryhmää ja yksi muuttuja, poikkeaako ryhmien keskiarvot toisistaan  Independent samples t-test</p>
+<ul>
+<li><p>Studentin t-testi</p></li>
+<li><p>efektikoko Cohenin d</p></li>
+<li><p>Oletuksena muuttujan normaalijakautuneisuus</p></li>
+<li><p>Shapiro-Wilk testi, jos pieni N</p></li>
+<li><p>Kolmogorov-Smirnov testi, jos on iso N</p></li>
+<li><p>Q-Q-plot, histogrammi</p></li>
+<li><p>Oletuksena ryhmien homogeenisuus</p></li>
+<li><p>eli, että ryhmissä on samantasoinen varianssi</p></li>
+<li><p>Levenen testi</p></li>
+<li><p>Voi laskea myös Bayes Faktorin</p></li>
+<li><p>Jos homogeenisuus oletus ei täyty, tee Welchin -testi</p>
+<ul>
+<li><p>Tai tee aina Welchin testi</p></li>
+<li><p>toimii vaikka homogeenisuusoletus täyttyisi eli voi käyttää aina</p></li>
+</ul></li>
+<li><p>Jos normaaliusoletus ei täyty, niin tee ei-parametrinen Mann Whitney U-testi</p>
+<ul>
+<li>efektikoko Rank biserial correlation</li>
+</ul></li>
+<li><p>Visualisoi tulokset, keskiarvo JA keskiarvon keskivirhe tai luottamusväli</p></li>
+</ul>
+<p><img src="images/clipboard-1933294556.png" class="img-fluid" width="432"></p>
+<p><br></p>
+</section>
+<section id="jatkuva-muuttuja-within-subjects-kahden-tilanteen-keskiarvojen-ero---tee-riippuvien-otosten-t-testi" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="jatkuva-muuttuja-within-subjects-kahden-tilanteen-keskiarvojen-ero---tee-riippuvien-otosten-t-testi"><span class="header-section-number">7.1.5</span> Jatkuva muuttuja – within subjects – kahden tilanteen keskiarvojen ero -&gt; tee riippuvien otosten t-testi</h3>
+<p>yksi ryhmä, yksi mitattu asia, kaksi koetilannetta, poikkeaako koetilanteiden keskiarvot toisistaan  Paired samples T-test</p>
+<ul>
+<li><p>Studentin t-testi</p></li>
+<li><p>efektikoko Cohenin d</p></li>
+<li><p>Oletuksena muuttujan normaalijakautuneisuus</p>
+<ul>
+<li><p>Shapiro-Wilk testi, jos pieni N</p></li>
+<li><p>Kolmogorov-Smirnov testi, jos on iso N</p></li>
+<li><p>Q-Q-plot, histogrammi</p></li>
+</ul></li>
+<li><p>Voi laskea myös Bayes Faktorin</p></li>
+<li><p>Jos normaalisuusoletus ei täyty niin tee ei-parametrinen Wilcoxon rank-testi</p>
+<ul>
+<li>efektikoko Rank biserial correlation</li>
+</ul></li>
+<li><p>Visualisoi tulokset, keskiarvo JA keskiarvon keskivirhe tai luottamusväli</p></li>
+</ul>
+<p><img src="images/clipboard-1950322356.png" class="img-fluid" width="358"></p>
+<p><br></p>
+</section>
+<section id="kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-korrelaatio" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-korrelaatio"><span class="header-section-number">7.1.6</span> Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -&gt; Laske korrelaatio</h3>
+<p>Yksi ryhmä, kaksi muuttujaa, ovatko muuttujat yhteydessä toisiinsa  Correlation</p>
+<ul>
+<li><p>jos muuttujilla lineaarinen yhteys, laske Pearson</p>
+<ul>
+<li>Arvioi scatter-plotin perusteella</li>
+</ul></li>
+<li><p>Jos muuttujilla monotoninen yhteys, laske Spearman</p>
+<ul>
+<li>Ei-parametrinen testi, ei tee oletuksia, perustuu järjestykseen (rank)</li>
+</ul></li>
+<li><p>Korrelaatio itsessään efektikoko</p></li>
+<li><p>Visualisoi tulokset scatterplotilla</p>
+<ul>
+<li>Lisää regressiosuora ja hajonta/keskivirhe/luottamusväli</li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-regressio" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="kaksi-jatkuvaa-muuttujaa-within-subjects-kahden-muuttujan-yhteys---laske-regressio"><span class="header-section-number">7.1.7</span> Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -&gt; laske regressio</h3>
+<p>yksi ryhmä, kaksi muuttujaa, ennustaako ensimmäinen muuttuja toista muuttujaa -&gt; linear regression</p>
+<ul>
+<li><p>R<sup>2</sup> selitysosuus kertoo ilmiön voimakkuudesta (efektikoko)</p></li>
+<li><p>muut mittarit: adjusted R<sup>2</sup>, AIC, BIC, RMSE, toimivat vain kun on useampia ennustajia / malleja</p></li>
+<li><p>Oletukset</p>
+<ul>
+<li><p>ei residuaalien autokorrelaatiota, Durbin-Watson autocorrelation testi</p></li>
+<li><p>Ei muuttujien kollineaarisuutta, Collinearity test</p></li>
+<li><p>Residuaalien normaalijakautuneisuus</p>
+<ul>
+<li><p>Shapiro-Wilk testi, jos pieni N</p></li>
+<li><p>Kolmogorov-Smirnov testi, jos on iso N</p></li>
+<li><p>Q-Q-plot, histogrammi</p></li>
+</ul></li>
+</ul></li>
+<li><p>Visualisoi tulokset scatterplotilla</p>
+<ul>
+<li>Lisää regressiosuora ja hajonta/keskivirhe/luottamusväli</li>
+</ul></li>
+</ul>
+<p><img src="images/clipboard-1463868446.png" class="img-fluid" width="591"></p>
+<p><br></p>
+</section>
+<section id="enemmän-kuin-2-muuttujaa" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="enemmän-kuin-2-muuttujaa"><span class="header-section-number">7.1.8</span> Enemmän kuin 2 muuttujaa</h3>
+<p>Correlation matrix</p>
+<ul>
+<li><p>lisää niin monta jatkuvaa muuttujaa, kuin haluat</p></li>
+<li><p>Jos paljon korrelaatioita, kuva parempi kuin taulukko</p></li>
+</ul>
+<p><img src="images/clipboard-1667602479.png" class="img-fluid" width="540"></p>
+<p>Korrelaatiomatriisi</p>
+<p><br></p>
+</section>
+<section id="enemmän-kuin-2-muuttujaa-ja-muuttujien-kontrollointi-adjustointi" class="level3" data-number="7.1.9">
+<h3 data-number="7.1.9" class="anchored" data-anchor-id="enemmän-kuin-2-muuttujaa-ja-muuttujien-kontrollointi-adjustointi"><span class="header-section-number">7.1.9</span> Enemmän kuin 2 muuttujaa ja muuttujien kontrollointi (adjustointi)</h3>
+<p>Partial correlation</p>
+<ul>
+<li>testaa muuttujien välistä yhteyttä samalla kun kontrolloit muiden muuttujien vaikutuksen</li>
+</ul>
+<p>Multiple linear regression</p>
+<ul>
+<li><p>lisää niin monta muuttujaa kuin haluat</p>
+<ul>
+<li>ota huomioon ennustettavien muuttujien määrä, N, tilastollinen voima</li>
+</ul></li>
+<li><p>Voit lisätä jatkuvia muuttujia ja myös kategorisia muuttujia (dummy koodattuina)</p></li>
+<li><p>joko between tai within subjects</p></li>
+<li><p>Jokaisen muuttujan itsenäinen vaikutus, muiden muuttujien vaikutus kontrolloituu&nbsp;&nbsp;&nbsp;&nbsp;</p></li>
+<li><p>Lisää muuttujia asteittain hierarkisesti (blocks), vertaile malleja</p>
+<ul>
+<li>adjusted R<sup>2</sup>, AIC, BIC, RMSE</li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="keskiarvojen-ero-kun-enemmän-kuin-2-ryhmää-tai-2-koetilannetta" class="level3" data-number="7.1.10">
+<h3 data-number="7.1.10" class="anchored" data-anchor-id="keskiarvojen-ero-kun-enemmän-kuin-2-ryhmää-tai-2-koetilannetta"><span class="header-section-number">7.1.10</span> Keskiarvojen ero kun enemmän kuin 2 ryhmää tai 2 koetilannetta</h3>
+<p>Oletukset</p>
+<ul>
+<li><p>Oletuksena muuttujan normaalijakautuneisuus</p>
+<ul>
+<li><p>Shapiro-Wilk testi, jos pieni N</p></li>
+<li><p>Kolmogorov-Smirnov testi, jos on iso N</p></li>
+<li><p>Q-Q-plot, histogrammi</p></li>
+</ul></li>
+<li><p>Oletuksena ryhmien homogeenisuus</p>
+<ul>
+<li><p>eli, että ryhmissä on samantasoinen varianssi</p></li>
+<li><p>Levenen testi</p></li>
+</ul></li>
+</ul>
+<p>Vain between subjects – ryhmiä 2 tai enemmän</p>
+<ul>
+<li><p>yksi ennustava (riippumaton) muuttuja -&gt; one-way ANOVA</p>
+<ul>
+<li>jos normaaliusoletus ei täyty niin tee ei parametrinen Kruskal-Wallis</li>
+</ul></li>
+<li><p>kaksi tai useampia ennustavia (riippumattomia) muuttujia -&gt; ANOVA (factorial)</p></li>
+<li><p>Lisäksi kontrolloi häiriömuuttuja -&gt; ANCOVA</p></li>
+</ul>
+<p>within subjects – koetilanteita 2 tai enemmän</p>
+<ul>
+<li><p>Yksi tai useampi ennustaja -&gt; Repeated measures ANOVA</p>
+<ul>
+<li>jos normaaliusoletus ei täyty, tee ei-parametrinen Friedman Repeated Measures ANOVA</li>
+</ul></li>
+<li><p>Ennustavat muuttujat joko within tai between subjects</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="tilastotestien-yhteyksiä-toisiinsa" class="level3" data-number="7.1.11">
+<h3 data-number="7.1.11" class="anchored" data-anchor-id="tilastotestien-yhteyksiä-toisiinsa"><span class="header-section-number">7.1.11</span> Tilastotestien yhteyksiä toisiinsa</h3>
+<p>kahden muuttujan välinen regressio vs.&nbsp;korrelaatio</p>
+<ul>
+<li>käytännössä sama asia, regressio -&gt; scatterplot-kuva suoran kulmakerroin</li>
+</ul>
+<p>Kahden ryhmän ero; t-testi vs.&nbsp;ANOVA -&gt; sama asia</p>
+<p>GLM = general linear model</p>
+<ul>
+<li><p>inear regression</p></li>
+<li><p>multiple regression</p></li>
+<li><p>ANOVA</p></li>
+</ul>
+</section>
+<section id="taustaoletukset" class="level3" data-number="7.1.12">
+<h3 data-number="7.1.12" class="anchored" data-anchor-id="taustaoletukset"><span class="header-section-number">7.1.12</span> Taustaoletukset</h3>
+<ul>
+<li><p>useat parametriset testit olettavat, että aineisto/muuttujat noudattavat suunnilleen normaalijakaumaa</p>
+<ul>
+<li>normaalijakaumaoletus ei aina kriittinen</li>
+</ul></li>
+<li><p>käytännössä tilastotesteissä aina mukana useita muuttujia, tärkeintä silloin on residuaalien normaalijakautuneisuus – yksittäinen muuttuja voi poiketa normaalijakautuneisuudesta</p></li>
+<li><p>Testien taustaoletukset testaus jamovissa aina assumption checks</p></li>
+</ul>
+<p><img src="images/clipboard-1959635043.png" class="img-fluid" width="494"></p>
+<p><br></p>
+<p>Taustaoletukset</p>
+<ul>
+<li><p>mitä tehdä, kun oletukset eivät täyty?</p>
+<ul>
+<li><p>Muuttujamuunnos</p></li>
+<li><p>Vaihto ei-parametrisiin testeihin</p></li>
+<li><p>Oletuksen tarkastelu toisella tapaa</p></li>
+</ul></li>
+<li><p>Esim. Jos shapiro-wilk/kolmogorov-smirnov -testi merkitsevä, muuttuja ei normaali</p>
+<ul>
+<li><p>tee testit ja raportoi kaikki mitä teit ja perustele valinta (miksi rikoit normaalisuusoletusta) ja pohdi sen vaikutusta)</p></li>
+<li><p>Jos on epävarma, niin parempi tehdä vähemmän oletuksia, eli käyttää ei-parametrista testiä</p></li>
+<li><p>jos muuttujien välillä on aito ja voimakas yhteys niin tulee näkyviin sekä parametrisillä että ei-parametrisillä testeillä</p></li>
+<li><p>ei-parametrisia testejä saa käyttää vaikka olisi normaalisti jakautuneet muuttujat; testin ero tilastollisessa voimassa</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="poikkeavat-havainnot" class="level3" data-number="7.1.13">
+<h3 data-number="7.1.13" class="anchored" data-anchor-id="poikkeavat-havainnot"><span class="header-section-number">7.1.13</span> Poikkeavat havainnot</h3>
+<p>aineiston tarkastelun jälkeen poikkeavien havaintojen poisto tarvittaessa; usein ei tarvitse poistaa kuin selkeästi virheelliset arvot</p>
+<ul>
+<li><p>Q-Q-plot</p></li>
+<li><p>Mean +/- X*sd</p></li>
+<li><p>Median +/- X*mad</p></li>
+<li><p>Trim, X% pienimmät / suurimmat arvot</p></li>
+</ul>
+<p>Tilastotestin jälkeen, Q-Q-plotin tarkastelu, havaintojen poisto tarvittaessa</p>
+<ul>
+<li>lineaarinen regressio -_&gt; Cook’s distance kertoo kuinka paljon yksittäinen havainto vaikuttaa tulokseen (talleta cook distances  visualisoi scatter plotilla)</li>
+</ul>
+<p>Aineistoa ei saisi poistaa liikaa, poikkeavat havainnot yksittäisiä, koko aineistosta korkeintaan muutama prosentti</p>
+<ul>
+<li>virheelliset arvot ainoat, jotka täytyy aina poistaa</li>
+</ul>
+<p><br></p>
+<p>Aineiston käsittelyvaiheiden vaikutus</p>
+<ul>
+<li><p>Testin valinta, poikkeavat havainnot, muuttujamuunnokset yms. vaikuttavat tulokseen</p></li>
+<li><p>Aina pitää tehdä valintoja/korjauksia/muunnoksia, kaikki tutkijat tekevät niitä, tärkeää on</p>
+<ul>
+<li><p>tiedostaa, että valinnat vaikuttavat lopputulokseen</p></li>
+<li><p>selkeät kriteerit/perusteet valinnoille</p></li>
+<li><p>valintojen tarkka raportointi</p></li>
+</ul></li>
+</ul>
+<p>Testitulosten raportointi ja tulkinta</p>
+<ul>
+<li><p>Tulokset</p>
+<ul>
+<li><p>keskiarvojen ero, suunta</p></li>
+<li><p>muuttujien välinen yhteys</p></li>
+<li><p>P-arvo, tilastollinen merkitsevyys</p></li>
+<li><p>Efektikoko, selitysosuus</p></li>
+</ul></li>
+<li><p>Pohdinta</p>
+<ul>
+<li><p>tuloksen merkityksellisyys, uutuus, odotustenmukaisuus jne.</p></li>
+<li><p>Tehtyjen valintojen vaikutus</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>Yksinkertainen usein hyvä</p>
+<ul>
+<li><p>Parempi tehdä yksinkertainen analyysi, jonka ymmärtää ja osaa, kuin monimutkainen analyysi, jota ei osaa tai ymmärrä miten se toimii</p>
+<ul>
+<li>parempi tehdä yksinkertaiset analyysit oikein ja kattavasti, kuin monimutkaiset analyysit väärin tai puutteellisesti</li>
+</ul></li>
+<li><p>Tilastoanalyyseja voi tehdä myös kahdessa vaiheessa: ensin adjustointi/mallinnus sitten tilastotesti – kaksi yksinkertaista tilastotestiä yhden monimutkaisen sijaan</p>
+<ul>
+<li><p>esim. fMRI ensin jokaiselle koehenkilölle oma regressioanalyysi, sitten t-testi onko kaikilla koehenkilöillä samanlaiset regression beta-kertoimet</p></li>
+<li><p>kontrolli ja koeryhmä, ikä vaihtelee, ensin adjustoidaan muuttujan arvot iän mukaan ja poistetaan iän vaikutus, sitten tehdään t-testi</p></li>
+</ul></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -795,13 +1093,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Tilastotiede/NormaalisuudenTestaaminen.html" class="pagination-link" aria-label="Normaalisuuden testaaminen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Normaalisuuden testaaminen</span></span>
+      <a href="../Tutkimusmenetelmat_1/V1.html" class="pagination-link" aria-label="Hajontalukuja, jakauman kuvailua, muuttujamuunnoksia ja hypoteesintestausta">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Hajontalukuja, jakauman kuvailua, muuttujamuunnoksia ja hypoteesintestausta</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../R_komentoja/R_komentoja.html" class="pagination-link" aria-label="R-komentoja">
+        <span class="nav-page-text">R-komentoja</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
