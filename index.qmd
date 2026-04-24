@@ -1,9 +1,5 @@
-# Preface {.unnumbered}
+# Oppimispäiväkirjan esittely {.unnumbered}
 
-This is a Quarto book.
+Kirja sisältää
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+Suosittelen lukemaan kirjaa verkkosivuversiona osoitteesta: <https://aaropoh.github.io/LearningDiary/>
