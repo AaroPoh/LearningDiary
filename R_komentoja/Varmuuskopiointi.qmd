@@ -31,8 +31,6 @@ library(usethis)
 # Tämä avaa selaimesi suoraan GitHubin oikealle sivulle
 create_github_token()
 
-# Token: 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
-
 if(!require(gitcreds)) install.packages("gitcreds")
 library(gitcreds)
 
