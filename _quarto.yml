@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs 
 
 book:
   title: "Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit"

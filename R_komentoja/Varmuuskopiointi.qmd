@@ -12,19 +12,50 @@ usethis::use_git()
 
 Luo olemassa olevalle R-projektille git repositorion
 
--   uutta projektia luodessa voi rastittaa saman heti alkuun
+- uutta projektia luodessa voi rastittaa saman heti alkuun
 
--   git repositorioon voi tallentaa varmuuskopion aina kun haluaa
+- git repositorioon voi tallentaa varmuuskopion aina kun haluaa
 
-    -   se tehdään yläoikealta git välilehdeltä valitsemalla tehdyt muutokset ja painamalla commit
+  - se tehdään yläoikealta git välilehdeltä valitsemalla tehdyt muutokset ja painamalla commit
+
+<br>
+
+Kun on luonut tunnukset GitHubiin voi projektin tallettaa tililleen pilveen. Paikallinen git täytyy ensin yhdistää githubiin luomalla github token ja lisäämällä se Rstudioon. Github token toimii salasanana. Github suosittelee, että token on voimassa vain määräajan esim. 30 tai 90 päivää, mutta laitoin sen jatkuvasti voimassa olevaksi, koska en halua säätää sen kanssa koko ajan. Alla skripti, jolla pääsee githubin sivuille luomaan tokenin ja sen jälkeen lisäämään sen rstudioon. Token tarvitsee lisätä vain yhteen projektiin rstudiossa ja se toimii sen jälkeen kaikissa. Lisätäkseen projektin gitiin ja githubiin täytyy ajaa komennot **usethis::use_git()** ja **usethis::use_github()**
+
+```{r}
+#| eval: false 
+
+if(!require(usethis)) install.packages("usethis")
+library(usethis)
+
+# Tämä avaa selaimesi suoraan GitHubin oikealle sivulle
+create_github_token()
+
+# Token: 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
+
+if(!require(gitcreds)) install.packages("gitcreds")
+library(gitcreds)
+
+# Aja tämä ja liitä kopioimasi token (koodi) pyydettäessä konsoliin
+gitcreds_set()
+
+# Tämä komento hoitaa kaiken: luo GitHubiin uuden kansion (repository) 
+# ja lähettää tiedostosi sinne.
+usethis::use_github()
+
+
+# Kun luo uuden projektin niin alla olevat komennot täytyy ajaa, jotta git ja github toimivat. Tokenia ei tarvitse ajaa uudestaan. 
+# usethis::use_git() ja usethis::use_github().
+
+```
 
 ## .gitignore
 
--   Gemini suositteli lisäämään alla olevat asiat gitignore tiedostoon
+- Gemini suositteli lisäämään alla olevat asiat gitignore tiedostoon
 
-    -   sieltä määritetään, mitä ei varmuuskopioida
+  - sieltä määritetään, mitä ei varmuuskopioida
 
-    -   Turhia asioita ei kannata varmuuskopioida, jotta git pysyy selkeänä ja sulavana
+  - Turhia asioita ei kannata varmuuskopioida, jotta git pysyy selkeänä ja sulavana
 
 ```{r}
 #| eval: false 

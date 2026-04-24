@@ -10,38 +10,38 @@ Quarto-kirjaan saa luotua koodinpätkiä, joita käyttäjä pystyy html muodossa
 
 Run napin ja interaktiivisten koodinpätkien luomiseen täytyy tehdä seuraavat asiat:
 
--   Ajetaan terminaalissa komento: quarto add coatless/quarto-webr
+- Ajetaan terminaalissa komento: quarto add coatless/quarto-webr
+
+  ```{r}
+  #| eval: false
+  quarto add coatless/quarto-webr
+  ```
+
+  - asentaa projektiin webr lisäyksen, joka mahdollistaa interakiivisten chunkkien luomisen
+
+  - tämä täytyy tehdä vain kerran kyseisessä projektissa
+
+- Sen sivun ylälaitaan, johon haluaa lisätä interaktiivisia chunkkeja merkataan YAML osiin:
+
+  - otsikon alle filters:
+
+  - seuraavalle riville sisennettynä - webr
 
     ```{r}
     #| eval: false
-    quarto add coatless/quarto-webr
+    ---
+    title: "Oma harjoitussivu"
+    filters:
+      - webr
+    ---
     ```
 
-    -   asentaa projektiin webr lisäyksen, joka mahdollistaa interakiivisten chunkkien luomisen
+- Siihen koodinpätkään, johon haluaa interaktiivisen run-napin yläkulmaan merkataan oletuksen eli {r} sijaan {webr-r}
 
-    -   tämä täytyy tehdä vain kerran kyseisessä projektissa
-
--   Sen sivun ylälaitaan, johon haluaa lisätä interaktiivisia chunkkeja merkataan YAML osiin:
-
-    -   otsikon alle filters:
-
-    -   seuraavalle riville sisennettynä - webr
-
-        ```{r}
-        #| eval: false
-        ---
-        title: "Oma harjoitussivu"
-        filters:
-          - webr
-        ---
-        ```
-
--   Siihen koodinpätkään, johon haluaa interaktiivisen run-napin yläkulmaan merkataan oletuksen eli {r} sijaan {webr-r}
-
-    ```{r}
-    #| eval: false
-    {webr-r}
-    ```
+  ```{r}
+  #| eval: false
+  {webr-r}
+  ```
 
 Näiden vaiheiden jälkeen kyseisestä chunkista ei suoraan tulostu tuloksia sivulle, vaan ne täytyy ajaa nappia painamalla ja napilla voi ajaa ne niin moneen kertaan kuin haluaa. Lisäksi käyttäjä voi muokata chunkin koodia.
 
@@ -65,9 +65,9 @@ Koodilohkoista eli code chunkeista saa tehtyä avattavia ja suljettavia kirjoitt
 #| code-summary: "Näytä koodi"
 ```
 
--   Yläkulmassa saa ja täytyy olla normaalisti {r}, nämä komennot sen alle
+- Yläkulmassa saa ja täytyy olla normaalisti {r}, nämä komennot sen alle
 
--   code-summary: —\> kohtaan voi kirjoittaa haluamansa tekstin, joka näkyy napissa, josta koodinpätkän voi avata.
+- code-summary: —\> kohtaan voi kirjoittaa haluamansa tekstin, joka näkyy napissa, josta koodinpätkän voi avata.
 
 <br>
 
@@ -87,16 +87,16 @@ mean(aineisto)
 
 \| merkki tarkoittaa tai
 
--   esim. x\<1 \| x\>5
+- esim. x\<1 \| x\>5
 
-    -   tarkoittaa, että ehdon toteutuakseen x:n täytyy olla pienempi kuin 1 tai suurempi kuin 5
+  - tarkoittaa, että ehdon toteutuakseen x:n täytyy olla pienempi kuin 1 tai suurempi kuin 5
 
-        -   riittää siis, että toinen toteutuu ehdon täyttämiseksi
+    - riittää siis, että toinen toteutuu ehdon täyttämiseksi
 
 & merkki tarkoittaa ja
 
--   esim. x\>1 & x\<5
+- esim. x\>1 & x\<5
 
-    -   tarkoittaa, että x:n tulee olla suurempi kuin 1 ja pienempi kuin 5
+  - tarkoittaa, että x:n tulee olla suurempi kuin 1 ja pienempi kuin 5
 
-        -   molempien täytyy toteutua, jotta ehto toteutuu
+    - molempien täytyy toteutua, jotta ehto toteutuu
