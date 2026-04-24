@@ -7,7 +7,7 @@
 
 /.quarto/
 **/*.quarto_ipynb
-_book/
-_site/
-site_libs/
+# _book/
+# _site/
+# site_libs/
 .positai
