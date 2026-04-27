@@ -71,7 +71,7 @@ _site/
 site_libs/
 ```
 
-## Quarto-kirja nettisivuksi githubin avulla 
+## Quarto-kirja nettisivuksi githubin avulla
 
 Quarto kirjan saa githubin kautta nettisivuksi muutamalla simppelillä työvaiheella. Aivan ensiksi quarto-kirjan projektikansion täytyy löytyä githubista eli suorita **usethis::use_git()** ja **usethis::use_github()** mikäli et ole niitä jo tehnyt. Ensiksi täytyy lisätä quarto.yml tiedostoon: "**output-dir: docs**". Se lisää projektiin kansion docs, jota käytetään nettisivun lähdekansiona.
 
@@ -144,7 +144,7 @@ Työvaiheet ovat siis: Määritykset yml ja gitignore tiedostoihin –\> luo .no
 
 Mene githubiin ja avaa sieltä kyseisen projektin repositorio. Actions välilehdeltä voi tarkistaa onko viimeisin push komento jo suoritettuna ja ajan tasalla. Sen kohdalla on punainen pallo, jos on ongelmaa, keltainen jos suorittaminen on kesken ja vihreä jos kaikki on valmiina. Mene repositorion settings välilehdelle ja valitse vasemmalla reunalla olevasta listasta Pages.
 
-![<br> ](images/clipboard-915949178.png)
+![<br>](images/clipboard-915949178.png)
 
 Pages sivulla build and deployement kohdalla säilytä tai valitse source kohtaan deploy from a branch (Minulla se oli jo valmiiksi siinä). Sitten valitse branch kohtaan master ja folder kohtaan docs ja paina save. Sen myötä sinulle täytyisi syntyä nettisivut muodossa "https://käyttäjänimi.github.io/ProjektiRepositorio/"
 

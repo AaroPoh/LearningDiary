@@ -3,7 +3,7 @@ title: "Tilastotestit"
 format: html
 ---
 
-## Tilastotestin valinta 
+## Tilastotestin valinta
 
 Tilastotestin valinta
 
@@ -11,7 +11,7 @@ Tilastotestin valinta
 
 - on tärkeää valita oikeanlainen tilastotesti, asiaan vaikuttavat
 
-  -  Onko muuttuja kategorinen vai jatkuva
+  - Onko muuttuja kategorinen vai jatkuva
 
   - Onko vertailu koehenkilöiden sisäinen (within-subject) vai välillä (between subjects)
 
@@ -21,7 +21,7 @@ Tilastotestin valinta
 
 <br>
 
-### Parametrinen vs. ei-parametrinen testi 
+### Parametrinen vs. ei-parametrinen testi
 
 parametrinen testi
 
@@ -29,9 +29,9 @@ parametrinen testi
 
 - otoksen perusteella estimoidaan populaation parametreja ja niiden luottamusvälejä
 
--  enemmän tilastollista voimaa
+- enemmän tilastollista voimaa
 
--  varmemmin löytää eron, jos sellainen todellisuudessa on
+- varmemmin löytää eron, jos sellainen todellisuudessa on
 
 - voi tehdä monimutkaisemman tilastoanalyysin
 
@@ -39,15 +39,15 @@ parametrinen testi
 
 ei-parametrinen testi
 
--  ei tee oletuksia aineiston jakaumista; voi soveltaa melkein mihin vain aineistoon
+- ei tee oletuksia aineiston jakaumista; voi soveltaa melkein mihin vain aineistoon
 
 - usein riittää, että saamme selville eron/yhteyden tilastollisen merkitsevyyden
 
-![Parametrinen vs. ei-parametrinen tilastotesti ](images/clipboard-3339980100.png)
+![Parametrinen vs. ei-parametrinen tilastotesti](images/clipboard-3339980100.png)
 
 <br>
 
-### Kategoriset muuttujat – tee Chi square testi 
+### Kategoriset muuttujat – tee Chi square testi
 
 - yksi kategorinen muuttuja -\> ovatko lukumäärät samanlaisia/odotuksenmukaisia eri kategorioissa -\> x^2^ goodness of fit
 
@@ -69,7 +69,7 @@ Onko jokaisella asuinalueella eri koulutustasojen jakauma samanlainen?
 
 <br>
 
-### Yksi jatkuva muuttuja – yksi keskiarvo -\> tee yhden otoksen t-testi 
+### Yksi jatkuva muuttuja – yksi keskiarvo -\> tee yhden otoksen t-testi
 
 Yksi ryhmä ja yksi muuttuja, poikkeaako keskiarvo nollasta tai jostain tietystä arvosta -\> One sample T-test
 
@@ -81,7 +81,7 @@ Yksi ryhmä ja yksi muuttuja, poikkeaako keskiarvo nollasta tai jostain tietyst�
 
   - Shapiro-Wilk testi, jos pieni N
 
-  -  Kolmogorov-Smirnov testi, jos on iso N
+  - Kolmogorov-Smirnov testi, jos on iso N
 
   - Q-Q-plot, histogrammi
 
@@ -93,7 +93,7 @@ Yksi ryhmä ja yksi muuttuja, poikkeaako keskiarvo nollasta tai jostain tietyst�
 
 <br>
 
-### Yksi jatkuva muuttuja – between subjects – kahden rymän keskiarvojen ero -\> tee riippumattomien otoksien t-testi 
+### Yksi jatkuva muuttuja – between subjects – kahden rymän keskiarvojen ero -\> tee riippumattomien otoksien t-testi
 
 kaksi ryhmää ja yksi muuttuja, poikkeaako ryhmien keskiarvot toisistaan  Independent samples t-test
 
@@ -101,21 +101,21 @@ kaksi ryhmää ja yksi muuttuja, poikkeaako ryhmien keskiarvot toisistaan  In
 
 - efektikoko Cohenin d
 
--  Oletuksena muuttujan normaalijakautuneisuus
+- Oletuksena muuttujan normaalijakautuneisuus
 
-  - Shapiro-Wilk testi, jos pieni N
+- Shapiro-Wilk testi, jos pieni N
 
-  - Kolmogorov-Smirnov testi, jos on iso N
+- Kolmogorov-Smirnov testi, jos on iso N
 
-  - Q-Q-plot, histogrammi
+- Q-Q-plot, histogrammi
 
--  Oletuksena ryhmien homogeenisuus
+- Oletuksena ryhmien homogeenisuus
 
-  - eli, että ryhmissä on samantasoinen varianssi
+- eli, että ryhmissä on samantasoinen varianssi
 
-  - Levenen testi
+- Levenen testi
 
--  Voi laskea myös Bayes Faktorin
+- Voi laskea myös Bayes Faktorin
 
 - Jos homogeenisuus oletus ei täyty, tee Welchin -testi
 
@@ -133,11 +133,11 @@ kaksi ryhmää ja yksi muuttuja, poikkeaako ryhmien keskiarvot toisistaan  In
 
 <br>
 
-### Jatkuva muuttuja – within subjects – kahden tilanteen keskiarvojen ero -\>  tee riippuvien otosten t-testi 
+### Jatkuva muuttuja – within subjects – kahden tilanteen keskiarvojen ero -\> tee riippuvien otosten t-testi
 
 yksi ryhmä, yksi mitattu asia, kaksi koetilannetta, poikkeaako koetilanteiden keskiarvot toisistaan  Paired samples T-test
 
--  Studentin t-testi
+- Studentin t-testi
 
 - efektikoko Cohenin d
 
@@ -161,7 +161,7 @@ yksi ryhmä, yksi mitattu asia, kaksi koetilannetta, poikkeaako koetilanteiden k
 
 <br>
 
-### Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -\> Laske korrelaatio 
+### Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -\> Laske korrelaatio
 
 Yksi ryhmä, kaksi muuttujaa, ovatko muuttujat yhteydessä toisiinsa  Correlation
 
@@ -171,7 +171,7 @@ Yksi ryhmä, kaksi muuttujaa, ovatko muuttujat yhteydessä toisiinsa  Correla
 
 - Jos muuttujilla monotoninen yhteys, laske Spearman
 
-  -  Ei-parametrinen testi, ei tee oletuksia, perustuu järjestykseen (rank)
+  - Ei-parametrinen testi, ei tee oletuksia, perustuu järjestykseen (rank)
 
 - Korrelaatio itsessään efektikoko
 
@@ -181,7 +181,7 @@ Yksi ryhmä, kaksi muuttujaa, ovatko muuttujat yhteydessä toisiinsa  Correla
 
 <br>
 
-### Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -\> laske regressio 
+### Kaksi jatkuvaa muuttujaa – within subjects – kahden muuttujan yhteys -\> laske regressio
 
 yksi ryhmä, kaksi muuttujaa, ennustaako ensimmäinen muuttuja toista muuttujaa -\> linear regression
 
@@ -215,7 +215,7 @@ yksi ryhmä, kaksi muuttujaa, ennustaako ensimmäinen muuttuja toista muuttujaa 
 
 Correlation matrix
 
--  lisää niin monta jatkuvaa muuttujaa, kuin haluat
+- lisää niin monta jatkuvaa muuttujaa, kuin haluat
 
 - Jos paljon korrelaatioita, kuva parempi kuin taulukko
 
@@ -225,7 +225,7 @@ Korrelaatiomatriisi
 
 <br>
 
-### Enemmän kuin 2 muuttujaa ja muuttujien kontrollointi (adjustointi) 
+### Enemmän kuin 2 muuttujaa ja muuttujien kontrollointi (adjustointi)
 
 Partial correlation
 
@@ -249,7 +249,7 @@ Multiple linear regression
 
 <br>
 
-### Keskiarvojen ero kun enemmän kuin 2 ryhmää tai 2 koetilannetta 
+### Keskiarvojen ero kun enemmän kuin 2 ryhmää tai 2 koetilannetta
 
 Oletukset
 
@@ -265,7 +265,7 @@ Oletukset
 
   - eli, että ryhmissä on samantasoinen varianssi
 
-  -  Levenen testi
+  - Levenen testi
 
 Vain between subjects – ryhmiä 2 tai enemmän
 
@@ -287,7 +287,7 @@ within subjects – koetilanteita 2 tai enemmän
 
 <br>
 
-### Tilastotestien yhteyksiä toisiinsa 
+### Tilastotestien yhteyksiä toisiinsa
 
 kahden muuttujan välinen regressio vs. korrelaatio
 
@@ -301,9 +301,9 @@ GLM = general linear model
 
 - multiple regression
 
--  ANOVA
+- ANOVA
 
-### Taustaoletukset 
+### Taustaoletukset
 
 - useat parametriset testit olettavat, että aineisto/muuttujat noudattavat suunnilleen normaalijakaumaa
 
@@ -323,7 +323,7 @@ Taustaoletukset
 
   - Muuttujamuunnos
 
-  -  Vaihto ei-parametrisiin testeihin
+  - Vaihto ei-parametrisiin testeihin
 
   - Oletuksen tarkastelu toisella tapaa
 
@@ -333,13 +333,13 @@ Taustaoletukset
 
   - Jos on epävarma, niin parempi tehdä vähemmän oletuksia, eli käyttää ei-parametrista testiä
 
-  -  jos muuttujien välillä on aito ja voimakas yhteys niin tulee näkyviin sekä parametrisillä että ei-parametrisillä testeillä
+  - jos muuttujien välillä on aito ja voimakas yhteys niin tulee näkyviin sekä parametrisillä että ei-parametrisillä testeillä
 
   - ei-parametrisia testejä saa käyttää vaikka olisi normaalisti jakautuneet muuttujat; testin ero tilastollisessa voimassa
 
 <br>
 
-### Poikkeavat havainnot 
+### Poikkeavat havainnot
 
 aineiston tarkastelun jälkeen poikkeavien havaintojen poisto tarvittaessa; usein ei tarvitse poistaa kuin selkeästi virheelliset arvot
 
@@ -347,7 +347,7 @@ aineiston tarkastelun jälkeen poikkeavien havaintojen poisto tarvittaessa; usei
 
 - Mean +/- X\*sd
 
--  Median +/- X\*mad
+- Median +/- X\*mad
 
 - Trim, X% pienimmät / suurimmat arvot
 
@@ -401,6 +401,492 @@ Yksinkertainen usein hyvä
 
 - Tilastoanalyyseja voi tehdä myös kahdessa vaiheessa: ensin adjustointi/mallinnus sitten tilastotesti – kaksi yksinkertaista tilastotestiä yhden monimutkaisen sijaan
 
-  -  esim. fMRI ensin jokaiselle koehenkilölle oma regressioanalyysi, sitten t-testi onko kaikilla koehenkilöillä samanlaiset regression beta-kertoimet
+  - esim. fMRI ensin jokaiselle koehenkilölle oma regressioanalyysi, sitten t-testi onko kaikilla koehenkilöillä samanlaiset regression beta-kertoimet
 
-  -  kontrolli ja koeryhmä, ikä vaihtelee, ensin adjustoidaan muuttujan arvot iän mukaan ja poistetaan iän vaikutus, sitten tehdään t-testi
+  - kontrolli ja koeryhmä, ikä vaihtelee, ensin adjustoidaan muuttujan arvot iän mukaan ja poistetaan iän vaikutus, sitten tehdään t-testi
+
+<br>
+
+## Tilastollisen aineistonkäsittelyn vaiheet 
+
+Tutkimuksen ja tilasto
+
+![](images/clipboard-3689335619.png)
+
+- tilastotestin teko ja oletusten tarkistus
+
+- kuva kannattava, koska ihmiset lukevat niitä helpommin kuin taulukoita
+
+- efektikoon laskeminen tärkeää
+
+- tulosten raportointi ja tulkinta
+
+<br>
+
+## Chi square testit 
+
+X^2^ testi
+
+- kategorisen datan frekvenssien arviointi
+
+  - jos riippuva muuttuja on kategorinen, lähes aina tehdään x^2^ testi
+
+  -  tai logistinen regressio
+
+- verrataan odotettuja ja havaittuja frekvenssejä toisiinsa
+
+  - esim. onko sukupuoli edustettuna samalla tavalla kaikissa ikäryhmissä? Tai onko eri ryhmät samalla tavalla kouluttautuneita=
+
+- Ristiintaulukointi
+
+  - Contingency tables
+
+- Chi-square goodness of fit
+
+  - yhteensopivuustesti
+
+  - yksittäinen muuttuja
+
+- Chi-square test of association
+
+  - riippumattomuustesti
+
+  - useampi muuttuja
+
+  - tehdään taulukointi
+
+- Ei parametrinen testi eli ei taustaoletuksia muuttujasta
+
+- perustuu frekvensseihin
+
+- testisuure X^2^
+
+![](images/clipboard-342286287.png){width="600"}
+
+![kuvassa k, ovat eri vapausasteita ](images/clipboard-3420328570.png)
+
+<br>
+
+### Chi-toiseen riippumattomuustesti
+
+- pienemmillä vapausasteilla jyrkempi, kun vapausasteet kasvaa muoto liikkuu kohti suurempia arvoja
+
+-  kun saadaan testisuurearvo, etsitään kuvaajasta p-arvo testisuureelle
+
+- 1\. taulukkoon havaitut määrät
+
+- 2\. taulukkoon odotetut määrät
+
+  - asketaan: kokonaismäärät kerrottuna keskenään ja jaettuna koko aineiston koolla
+
+  - Odotettu määrä -\> 11 (1. ikäluokan kokonaismäärä) \* (1. sukupuolen kokonaismäärä) 14 / 30 (koko aineiston koko) = 5,13
+
+- Kun saatu odotetut määrät laskettua lasketaan havaittujen ja odotettujen määrien erotus, korotetaan se toiseen ja jaetaan se odotetulla määrällä. Tämä tehdään joka kohdalle ja niistä lasketaan summa.
+
+  - 1\. sukupuolen 1. ikäluokka,
+
+    - (2 – 5,13)^2^/5,13 = 1,91
+
+    - (Havaittu arvo – odotettu arvo)^2^ / Odotettu arvo  tehdään kaikille ja summataan ne yhteen  saadaan chi square testisuure
+
+- df =lasketaan riippumattomuustestistä   (rivien määrä – 1) \* (sarakkeiden määrä – 1) 
+
+  - kuvassa -\> rivit 2-1 = 1, sarakkeet 3-1 = 2, eli 2 \* 1 = 2
+
+  - vapausaste, df = 2
+
+- kuvasta voidaan katsoa vapausasteen 2 eli vihreältä kuvaajalta testisuurearvon 6,62 kohdalta p-arvon suuruus
+
+  -  p-arvo vain 0,036 ja siis tilastollisesti merkitsevä mikä tarkoittaa, että sukupuolet eivät ole jakautuneet samalla tavalla eri ikäluokissa. Eli nollahypoteesin hylkäys tarkoitti sitä, että jakaumissa on eroa.
+
+### Yhteensopivuustesti
+
+- jos otoksessa 14 naista ja 16 miestä, jos haluttaisiin saman verran miehiä ja naisia odotettu määrä 15
+
+- lasketaan (havaittu – odotettu)\*toiseen / odotettu = 0,067
+
+  - lasketaan summa 0,067 + 0,067 = 0,13
+
+  - df, vapausaste = 1
+
+  - p yli 0,05, eli ei merkitsevä ja nollahypoteesi jää voimaan, joten voidaan todeta, että ryhmien välillä ei ole eroa
+
+### Miten tehdään jamovissa? 
+
+Goodness of fit
+
+- bugi jamovissa, kuvittelee, että on arvoja 0 ja 3 vaikka ne olisi merkitty puuttuviksi
+
+![](images/clipboard-4217434470.png){width="600"}
+
+- voidaan korjata tekemällä uusi dikotominen muuttuja
+
+  - polku: computed variable  function FILTER(gender==”Mies”)
+
+<br>
+
+![](images/clipboard-40815929.png)
+
+<br>
+
+jos lisää tietoa, niin ratio kohtaan voidaan tehdä muutoksia, joka muuttaa odotettuja lukumääriä
+
+- esim. videolla, että vain 30% miehistä vastasi kyselyyn ja 70% naisisista
+
+- vaatii vahvaa teoreettista perustelua
+
+Goodness of fit vastasi kysymykseen miten hyvin havaittu aineisto noudattaa odotettua jakaumaa
+
+<br>
+
+Chi-square test of association, riippumattomuustesti
+
+- ei bugia jamovissa eli toimii suoraan alkuperäisillä muuttujilla
+
+- alla kuvasta näkee odotetut ja havaitut lukumäärät
+
+- high school ja university luokissa ne ovat suht samat, mutta alle high school ja graduate tasoilla eroja havaituissa ja odotetuissa
+
+- tilastotestin p-arvona alle 0,05 eli nollahypoteesi hylätään, mikä tarkoittaa että luokat ovat jakautuneet eri tavalla luokkiin. Eli sukupuolet ovat jakautuneet eri tavoin eri koulutustasoille. Jos testistä tulisi yli 0,05 p-arvona se tarkoittaisi, että jakautuminen on samanlaista.
+
+- jos aineistosta löytyy solu, jossa hyvin pieni lukumäärä tai nolla niin sitä ei pysty kunnolla tekemään. Alle 5 on tällainen lukumäärä.
+
+  - continuity correctionilla pystyy kokeilla korjaamaan
+
+![](images/clipboard-3619308380.png)
+
+![](images/clipboard-3619308380.png)
+
+Statistics kohdasta continuity correction
+
+Hypothesis kohdasta voi muuttaa hypoteesin suuntaa
+
+Cramerin V, kuvaa efektikokoa (tsekkaa netistä miten lukuarvoa tulkitaan)
+
+-  1 ja 0 välillä, kuvassa siis efektikoko suht pieni
+
+<br>
+
+![suluissa (x^2^(3)=31.19, p\<0.0001, Cramer’s V=0.135)](images/clipboard-3199447425.png)
+
+- x^2^ chi square testisuure, (vapausaste), p-arvo ja efektikoko
+
+### Chi square testi r-kielellä 
+
+![](images/clipboard-862850394.png){width="600"}
+
+r kielellä chi-square test of association:
+
+- table(data\$education,data\$gender)
+
+-  chisq.test(data\$education,data\$gender)  testifunktio
+
+R-kielellä chi-square goodness of fit testi:
+
+- summary(data\$gender)
+
+-  chisq.test( c(494, 1220), p=c(.5,.5))  testifunktio, 494 ja 1220 ovat ryhmien lukumäärät
+
+<br>
+
+Chi-square excelissä
+
+![](images/clipboard-521675140.png){width="600"}
+
+Excelissä chi-square testin p-arvo lasketaan kaavalla: CHINELIÖ.JAKAUMA.OH(x;df)
+
+- englanniksi: CHISQ.DIST.RT(x;df)
+
+- x kohdalle chi-square testisuure ja df kohdalle vapausaste
+
+Riippumattomuustestissä odotusarvojen laskenta
+
+- sarakkeen summa \* rivin summa / kaikkien summalla
+
+  -  esim. sarake 1 ja rivi 1
+
+  - 686\*998  / 1763 =
+
+- tehdään kaikille soluille
+
+- sitten lasketaan kaikille soluille
+
+- Linkki exceltiedostoon
+
+<br>
+
+Chi-square testin nollahypoteesi:
+
+![](images/clipboard-2628822892.png){width="600"}
+
+- eli, jos p-arvo on merkitsevä (\<0.05)  ryhmien välillä on eroa tai havaittu jakauma poikkeaa odotetusta
+
+- jos taas p-arvo ei ole merkitsevä (\>0.05)  ryhmien välillä ei ole eroa, tai havaittu jakauma vastaa odotettua.
+
+<br>
+
+## T-testit
+
+![![](images/clipboard-3846929718.png){width="600"}](images/clipboard-4073433710.png){width="600"}
+
+![](images/clipboard-1130543669.png){width="600"}
+
+### One sample T-test jamovissa 
+
+![kuvassa test valuena 0 ](images/clipboard-921817120.png)
+
+<br>
+
+![](images/clipboard-1926924118.png)
+
+tässä kuvassa test valuena 0, alhaalla voi valita sen, jos testataan useampaa muuttujaa ja jossakin on puuttuvia arvoja niin poistetaanko silloin muuttuja kaikista analyyseistä vai vain siitä, josta se puuttuu
+
+<br>
+
+Testin tulkinta
+
+- statistic tarkoittaa t-arvoa eli testisuuretta
+
+-  df tarkoittaa vapausastetta
+
+- p- arvo on p-arvo
+
+-  esim. toisessa kuvassa testisuure t-arvo on 41,3, joka on hyvin suuri arvo, mikä tarkoittaa, että muuttujan keskiarvo poikkeaa paljon 1000 millisekunnista
+
+- efektikoko Cohen’s d
+
+  - kertoo montako keskihajontaa ryhmien keskiarvot eroavat toisistaan
+
+<br>
+
+![](images/clipboard-3983238355.png){width="600"}
+
+- kuvassa cohen’s d on 1,05 eli vähän keskiarvojen ero on vähän yli 1 keskihajonta, mikä tulkitaan isoksi eroksi
+
+-  HUOM! aiemmissa kuvissa minulla oli eri aineistoversio käytössä, joten älä ihmettele lukujen pieniä eroja
+
+<br>
+
+![](images/clipboard-1724643213.png)
+
+-  descriptivesisistä saa esille N, keskiarvon, mediaanin, keskihajonnan ja keskivirheen
+
+- descriptive plotsista kuvaajan, josta näkee keskiarvon ja sen luottamusvälit ja mihin se sijoittuu suhteessa vertailtuun arvoon
+
+<br>
+
+![](images/clipboard-633900340.png)Assumption checks
+
+- saa tarkastettua noudattaako muuttujan jakauma normaalisuusoletusta
+
+- kuvassa jakauma rikkoo normaalisuusoletusta
+
+  - testien tulokset ovat p-arvoltaan merkitseviä  nollahypoteesi hylätään eli vaihtoehtoinen hypoteesi astuu voimaan, joka normaalisuustesteissä on ettei jakauma ole normaalisti jakautunut
+
+![](images/clipboard-431372454.png){width="600"}
+
+- koska muuttuja poikkeaa normaalijakaumasta pitäisi harkita muuttujamuunnosta, ei-parametrista testiä tai sitten perustella miksi pystytään silti käyttämään kyseistä testiä
+
+Ei-parametrinen testi: Wilcoxon rank
+
+- efektikoko: rank biserial correlation
+
+<br>
+
+### Paired samples T-testi 
+
+![](images/clipboard-1987019675.png)
+
+-  tähän pätee samat asiat asiat jamovissa kuin one sample t-testiin
+
+- tulos kertoo poikkeavatko kahden mittauskerran keskiarvot toisistaan
+
+- kuvan normaalisuusoletus rikkoutuu, joten täytyisi tehdä muuttujamuunnos, ei-parametrinen testi tai perustella miksi kuitenkin voidaan käyttää testiä
+
+<br>
+
+### Independent samples T-test 
+
+![ Independent student’s t-testi olettaa, että ryhmien varianssit ovat lähellä toisiaan ](images/clipboard-3765431397.png)
+
+-  testataan homogeenisuustestillä
+
+  - Levene’s testi, jos p\<.05 eli merkitsevä tarkoittaa, että varianssit eivät ole samanlaiset
+
+  - Levenen testin nollahypoteesi: Varianssit ovat samanlaiset
+
+- Welchin testi -\> käytetään, jos varianssit ovat erilaiset
+
+  - osaa ottaa huomioon varianssien erilaisuuden
+
+- Toimii myös silloin kun varianssit ovat samanlaiset eli sen voi tehdä variansseista riippumatta. Silloin kun varianssit ovat samat se on täsmälleen samanlainen kuin Studentin t-testi
+
+Mann-Whitney U testi ei parametrinen vaihtoehto
+
+<br>
+
+![](images/clipboard-3870533502.png)
+
+![](images/clipboard-1677085802.png)
+
+![](images/clipboard-1465371418.png)
+
+- kuvaillaan ryhmät
+
+- kerrotaan testisuure, vapausasteet suluissa, p-arvo ja efektikoko
+
+- viimeiseksi tulkinta siitä mitä tulos tarkoittaa
+
+<br>
+
+### Ei-parametriset testit 
+
+![](images/clipboard-885331648.png)
+
+- one sample, normaalisuusoletus ei täyty -\> wilcoxon rank, tai muuttujamuunnos
+
+- paired sample (within subjects), normaalisuusoletus ei täyty -\> wilcoxon rank tai muuttujamuunnos
+
+- independent sample (between subjects), homogeenisuusoletus ei täyty -\> käytä Welch’sin testiä
+
+- independent sample (between subjects), normaalisuusoletus ei täyty -\> Mann-Whitney U testi tai muuttujamuunnos
+
+<br>
+
+![Boxcox muunnos normalisoitu z-pisteiksi](images/clipboard-612813219.png)
+
+- SCALE funktiolla saadaan normalisotua.
+
+- Tällöin keskiarvoero mean difference näkyy z-pisteinä
+
+![Cohenin d ja keskiarvojen erotus samankokoiset, kun muuttuja on normalisoitu. Johtuu siitä, että z-pistemuunnoksen jälkeen yksi askel tarkoittaa yhtä keskihajontaa. Cohenin d kuvasi kuinka monta keskihajontaa efektikoko on. ](images/clipboard-2119762161.png)
+
+<br>
+
+## Korrelaatio 
+
+![](images/clipboard-433233015.png){width="600"}
+
+<https://www.tylervigen.com/spurious-correlations>
+
+- Pearson -\> Lineaarinen yhteys oletuksena
+
+- Spearman -\> ei-parametrinen
+
+![](images/clipboard-4218548675.png){width="600"}
+
+- kaikki pisteet laskevalla suoralla -\> korrelaatio = -1
+
+- kaikki pisteet nousevalla suoralla -\> korralaatio = 1
+
+- pisteet laskevan suoran ympärillä -\> korrelaatio välillä -1 \< p \< 0
+
+- pisteet nousevan suoran ympärillä -\> korralaatio välillä 0 \< p \< 1
+
+- pisteet täysin hajautuneet -\> korrelaatio = 0
+
+<br>
+
+![](images/clipboard-958772504.png)
+
+Pearsonin korrealaatio mittaa kovarianssia eli sitä vaihteleeko muuttujat samalla tavalla toistensa funktiona
+
+- ei tarkoita kulmakerrointa! keskimmäisessä kuvassa eri kulmakertoimella olevia suoria ja jokaisessa korrelaation on +1 tai -1
+
+- olettaa lineaarisen yhteyden -\> alimmassa kuvassa pearsonin korrelaatiokerroin 0, koska yhteydet eivät lineaarisia
+
+<br>
+
+![](images/clipboard-4069832263.png){width="600"}
+
+Spearmanin korrelaatio: vertailee kahden muuttujien järjestyksiä
+
+- korrelaatio iso, jos molemmat muuttujat suuria samoissa kohdissa ja pieniä samoissa kohdissa suhteessa järjestykseen
+
+- Ei-parametrinen
+
+<br>
+
+![](images/clipboard-3381032985.png)
+
+### Korrelaatio Jamovissa 
+
+![](images/clipboard-1631833639.png){width="600"}
+
+Tässä piirretty scatterplot kahdesta muuttujasta (avoimuus, sovinnollisuus)
+
+- hiukan vaikea tulkita, koska niin paljon päällekkäisiä pisteitä ja kaikki piirretty mustiksi, joten vaikea arvioida paljonko kussakin kohdassa on vastauksia
+
+<br>
+
+![Tähän lisätty grouping variableksi koulutus, jolloin nähdään jokaisen koulutustason avoimuuden ja sovinnollisuuden korrelaatioita erikseen ](images/clipboard-2198607338.png)
+
+- tällä voi vertailla ja katsella olisiko jokin tausamuuttuja vaikuttava tekijä, joka täytyisi tarkistaa ja kontrolloida
+
+<br>
+
+![](images/clipboard-3973208521.png)
+
+Tässä avoimuus ja ekstroversio, mitä scatterplotista nähdään on se, että muuttujien arvoilla on paljon hajontaa, joten korrelaatioiden laskeminen on ihan järkevää
+
+<br>
+
+![Correlation matrix, löytyy regressio kohdasta ](images/clipboard-4207268967.png)
+
+- kendall’s tau-b vähän samantyylinen kuin Spearman, perustuu myös järjestykseen
+
+- taulukosta näkee korrelaatiokertoimen, vapausasteet ja p-arvon
+
+- oli paljon hajontaa, joten Pearsonin korrelaatiokertoimen käyttäminen perusteltua
+
+- taulukosta voi vertailla miten kaikki valitut muuttujat korreloivat pareissa keskenään
+
+- flag significant correlations -\> merkkaa p-arvojen merkitsevyyksiä tähdillä
+
+- (kaikki ovat hyvin merkitseviä, koska ainesto suuri -\> N vaikuttaa p-arvon syntyyn -\> selvitä itsellesi tarkemmin miten p-arvo laskettiinkaan)
+
+- Vapausasteet df- lasketaan seuraavalla tavalla
+
+  - kun kaksi muuttujaa df = N-2
+
+  - esim. Ekstroversion N = 4083
+
+  - vapausaste, df = 4083 – 2 = 4081
+
+- voi myös plotata
+
+### Partial correlation 
+
+![Partial out -\> taustamuuttujan vaikutus eli otetaan huomioon kontrolloivan muuttujan vaikutus ja vasta sen jälkeen lasketaan korrelaatio ](images/clipboard-1403320763.png)
+
+- mitä taustalla tapahtuu: tehdään regressioanalyysi, jonka avulla poistetaan kontrolloitavan muuttujan vaikutus, jonka myötä pystytään laskemaan korrelaatio tarkemmin
+
+- Partial -\> ottaa huomioon kontrolloitavan muuttujan vaikutuksen kaikkiin suuntiin
+
+- Semi-partial -\>epäsymmetrinen eli kontrolloitavan muuttujan vaikutus otetaan huomioon vain toiseen suuntaan
+
+![Tässä kontrolloitu ikä pois eri persoonallisuuspiirteiden korrelaatioista käyttämällä Partial Correlationia ](images/clipboard-3422946154.png)
+
+- oikealla kaksi taulukkoa, ylempänä korrelaatiot ilman iän kontrollointia ja alempana ikä kontrolloituna
+
+- huomataan, että korrelaatiot heikkenivät hiukan joka kohdassa, kun iän vaikutus kontrolloitiin pois
+
+<br>
+
+![](images/clipboard-710733782.png)
+
+Tässä tehty semipartial correlation, tarkoittaa, että poistetaan kontrolloitavan muuttujan vaikutus vain toisesta muuttujasta. Kuvassa iän vaikutus poistettu vain sarakkeiden muuttujista.
+
+- voi olla perusteltua käyttää esim. jos ikä on vain toisen muuttujan kannalta olennainen, mutta ei liity toiseen mitenkään
+
+<br>
+
+![Tässä tehty Partial correlation tunnollisuudelle ja sinnikkyydelle, josta kontrolloituna iän lisäksi kaikki muut mitatut persoonallisuuspiirteet (sovinnollisuus, ekstroversio, neuroottisuus, avoimuus) ](images/clipboard-1509044733.png)
+
+- saadaan vastauksena korrelaatio, josta poistettu muiden muuttujien vaikutukset molempiin muuttujiin
+
+- huomataan, että tällöin korrelaatio on 0,573, kun ilman mitään kontrollointeja se oli 0,627 eli korrelaatio hiukan heikompi
+
+<br>
+
+![tässä tehty semipartial correlation. Nähdään, että kun kontrolloidaan vaikutukset vain jommastta kummasta muuttujasta niin sen seurauksena korrelaatiot ovat hiukan erilaiset.](images/clipboard-311155024.png)

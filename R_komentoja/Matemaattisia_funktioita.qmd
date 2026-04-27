@@ -111,9 +111,9 @@ ncol()
 
 <br><br>
 
-## Matemaattisia operaattoreita 
+## Matemaattisia operaattoreita
 
-- `abs(x)`: laskee itseisarvon|x|.
+- `abs(x)`: laskee itseisarvon\|x\|.
 
 - `sqrt(x)`: laskee neliöjuuren √x.
 

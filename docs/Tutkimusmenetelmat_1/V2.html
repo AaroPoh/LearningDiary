@@ -318,6 +318,26 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#taustaoletukset" id="toc-taustaoletukset" class="nav-link" data-scroll-target="#taustaoletukset"><span class="header-section-number">7.1.12</span> Taustaoletukset</a></li>
   <li><a href="#poikkeavat-havainnot" id="toc-poikkeavat-havainnot" class="nav-link" data-scroll-target="#poikkeavat-havainnot"><span class="header-section-number">7.1.13</span> Poikkeavat havainnot</a></li>
   </ul></li>
+  <li><a href="#tilastollisen-aineistonkäsittelyn-vaiheet" id="toc-tilastollisen-aineistonkäsittelyn-vaiheet" class="nav-link" data-scroll-target="#tilastollisen-aineistonkäsittelyn-vaiheet"><span class="header-section-number">7.2</span> Tilastollisen aineistonkäsittelyn vaiheet</a></li>
+  <li><a href="#chi-square-testit" id="toc-chi-square-testit" class="nav-link" data-scroll-target="#chi-square-testit"><span class="header-section-number">7.3</span> Chi square testit</a>
+  <ul class="collapse">
+  <li><a href="#chi-toiseen-riippumattomuustesti" id="toc-chi-toiseen-riippumattomuustesti" class="nav-link" data-scroll-target="#chi-toiseen-riippumattomuustesti"><span class="header-section-number">7.3.1</span> Chi-toiseen riippumattomuustesti</a></li>
+  <li><a href="#yhteensopivuustesti" id="toc-yhteensopivuustesti" class="nav-link" data-scroll-target="#yhteensopivuustesti"><span class="header-section-number">7.3.2</span> Yhteensopivuustesti</a></li>
+  <li><a href="#miten-tehdään-jamovissa" id="toc-miten-tehdään-jamovissa" class="nav-link" data-scroll-target="#miten-tehdään-jamovissa"><span class="header-section-number">7.3.3</span> Miten tehdään jamovissa?</a></li>
+  <li><a href="#chi-square-testi-r-kielellä" id="toc-chi-square-testi-r-kielellä" class="nav-link" data-scroll-target="#chi-square-testi-r-kielellä"><span class="header-section-number">7.3.4</span> Chi square testi r-kielellä</a></li>
+  </ul></li>
+  <li><a href="#t-testit" id="toc-t-testit" class="nav-link" data-scroll-target="#t-testit"><span class="header-section-number">7.4</span> T-testit</a>
+  <ul class="collapse">
+  <li><a href="#one-sample-t-test-jamovissa" id="toc-one-sample-t-test-jamovissa" class="nav-link" data-scroll-target="#one-sample-t-test-jamovissa"><span class="header-section-number">7.4.1</span> One sample T-test jamovissa</a></li>
+  <li><a href="#paired-samples-t-testi" id="toc-paired-samples-t-testi" class="nav-link" data-scroll-target="#paired-samples-t-testi"><span class="header-section-number">7.4.2</span> Paired samples T-testi</a></li>
+  <li><a href="#independent-samples-t-test" id="toc-independent-samples-t-test" class="nav-link" data-scroll-target="#independent-samples-t-test"><span class="header-section-number">7.4.3</span> Independent samples T-test</a></li>
+  <li><a href="#ei-parametriset-testit" id="toc-ei-parametriset-testit" class="nav-link" data-scroll-target="#ei-parametriset-testit"><span class="header-section-number">7.4.4</span> Ei-parametriset testit</a></li>
+  </ul></li>
+  <li><a href="#korrelaatio" id="toc-korrelaatio" class="nav-link" data-scroll-target="#korrelaatio"><span class="header-section-number">7.5</span> Korrelaatio</a>
+  <ul class="collapse">
+  <li><a href="#korrelaatio-jamovissa" id="toc-korrelaatio-jamovissa" class="nav-link" data-scroll-target="#korrelaatio-jamovissa"><span class="header-section-number">7.5.1</span> Korrelaatio Jamovissa</a></li>
+  <li><a href="#partial-correlation" id="toc-partial-correlation" class="nav-link" data-scroll-target="#partial-correlation"><span class="header-section-number">7.5.2</span> Partial correlation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -685,6 +705,452 @@ ul.task-list li input[type="checkbox"] {
 <li><p>kontrolli ja koeryhmä, ikä vaihtelee, ensin adjustoidaan muuttujan arvot iän mukaan ja poistetaan iän vaikutus, sitten tehdään t-testi</p></li>
 </ul></li>
 </ul>
+<p><br></p>
+</section>
+</section>
+<section id="tilastollisen-aineistonkäsittelyn-vaiheet" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="tilastollisen-aineistonkäsittelyn-vaiheet"><span class="header-section-number">7.2</span> Tilastollisen aineistonkäsittelyn vaiheet</h2>
+<p>Tutkimuksen ja tilasto</p>
+<p><img src="images/clipboard-3689335619.png" class="img-fluid"></p>
+<ul>
+<li><p>tilastotestin teko ja oletusten tarkistus</p></li>
+<li><p>kuva kannattava, koska ihmiset lukevat niitä helpommin kuin taulukoita</p></li>
+<li><p>efektikoon laskeminen tärkeää</p></li>
+<li><p>tulosten raportointi ja tulkinta</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="chi-square-testit" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="chi-square-testit"><span class="header-section-number">7.3</span> Chi square testit</h2>
+<p>X<sup>2</sup> testi</p>
+<ul>
+<li><p>kategorisen datan frekvenssien arviointi</p>
+<ul>
+<li><p>jos riippuva muuttuja on kategorinen, lähes aina tehdään x<sup>2</sup> testi</p></li>
+<li><p>tai logistinen regressio</p></li>
+</ul></li>
+<li><p>verrataan odotettuja ja havaittuja frekvenssejä toisiinsa</p>
+<ul>
+<li>esim. onko sukupuoli edustettuna samalla tavalla kaikissa ikäryhmissä? Tai onko eri ryhmät samalla tavalla kouluttautuneita=</li>
+</ul></li>
+<li><p>Ristiintaulukointi</p>
+<ul>
+<li>Contingency tables</li>
+</ul></li>
+<li><p>Chi-square goodness of fit</p>
+<ul>
+<li><p>yhteensopivuustesti</p></li>
+<li><p>yksittäinen muuttuja</p></li>
+</ul></li>
+<li><p>Chi-square test of association</p>
+<ul>
+<li><p>riippumattomuustesti</p></li>
+<li><p>useampi muuttuja</p></li>
+<li><p>tehdään taulukointi</p></li>
+</ul></li>
+<li><p>Ei parametrinen testi eli ei taustaoletuksia muuttujasta</p></li>
+<li><p>perustuu frekvensseihin</p></li>
+<li><p>testisuure X<sup>2</sup></p></li>
+</ul>
+<p><img src="images/clipboard-342286287.png" class="img-fluid" width="600"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3420328570.png" class="img-fluid figure-img"></p>
+<figcaption>kuvassa k, ovat eri vapausasteita</figcaption>
+</figure>
+</div>
+<p><br></p>
+<section id="chi-toiseen-riippumattomuustesti" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="chi-toiseen-riippumattomuustesti"><span class="header-section-number">7.3.1</span> Chi-toiseen riippumattomuustesti</h3>
+<ul>
+<li><p>pienemmillä vapausasteilla jyrkempi, kun vapausasteet kasvaa muoto liikkuu kohti suurempia arvoja</p></li>
+<li><p>kun saadaan testisuurearvo, etsitään kuvaajasta p-arvo testisuureelle</p></li>
+<li><p>1. taulukkoon havaitut määrät</p></li>
+<li><p>2. taulukkoon odotetut määrät</p>
+<ul>
+<li><p>asketaan: kokonaismäärät kerrottuna keskenään ja jaettuna koko aineiston koolla</p></li>
+<li><p>Odotettu määrä -&gt; 11 (1. ikäluokan kokonaismäärä) * (1. sukupuolen kokonaismäärä) 14 / 30 (koko aineiston koko) = 5,13</p></li>
+</ul></li>
+<li><p>Kun saatu odotetut määrät laskettua lasketaan havaittujen ja odotettujen määrien erotus, korotetaan se toiseen ja jaetaan se odotetulla määrällä. Tämä tehdään joka kohdalle ja niistä lasketaan summa.</p>
+<ul>
+<li><p>1. sukupuolen 1. ikäluokka,</p>
+<ul>
+<li><p>(2 – 5,13)<sup>2</sup>/5,13 = 1,91</p></li>
+<li><p>(Havaittu arvo – odotettu arvo)<sup>2</sup> / Odotettu arvo  tehdään kaikille ja summataan ne yhteen  saadaan chi square testisuure</p></li>
+</ul></li>
+</ul></li>
+<li><p>df =lasketaan riippumattomuustestistä &nbsp; (rivien määrä – 1) * (sarakkeiden määrä – 1)&nbsp;</p>
+<ul>
+<li><p>kuvassa -&gt; rivit 2-1 = 1, sarakkeet 3-1 = 2, eli 2 * 1 = 2</p></li>
+<li><p>vapausaste, df = 2</p></li>
+</ul></li>
+<li><p>kuvasta voidaan katsoa vapausasteen 2 eli vihreältä kuvaajalta testisuurearvon 6,62 kohdalta p-arvon suuruus</p>
+<ul>
+<li>p-arvo vain 0,036 ja siis tilastollisesti merkitsevä mikä tarkoittaa, että sukupuolet eivät ole jakautuneet samalla tavalla eri ikäluokissa. Eli nollahypoteesin hylkäys tarkoitti sitä, että jakaumissa on eroa.</li>
+</ul></li>
+</ul>
+</section>
+<section id="yhteensopivuustesti" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="yhteensopivuustesti"><span class="header-section-number">7.3.2</span> Yhteensopivuustesti</h3>
+<ul>
+<li><p>jos otoksessa 14 naista ja 16 miestä, jos haluttaisiin saman verran miehiä ja naisia odotettu määrä 15</p></li>
+<li><p>lasketaan (havaittu – odotettu)*toiseen / odotettu = 0,067</p>
+<ul>
+<li><p>lasketaan summa 0,067 + 0,067 = 0,13</p></li>
+<li><p>df, vapausaste = 1</p></li>
+<li><p>p yli 0,05, eli ei merkitsevä ja nollahypoteesi jää voimaan, joten voidaan todeta, että ryhmien välillä ei ole eroa</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="miten-tehdään-jamovissa" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="miten-tehdään-jamovissa"><span class="header-section-number">7.3.3</span> Miten tehdään jamovissa?</h3>
+<p>Goodness of fit</p>
+<ul>
+<li>bugi jamovissa, kuvittelee, että on arvoja 0 ja 3 vaikka ne olisi merkitty puuttuviksi</li>
+</ul>
+<p><img src="images/clipboard-4217434470.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>voidaan korjata tekemällä uusi dikotominen muuttuja</p>
+<ul>
+<li>polku: computed variable  function FILTER(gender==”Mies”)</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-40815929.png" class="img-fluid"></p>
+<p><br></p>
+<p>jos lisää tietoa, niin ratio kohtaan voidaan tehdä muutoksia, joka muuttaa odotettuja lukumääriä</p>
+<ul>
+<li><p>esim. videolla, että vain 30% miehistä vastasi kyselyyn ja 70% naisisista</p></li>
+<li><p>vaatii vahvaa teoreettista perustelua</p></li>
+</ul>
+<p>Goodness of fit vastasi kysymykseen miten hyvin havaittu aineisto noudattaa odotettua jakaumaa</p>
+<p><br></p>
+<p>Chi-square test of association, riippumattomuustesti</p>
+<ul>
+<li><p>ei bugia jamovissa eli toimii suoraan alkuperäisillä muuttujilla</p></li>
+<li><p>alla kuvasta näkee odotetut ja havaitut lukumäärät</p></li>
+<li><p>high school ja university luokissa ne ovat suht samat, mutta alle high school ja graduate tasoilla eroja havaituissa ja odotetuissa</p></li>
+<li><p>tilastotestin p-arvona alle 0,05 eli nollahypoteesi hylätään, mikä tarkoittaa että luokat ovat jakautuneet eri tavalla luokkiin. Eli sukupuolet ovat jakautuneet eri tavoin eri koulutustasoille. Jos testistä tulisi yli 0,05 p-arvona se tarkoittaisi, että jakautuminen on samanlaista.</p></li>
+<li><p>jos aineistosta löytyy solu, jossa hyvin pieni lukumäärä tai nolla niin sitä ei pysty kunnolla tekemään. Alle 5 on tällainen lukumäärä.</p>
+<ul>
+<li>continuity correctionilla pystyy kokeilla korjaamaan</li>
+</ul></li>
+</ul>
+<p><img src="images/clipboard-3619308380.png" class="img-fluid"></p>
+<p><img src="images/clipboard-3619308380.png" class="img-fluid"></p>
+<p>Statistics kohdasta continuity correction</p>
+<p>Hypothesis kohdasta voi muuttaa hypoteesin suuntaa</p>
+<p>Cramerin V, kuvaa efektikokoa (tsekkaa netistä miten lukuarvoa tulkitaan)</p>
+<ul>
+<li>1 ja 0 välillä, kuvassa siis efektikoko suht pieni</li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3199447425.png" class="img-fluid figure-img"></p>
+<figcaption>suluissa (x<sup>2</sup>(3)=31.19, p&lt;0.0001, Cramer’s V=0.135)</figcaption>
+</figure>
+</div>
+<ul>
+<li>x<sup>2</sup> chi square testisuure, (vapausaste), p-arvo ja efektikoko</li>
+</ul>
+</section>
+<section id="chi-square-testi-r-kielellä" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="chi-square-testi-r-kielellä"><span class="header-section-number">7.3.4</span> Chi square testi r-kielellä</h3>
+<p><img src="images/clipboard-862850394.png" class="img-fluid" width="600"></p>
+<p>r kielellä chi-square test of association:</p>
+<ul>
+<li><p>table(data$education,data$gender)</p></li>
+<li><p>chisq.test(data$education,data$gender)  testifunktio</p></li>
+</ul>
+<p>R-kielellä chi-square goodness of fit testi:</p>
+<ul>
+<li><p>summary(data$gender)</p></li>
+<li><p>chisq.test( c(494, 1220), p=c(.5,.5))  testifunktio, 494 ja 1220 ovat ryhmien lukumäärät</p></li>
+</ul>
+<p><br></p>
+<p>Chi-square excelissä</p>
+<p><img src="images/clipboard-521675140.png" class="img-fluid" width="600"></p>
+<p>Excelissä chi-square testin p-arvo lasketaan kaavalla: CHINELIÖ.JAKAUMA.OH(x;df)</p>
+<ul>
+<li><p>englanniksi: CHISQ.DIST.RT(x;df)</p></li>
+<li><p>x kohdalle chi-square testisuure ja df kohdalle vapausaste</p></li>
+</ul>
+<p>Riippumattomuustestissä odotusarvojen laskenta</p>
+<ul>
+<li><p>sarakkeen summa * rivin summa / kaikkien summalla</p>
+<ul>
+<li><p>esim. sarake 1 ja rivi 1</p></li>
+<li><p>686*998&nbsp; / 1763 =</p></li>
+</ul></li>
+<li><p>tehdään kaikille soluille</p></li>
+<li><p>sitten lasketaan kaikille soluille</p></li>
+<li><p>Linkki exceltiedostoon</p></li>
+</ul>
+<p><br></p>
+<p>Chi-square testin nollahypoteesi:</p>
+<p><img src="images/clipboard-2628822892.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>eli, jos p-arvo on merkitsevä (&lt;0.05)  ryhmien välillä on eroa tai havaittu jakauma poikkeaa odotetusta</p></li>
+<li><p>jos taas p-arvo ei ole merkitsevä (&gt;0.05)  ryhmien välillä ei ole eroa, tai havaittu jakauma vastaa odotettua.</p></li>
+</ul>
+<p><br></p>
+</section>
+</section>
+<section id="t-testit" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="t-testit"><span class="header-section-number">7.4</span> T-testit</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4073433710.png" class="img-fluid figure-img" width="600"></p>
+<figcaption><img src="images/clipboard-3846929718.png" class="img-fluid figure-img" width="600"></figcaption>
+</figure>
+</div>
+<p><img src="images/clipboard-1130543669.png" class="img-fluid" width="600"></p>
+<section id="one-sample-t-test-jamovissa" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="one-sample-t-test-jamovissa"><span class="header-section-number">7.4.1</span> One sample T-test jamovissa</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-921817120.png" class="img-fluid figure-img"></p>
+<figcaption>kuvassa test valuena 0</figcaption>
+</figure>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-1926924118.png" class="img-fluid"></p>
+<p>tässä kuvassa test valuena 0, alhaalla voi valita sen, jos testataan useampaa muuttujaa ja jossakin on puuttuvia arvoja niin poistetaanko silloin muuttuja kaikista analyyseistä vai vain siitä, josta se puuttuu</p>
+<p><br></p>
+<p>Testin tulkinta</p>
+<ul>
+<li><p>statistic tarkoittaa t-arvoa eli testisuuretta</p></li>
+<li><p>df tarkoittaa vapausastetta</p></li>
+<li><p>p- arvo on p-arvo</p></li>
+<li><p>esim. toisessa kuvassa testisuure t-arvo on 41,3, joka on hyvin suuri arvo, mikä tarkoittaa, että muuttujan keskiarvo poikkeaa paljon 1000 millisekunnista</p></li>
+<li><p>efektikoko Cohen’s d</p>
+<ul>
+<li>kertoo montako keskihajontaa ryhmien keskiarvot eroavat toisistaan</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3983238355.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>kuvassa cohen’s d on 1,05 eli vähän keskiarvojen ero on vähän yli 1 keskihajonta, mikä tulkitaan isoksi eroksi</p></li>
+<li><p>HUOM! aiemmissa kuvissa minulla oli eri aineistoversio käytössä, joten älä ihmettele lukujen pieniä eroja</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1724643213.png" class="img-fluid"></p>
+<ul>
+<li><p>descriptivesisistä saa esille N, keskiarvon, mediaanin, keskihajonnan ja keskivirheen</p></li>
+<li><p>descriptive plotsista kuvaajan, josta näkee keskiarvon ja sen luottamusvälit ja mihin se sijoittuu suhteessa vertailtuun arvoon</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-633900340.png" class="img-fluid">Assumption checks</p>
+<ul>
+<li><p>saa tarkastettua noudattaako muuttujan jakauma normaalisuusoletusta</p></li>
+<li><p>kuvassa jakauma rikkoo normaalisuusoletusta</p>
+<ul>
+<li>testien tulokset ovat p-arvoltaan merkitseviä  nollahypoteesi hylätään eli vaihtoehtoinen hypoteesi astuu voimaan, joka normaalisuustesteissä on ettei jakauma ole normaalisti jakautunut</li>
+</ul></li>
+</ul>
+<p><img src="images/clipboard-431372454.png" class="img-fluid" width="600"></p>
+<ul>
+<li>koska muuttuja poikkeaa normaalijakaumasta pitäisi harkita muuttujamuunnosta, ei-parametrista testiä tai sitten perustella miksi pystytään silti käyttämään kyseistä testiä</li>
+</ul>
+<p>Ei-parametrinen testi: Wilcoxon rank</p>
+<ul>
+<li>efektikoko: rank biserial correlation</li>
+</ul>
+<p><br></p>
+</section>
+<section id="paired-samples-t-testi" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="paired-samples-t-testi"><span class="header-section-number">7.4.2</span> Paired samples T-testi</h3>
+<p><img src="images/clipboard-1987019675.png" class="img-fluid"></p>
+<ul>
+<li><p>tähän pätee samat asiat asiat jamovissa kuin one sample t-testiin</p></li>
+<li><p>tulos kertoo poikkeavatko kahden mittauskerran keskiarvot toisistaan</p></li>
+<li><p>kuvan normaalisuusoletus rikkoutuu, joten täytyisi tehdä muuttujamuunnos, ei-parametrinen testi tai perustella miksi kuitenkin voidaan käyttää testiä</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="independent-samples-t-test" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="independent-samples-t-test"><span class="header-section-number">7.4.3</span> Independent samples T-test</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3765431397.png" class="img-fluid figure-img"></p>
+<figcaption>Independent student’s t-testi olettaa, että ryhmien varianssit ovat lähellä toisiaan</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>testataan homogeenisuustestillä</p></li>
+<li><p>Levene’s testi, jos p&lt;.05 eli merkitsevä tarkoittaa, että varianssit eivät ole samanlaiset</p></li>
+<li><p>Levenen testin nollahypoteesi: Varianssit ovat samanlaiset</p></li>
+<li><p>Welchin testi -&gt; käytetään, jos varianssit ovat erilaiset</p>
+<ul>
+<li>osaa ottaa huomioon varianssien erilaisuuden</li>
+</ul></li>
+<li><p>Toimii myös silloin kun varianssit ovat samanlaiset eli sen voi tehdä variansseista riippumatta. Silloin kun varianssit ovat samat se on täsmälleen samanlainen kuin Studentin t-testi</p></li>
+</ul>
+<p>Mann-Whitney U testi ei parametrinen vaihtoehto</p>
+<p><br></p>
+<p><img src="images/clipboard-3870533502.png" class="img-fluid"></p>
+<p><img src="images/clipboard-1677085802.png" class="img-fluid"></p>
+<p><img src="images/clipboard-1465371418.png" class="img-fluid"></p>
+<ul>
+<li><p>kuvaillaan ryhmät</p></li>
+<li><p>kerrotaan testisuure, vapausasteet suluissa, p-arvo ja efektikoko</p></li>
+<li><p>viimeiseksi tulkinta siitä mitä tulos tarkoittaa</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="ei-parametriset-testit" class="level3" data-number="7.4.4">
+<h3 data-number="7.4.4" class="anchored" data-anchor-id="ei-parametriset-testit"><span class="header-section-number">7.4.4</span> Ei-parametriset testit</h3>
+<p><img src="images/clipboard-885331648.png" class="img-fluid"></p>
+<ul>
+<li><p>one sample, normaalisuusoletus ei täyty -&gt; wilcoxon rank, tai muuttujamuunnos</p></li>
+<li><p>paired sample (within subjects), normaalisuusoletus ei täyty -&gt; wilcoxon rank tai muuttujamuunnos</p></li>
+<li><p>independent sample (between subjects), homogeenisuusoletus ei täyty -&gt; käytä Welch’sin testiä</p></li>
+<li><p>independent sample (between subjects), normaalisuusoletus ei täyty -&gt; Mann-Whitney U testi tai muuttujamuunnos</p></li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-612813219.png" class="img-fluid figure-img"></p>
+<figcaption>Boxcox muunnos normalisoitu z-pisteiksi</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>SCALE funktiolla saadaan normalisotua.</p></li>
+<li><p>Tällöin keskiarvoero mean difference näkyy z-pisteinä</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2119762161.png" class="img-fluid figure-img"></p>
+<figcaption>Cohenin d ja keskiarvojen erotus samankokoiset, kun muuttuja on normalisoitu. Johtuu siitä, että z-pistemuunnoksen jälkeen yksi askel tarkoittaa yhtä keskihajontaa. Cohenin d kuvasi kuinka monta keskihajontaa efektikoko on.</figcaption>
+</figure>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="korrelaatio" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="korrelaatio"><span class="header-section-number">7.5</span> Korrelaatio</h2>
+<p><img src="images/clipboard-433233015.png" class="img-fluid" width="600"></p>
+<p><a href="https://www.tylervigen.com/spurious-correlations" class="uri">https://www.tylervigen.com/spurious-correlations</a></p>
+<ul>
+<li><p>Pearson -&gt; Lineaarinen yhteys oletuksena</p></li>
+<li><p>Spearman -&gt; ei-parametrinen</p></li>
+</ul>
+<p><img src="images/clipboard-4218548675.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>kaikki pisteet laskevalla suoralla -&gt; korrelaatio = -1</p></li>
+<li><p>kaikki pisteet nousevalla suoralla -&gt; korralaatio = 1</p></li>
+<li><p>pisteet laskevan suoran ympärillä -&gt; korrelaatio välillä -1 &lt; p &lt; 0</p></li>
+<li><p>pisteet nousevan suoran ympärillä -&gt; korralaatio välillä 0 &lt; p &lt; 1</p></li>
+<li><p>pisteet täysin hajautuneet -&gt; korrelaatio = 0</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-958772504.png" class="img-fluid"></p>
+<p>Pearsonin korrealaatio mittaa kovarianssia eli sitä vaihteleeko muuttujat samalla tavalla toistensa funktiona</p>
+<ul>
+<li><p>ei tarkoita kulmakerrointa! keskimmäisessä kuvassa eri kulmakertoimella olevia suoria ja jokaisessa korrelaation on +1 tai -1</p></li>
+<li><p>olettaa lineaarisen yhteyden -&gt; alimmassa kuvassa pearsonin korrelaatiokerroin 0, koska yhteydet eivät lineaarisia</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4069832263.png" class="img-fluid" width="600"></p>
+<p>Spearmanin korrelaatio: vertailee kahden muuttujien järjestyksiä</p>
+<ul>
+<li><p>korrelaatio iso, jos molemmat muuttujat suuria samoissa kohdissa ja pieniä samoissa kohdissa suhteessa järjestykseen</p></li>
+<li><p>Ei-parametrinen</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3381032985.png" class="img-fluid"></p>
+<section id="korrelaatio-jamovissa" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="korrelaatio-jamovissa"><span class="header-section-number">7.5.1</span> Korrelaatio Jamovissa</h3>
+<p><img src="images/clipboard-1631833639.png" class="img-fluid" width="600"></p>
+<p>Tässä piirretty scatterplot kahdesta muuttujasta (avoimuus, sovinnollisuus)</p>
+<ul>
+<li>hiukan vaikea tulkita, koska niin paljon päällekkäisiä pisteitä ja kaikki piirretty mustiksi, joten vaikea arvioida paljonko kussakin kohdassa on vastauksia</li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2198607338.png" class="img-fluid figure-img"></p>
+<figcaption>Tähän lisätty grouping variableksi koulutus, jolloin nähdään jokaisen koulutustason avoimuuden ja sovinnollisuuden korrelaatioita erikseen</figcaption>
+</figure>
+</div>
+<ul>
+<li>tällä voi vertailla ja katsella olisiko jokin tausamuuttuja vaikuttava tekijä, joka täytyisi tarkistaa ja kontrolloida</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3973208521.png" class="img-fluid"></p>
+<p>Tässä avoimuus ja ekstroversio, mitä scatterplotista nähdään on se, että muuttujien arvoilla on paljon hajontaa, joten korrelaatioiden laskeminen on ihan järkevää</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4207268967.png" class="img-fluid figure-img"></p>
+<figcaption>Correlation matrix, löytyy regressio kohdasta</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>kendall’s tau-b vähän samantyylinen kuin Spearman, perustuu myös järjestykseen</p></li>
+<li><p>taulukosta näkee korrelaatiokertoimen, vapausasteet ja p-arvon</p></li>
+<li><p>oli paljon hajontaa, joten Pearsonin korrelaatiokertoimen käyttäminen perusteltua</p></li>
+<li><p>taulukosta voi vertailla miten kaikki valitut muuttujat korreloivat pareissa keskenään</p></li>
+<li><p>flag significant correlations -&gt; merkkaa p-arvojen merkitsevyyksiä tähdillä</p></li>
+<li><p>(kaikki ovat hyvin merkitseviä, koska ainesto suuri -&gt; N vaikuttaa p-arvon syntyyn -&gt; selvitä itsellesi tarkemmin miten p-arvo laskettiinkaan)</p></li>
+<li><p>Vapausasteet df- lasketaan seuraavalla tavalla</p>
+<ul>
+<li><p>kun kaksi muuttujaa df = N-2</p></li>
+<li><p>esim. Ekstroversion N = 4083</p></li>
+<li><p>vapausaste, df = 4083 – 2 = 4081</p></li>
+</ul></li>
+<li><p>voi myös plotata</p></li>
+</ul>
+</section>
+<section id="partial-correlation" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="partial-correlation"><span class="header-section-number">7.5.2</span> Partial correlation</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1403320763.png" class="img-fluid figure-img"></p>
+<figcaption>Partial out -&gt; taustamuuttujan vaikutus eli otetaan huomioon kontrolloivan muuttujan vaikutus ja vasta sen jälkeen lasketaan korrelaatio</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>mitä taustalla tapahtuu: tehdään regressioanalyysi, jonka avulla poistetaan kontrolloitavan muuttujan vaikutus, jonka myötä pystytään laskemaan korrelaatio tarkemmin</p></li>
+<li><p>Partial -&gt; ottaa huomioon kontrolloitavan muuttujan vaikutuksen kaikkiin suuntiin</p></li>
+<li><p>Semi-partial -&gt;epäsymmetrinen eli kontrolloitavan muuttujan vaikutus otetaan huomioon vain toiseen suuntaan</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3422946154.png" class="img-fluid figure-img"></p>
+<figcaption>Tässä kontrolloitu ikä pois eri persoonallisuuspiirteiden korrelaatioista käyttämällä Partial Correlationia</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>oikealla kaksi taulukkoa, ylempänä korrelaatiot ilman iän kontrollointia ja alempana ikä kontrolloituna</p></li>
+<li><p>huomataan, että korrelaatiot heikkenivät hiukan joka kohdassa, kun iän vaikutus kontrolloitiin pois</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-710733782.png" class="img-fluid"></p>
+<p>Tässä tehty semipartial correlation, tarkoittaa, että poistetaan kontrolloitavan muuttujan vaikutus vain toisesta muuttujasta. Kuvassa iän vaikutus poistettu vain sarakkeiden muuttujista.</p>
+<ul>
+<li>voi olla perusteltua käyttää esim. jos ikä on vain toisen muuttujan kannalta olennainen, mutta ei liity toiseen mitenkään</li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1509044733.png" class="img-fluid figure-img"></p>
+<figcaption>Tässä tehty Partial correlation tunnollisuudelle ja sinnikkyydelle, josta kontrolloituna iän lisäksi kaikki muut mitatut persoonallisuuspiirteet (sovinnollisuus, ekstroversio, neuroottisuus, avoimuus)</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>saadaan vastauksena korrelaatio, josta poistettu muiden muuttujien vaikutukset molempiin muuttujiin</p></li>
+<li><p>huomataan, että tällöin korrelaatio on 0,573, kun ilman mitään kontrollointeja se oli 0,627 eli korrelaatio hiukan heikompi</p></li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-311155024.png" class="img-fluid figure-img"></p>
+<figcaption>tässä tehty semipartial correlation. Nähdään, että kun kontrolloidaan vaikutukset vain jommastta kummasta muuttujasta niin sen seurauksena korrelaatiot ovat hiukan erilaiset.</figcaption>
+</figure>
+</div>
 
 
 </section>
