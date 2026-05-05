@@ -32,9 +32,9 @@ data[1:10]
 
 **data\[15:length(data)\]**
 
--   poimii indeksin arvot 15 alkaen loppuun asti
+- poimii indeksin arvot 15 alkaen loppuun asti
 
--   length(data) palauttaa siis indeksin päätepisteen
+- length(data) palauttaa siis indeksin päätepisteen
 
 ```{r}
 data <- c(seq(0,100, by = 5))
@@ -47,14 +47,14 @@ data[15:length(data)]
 
 **data\[length(data)\]**
 
--   poimii vain indeksin viimeisen arvon eli 10
+- poimii vain indeksin viimeisen arvon eli 10
 
 ```{r}
 data <- c(2,4,6,8,10)
 data[length(data)]
 ```
 
--   <br> <br> <br>
+- <br> <br> <br>
 
 Itsekseen **length()** näyttää montako montako arvoa vektoriin kuuluu
 
@@ -68,7 +68,7 @@ length(data)
 
 **Negatiiviset indeksit** palauttavat koko vektorin lukuunottamatta näitä indeksejä
 
--   alla 1. ja 2. indeksi jäävät pois
+- alla 1. ja 2. indeksi jäävät pois
 
 ```{r}
 data <- c(2,4,6,8,10)
@@ -84,7 +84,7 @@ Ei anneta tarkkaa järjestysnumeroa, vaan ehto, jonka on täytyttävä.
 
 <br><br>
 
--   **data\[data \> 5\]** poimii kaikki arvot, jotka ovat suurempia kuin 5
+- **data\[data \> 5\]** poimii kaikki arvot, jotka ovat suurempia kuin 5
 
 ```{r}
 data <- c(2,4,6,8,10)
@@ -95,15 +95,15 @@ data[data > 5]
 
 Kun laittaa hakasulkeiden sisään ehdon, kuten data \> 5, R tekee taustalla näkymättömän listan, joka koostuu vain sanoista TRUE ja FALSE
 
--   Toimii käytännössä näin:
+- Toimii käytännössä näin:
 
-    -   R käy jokaisen luvun läpi ja antaa sille leiman:
+  - R käy jokaisen luvun läpi ja antaa sille leiman:
 
-        -   Luku on ehdon sisällä –\> TRUE
+    - Luku on ehdon sisällä –\> TRUE
 
-        -   luku on ehdon ulkopuolella -\> FALSE
+    - luku on ehdon ulkopuolella -\> FALSE
 
-    -   komento palauttaa kaikki TRUE arvot
+  - komento palauttaa kaikki TRUE arvot
 
 <br><br>
 
@@ -118,17 +118,17 @@ subset(data, data > 5)
 
 subset(data, ehto)
 
--   data kohtaan muuttuja, josta halutaan osajoukko
+- data kohtaan muuttuja, josta halutaan osajoukko
 
--   ehto kohtaan ehto, jonka mukaan osajoukko määritellään.
+- ehto kohtaan ehto, jonka mukaan osajoukko määritellään.
 
 <br>
 
 **%in%** operaattori
 
--   "kuuluu joukkoon" operaattori
+- "kuuluu joukkoon" operaattori
 
--   tarkistaa löytyykö annetusta aineistosta arvot ja palauttaa ne TRUE ja FALSE arvoina
+- tarkistaa löytyykö annetusta aineistosta arvot ja palauttaa ne TRUE ja FALSE arvoina
 
 ```{r}
 #| eval: false
@@ -139,13 +139,13 @@ vaikeat <- subset(PerceptualLearnData, SelectedDiag %in% vaikeimmat)
 aggregate(Correct ~ Session, data = vaikeat, FUN = mean)
 ```
 
--   koodi tarkistaa PerceptualLearnData datasetin sarakkeen SelectedDiag sisältä mitkä kaikki ovat vastaavia kuin vaikeimmat muuttujaan määritellyt arvot. Sitten subset funktio tallettaa uuden datasetin, jossa SelectedDiag sarakkeessa on vain vaikeimmat ehdon täyttäneet arvot.
+- koodi tarkistaa PerceptualLearnData datasetin sarakkeen SelectedDiag sisältä mitkä kaikki ovat vastaavia kuin vaikeimmat muuttujaan määritellyt arvot. Sitten subset funktio tallettaa uuden datasetin, jossa SelectedDiag sarakkeessa on vain vaikeimmat ehdon täyttäneet arvot.
 
 <br>
 
 Ei kuulu joukkoon eli !%in%
 
--   huutomerkillä (!) eli looogisella ei operaattorilla voi muuntaa kuuluu joukkoon operaattorista %in% ei kuulu joukkoon operaattorin !%in%
+- huutomerkillä (!) eli looogisella ei operaattorilla voi muuntaa kuuluu joukkoon operaattorista %in% ei kuulu joukkoon operaattorin !%in%
 
 <br><br>
 
@@ -153,9 +153,9 @@ Ei kuulu joukkoon eli !%in%
 
 Indeksointi sana tulee siitä, että jokaisella tiedonpalasella on oma "osoitteensa" eli indeksi.
 
--   Yksiulotteisessa datassa vain yksi indeksi: data\[rivi\].
+- Yksiulotteisessa datassa vain yksi indeksi: data\[rivi\].
 
--   Kaksiulotteisessa datassa (kuten taulukko tai data.frame) on kaksi indeksiä: data\[rivi, sarake\]
+- Kaksiulotteisessa datassa (kuten taulukko tai data.frame) on kaksi indeksiä: data\[rivi, sarake\]
 
 <br>
 
@@ -163,10 +163,10 @@ Indeksointi sana tulee siitä, että jokaisella tiedonpalasella on oma "osoittee
 
 Yksinkertaiset hakasulkeet \[\]
 
--   Yksittäiset sulkeet palauttavat aina saman tyyppisen olion kuin alkuperäinen on, mutta pienempänä. Jos leikkaat palan listasta, saat **pienemmän listan**.
+- Yksittäiset sulkeet palauttavat aina saman tyyppisen olion kuin alkuperäinen on, mutta pienempänä. Jos leikkaat palan listasta, saat **pienemmän listan**.
 
-    -   Tulos: Alilista (sub-list).
+  - Tulos: Alilista (sub-list).
 
 Tuplahakasulkeet \[\[\]\] (Sisältö)
 
--   Tuplahakasulkeet "murtavat" rakenteen ja hakevat sieltä pelkän sisällön.
+- Tuplahakasulkeet "murtavat" rakenteen ja hakevat sieltä pelkän sisällön.

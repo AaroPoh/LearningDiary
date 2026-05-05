@@ -345,6 +345,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#scatterplot-heatmap-ja-rj-editor" id="toc-scatterplot-heatmap-ja-rj-editor" class="nav-link active" data-scroll-target="#scatterplot-heatmap-ja-rj-editor"><span class="header-section-number">8.1</span> Scatterplot, HeatMap ja Rj-editor</a></li>
   <li><a href="#heatmap-rj-editorilla" id="toc-heatmap-rj-editorilla" class="nav-link" data-scroll-target="#heatmap-rj-editorilla"><span class="header-section-number">8.2</span> Heatmap rj-editorilla</a></li>
+  <li><a href="#long-ja-wide-format-pitkä-ja-leveä-data" id="toc-long-ja-wide-format-pitkä-ja-leveä-data" class="nav-link" data-scroll-target="#long-ja-wide-format-pitkä-ja-leveä-data"><span class="header-section-number">8.3</span> Long ja wide format (pitkä ja leveä data)</a>
+  <ul class="collapse">
+  <li><a href="#jamovissa" id="toc-jamovissa" class="nav-link" data-scroll-target="#jamovissa"><span class="header-section-number">8.3.1</span> Jamovissa</a></li>
+  </ul></li>
+  <li><a href="#r-studio-aineiston-avaaminen-ja-kuvailu" id="toc-r-studio-aineiston-avaaminen-ja-kuvailu" class="nav-link" data-scroll-target="#r-studio-aineiston-avaaminen-ja-kuvailu"><span class="header-section-number">8.4</span> R-studio, aineiston avaaminen ja kuvailu</a></li>
+  <li><a href="#rstudio-summamuuttujat" id="toc-rstudio-summamuuttujat" class="nav-link" data-scroll-target="#rstudio-summamuuttujat"><span class="header-section-number">8.5</span> Rstudio summamuuttujat</a></li>
   </ul>
 </nav>
     </div>
@@ -553,6 +559,528 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><br></p>
+</section>
+<section id="long-ja-wide-format-pitkä-ja-leveä-data" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="long-ja-wide-format-pitkä-ja-leveä-data"><span class="header-section-number">8.3</span> Long ja wide format (pitkä ja leveä data)</h2>
+<p><img src="images/clipboard-1468597925.png" class="img-fluid"></p>
+<p>Wide</p>
+<ul>
+<li><p>joka rivillä yhden koehenkilön aineistoa</p></li>
+<li><p>joka koehenkilöllä vain yksi rivi</p></li>
+<li><p>eri tilanteet sarakkeissa</p></li>
+</ul>
+<p>Long</p>
+<ul>
+<li><p>joka rivillä vain yhden koehenkilön aineistoa, mutta joka koehenkilölle on varattuna useampi rivi</p></li>
+<li><p>muuttuja, jossa eri tilanteet / tasot</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-313860538.png" class="img-fluid"></p>
+<p>jos kääntää aineiston pitkään muotoon niin helppo tehdä kuvia</p>
+<ul>
+<li>esim. saa samaan kuvaan monta histogrammia</li>
+</ul>
+<p><br></p>
+<section id="jamovissa" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="jamovissa"><span class="header-section-number">8.3.1</span> Jamovissa</h3>
+<p><img src="images/clipboard-3723003402.png" class="img-fluid"></p>
+<p>colnames(data) -&gt; komennolla näkee, mitkä ovat datan kolumnien eli sarakkeiden nimet</p>
+<p><br></p>
+<p><img src="images/clipboard-3878575425.png" class="img-fluid"></p>
+<p>&lt;- data[ , 5:9]</p>
+<ul>
+<li><p>komennolla tallennettiin data sarakkeista numero 5:stä numero 9:n muuttujaan df</p></li>
+<li><p>sen jälkeen df muuttujalla saa tulostettua kyseiset sarakkeet</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1894543509.png" class="img-fluid"></p>
+<p>kolumnit voi tallentaa df muuttujaan myös seuraavalla komennolla</p>
+<ul>
+<li><p>&lt;- data[ , c(”Avoimuus”, ”Ekstroversio”)] ¨</p></li>
+<li><p>tällöin täytyy kirjoittaa sarakkeiden nimet täsmälleen oikein</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2617351041.png" class="img-fluid"></p>
+<p>pivot_longer(df, 1:5, names_to = ”Piirre”, values_to = ”Voimakkuus”)</p>
+<ul>
+<li><p>muuttaa datan pitkään muotoon. names_to ja values:to muuttavat sarakkeiden otsikoita</p></li>
+<li><p>&lt;- jälleen kerran nuolikomennolla talletetaan tiettyyn muuttujaan (datalong)</p></li>
+</ul>
+<p>Jamovissa ei pysty suoraan viemään r-editorista datapuolelle graafiseen käyttöliittymään, joten data pitkässä muodossa täytyy tallettaa</p>
+<p><br></p>
+<p><img src="images/clipboard-1107442343.png" class="img-fluid"></p>
+<p>getwd() komennolla näkee working directoryn?? en tiedä mitä hyötyä siitä oli, koska kuitenkin oli eri kuin mihin kaikki tiedostovat lähtökohtaisesti kannattaa tallentaa</p>
+<p>write.csv() komennolla saa talletettua tiedoston valitsemaansa kansioin</p>
+<p>C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&amp;_ Face/datalong.csv”</p>
+<ul>
+<li><p>käytin kyseistä polkua</p></li>
+<li><p>Kun kopioi polun siitä täytyy muuttaa kenoviivat kauttaviivoiksi, eli alun perin kopioidussa ne ovat \ ja tulee virhe. Kun ne muuttaa / niin alkaa toimimaan</p></li>
+<li><p>loppuun pitää muistaa kirjoittaa uuden tiedoston nimi eli esim. ”datalong.csv”</p></li>
+</ul>
+<p>write.csv(datalong,“C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&amp;_ Face/datalong.csv”)</p>
+<ul>
+<li>tuo oli komento kokonaisuudessaan, jolla tiedosto suostui tallentumaan</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1737799339.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-481724765.png" class="img-fluid"></p>
+<ul>
+<li><p>sen myötä kyseiseen valittuun kansioon tallentui tiedosto datalong.csv</p></li>
+<li><p>jamovissa voi avata tiedoston, joka on nyt long formatissa eli joka koehenkilöllä on 5 eri riviä</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3823343829.png" class="img-fluid"></p>
+<p>nyt, kun datalong oli muutettu pitkään formaattiin niin siitä pystyttiin piirtämään histogrammit joka piirteestä päällekäin</p>
+<ul>
+<li><p>histogrammi piirrettiin ggplotilla seuraavalla komennolla</p></li>
+<li><p>ggplot(datalong, aes(x=Voimakkuus, fill=Piirre)) +</p>
+<ul>
+<li><p>geom_density(alpha=.2)</p></li>
+<li><p>alpha käskyllä saa läpinäkyvyyttä säädettyä</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1440950252.png" class="img-fluid"></p>
+<p>theme_classic()</p>
+<ul>
+<li>muuttaa teeman yksinkertaisemmaksi ja taustalta poistuu ylimääräinen sälä</li>
+</ul>
+<p>labs()</p>
+<ul>
+<li>muokkaa otsikoita eli labeleitä</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-434427039.png" class="img-fluid"></p>
+<p>theme(text = element_text(size = 14))</p>
+<ul>
+<li>muokkaa tekstin fonttikokoa</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2651810312.png" class="img-fluid"></p>
+<p>theme( axis.text.y=element_blank(), axis.ticks.y=element.blank()) poistaa y-akselin arvot kuvaajasta</p>
+<p>alemmassa kuvassa y-akselin arvot näkyvät, koska komento on otettu pois käytöstä eron havainnollistamiseksi. Ylemmässä kuvassa arvot ovat poistettuna</p>
+<p>koodi, jolla saa muunnettua datan pitkään muotoon (long form) ja piirrettyä päällekkäiset histogrammit</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(data)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(data[1:3])</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> data[ , <span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#df</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>datalong <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(df, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                        <span class="at">names_to =</span> <span class="st">"Piirre"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values_to =</span> <span class="st">"Voimakkuus"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#datalong</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#getwd()</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(datalong,<span class="st">"C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&amp;_ Face/datalong.csv"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&amp;_ Face</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datalong, <span class="fu">aes</span>(<span class="at">x=</span>Voimakkuus, <span class="at">fill=</span>Piirre)) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Tiheys"</span>, <span class="at">x =</span> <span class="st">"Voimakkuus"</span>)<span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))<span class="sc">+</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>( <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>vastaavalla idealla, kun data on pitkässä muodossa, voidaan piirtää boxplotteja ja muita kuvioita</p>
+<p><br></p>
+<p><img src="images/clipboard-1065124902.png" class="img-fluid"></p>
+<p>boxplotin koodi</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datalong, <span class="fu">aes</span>(<span class="at">x=</span>SetSize, <span class="at">y=</span>Score)) <span class="sc">+</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">"green"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"D'"</span>, <span class="at">x =</span> <span class="st">"SetSize"</span>) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-924359905.png" class="img-fluid"></p>
+<p>muokataan toistomittaus-Anova viedon 42 aineistosta changewithinsubjects pitkämuotoinen (long format)</p>
+<p>talletetaan datalong muuttujaan</p>
+<ul>
+<li><p>&lt;- pivot_longer(data, 2:10,</p>
+<ul>
+<li>muuttaa long formiin</li>
+</ul></li>
+<li><p>names_to = c()</p>
+<ul>
+<li>muuttaa kolumnien eli sarakkeiden nimet</li>
+</ul></li>
+<li><p>values_to = ()</p>
+<ul>
+<li>muuttaa arvojen nimen</li>
+</ul></li>
+<li><p>names_sep = ()</p>
+<ul>
+<li><p>selkeyttää millä nimet on datassa eroteltuna</p></li>
+<li><p>esimerkiksi kyseisessä aineistossa ne on eroteltuna alaviivalla _</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3885809474.png" class="img-fluid"></p>
+<p>kun ajetaan datalong komento, nähdään, että se on jakautunut kolmeen sarakkeeseen SetSize, Change ja Score</p>
+<ul>
+<li><p>Alaviiva nimien erottamiseksi on hyvin näppärä, koska tämäntyylisellä funktiolla saa nimet suoraan eroteltua</p></li>
+<li><p>jos muuttujat on nimetty systemaattisesti voidaan käyttää automaattikoodeja, joilla ne saadaan eroteltua</p>
+<ul>
+<li>esim. names_sep = ”jotain”</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1145325838.png" class="img-fluid"></p>
+<ul>
+<li><p>datalong$SetSize &lt;- str_replace(datalong$SetSize, “SetSize”, ““)</p></li>
+<li><p>komennolla saadaan SetSizen nimestä poistettua SetSize ja se on vain 1, 2 tai 4</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2967514372.png" class="img-fluid"></p>
+<p>tehtiin sama muutokselle eli changelle</p>
+<p>datalong$Change &lt;- str_replace(datalong$Change, “Change”, ““)</p>
+<p><br></p>
+<p><img src="images/clipboard-1825931740.png" class="img-fluid"></p>
+<p>samalla koodilla kuin aiemmin saadaan long format muodossa olevasta datasta piirrettyä päällekäiset histogrammit</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datalong, <span class="fu">aes</span>(<span class="at">x=</span>Voimakkuus, <span class="at">fill=</span>Piirre)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Tiheys"</span>, <span class="at">x =</span> <span class="st">"Voimakkuus"</span>)<span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))<span class="sc">+</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>( <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>täytyi vain muuttaa oikeat muuttujien nimet ja homma pelittää</p>
+<p><br></p>
+<p><img src="images/clipboard-1978906600.png" class="img-fluid"></p>
+<p>boxplot</p>
+<ul>
+<li><p>näkee keskimäärisen muistisuorituksen (musta poikkiviiva)</p>
+<ul>
+<li>ja kvartaalivälit</li>
+</ul></li>
+<li><p>mediaani, 25-75 persentiiliväli (IQR, Inter quartal range), 25 – 1,5* IQR, 75 + 25 * IQR</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datalong, <span class="fu">aes</span>(<span class="at">x=</span>SetSize, <span class="at">y=</span>Score)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">"green"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"D'"</span>, <span class="at">x =</span> <span class="st">"SetSize"</span>) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Eli, jos jamovin kuvaajan piirto-ominaisuudet ei tyydytä, niin r-editorilla saa monipuolisemmin piirrettyä</p>
+<p><br></p>
+</section>
+</section>
+<section id="r-studio-aineiston-avaaminen-ja-kuvailu" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="r-studio-aineiston-avaaminen-ja-kuvailu"><span class="header-section-number">8.4</span> R-studio, aineiston avaaminen ja kuvailu</h2>
+<p><img src="images/clipboard-1294929953.png" class="img-fluid"></p>
+<p>jamovilla enemmän rajoitteita, r-kielelle valtava määrä paketteja ja voi itse määritellä mitä tekee</p>
+<p><br></p>
+<p><img src="images/clipboard-2752698927.png" class="img-fluid"></p>
+<p>Näppäinyhdistelmällä ctrl + L saa konsolin tyhjennettyä</p>
+<p><br></p>
+<p><img src="images/clipboard-1040449957.png" class="img-fluid"></p>
+<p>getwd()</p>
+<ul>
+<li>näyttää nykyisen working directoryn</li>
+</ul>
+<p>setwd()</p>
+<ul>
+<li>asettaa working directoryn</li>
+</ul>
+<p>list.files()</p>
+<ul>
+<li>listaa kyseisen working directoryn eli työskentely kansion tiedostot</li>
+</ul>
+<p>gritdata &lt;- read.csv(”gridata.csv”)</p>
+<ul>
+<li><p>tallettaa gritdata.csv sisällön gritdata muuttujaan, joka näkyy oikeassa yläreunassa environment kohdassa</p></li>
+<li><p>näyttää, että datassa olisi vain yksi muuttuja eli jokin on pielessä</p></li>
+<li><p>kyse siitä ettei ohjelma osaa erotella tabilla eroteltuja</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2803965839.png" class="img-fluid"></p>
+<p>lisäämällä sep=”\t”</p>
+<ul>
+<li><p>gritdata &lt;- read.csv(“gritdata.csv”, sep=“\t”)</p></li>
+<li><p>ohjelma osaa erotella ja näkyy 98 muuttujaa</p></li>
+</ul>
+<p>sep = separate eli erottelufunktio</p>
+<ul>
+<li><p>sep=”\t”</p>
+<ul>
+<li>komennon jälkeen osaa erotella tabilla erotellut muuttujat</li>
+</ul></li>
+<li><p>separator voi olla myös esim.</p>
+<ul>
+<li><p>pilkku -&gt; sep=”,”</p></li>
+<li><p>tai puolipiste -&gt; sep=”;”</p></li>
+</ul></li>
+<li><p>eri formaatteja löytyy, tyypillisimmin pilkku</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-226693628.png" class="img-fluid"></p>
+<ul>
+<li><p>voidaan avata datasetti myös file valikosta kohdasta import dataset</p></li>
+<li><p>from text</p></li>
+<li><p>avautuu valikko, josta voi esim valita separaattorin</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3627645725.png" class="img-fluid"></p>
+<ul>
+<li><p>$ merkillä voi viitata tiettyyn osaan/muuttujaan datassa</p></li>
+<li><p>histogrammin saa piirrettyä hist() funktiolla</p>
+<ul>
+<li><p>hist( gritdata$age)</p></li>
+<li><p>piirretään histogrammi gritdatan age muuttujasta</p></li>
+<li><p>nähdään kuvasta, että löytyy outliereita, sillä ikäjakauma jatkuu 350 ikävuoteen asti</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4137019862.png" class="img-fluid"></p>
+<p>max()</p>
+<ul>
+<li>kertoo maksimiarvon</li>
+</ul>
+<p>?max</p>
+<ul>
+<li>antaa ohjeita</li>
+</ul>
+<p>gritdata$age[ gritdata$age&gt;100]</p>
+<ul>
+<li><p>näyttää gritdatan age muuttujan yli 100 olevat arvot</p></li>
+<li><p>tällä voi siis etsiä outliereita</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4270107089.png" class="img-fluid"></p>
+<p>sum(gritdata$age&gt;100)</p>
+<ul>
+<li>näyttää montako ehdon täyttävää arvoa löytyy</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-346664676.png" class="img-fluid"></p>
+<p>gritdata$age[ gritdata$age&gt;100] &lt;- NA</p>
+<ul>
+<li><p>merkattiin yli 100 olevat arvot puuttuviksi</p></li>
+<li><p>NA tarkoittaa puuttuvaa arvoa</p></li>
+<li><p>nuolikomennolla merkattiin hakasulkeiden sisältö puuttuvaksi</p></li>
+<li><p>histogrammissa näin vain järkeviä ikäarvoja</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3262104955.png" class="img-fluid"></p>
+<p>breaksilla voi säätää välejä, joilla histogrammiin piirtyy palkkeja</p>
+<p>gritdata$age[ gritdata$age&lt;18] &lt;- NA</p>
+<ul>
+<li>merkattiin alle 18 arvot puuttuviksi</li>
+</ul>
+<p>kirjoitattamalla konsoliin datalähteen ja hakasulkeissa sen numeron, niin se näyttää järjestysnumeron mukaisen arvon</p>
+<p>esim. gritdata$age[1]</p>
+<ul>
+<li>näyttää gritdata$age ensimmäisen arvon</li>
+</ul>
+<p>gritdata$age[5]</p>
+<ul>
+<li>viidennen arvon</li>
+</ul>
+<p>gritdata$age[100:120]</p>
+<ul>
+<li>näyttää arvot välillä 100 – 120</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3900096559.png" class="img-fluid"></p>
+<p>poistettiin alle 18 ikäarvojen poisto #</p>
+<p>gender muuttujasta merkattiin 0 arvot puuttuviksi</p>
+<ul>
+<li>gritdata$gender[ gritdata$gender==0 ] &lt;- NA</li>
+</ul>
+<p>konsolissa tarkastettiin mitä minimi näyttää</p>
+<ul>
+<li>antoi minimiksi ensin NA, joka tarkoitti, ettei minimifunktio osannut automaattisesti tulkita puuttuvia arvoja poistetuiksi</li>
+</ul>
+<p>lisättiin minimifunktioon NA arvojen poistaminen</p>
+<ul>
+<li><p>min(gritdata$gender, na.rm = TRUE)</p></li>
+<li><p>na.rm = puuttuvat arvot poistetaan NA remove</p></li>
+<li><p>tämän seurauksena antaa tulokseksi minimiarvon 1 eli oikean vastauksen</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-375156567.png" class="img-fluid"></p>
+<p>voidaan poistaa yksi kerrallaan muistakin muuttujista 0 arvot</p>
+<ul>
+<li>kuten kuvassa urbanista ja educationista</li>
+</ul>
+<p>kuitenkin hiukan hidasta</p>
+<p>jos tiedetään, että kaikki 0 arvot datassa ovat vääriä / puuttuvia arvoja voidaan käyttää</p>
+<ul>
+<li><p>gritdata[ gritdata ==0] &lt;- NA</p></li>
+<li><p>merkitsee kaikki gritdatan 0 arvot puuttuviksi</p></li>
+</ul>
+<p>colnames(gritdata)</p>
+<ul>
+<li>näytää sarakkeiden nimet</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2722770122.png" class="img-fluid"></p>
+<ul>
+<li><p>kun na.rm ei käytössä, niin keskiarvofunktio ei tunnista puuttuvia arvoja ja osaa laskea sitä</p></li>
+<li><p>kun na.rm on käytössä, niin osaa laskea keskiarvon</p></li>
+<li><p>na.rm on siis tärkeä käyttää monissa funktioissa, jotka eivät suoraan osaa tunnistaa puuttuvia NA arvoja</p></li>
+<li><p>Keskiarvo: mean(gritdata$age, na.rm = TRUE)</p></li>
+<li><p>Keskihajonta: sd(gritdata$age, na.rm = TRUE)</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-444053609.png" class="img-fluid"></p>
+<p>describe()</p>
+<ul>
+<li>funktiolla saa kaikkien muuttujien keskeisiä kuvailevia statistiikkoja esille</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>täytyy muistaa käyttää library(psych) kirjastoa</p></li>
+<li><p>eli koodin alkuun lisätään library(psych)</p></li>
+</ul>
+<p>?describe</p>
+<ul>
+<li>näkee ohjeet, miten voi hiukan tarkemmin määritellä sen mitä haluaa funktiolla tulostaa</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1050670072.png" class="img-fluid"></p>
+<p>jos halutaan rajata vaikkapa gritdasta vain rivit 29-41 niin se voidaan lisätä hakasulkeisiin ja näin rajoittaa.</p>
+<ul>
+<li>describe(gritdata[,29:41]</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3470666790.png" class="img-fluid"></p>
+<ul>
+<li><p>myös kolumnien nimet kirjoittamalla voi määritellä valitut muuttujat</p></li>
+<li><p>describe(gritdata[c(“education”,“age”)])</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3206446975.png" class="img-fluid"></p>
+<p>describeBy(gritdata[,31:42], group=“gender”)</p>
+<ul>
+<li><p>jaotellaan kuvailevat tiedot faktorin eli ryhmittelevän muuttujan mukaan</p></li>
+<li><p>tässä tapauksessa gender ja näyttää siis tunnusluvut gender 1, gendar 2, ja gender 3 erikseen</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="rstudio-summamuuttujat" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="rstudio-summamuuttujat"><span class="header-section-number">8.5</span> Rstudio summamuuttujat</h2>
+<p><img src="images/clipboard-1814686538.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-3084918396.png" class="img-fluid"></p>
+<p>gritdata$ageGroup &lt;- cut(gritdata$age,</p>
+<p>breaks = c(0,30,60,100),</p>
+<p>labels = c(“nuori”, “keski”, “vanha”))</p>
+<p>muuttujan uudelleenkoodaus</p>
+<ul>
+<li><p>yllä koodattiin ikä uuteen muuttujaan kolmeksi ikäryhmäksi</p></li>
+<li><p>breaksillä määritellään, missä kohtaa on ryhmien rajat</p></li>
+<li><p>labelsilla ryhmien nimet</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2115726466.png" class="img-fluid"></p>
+<p>muuttujien kuvailevat tunnusluvut ryhmitellen</p>
+<ul>
+<li>describeBy(gritdata[,90:99], group = “ageGroup”)</li>
+</ul>
+<p>summafunktiolla näkee montako arvoa kyseisessä luokassa on</p>
+<ul>
+<li>sum( gritdata$ageGroup== “nuori”, na.rm = TRUE)</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-955731956.png" class="img-fluid"></p>
+<p>indeksien avulla voi määritellä rivien ja sarakkeiden määrän/välin. Enskiksi on rivien määrittely ja pilkun jälkeen sarakkeiden valinta</p>
+<ul>
+<li>gritdata[1:10, 1:6]</li>
+</ul>
+<p>voidaan myös määritellä sarakkeiden nimien mukaan, mitkä otetaan mukaan</p>
+<ul>
+<li>gritdata[1:30,c(“gender”,“age”)]</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2691780805.png" class="img-fluid"></p>
+<p>merkataan gritdatan sarakkeiden 3-14 nolla-arvot puuttuviksi</p>
+<ul>
+<li>gritdata[ , 3:14] [ gritdata[, 3:14] == 0] &lt;- NA</li>
+</ul>
+<p>katso colnamesista mistä muuttujista täytyy poistaa 0 arvot</p>
+<p>–&gt; käytä seuraavaa komentoa</p>
+<p>gritdata[ , 3:14] [ gritdata[, 3:14] == 0] &lt;- NA</p>
+<p>gritdata[ , 43:92] [ gritdata[, 43:92] == 0] &lt;- NA</p>
+<p>voi myös tehdä kerrallaan, jos ok poistaa nollat koko aineistosta</p>
+<ul>
+<li>gritdata[gritdata == 0] &lt;- NA</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-668629813.png" class="img-fluid"></p>
+<p>käänteisesti koodattujen kysymysten kääntäminen samalle asteikolle</p>
+<ul>
+<li>eli käännetään samoin päin kuin muut kysymykset, kun tehdään summamuuttujaa</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gritdata<span class="sc">$</span>GS1 <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>GS1</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>gritdata<span class="sc">$</span>G4 <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>GS4</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>gritdata<span class="sc">$</span>GS6 <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>GS6</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>gritdata<span class="sc">$</span>GS9 <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>GS9</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>gritdata<span class="sc">$</span>GS10 <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>GS10</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-1036502814.png" class="img-fluid"></p>
+<p>tehdään summamuuttuja</p>
+<ul>
+<li>gdata$Sinnikkyys &lt;- rowMeans(gdata[, c(“GS1”,“GS2”,“GS3”,“GS4”, “GS5”,“GS6”,“GS7”,“GS8”, “GS9”,“GS10”,“GS11”,“GS12”) ], na.rm=TRUE)</li>
+</ul>
+<p>eli otetaan kaikki rivit ja vain tietyt sarakkeet (GS sarakkeet). Lasketaan GS sarakkeiden kaikkien rivien keskiarvot. Rivikeskiarvot tallentuvat Sinnikkyys summamuuttujaan</p>
+<p>eli saadaan jokaiselta koehenkilöltä keskiarvo jokaisesta 12 grit kysymyksestä</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4146522961.png" class="img-fluid figure-img"></p>
+<figcaption>summamuuttuja toisella tavalla</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gritdata<span class="sc">$</span>Avoimuus <span class="ot">&lt;-</span> ( gritdata<span class="sc">$</span>O1 <span class="sc">+</span> (<span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>O2) <span class="sc">+</span> gritdata<span class="sc">$</span>O3 <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                         (<span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>O4) <span class="sc">+</span> gritdata<span class="sc">$</span>O5 <span class="sc">+</span> (<span class="dv">6</span><span class="sc">-</span>gritdata<span class="sc">$</span>O6) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                         gritdata<span class="sc">$</span>O7 <span class="sc">+</span> gritdata<span class="sc">$</span>O8 <span class="sc">+</span> gritdata<span class="sc">$</span>O9 <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                         gritdata<span class="sc">$</span>O10) <span class="sc">/</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>lasketaan siis muuttujat suoraan yhteen ja otetaan niiden keskiarvo.</p>
+<p>täytyy muistaa kääntää käänteisesti koodatut kysymykset</p>
+<p>asteikon 1-5:lle saa käännettyä erottamalla 6:sta</p>
+<p>eli, jos 1 pitäisikin olla 5 niin 6 – 1 = 5</p>
+<p>tässä tavassa se hyvä puoli ettei kosketa ollenkaan alkuperäisiin muuttujiin, vaan koodauksen kääntö samoin päin tehdään vain suoraan summamuuttujaan</p>
+<p><br></p>
+<p><img src="images/clipboard-1218920384.png" class="img-fluid"></p>
+<p>Boxcox muuttujanmuunnos</p>
+<ul>
+<li>lambda kertoimella voidaan transformoida muotoa -2 - +2 välillä</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"EnvStats"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EnvStats)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>gritdata<span class="sc">$</span>age_transform <span class="ot">&lt;-</span> <span class="fu">boxcoxTransform</span>(gritdata<span class="sc">$</span>age, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gritdata<span class="sc">$</span>age_transform)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>boxcox muuttaa arvot random asteikolle niin kannattaa normalisoida!</p>
+<p>onnistuu scale funktiolla</p>
+<ul>
+<li>gritdata$age_transform &lt;- scale(boxcoxTransform(gritdata$age, -1))</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-97909985.png" class="img-fluid"></p>
+<p>normalisoitu boxcox muunnoksen läpikäynyt muuttuja</p>
+<p><br></p>
 
 
 </section>

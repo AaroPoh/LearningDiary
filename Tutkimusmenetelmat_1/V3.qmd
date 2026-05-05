@@ -3,7 +3,7 @@ title: "Kuvia Jamovilla, Rjeditorilla ja Rstudiolla"
 format: html
 ---
 
-## Scatterplot, HeatMap ja Rj-editor 
+## Scatterplot, HeatMap ja Rj-editor
 
 ![](images/clipboard-2953196709.png)
 
@@ -59,7 +59,7 @@ geom_smooth( method=lm, se=TRUE, colour="black")
 
 <br>
 
-## Heatmap rj-editorilla 
+## Heatmap rj-editorilla
 
 ![](images/clipboard-4106596765.png)
 
@@ -193,7 +193,7 @@ name = "Pearsonin korrelaatio")
 
 name = "Pearsonin\\nkorrelaatio"
 
--  saatiin Pearsonin ja korrelaatio eri riveille
+- saatiin Pearsonin ja korrelaatio eri riveille
 
 <br>
 
@@ -246,3 +246,714 @@ theme(text = element_text(size=16))
 
 
 ```
+
+<br>
+
+## Long ja wide format (pitkä ja leveä data)
+
+![](images/clipboard-1468597925.png)
+
+Wide
+
+- joka rivillä yhden koehenkilön aineistoa
+
+- joka koehenkilöllä vain yksi rivi
+
+- eri tilanteet sarakkeissa
+
+Long
+
+- joka rivillä vain yhden koehenkilön aineistoa, mutta joka koehenkilölle on varattuna useampi rivi
+
+- muuttuja, jossa eri tilanteet / tasot
+
+<br>
+
+![](images/clipboard-313860538.png)
+
+jos kääntää aineiston pitkään muotoon niin helppo tehdä kuvia
+
+- esim. saa samaan kuvaan monta histogrammia
+
+<br>
+
+### Jamovissa
+
+![](images/clipboard-3723003402.png)
+
+colnames(data) -\> komennolla näkee, mitkä ovat datan kolumnien eli sarakkeiden nimet
+
+<br>
+
+![](images/clipboard-3878575425.png)
+
+\<- data\[ , 5:9\]
+
+- komennolla tallennettiin data sarakkeista numero 5:stä numero 9:n muuttujaan df
+
+- sen jälkeen df muuttujalla saa tulostettua kyseiset sarakkeet
+
+<br>
+
+![](images/clipboard-1894543509.png)
+
+kolumnit voi tallentaa df muuttujaan myös seuraavalla komennolla
+
+- \<- data\[ , c(”Avoimuus”, ”Ekstroversio”)\] ¨
+
+- tällöin täytyy kirjoittaa sarakkeiden nimet täsmälleen oikein
+
+<br>
+
+![](images/clipboard-2617351041.png)
+
+pivot_longer(df, 1:5, names_to = ”Piirre”, values_to = ”Voimakkuus”)
+
+- muuttaa datan pitkään muotoon. names_to ja values:to muuttavat sarakkeiden otsikoita
+
+- \<- jälleen kerran nuolikomennolla talletetaan tiettyyn muuttujaan (datalong)
+
+Jamovissa ei pysty suoraan viemään r-editorista datapuolelle graafiseen käyttöliittymään, joten data pitkässä muodossa täytyy tallettaa
+
+<br>
+
+![](images/clipboard-1107442343.png)
+
+getwd() komennolla näkee working directoryn?? en tiedä mitä hyötyä siitä oli, koska kuitenkin oli eri kuin mihin kaikki tiedostovat lähtökohtaisesti kannattaa tallentaa
+
+write.csv() komennolla saa talletettua tiedoston valitsemaansa kansioin
+
+C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit\_&\_ Face/datalong.csv"
+
+- käytin kyseistä polkua
+
+- Kun kopioi polun siitä täytyy muuttaa kenoviivat kauttaviivoiksi, eli alun perin kopioidussa ne ovat \\ ja tulee virhe. Kun ne muuttaa / niin alkaa toimimaan
+
+- loppuun pitää muistaa kirjoittaa uuden tiedoston nimi eli esim. ”datalong.csv”
+
+write.csv(datalong,"C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit\_&\_ Face/datalong.csv")
+
+- tuo oli komento kokonaisuudessaan, jolla tiedosto suostui tallentumaan
+
+<br>
+
+![](images/clipboard-1737799339.png)
+
+<br>
+
+![](images/clipboard-481724765.png)
+
+- sen myötä kyseiseen valittuun kansioon tallentui tiedosto datalong.csv
+
+- jamovissa voi avata tiedoston, joka on nyt long formatissa eli joka koehenkilöllä on 5 eri riviä
+
+<br>
+
+![](images/clipboard-3823343829.png)
+
+nyt, kun datalong oli muutettu pitkään formaattiin niin siitä pystyttiin piirtämään histogrammit joka piirteestä päällekäin
+
+- histogrammi piirrettiin ggplotilla seuraavalla komennolla
+
+- ggplot(datalong, aes(x=Voimakkuus, fill=Piirre)) +
+
+  - geom_density(alpha=.2)
+
+  - alpha käskyllä saa läpinäkyvyyttä säädettyä
+
+<br>
+
+![](images/clipboard-1440950252.png)
+
+theme_classic()
+
+- muuttaa teeman yksinkertaisemmaksi ja taustalta poistuu ylimääräinen sälä
+
+labs()
+
+- muokkaa otsikoita eli labeleitä
+
+<br>
+
+![](images/clipboard-434427039.png)
+
+theme(text = element_text(size = 14))
+
+- muokkaa tekstin fonttikokoa
+
+<br>
+
+![](images/clipboard-2651810312.png)
+
+theme( axis.text.y=element_blank(), axis.ticks.y=element.blank()) poistaa y-akselin arvot kuvaajasta
+
+alemmassa kuvassa y-akselin arvot näkyvät, koska komento on otettu pois käytöstä eron havainnollistamiseksi. Ylemmässä kuvassa arvot ovat poistettuna
+
+koodi, jolla saa muunnettua datan pitkään muotoon (long form) ja piirrettyä päällekkäiset histogrammit
+
+```{r}
+#| eval: false 
+
+library(tidyverse)
+#colnames(data)
+# summary(data[1:3])
+
+df <- data[ , 6:10]
+
+#df
+
+datalong <- pivot_longer(df, 1:5,
+                        names_to = "Piirre",
+                        values_to = "Voimakkuus")
+                        
+#datalong
+#getwd()
+
+write.csv(datalong,"C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&_ Face/datalong.csv")
+#C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&_ Face
+
+ggplot(datalong, aes(x=Voimakkuus, fill=Piirre)) +
+    geom_density(alpha=.2) +
+        theme_classic() + 
+    labs(y = "Tiheys", x = "Voimakkuus")+
+    theme(text = element_text(size = 14))+ 
+    theme( axis.text.y=element_blank(),
+            axis.ticks.y=element_blank())
+
+
+```
+
+<br>
+
+vastaavalla idealla, kun data on pitkässä muodossa, voidaan piirtää boxplotteja ja muita kuvioita
+
+<br>
+
+![](images/clipboard-1065124902.png)
+
+boxplotin koodi
+
+```{r}
+#| eval: false
+
+ggplot(datalong, aes(x=SetSize, y=Score)) + 
+    geom_boxplot(fill="green", alpha=0.2) + 
+    labs(y = "D'", x = "SetSize") + 
+    theme_classic() + 
+    theme(text = element_text(size=14))
+
+
+```
+
+<br>
+
+![](images/clipboard-924359905.png)
+
+muokataan toistomittaus-Anova viedon 42 aineistosta changewithinsubjects pitkämuotoinen (long format)
+
+talletetaan datalong muuttujaan
+
+- \<- pivot_longer(data, 2:10,
+
+  - muuttaa long formiin
+
+- names_to = c()
+
+  - muuttaa kolumnien eli sarakkeiden nimet
+
+- values_to = ()
+
+  - muuttaa arvojen nimen
+
+- names_sep = ()
+
+  - selkeyttää millä nimet on datassa eroteltuna
+
+  - esimerkiksi kyseisessä aineistossa ne on eroteltuna alaviivalla \_
+
+<br>
+
+![](images/clipboard-3885809474.png)
+
+kun ajetaan datalong komento, nähdään, että se on jakautunut kolmeen sarakkeeseen SetSize, Change ja Score
+
+- Alaviiva nimien erottamiseksi on hyvin näppärä, koska tämäntyylisellä funktiolla saa nimet suoraan eroteltua
+
+- jos muuttujat on nimetty systemaattisesti voidaan käyttää automaattikoodeja, joilla ne saadaan eroteltua
+
+  - esim. names_sep = ”jotain”
+
+<br>
+
+![](images/clipboard-1145325838.png)
+
+- datalong\$SetSize \<- str_replace(datalong\$SetSize, "SetSize", "")
+
+- komennolla saadaan SetSizen nimestä poistettua SetSize ja se on vain 1, 2 tai 4
+
+<br>
+
+![](images/clipboard-2967514372.png)
+
+tehtiin sama muutokselle eli changelle
+
+datalong\$Change \<- str_replace(datalong\$Change, "Change", "")
+
+<br>
+
+![](images/clipboard-1825931740.png)
+
+samalla koodilla kuin aiemmin saadaan long format muodossa olevasta datasta piirrettyä päällekäiset histogrammit
+
+```{r}
+#| eval: false
+
+ggplot(datalong, aes(x=Voimakkuus, fill=Piirre)) +
+    geom_density(alpha=.2) +
+        theme_classic() + 
+    labs(y = "Tiheys", x = "Voimakkuus")+
+    theme(text = element_text(size = 14))+ 
+    theme( axis.text.y=element_blank(),
+            axis.ticks.y=element_blank())
+
+```
+
+<br>
+
+täytyi vain muuttaa oikeat muuttujien nimet ja homma pelittää
+
+<br>
+
+![](images/clipboard-1978906600.png)
+
+boxplot
+
+- näkee keskimäärisen muistisuorituksen (musta poikkiviiva)
+
+  - ja kvartaalivälit
+
+- mediaani, 25-75 persentiiliväli (IQR, Inter quartal range), 25 – 1,5\* IQR, 75 + 25 \* IQR
+
+```{r}
+#| eval: false
+
+
+ggplot(datalong, aes(x=SetSize, y=Score)) + 
+    geom_boxplot(fill="green", alpha=0.2) + 
+    labs(y = "D'", x = "SetSize") + 
+    theme_classic() + 
+    theme(text = element_text(size=14))
+
+
+```
+
+Eli, jos jamovin kuvaajan piirto-ominaisuudet ei tyydytä, niin r-editorilla saa monipuolisemmin piirrettyä
+
+<br>
+
+## R-studio, aineiston avaaminen ja kuvailu
+
+![](images/clipboard-1294929953.png)
+
+jamovilla enemmän rajoitteita, r-kielelle valtava määrä paketteja ja voi itse määritellä mitä tekee
+
+<br>
+
+![](images/clipboard-2752698927.png)
+
+Näppäinyhdistelmällä ctrl + L saa konsolin tyhjennettyä
+
+<br>
+
+![](images/clipboard-1040449957.png)
+
+getwd()
+
+- näyttää nykyisen working directoryn
+
+setwd()
+
+- asettaa working directoryn
+
+list.files()
+
+- listaa kyseisen working directoryn eli työskentely kansion tiedostot
+
+gritdata \<- read.csv(”gridata.csv”)
+
+- tallettaa gritdata.csv sisällön gritdata muuttujaan, joka näkyy oikeassa yläreunassa environment kohdassa
+
+- näyttää, että datassa olisi vain yksi muuttuja eli jokin on pielessä
+
+- kyse siitä ettei ohjelma osaa erotella tabilla eroteltuja
+
+<br>
+
+![](images/clipboard-2803965839.png)
+
+lisäämällä sep=”\\t”
+
+- gritdata \<- read.csv("gritdata.csv", sep="\\t")
+
+- ohjelma osaa erotella ja näkyy 98 muuttujaa
+
+sep = separate eli erottelufunktio
+
+- sep=”\\t”
+
+  - komennon jälkeen osaa erotella tabilla erotellut muuttujat
+
+- separator voi olla myös esim.
+
+  - pilkku -\> sep=”,”
+
+  - tai puolipiste -\> sep=”;”
+
+- eri formaatteja löytyy, tyypillisimmin pilkku
+
+<br>
+
+![](images/clipboard-226693628.png)
+
+- voidaan avata datasetti myös file valikosta kohdasta import dataset
+
+- from text
+
+- avautuu valikko, josta voi esim valita separaattorin
+
+<br>
+
+![](images/clipboard-3627645725.png)
+
+- \$ merkillä voi viitata tiettyyn osaan/muuttujaan datassa
+
+- histogrammin saa piirrettyä hist() funktiolla
+
+  - hist( gritdata\$age)
+
+  - piirretään histogrammi gritdatan age muuttujasta
+
+  - nähdään kuvasta, että löytyy outliereita, sillä ikäjakauma jatkuu 350 ikävuoteen asti
+
+<br>
+
+![](images/clipboard-4137019862.png)
+
+max()
+
+- kertoo maksimiarvon
+
+?max
+
+- antaa ohjeita
+
+gritdata\$age\[ gritdata\$age\>100\]
+
+- näyttää gritdatan age muuttujan yli 100 olevat arvot
+
+- tällä voi siis etsiä outliereita
+
+<br>
+
+![](images/clipboard-4270107089.png)
+
+sum(gritdata\$age\>100)
+
+- näyttää montako ehdon täyttävää arvoa löytyy
+
+<br>
+
+![](images/clipboard-346664676.png)
+
+gritdata\$age\[ gritdata\$age\>100\] \<- NA
+
+- merkattiin yli 100 olevat arvot puuttuviksi
+
+- NA tarkoittaa puuttuvaa arvoa
+
+- nuolikomennolla merkattiin hakasulkeiden sisältö puuttuvaksi
+
+- histogrammissa näin vain järkeviä ikäarvoja
+
+<br>
+
+![](images/clipboard-3262104955.png)
+
+breaksilla voi säätää välejä, joilla histogrammiin piirtyy palkkeja
+
+gritdata\$age\[ gritdata\$age\<18\] \<- NA
+
+- merkattiin alle 18 arvot puuttuviksi
+
+kirjoitattamalla konsoliin datalähteen ja hakasulkeissa sen numeron, niin se näyttää järjestysnumeron mukaisen arvon
+
+esim. gritdata\$age\[1\]
+
+- näyttää gritdata\$age ensimmäisen arvon
+
+gritdata\$age\[5\]
+
+- viidennen arvon
+
+gritdata\$age\[100:120\]
+
+- näyttää arvot välillä 100 – 120
+
+<br>
+
+![](images/clipboard-3900096559.png)
+
+poistettiin alle 18 ikäarvojen poisto \#
+
+gender muuttujasta merkattiin 0 arvot puuttuviksi
+
+- gritdata\$gender\[ gritdata\$gender==0 \] \<- NA
+
+konsolissa tarkastettiin mitä minimi näyttää
+
+- antoi minimiksi ensin NA, joka tarkoitti, ettei minimifunktio osannut automaattisesti tulkita puuttuvia arvoja poistetuiksi
+
+lisättiin minimifunktioon NA arvojen poistaminen
+
+- min(gritdata\$gender, na.rm = TRUE)
+
+- na.rm = puuttuvat arvot poistetaan NA remove
+
+- tämän seurauksena antaa tulokseksi minimiarvon 1 eli oikean vastauksen
+
+<br>
+
+![](images/clipboard-375156567.png)
+
+voidaan poistaa yksi kerrallaan muistakin muuttujista 0 arvot
+
+- kuten kuvassa urbanista ja educationista
+
+kuitenkin hiukan hidasta
+
+jos tiedetään, että kaikki 0 arvot datassa ovat vääriä / puuttuvia arvoja voidaan käyttää
+
+- gritdata\[ gritdata ==0\] \<- NA
+
+- merkitsee kaikki gritdatan 0 arvot puuttuviksi
+
+colnames(gritdata)
+
+- näytää sarakkeiden nimet
+
+<br>
+
+![](images/clipboard-2722770122.png)
+
+- kun na.rm ei käytössä, niin keskiarvofunktio ei tunnista puuttuvia arvoja ja osaa laskea sitä
+
+- kun na.rm on käytössä, niin osaa laskea keskiarvon
+
+- na.rm on siis tärkeä käyttää monissa funktioissa, jotka eivät suoraan osaa tunnistaa puuttuvia NA arvoja
+
+- Keskiarvo: mean(gritdata\$age, na.rm = TRUE)
+
+- Keskihajonta: sd(gritdata\$age, na.rm = TRUE)
+
+<br>
+
+![](images/clipboard-444053609.png)
+
+describe()
+
+- funktiolla saa kaikkien muuttujien keskeisiä kuvailevia statistiikkoja esille
+
+<!-- -->
+
+- täytyy muistaa käyttää library(psych) kirjastoa
+
+- eli koodin alkuun lisätään library(psych)
+
+?describe
+
+- näkee ohjeet, miten voi hiukan tarkemmin määritellä sen mitä haluaa funktiolla tulostaa
+
+<br>
+
+![](images/clipboard-1050670072.png)
+
+jos halutaan rajata vaikkapa gritdasta vain rivit 29-41 niin se voidaan lisätä hakasulkeisiin ja näin rajoittaa.
+
+- describe(gritdata\[,29:41\]
+
+<br>
+
+![](images/clipboard-3470666790.png)
+
+- myös kolumnien nimet kirjoittamalla voi määritellä valitut muuttujat
+
+- describe(gritdata\[c("education","age")\])
+
+<br>
+
+![](images/clipboard-3206446975.png)
+
+describeBy(gritdata\[,31:42\], group="gender")
+
+- jaotellaan kuvailevat tiedot faktorin eli ryhmittelevän muuttujan mukaan
+
+- tässä tapauksessa gender ja näyttää siis tunnusluvut gender 1, gendar 2, ja gender 3 erikseen
+
+<br>
+
+## Rstudio summamuuttujat
+
+![](images/clipboard-1814686538.png)
+
+<br>
+
+![](images/clipboard-3084918396.png)
+
+gritdata\$ageGroup \<- cut(gritdata\$age,
+
+breaks = c(0,30,60,100),
+
+labels = c("nuori", "keski", "vanha"))
+
+muuttujan uudelleenkoodaus
+
+- yllä koodattiin ikä uuteen muuttujaan kolmeksi ikäryhmäksi
+
+- breaksillä määritellään, missä kohtaa on ryhmien rajat
+
+- labelsilla ryhmien nimet
+
+<br>
+
+![](images/clipboard-2115726466.png)
+
+muuttujien kuvailevat tunnusluvut ryhmitellen
+
+- describeBy(gritdata\[,90:99\], group = "ageGroup")
+
+summafunktiolla näkee montako arvoa kyseisessä luokassa on
+
+- sum( gritdata\$ageGroup== "nuori", na.rm = TRUE)
+
+<br>
+
+![](images/clipboard-955731956.png)
+
+indeksien avulla voi määritellä rivien ja sarakkeiden määrän/välin. Enskiksi on rivien määrittely ja pilkun jälkeen sarakkeiden valinta
+
+- gritdata\[1:10, 1:6\]
+
+voidaan myös määritellä sarakkeiden nimien mukaan, mitkä otetaan mukaan
+
+- gritdata\[1:30,c("gender","age")\]
+
+<br>
+
+![](images/clipboard-2691780805.png)
+
+merkataan gritdatan sarakkeiden 3-14 nolla-arvot puuttuviksi
+
+- gritdata\[ , 3:14\] \[ gritdata\[, 3:14\] == 0\] \<- NA
+
+katso colnamesista mistä muuttujista täytyy poistaa 0 arvot
+
+--\> käytä seuraavaa komentoa
+
+gritdata\[ , 3:14\] \[ gritdata\[, 3:14\] == 0\] \<- NA
+
+gritdata\[ , 43:92\] \[ gritdata\[, 43:92\] == 0\] \<- NA
+
+voi myös tehdä kerrallaan, jos ok poistaa nollat koko aineistosta
+
+- gritdata\[gritdata == 0\] \<- NA
+
+<br>
+
+![](images/clipboard-668629813.png)
+
+käänteisesti koodattujen kysymysten kääntäminen samalle asteikolle
+
+- eli käännetään samoin päin kuin muut kysymykset, kun tehdään summamuuttujaa
+
+```{r}
+#| eval: false 
+
+gritdata$GS1 <- 6-gritdata$GS1
+gritdata$G4 <- 6-gritdata$GS4
+gritdata$GS6 <- 6-gritdata$GS6
+gritdata$GS9 <- 6-gritdata$GS9
+gritdata$GS10 <- 6-gritdata$GS10
+
+
+```
+
+<br>
+
+![](images/clipboard-1036502814.png)
+
+tehdään summamuuttuja
+
+- gdata\$Sinnikkyys \<- rowMeans(gdata\[, c("GS1","GS2","GS3","GS4", "GS5","GS6","GS7","GS8", "GS9","GS10","GS11","GS12") \], na.rm=TRUE)
+
+eli otetaan kaikki rivit ja vain tietyt sarakkeet (GS sarakkeet). Lasketaan GS sarakkeiden kaikkien rivien keskiarvot. Rivikeskiarvot tallentuvat Sinnikkyys summamuuttujaan
+
+eli saadaan jokaiselta koehenkilöltä keskiarvo jokaisesta 12 grit kysymyksestä
+
+<br>
+
+![summamuuttuja toisella tavalla](images/clipboard-4146522961.png)
+
+```{r}
+#| eval: false 
+
+gritdata$Avoimuus <- ( gritdata$O1 + (6-gritdata$O2) + gritdata$O3 +
+                         (6-gritdata$O4) + gritdata$O5 + (6-gritdata$O6) +
+                         gritdata$O7 + gritdata$O8 + gritdata$O9 + 
+                         gritdata$O10) / 10
+
+
+```
+
+lasketaan siis muuttujat suoraan yhteen ja otetaan niiden keskiarvo.
+
+täytyy muistaa kääntää käänteisesti koodatut kysymykset
+
+asteikon 1-5:lle saa käännettyä erottamalla 6:sta
+
+eli, jos 1 pitäisikin olla 5 niin 6 – 1 = 5
+
+tässä tavassa se hyvä puoli ettei kosketa ollenkaan alkuperäisiin muuttujiin, vaan koodauksen kääntö samoin päin tehdään vain suoraan summamuuttujaan
+
+<br>
+
+![](images/clipboard-1218920384.png)
+
+Boxcox muuttujanmuunnos
+
+- lambda kertoimella voidaan transformoida muotoa -2 - +2 välillä
+
+```{r}
+#| eval: false 
+
+install.packages("EnvStats")
+library(EnvStats)
+gritdata$age_transform <- boxcoxTransform(gritdata$age, -1)
+
+hist(gritdata$age_transform)
+
+
+```
+
+boxcox muuttaa arvot random asteikolle niin kannattaa normalisoida!
+
+onnistuu scale funktiolla
+
+- gritdata\$age_transform \<- scale(boxcoxTransform(gritdata\$age, -1))
+
+<br>
+
+![](images/clipboard-97909985.png)
+
+normalisoitu boxcox muunnoksen läpikäynyt muuttuja
+
+<br>
