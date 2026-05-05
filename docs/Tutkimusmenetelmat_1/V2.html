@@ -344,6 +344,22 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#korrelaatio-jamovissa" id="toc-korrelaatio-jamovissa" class="nav-link" data-scroll-target="#korrelaatio-jamovissa"><span class="header-section-number">7.5.1</span> Korrelaatio Jamovissa</a></li>
   <li><a href="#partial-correlation" id="toc-partial-correlation" class="nav-link" data-scroll-target="#partial-correlation"><span class="header-section-number">7.5.2</span> Partial correlation</a></li>
   </ul></li>
+  <li><a href="#yksinkertainen-regressio.-regressiosuora-excel" id="toc-yksinkertainen-regressio.-regressiosuora-excel" class="nav-link" data-scroll-target="#yksinkertainen-regressio.-regressiosuora-excel"><span class="header-section-number">7.6</span> Yksinkertainen regressio. regressiosuora, excel</a>
+  <ul class="collapse">
+  <li><a href="#regressiosuora-excelillä" id="toc-regressiosuora-excelillä" class="nav-link" data-scroll-target="#regressiosuora-excelillä"><span class="header-section-number">7.6.1</span> Regressiosuora excelillä</a></li>
+  <li><a href="#regressioanalyysit-jamovilla" id="toc-regressioanalyysit-jamovilla" class="nav-link" data-scroll-target="#regressioanalyysit-jamovilla"><span class="header-section-number">7.6.2</span> Regressioanalyysit jamovilla</a></li>
+  </ul></li>
+  <li><a href="#logistinen-regressio" id="toc-logistinen-regressio" class="nav-link" data-scroll-target="#logistinen-regressio"><span class="header-section-number">7.7</span> Logistinen regressio</a></li>
+  <li><a href="#mallivakiointi-adjustointi" id="toc-mallivakiointi-adjustointi" class="nav-link" data-scroll-target="#mallivakiointi-adjustointi"><span class="header-section-number">7.8</span> Mallivakiointi / adjustointi</a></li>
+  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova"><span class="header-section-number">7.9</span> ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#yksisuuntainen-anova" id="toc-yksisuuntainen-anova" class="nav-link" data-scroll-target="#yksisuuntainen-anova"><span class="header-section-number">7.9.1</span> Yksisuuntainen ANOVA</a></li>
+  <li><a href="#faktoriaalinen-anova" id="toc-faktoriaalinen-anova" class="nav-link" data-scroll-target="#faktoriaalinen-anova"><span class="header-section-number">7.9.2</span> Faktoriaalinen ANOVA</a></li>
+  <li><a href="#ancova-manova-ei-parametrinen-kruskall-wallis" id="toc-ancova-manova-ei-parametrinen-kruskall-wallis" class="nav-link" data-scroll-target="#ancova-manova-ei-parametrinen-kruskall-wallis"><span class="header-section-number">7.9.3</span> ANCOVA, MANOVA; ei-parametrinen Kruskall-Wallis</a></li>
+  <li><a href="#toistomittaus-anova" id="toc-toistomittaus-anova" class="nav-link" data-scroll-target="#toistomittaus-anova"><span class="header-section-number">7.9.4</span> Toistomittaus-ANOVA</a></li>
+  </ul></li>
+  <li><a href="#faktorianalyysi" id="toc-faktorianalyysi" class="nav-link" data-scroll-target="#faktorianalyysi"><span class="header-section-number">7.10</span> Faktorianalyysi</a></li>
+  <li><a href="#bayes-faktori" id="toc-bayes-faktori" class="nav-link" data-scroll-target="#bayes-faktori"><span class="header-section-number">7.11</span> Bayes faktori</a></li>
   </ul>
 </nav>
     </div>
@@ -1157,9 +1173,953 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>tässä tehty semipartial correlation. Nähdään, että kun kontrolloidaan vaikutukset vain jommastta kummasta muuttujasta niin sen seurauksena korrelaatiot ovat hiukan erilaiset.</figcaption>
 </figure>
 </div>
-
-
+<p><br></p>
 </section>
+</section>
+<section id="yksinkertainen-regressio.-regressiosuora-excel" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="yksinkertainen-regressio.-regressiosuora-excel"><span class="header-section-number">7.6</span> Yksinkertainen regressio. regressiosuora, excel</h2>
+<p><img src="images/clipboard-3968668934.png" class="img-fluid"></p>
+<ul>
+<li><p>tutkitaan kuinka paljon ennustava muuttuja selittää ennustettavan muuttujan vaihtelua</p></li>
+<li><p>painokerrointen asteikko [-1,1] käytettäessä standardoituja lukuja</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2026022408.png" class="img-fluid"></p>
+<p>y = a + bx + e</p>
+<ul>
+<li><p>a = vakio = piste, jossa y-akseli leikataan</p></li>
+<li><p>b = kulmakerroin, betakerroin, beta coefficient,</p></li>
+<li><p>e = virhe (selittämättä jäävä vaihtelu), error, residuaali</p>
+<ul>
+<li>-&gt; ero joka jää suoran ja datapisteen väliin, kuvassa punaiset viivat</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3700922066.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-1229729098.png" class="img-fluid"></p>
+<p>Selitysaste eli kuinka hyvin malli/viiva sopii aineistoon</p>
+<ul>
+<li><p>voidaan laskea vertaamalla residuaalien neliösummaa kokonaisneliösummaan</p></li>
+<li><p>arvioidaan sitä, kuinka monta prosenttia jää residuaaliin eli selittämättä ja se mitä pystymme selittämään on selitysaste eli R<sup>2</sup></p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1003954211.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-2610834448.png" class="img-fluid"></p>
+<ul>
+<li>betakertoimesta eli kulmakertoimesta voi suoraan laskea kuinka suuri vaikutus on</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3957402183.png" class="img-fluid"></p>
+<ul>
+<li><p>herkkä outliereille</p></li>
+<li><p>korrelatiivinen menetelmä eli ei kerro syy-seuraussuhteista yhtään enempää kuin korrelaatio</p></li>
+</ul>
+<p><br></p>
+<section id="regressiosuora-excelillä" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="regressiosuora-excelillä"><span class="header-section-number">7.6.1</span> Regressiosuora excelillä</h3>
+<p><img src="images/clipboard-1893459007.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-4292252434.png" class="img-fluid"></p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1132693906.png" class="img-fluid figure-img"></p>
+<figcaption><br></figcaption>
+</figure>
+</div>
+<p>sinisessä näkyy datan oikeat arvot ja mallin ennustamat arvot tietyille x:n pisteille</p>
+<p>SS = sum of squares = neliösumma</p>
+<p>R<sup>2</sup> = selitysaste</p>
+<ul>
+<li><p>lasketaan 1-SS_residual/SS_total</p></li>
+<li><p>eli yhdestä vähennetään residuaalien neliösumma / datan keskiarvopoikkeamien neliösummalla</p></li>
+</ul>
+<p>SS_total = neliösumma datapisteiden poikkeamista omasta keskiarvostaan korotettuna neliöön</p>
+<ul>
+<li><p>(data-datamean)<sup>2</sup></p></li>
+<li><p>esim. kun x = 1, data = 2, datan keskiarvo = 6,5</p>
+<ul>
+<li>(2 - 6,5)^2 = 20,25</li>
+</ul></li>
+<li><p>Lasketaan jokaisesta x:n kohdasta (data-datamean)^2 ja summataan ne yhteen</p></li>
+</ul>
+<p>SS_residual = neliösumma erotuksesta datan ja mallin antaman arvon välillä korotettuna toiseen</p>
+<ul>
+<li><p>(data-malli)^2</p></li>
+<li><p>kun x = 1, data = 2, malli = 1,45</p>
+<ul>
+<li>(2 – 1,45)^2 = 0,30</li>
+</ul></li>
+<li><p>lasketaan jokaisesta x:n kohdasta (data-malli)^2 ja summataan ne yhteen</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4154343959.png" class="img-fluid"></p>
+<p>vakion ja betakertoimen selvittäminen laskemalla</p>
+<ul>
+<li><p>betakerroin = korrelaatio * (datan keskihajonta / x:n keskihajonta)</p></li>
+<li><p>vakio = datan keskiarvo – (betakerroin * x:n keskiarvo)</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-82299462.png" class="img-fluid"></p>
+<p>Toinen laskutapa regressiosuoran betakertoimelle ja vakiolle, jota en jaksanut opetella</p>
+<p><br></p>
+</section>
+<section id="regressioanalyysit-jamovilla" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="regressioanalyysit-jamovilla"><span class="header-section-number">7.6.2</span> Regressioanalyysit jamovilla</h3>
+<p><img src="images/clipboard-2593934842.png" class="img-fluid"></p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-782276204.png" class="img-fluid figure-img"></p>
+<figcaption><br></figcaption>
+</figure>
+</div>
+<p>Jos enemmän muuttujia niin lisätään betakertoimia, joka muuttujalle</p>
+<ul>
+<li><p>voidaan lisätä niin monta kuin halutaan</p></li>
+<li><p>hiearkinen malli, monitasomalli</p></li>
+<li><p>verrataan, miten malli paranee</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3924648600.png" class="img-fluid"></p>
+<ul>
+<li><p>dependent -&gt; ennustettava muuttuja</p></li>
+<li><p>covariates -&gt; ennustava muuttuja, kun jatkuva</p></li>
+<li><p>factors -&gt; ennustava muuttuja, kun kategorinen</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4211105381.png" class="img-fluid"></p>
+<ul>
+<li><p>R = korrelaatio</p></li>
+<li><p>R^2 = selitysaste, 7 % kuvassa</p></li>
+<li><p>Estimate = mallin antamat arviot eli estimaatit?</p></li>
+<li><p>intercept = vakio</p></li>
+<li><p>iän betakerroin näkyy estimate sarakkeessa ikä rivillä</p>
+<ul>
+<li>kuvassa 0,201</li>
+</ul></li>
+<li><p>eli jos halutaan ennustaa mallin perusteella sinnikkyyttä malli menee seuraavalla tavalla:</p>
+<ul>
+<li>vakio (33,8) + betakerroin (0,2) * ennustavan muuttujan arvo (ikä)</li>
+</ul></li>
+<li><p>p- arvo, jälleen kertoo onko yhteys tilastollisesti merkitsevä</p>
+<ul>
+<li><p>nollahypoteesi: ei ole yhteyttä</p></li>
+<li><p>eli kun p-arvo alle 0,05 tarkoittaa, että löytyy yhteys</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4043930224.png" class="img-fluid"></p>
+<p>autocorrelation ja collinearity</p>
+<ul>
+<li>tarkistetaan, etteivät muuttujat liian samankaltaisia</li>
+</ul>
+<p>Normality test ja q-q-plot</p>
+<ul>
+<li><p>normaalisuustestit</p></li>
+<li><p>huom! nollahypoteesi sekä wilkshapirossa että kolmogorov smirnovissa: ”on jakautunut normaalisti”</p>
+<ul>
+<li>kun p&lt;0.05, muuttuja ei ole jakautunut normaalisti</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3807945246.png" class="img-fluid"></p>
+<p>Cook’s distance</p>
+<ul>
+<li><p>voidaan tarkistaa, kuinka paljon mallin hyvyys muuttuu, kun yksittäinen havainto poistetaan regressiosta</p></li>
+<li><p>maximi ehkä kiinnostavin, jos se on todella suuri voi pohtia onko kyseessä outlier ja olisiko syytä poistaa</p></li>
+<li><p>alhaalta voi tallettaa cook’s distance arvot ja ne ilmestyvät muuttujana data sivulle</p></li>
+<li><p>voi tehdä scatterplotin ja jos jokin arvo ihan eri skaalalla kuin muut niin voi miettiä sen poistamista</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2610267952.png" class="img-fluid"></p>
+<p>scatterplot cook’s distance arvoista ja iästä</p>
+<p><br></p>
+<p><img src="images/clipboard-156223795.png" class="img-fluid"></p>
+<p>Adjusted R^2 -&gt; käytetään, kun useampi muuttuja. Ottaa silloin huomioon myös muut muuttujat</p>
+<p>AIC -&gt; Acaice informaatio kriteeri, ottaa huomioon muuttujien määrän selityksessä, arvo merkityksellinen vain, kun on useampi eri malli. Silloin pienin mahdollinen arvo tarkoittaa parasta mahdollista mallia</p>
+<p>BIC -&gt; Bayesilainen informaatiokriteeri, ottaa huomioon muuttujien määrän selityksessä, arvo merkityksellinen vain, kun on useampi eri malli. Silloin pienin mahdollinen arvo tarkoittaa parasta mahdollista mallia.</p>
+<p>Overall Model Test, F-test</p>
+<ul>
+<li><p>jos merkitsevä niin tarkoittaa, että testi läpi</p></li>
+<li><p>onko malli ylipäänsä sopiva datalle</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4204795818.png" class="img-fluid"></p>
+<p>standardoitu estimaatti</p>
+<ul>
+<li><p>jos useampia muuttujia voidaan arvioida niiden keskinäisiä suhteita</p></li>
+<li><p>saadaan jonkinlainen efektikoon mitta</p></li>
+<li><p>myös luottamusvälit katsottua standardoidulle estimaatille</p></li>
+</ul>
+<p>Estimaatti</p>
+<ul>
+<li>tästä kohdasta varsinaiselle (ei-standardoidulle) estimaatille saadaan katsottua luottamusvälit</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1854679977.png" class="img-fluid"></p>
+<p>Lisättiin gender kategoriseksi muuttujaksi</p>
+<ul>
+<li><p>täytyy valita reference level</p>
+<ul>
+<li><p>se on muuttujan taso, johon verrataan, vaikuttaa tulosten tulkinnan suuntaan</p></li>
+<li><p>kun vaihdetaan genderin referenssitaso 1 -&gt; 2 niin betakerroin muuttuu 0,254 negatiiviseksi eli – 0,254</p></li>
+</ul></li>
+<li><p>videolla täytyi muuttaa referenssitaso 0 -&gt; 1, koska 0 oli merkattu puuttuviksi arvoiksi. Lisäksi poistettiin 3. taso, koska 3. sukupuolivaihtoehdon arvoja oli niin vähän ettei haluttu niitä analyysiin mukaan</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1208401781.png" class="img-fluid"></p>
+<p>Kuvasta tulkittavaa</p>
+<ul>
+<li><p>Lisättiin education muuttuja myös selittämään</p></li>
+<li><p>selitystaso silti matala vain noin 8,5 %</p></li>
+<li><p>p-arvot kertovat tilastollisen merkitsevyyden mallissa</p>
+<ul>
+<li>voi olla siis eri, kuin olisi yksittäisenä</li>
+</ul></li>
+<li><p>nähdään, z-pistemuunnetuista estimaateista, että iällä ja 4 tason koulutuksella on isoimmat kertoimet eli ne vaikuttavat eniten selitystasoon</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2876624610.png" class="img-fluid"></p>
+<ul>
+<li><p>Lisättiin malliin persoonallisuuspiirteet: avoimuus, ekstroversio, neuroottisuus, sovinnollisuus ja tunnollisuus</p></li>
+<li><p>Lisättiin myös adjusted R^2 , joka ottaa huomioon muuttujien vaikutukset toisiinsa</p></li>
+<li><p>Huomataan, että aiempien muuttujien betakertoimet ja standardoidut betakertoimet muuttuvat uusia muuttujia lisättäessä</p>
+<ul>
+<li>koska niillä on yhteistä varianssia</li>
+</ul></li>
+<li><p>myös p-arvot muuttuvat</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3842322824.png" class="img-fluid"></p>
+<p>autocorrelation test</p>
+<ul>
+<li><p>sanottiin vaan et korreloi vähän keskenään</p></li>
+<li><p>kun p-arvo ei merkitsevä niin eivät korreloi liikaa keskenään</p></li>
+</ul>
+<p>collienarity statistics</p>
+<ul>
+<li><p>VIF</p>
+<ul>
+<li><p>jos arvo 1 paikkeilla se on hyvä</p></li>
+<li><p>jos on päälle 3 alkaa olla ongelmia</p></li>
+<li><p>3 - 5 välillä kipuraja milloin ei voi enää käyttää</p>
+<ul>
+<li>kannattaa silloin tiputtaa se muuttuja, jolla on suurin VIF arvo ja sitten katsoa tuloksia uudestaan</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>Durbin-watson</p>
+<p><img src="images/clipboard-1592442141.png" class="img-fluid"></p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4026268106.png" class="img-fluid figure-img"></p>
+<figcaption><br></figcaption>
+</figure>
+</div>
+<p><img src="images/clipboard-1415492765.png" class="img-fluid"></p>
+<p>Malliin lisättiin blokki, jolloin siitä tulee hierarkkinen malli</p>
+<ul>
+<li><p>1. blokkiin jäi demografiset tekijät</p></li>
+<li><p>2. blokkiin tuli persoonallisuuspiirteet</p></li>
+</ul>
+<p>nyt ylhäällä näkyy 2 eri mallia ja selitysastetta</p>
+<ul>
+<li><p>1. malli kertoo selitysasteen, kun vain 1. blokki on mukana</p></li>
+<li><p>2. malli kertoo selitysasteen, kun lisätään mukaan 2. blokki (eli kaikki mukana)</p></li>
+</ul>
+<p>Model comparison kohdasta näkee delta R^2 kohdasta mikä on mallien selitysasteiden ero</p>
+<p><br></p>
+<p><img src="images/clipboard-2466714155.png" class="img-fluid"></p>
+<p>Model specific results kohdasta voidaan tarkastella tarkemmin</p>
+<ul>
+<li><p>valitsemalla model 1. vain se mukana</p></li>
+<li><p>valitsemalla model 2. modeli 1:n lisätään blokki kaks (eli kaikki mukana)</p></li>
+<li><p>betakertoimet muuttuvat, kun enemmän muuttujia</p></li>
+<li><p>Huomataan, että tunnollisuudella isoin standardoitu betakerroin</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-40436058.png" class="img-fluid"></p>
+<p>Lisättiin 3. blokki, johon siirrettiin muut persoonallisuuspiirteet kuin tunnollisuus eli blokki 2. jäi vain tunnollisuus. Blokki 1. jäi ennalleen eli siellä on demografiset tekijät</p>
+<ul>
+<li><p>pelkästään demografisten tekijöiden selitysaste 8,5 %</p></li>
+<li><p>Kun siihen lisätään tunnollisuus, selitysaste on 41,5 %</p></li>
+<li><p>Kun vielä lisätään muut persoonallisuuspiirteet, niin selitysaste on 48,6 %</p></li>
+</ul>
+<p>Alempaa model comparisonista nähdään:</p>
+<ul>
+<li><p>1. ja 2. modelin selitysaste-ero on 32,89 %-yksikköä</p></li>
+<li><p>2. ja 3. modelin selitysaste-ero 7,19 %-yksikköä</p></li>
+<li><p>tulkinta siis mallista seuraava:</p>
+<ul>
+<li><p>demografiset tekijät selittävät 8,5 %</p></li>
+<li><p>tunnollisuus 32,89 % ja</p></li>
+<li><p>muut persoonallisuuspiirteet 7,19 % vaihtelusta</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2572191019.png" class="img-fluid"></p>
+<ul>
+<li><p>Persoonallisuustekijät jaettiin omiin blokkeihinsa, jolloin voidaan tarkastella jokaisen omaa selitysosuutta</p></li>
+<li><p>Viljami teki järjestyksessä siten, että isoimmasta betakertoimesta pienimpään, jolloin ne menevät loogisessa järjestyksessä isommasta selittäjästä pienempään</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2527764117.png" class="img-fluid"></p>
+<p>Katsotaan AIC ja BIC kriteereitä.&nbsp;</p>
+<ul>
+<li><p>molemmissa pienin luku tarkoitti parasta mahdollista mallia</p></li>
+<li><p>eli malli 5. on paras -&gt; 6. muuttuja/blokki ei enää parantanut selitysastetta ja oli siis turha</p>
+<ul>
+<li>täsmää sen kanssa, mikä nähdään ylemmästä kuvasta, että 6. malli oli ainoa, jonka selitysaste-ero ei ollut merkitsevä</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4154756573.png" class="img-fluid"></p>
+<p>Estimated marginal means</p>
+<ul>
+<li><p>estimoidut keskiarvot</p></li>
+<li><p>voi vaihdella ennustavaa muuttujaa, jonka mukaan sinnikkyyden keskiarvoa ennustetaan</p></li>
+<li><p>onnistuu kategorisilla helpommin kuin jatkuvilla</p></li>
+</ul>
+<p>Alhaalta saa residuaalit tallennettua, joita voi käyttää mallin vakioinnissa</p>
+<p><br></p>
+</section>
+</section>
+<section id="logistinen-regressio" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="logistinen-regressio"><span class="header-section-number">7.7</span> Logistinen regressio</h2>
+<p><img src="images/clipboard-1736972538.png" class="img-fluid"></p>
+<ul>
+<li>Eli tehdään logistinen regressio, kun riippuvana eli ennustettavana muuttujana on kategorinen muuttuja</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-321658144.png" class="img-fluid"></p>
+<ul>
+<li><p>Ennustettavana muuttujana dikotominen voted ja ennustavina samat kuin lineaarisessa regressioesimerkissä</p></li>
+<li><p>p-arvoista nähdään, onko tilastollisesti merkitseviä yhteyksiä ennustettavaan muuttujaan</p></li>
+<li><p>AIC ja BIC toimivat samalla tavalla</p></li>
+<li><p>Assumption checkeissä on vain statistics, jossa VIF arvot toimii samalla tavalla</p></li>
+<li><p>R^2 arvo ns. pseudo R^2 arvo, mikä tarkoittaa, että se on laskettu monimutkaisemmalla matemaattisella kaavalla, koska kyseessä kategorinen riippuva muuttuja</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2011934267.png" class="img-fluid"></p>
+<p>ROC-käyrä</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-162863330.png" class="img-fluid figure-img"></p>
+<figcaption><img src="images/clipboard-3179177406.png" class="img-fluid figure-img"></figcaption>
+</figure>
+</div>
+</section>
+<section id="mallivakiointi-adjustointi" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="mallivakiointi-adjustointi"><span class="header-section-number">7.8</span> Mallivakiointi / adjustointi</h2>
+<p><img src="images/clipboard-1046346749.png" class="img-fluid"></p>
+<p>Poistetaan toisen muuttujan vaikutus toisesta regressioanalyysin avulla</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4089838155.png" class="img-fluid figure-img"></p>
+<figcaption><br></figcaption>
+</figure>
+</div>
+<p><img src="images/clipboard-2790388496.png" class="img-fluid"></p>
+<p>Lineaarinen regressio, jossa sinnikkyyttä ennustetaan iällä</p>
+<ul>
+<li><p>mallin mukaan 7,24 % sinnikkyydestä selittyy siis iällä</p></li>
+<li><p>Residuaali eli selittämättä jäävä osuus toisin sanottuna ei siis selity iällä</p></li>
+<li><p>Eli 92,76 % vaihtelusta vielä selittämättä</p></li>
+<li><p>Residuaali on siis adjustoistu sinnikkyys, missä ikä ei vaikuta</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2376571200.png" class="img-fluid"></p>
+<p><img src="images/clipboard-617253978.png" class="img-fluid"></p>
+<ul>
+<li><p>Ylemmässä scatterplotissa iän ja sinnikkyyden regressiolinja. Eli suurempi ikä ennustaa suurempaa sinnikkyyttä. Alemmassa scatterplotissa ikä ja edellisen mallin residuaalit. Eli toisinsanottuna näkyvästä regressioviivasta on poistettu iän vaikutus.</p></li>
+<li><p>adjustoimalla saadaan kontrolloitua sekoittavan muuttujan vaikutus</p>
+<ul>
+<li><p>eli tehdään regressiomalli -&gt; tallennetaan residuaalit</p></li>
+<li><p>kun käytetään residuaaleja, niin siitä on kontrolloituna niiden alkuperäisen mallin riippumattoman muuttujan vaikutus</p></li>
+</ul></li>
+<li><p>Kun katsotaan normaalisuustestiä lineaarisessa regressioanalyysissa ja sitten verrataan sitä residuaalista tehtyyn normaalisuusanalyysiin huomataan, että ne on identtiset.</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2513523742.png" class="img-fluid"></p>
+<p>Tässä katsottu tunnollisuuden ja sinnikkyyden korrelaatiota. Ylemmässä Partial correlation kohdassa on sinnikkyyden ja tunnollisuuden korrelaatio, josta ei ole kontrolloitu ikää. Alemmassa on katsottu iän ja tunnollisuuden sekä iän ja sinnikkyyden regressiomallien residuaalien korrelaatiota. Eli alemmassa on kontrolloitu molemmista muuttujista iän vaikutus pois.</p>
+<ul>
+<li>saman voi tehdä suoraan partial correlation kohdassa lisäämällä iän control variables kohtaan&nbsp;</li>
+</ul>
+<p><br></p>
+</section>
+<section id="anova" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="anova"><span class="header-section-number">7.9</span> ANOVA</h2>
+<section id="yksisuuntainen-anova" class="level3" data-number="7.9.1">
+<h3 data-number="7.9.1" class="anchored" data-anchor-id="yksisuuntainen-anova"><span class="header-section-number">7.9.1</span> Yksisuuntainen ANOVA</h3>
+<p><img src="images/clipboard-93209804.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-2904596919.png" class="img-fluid"></p>
+<p>Neliösummahajotelma</p>
+<p><br></p>
+<p><img src="images/clipboard-2765114463.png" class="img-fluid"></p>
+<p>F-arvo = anovan testi suure</p>
+<ul>
+<li>saadaan keskineliöiden suhteesta eli MS between / MS within</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3892425580.png" class="img-fluid"></p>
+<p>F = 1</p>
+<ul>
+<li>ryhmien välinen vaihtelu on täsmälleen sama kuin ryhmien sisäinen vaihtelu</li>
+</ul>
+<p>F &gt; 1</p>
+<ul>
+<li>rymien välillä on eroa</li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-617655837.png" class="img-fluid figure-img"></p>
+<figcaption>1-suuntaisen Anovan oletukset</figcaption>
+</figure>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-1637680458.png" class="img-fluid"></p>
+<p>Jos anova on merkitsevä, niin sen jälkeen tehdään kaikki parittaiset vertailut</p>
+<ul>
+<li><p>kun tehdään monta vertailua niin tyypin 1 virhe kasvaa (eli väärä positiivinen, hylätään nollahypoteesi, vaikka se on totta)</p></li>
+<li><p>monivertailukorjaus, post-hoc testin korjaus -&gt; muutetaan p-arvoja, jollain seuraavista menetelmistä: Tukey, Scheffe, Bonferroni, Holm&nbsp;</p>
+<ul>
+<li>otetaan huomioon sattumalta merkitsevän tuloksen saaminen usean testin toiston takia eli p-arvoja suurennetaan</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-789088958.png" class="img-fluid"></p>
+<p>Yksisuuntainen ANOVA, jossa riippuvana muuttujana sinnikkyys ja riippumattomana koulutus</p>
+<ul>
+<li><p>tuloksista nähdään F-arvo, vapausasteet (df1 ja df2) sekä p-arvo</p></li>
+<li><p>Welchin testissä ei oleta ryhmien variansseja samanlaisiksi</p></li>
+<li><p>Fisherin testissä oletetaan varianssit samanlaisiksi</p></li>
+<li><p>Voidaan testata varianssien homogeenisuutta Levenen testillä</p></li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2058789270.png" class="img-fluid figure-img"></p>
+<figcaption>Levenen testin nollahypoteesi: Varianssit ovat samanlaiset</figcaption>
+</figure>
+</div>
+<ul>
+<li>p-arvo ei ole merkitsevä eli toisinsanottuna testillä ei löydetty riittävästi todisteita varianssien eroavaisuudesta. Eli voitaisiin käyttää myös Fisherin testiä</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-607074983.png" class="img-fluid"></p>
+<p>Voidaan piirtää plotti, mistä nähdään eri ryhmien keskiarvosinnikkyydet ikäryhmittäin ja niiden luottamusvälit. Tästä ei kuitenkaan voi tehdä lopullisia tulkintoja vaan täytyy tehdä jatkotestit (post-hoc vertailut), koska ANOVA kertoo vain, että eroa joko löytyy tai ei löydy. Se ei kerro sitä minkä ryhmien välilä ero on.</p>
+<p><br></p>
+<p><img src="images/clipboard-770528879.png" class="img-fluid"></p>
+<p>Anova on robusti eli vaikka normaalisuusoletus rikkoutuu testien mukaan (shapiro-wilk, kolmogorov-smirnov) niin, koska q-q-plot näyttää suht ok:lta voisi uskaltaa käyttää tuloksia. Mutta täytyy tutkia ja harkita onko rikkoutuminen liian vakavaa vai ei.</p>
+<p><br></p>
+<p><img src="images/clipboard-4217636839.png" class="img-fluid"></p>
+<p>Post-hoc testillä saadaan selville minkä ryhmien välillä on tilastollisesti merkitseviä eroja</p>
+<p>Tukeyn testi olettaa varianssien homogeenisyyden ja Games-Howell ei oleta</p>
+<p>kuvassa tehty Tukeyn testi ja siitä nähdään, että ryhmien</p>
+<ul>
+<li><p>1. ja 2. välillä ei tilastollisesti merkitsevää eroa p-arvo = 0.301</p></li>
+<li><p>1. ja 3. sekä 1. ja 4. välillä tilastollisesti merkitsevät erot p-arvo &lt; 0.001</p></li>
+<li><p>2. ja 3. välillä sekä 2. ja 4. välillä merkitsevät erot, p-arvot &lt; 0.001</p></li>
+<li><p>3. ja 4. välillä tilastollisesti merkitsevä ero, p-arvo &lt; 0.001</p></li>
+</ul>
+<p>tulkinta on hyvin looginen, jos vertaa aiempaan kuvaan ylempänä, jossa näkyy ryhmien keskiarvot</p>
+<p>Yksisuuntaiseen ANOVAAN voi ottaa riippuvaksi muuttujaksi useampia muuttujia. Tällöin jokaisesta tulee vain oma testinsä, missä näkee miten keskiarvot eroavat ryhmittelevän muuttujan jaottelemana.</p>
+<p><br></p>
+</section>
+<section id="faktoriaalinen-anova" class="level3" data-number="7.9.2">
+<h3 data-number="7.9.2" class="anchored" data-anchor-id="faktoriaalinen-anova"><span class="header-section-number">7.9.2</span> Faktoriaalinen ANOVA</h3>
+<p><img src="images/clipboard-1045298405.png" class="img-fluid"></p>
+<p>Yksisuuntaisella ANOVAlla pystyy testaamaan vain yhden taustatekijän vaikutusta keskiarvojen vaihteluun. Faktoriaalisella anovalla useampia.</p>
+<p><br></p>
+<p><img src="images/clipboard-931165561.png" class="img-fluid"></p>
+<p>Jos on kaksi tai useampaa faktoria (selittävää muuttujaa) niin mukana on interaktio</p>
+<p>Faktori = kategorinen riippumaton eli selittävä muuttuja</p>
+<p>Kuvassa on eri tilanteita, joissa kaikissa faktorilla B on kaksi tasoa ja faktorilla A on 3</p>
+<ul>
+<li><p>1. kuva -&gt; ei muutoksia B:n tasoilla 1. eikä 2. -&gt; ei interaktiota</p></li>
+<li><ol start="2" type="1">
+<li>ja 3. kuva -&gt; muutokset ovat B:n tasoilla 1 ja. 2. samanlaiset ja samansuuntaiset -&gt; ei interaktiota</li>
+</ol></li>
+<li><p>Ainoastaan, jos toisen faktorin B tasot poikkeavat toisistaan siten, että A:n tasot vaikuttavat, voidaan sanoa olevan interaktiota</p></li>
+<li><p>kuvissa 4., 5 ja 6. on interaktiota, koska B:n tasot ovat erilaiset ja muuttuvat eri suuntiin A:n tasojen mukaan</p></li>
+<li><p>Kuva 4.</p>
+<ul>
+<li><p>B2 kohdalla A:n tasolla ei mitään vaikutusta</p></li>
+<li><p>B1 kohdalla A:n taso vaikuttaa</p></li>
+<li><p>eli on interaktiota</p></li>
+</ul></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Kuva 5.</p>
+<ul>
+<li><p>B1 ryhmällä tulokset laskee A:n kasvaessa</p></li>
+<li><p>B2 ryhmällä tulokset nousee A:n kasvaessa</p></li>
+<li><p>on interaktiota</p></li>
+</ul></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Kuva 6.</p>
+<ul>
+<li><p>alussa ja lopussa B1 ja B2 samanlaiset A:n suhteen</p></li>
+<li><p>keskellä kuitenkin B1 nousee ja B2 laskee</p></li>
+<li><p>on interaktiota</p></li>
+</ul></li>
+</ul>
+<p>Ei interaktiota</p>
+<ul>
+<li><p>Toisen faktorin muuttuminen ei aiheuta muutosta toiseen faktoriin</p></li>
+<li><p>kuvassa vasemmalla</p></li>
+</ul>
+<p>Interaktio</p>
+<ul>
+<li><p>jos toisen muuttujan (faktorin) vaikutus riippuu toisen (faktorin) vaikutuksesta, silloin on interaktiota</p></li>
+<li><p>kuvassa oikealla</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2122472727.png" class="img-fluid"></p>
+<p>Jo kolmisuuntainen interaktio on haastava tulkita, joten tästä syystä useimmiten ANOVAT ovat kaksi tai kolmesuuntaisia</p>
+<p><br></p>
+<p><img src="images/clipboard-686398257.png" class="img-fluid"></p>
+<p>Faktoriaalinen ANOVA (jamovissa: ANOVA) riippuva muuttuja sinnikkyys. Riippumattomat koulutus ja asuinpaikka</p>
+<ul>
+<li><p>tuloksissa nähdään p-arvoista onko koulutusluokkien välillä tilastollista eroa, asuinpaikkaryhmien välillä tilastollista eroa ja onko interaktiovaikus tilastollisesti merkitsevä</p></li>
+<li><p>Päävaikutus: education tai urban itsekseen</p></li>
+<li><p>interaktiovaikutus: vaikuttaako toinen faktori toiseen</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3704372404.png" class="img-fluid"></p>
+<ul>
+<li><p>efektikoosta näkee kuinka suuri on vaikutuksen koko</p></li>
+<li><p>partial η^2 ottaa huomioon muiden faktoreiden vaikutuksen</p></li>
+</ul>
+<p><img src="images/clipboard-1765903173.png" class="img-fluid"></p>
+<p><img src="images/clipboard-2027969751.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-1804820845.png" class="img-fluid"></p>
+<p>Model kohdasta voidaan muokata mallia ja esim. poistaa interaktiovaikutus</p>
+<p>Faktorisumman / neliösumman laskuun käytetään tyypillisesti tyypin kolme kaavaa. Näkyy model kohdassa myös.</p>
+<p><br></p>
+<p><img src="images/clipboard-1072885227.png" class="img-fluid"></p>
+<p>Kuvassa tehty post-hoc testit, joista voi katsoa minkä ryhmien välillä oli tilastollisesti merkitsevää eroa</p>
+<ul>
+<li><p>p-arvot ovat tukeyn menetelmällä korjattuja</p>
+<ul>
+<li>menetelmän voi vaihtaa vasemmalta</li>
+</ul></li>
+<li><p>interaktiovaikutus ei ollut tilastollisesti merkitsevä ja siksi se ei ollut mukana jälkitesteissä</p></li>
+<li><p>efektikoon saa näkyviin Cohen’s d kohdasta</p></li>
+<li><p>parittaisvertailut ovat käytännössä T-testejä jokaiselle parille</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3180423559.png" class="img-fluid"></p>
+<p>Pystyy plottaamaan kuvan keskiarvoista ja niiden eroista</p>
+<p><br></p>
+<p><img src="images/clipboard-339699079.png" class="img-fluid"></p>
+<p>Contrasts kohdasta voi tehdä vertailuja rajoittaen niiden määrää</p>
+<ul>
+<li>se hyöty, että jos vertailuja vähemmän niin pienempi vaikutus p-arvoon</li>
+</ul>
+<p><br></p>
+</section>
+<section id="ancova-manova-ei-parametrinen-kruskall-wallis" class="level3" data-number="7.9.3">
+<h3 data-number="7.9.3" class="anchored" data-anchor-id="ancova-manova-ei-parametrinen-kruskall-wallis"><span class="header-section-number">7.9.3</span> ANCOVA, MANOVA; ei-parametrinen Kruskall-Wallis</h3>
+<p><img src="images/clipboard-1789922268.png" class="img-fluid"></p>
+<p>ANCOVA periaatteessa sama kuin faktoriaalinen anova, mutta mahdollisuus kontrolloida taustamuuttujia</p>
+<p><br></p>
+<p><img src="images/clipboard-993360298.png" class="img-fluid"></p>
+<p>Ancova, sama faktoriaalinen anova kuin aiemmin, mutta ikä lisätty kontrolloiduksi muuttujaksi. Nähdään, että iän vaikutus taustalla on merkitsevä</p>
+<p><br></p>
+<p><img src="images/clipboard-3963472333.png" class="img-fluid"></p>
+<p>Models kohtaan tulee pelkästään iän päävaikutus näkyviin. Jos haluaa esim. iän ja educationin interaktiovaikutuksen niin täytyy vasemmasta laatikosta maalata molemmat ikä ja education ja nuolella siirtää ne oikealle, jolloin niiden interaktiovaikutus tulee mukaan malliin.</p>
+<p>MANCOVA -&gt; pystyy laittamaan useamman riippuvan muuttujan</p>
+<ul>
+<li>tällä kurssilla ei kuitenkaan syvennytä sen enempää siihen</li>
+</ul>
+<p>Ei parametriset ANOVAT</p>
+<ul>
+<li><p>käytetään jos normaalisuusoletukset eivät täyty</p></li>
+<li><p>one way -&gt; Kruskal-Wallis</p></li>
+<li><p>repeated measures -&gt; Friedman</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="toistomittaus-anova" class="level3" data-number="7.9.4">
+<h3 data-number="7.9.4" class="anchored" data-anchor-id="toistomittaus-anova"><span class="header-section-number">7.9.4</span> Toistomittaus-ANOVA</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2748348074.png" class="img-fluid figure-img"></p>
+<figcaption>otetaan huomioon, että jokainen koehenkilö tekee monta koetilannetta</figcaption>
+</figure>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-2310913350.png" class="img-fluid"></p>
+<p>varianssihajotelma</p>
+<p><br></p>
+<p><img src="images/clipboard-231162075.png" class="img-fluid"></p>
+<p>Anova vs.&nbsp;toistomittausanova</p>
+<ul>
+<li><p>enemmän tilastollista voimaa kuin tavallisella anovalla</p>
+<ul>
+<li><p>johtuu siitä, että jokainen koehenkilö itsessään toimii omana kontrollinaan</p></li>
+<li><p>ottaa paremmin huomioon yksilölliset erot</p></li>
+</ul></li>
+<li><p>Howellin kirjasta ote</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4213824780.png" class="img-fluid"></p>
+<p>Sfäärisyysoletus</p>
+<ul>
+<li><p>vähän samantyyppinen kuin homogeenisuus (ryhmien välillä sama varianssi) oletus</p></li>
+<li><p>Oletus siis se, että riippumattoman muuttujan (tai faktorin) eri tasoilla on sama varianssi kaikissa mahdollisissa parittaisissa vertailuissa</p>
+<ul>
+<li>kun tasoja on 2 tai enemmän</li>
+</ul></li>
+<li><p>testataan Mauchly’s sphericity testillä</p>
+<ul>
+<li><p>Nollahypoteesi Mauchlyn sfäärisyystestissä on eri tasojen yhtenevä varianssi eli</p></li>
+<li><p>jos merkitsevä p&lt;.05  tarkoittaa että muuttujan eri tasojen välillä varianssissa on eroa ja oletus rikkoutuu</p></li>
+<li><p>jos ei merkitsevä p&gt;.05  oletus täyttyy ja varianssit samat muuttujan eri tasojen välillä</p></li>
+</ul></li>
+<li><p>Jos sfäärisyys oletus rikkoutuu</p>
+<ul>
+<li>tehdään Greenhouse-Geisser-korjaus vapausasteisiin, joka muuttaa myös hiukan p-arvoa</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1528847783.png" class="img-fluid"></p>
+<p>tutkimuksessa näytettiin koehenkilölle viivoja joko 1, 2 tai 4 kpl</p>
+<p>tehtiin muutoksen tunnistuskoe siten, että viivat hävisivät sekunniksi ja sitten näytettiin niitä uudestaan siten, että niistä jokin kääntynyt joko 15,30 tai 60 astetta</p>
+<ul>
+<li><p>yhteensä siis 9 koeasetelmaa</p></li>
+<li><p>mitattiin d´asteikolla, joka vaihtelee suurinpiirtein 0-5 asteikolla</p></li>
+<li><p>0 vastaa satunnaisuutta</p></li>
+<li><p>ja lähemmäs 5 lähestyy täydellistä suoritusta &nbsp;</p></li>
+</ul>
+<p>koska kyseisessä tutkimuksessa ja aineistossa samat koehenkilöt tekivät useamman mittauksen, täytyy ottaa toistomittaus-anova</p>
+<p><br></p>
+<p><img src="images/clipboard-2232948382.png" class="img-fluid"></p>
+<p>määritellään faktorit</p>
+<p><br></p>
+<p><img src="images/clipboard-729443701.png" class="img-fluid"></p>
+<p>määritellyt faktorit näkyvät alemmassa laatikossa</p>
+<p>oikean alaindeksin numerot ovat faktorien määritellyt arvot</p>
+<p><br></p>
+<p><img src="images/clipboard-2946883636.png" class="img-fluid"></p>
+<p>tuloksista nähdään, että memory loadissa (muistikuormitus) ja muutoksen havaitsemisessa oli koetilanteiden välillä merkitsevä ero</p>
+<ul>
+<li>p&lt;.05</li>
+</ul>
+<p>löytyy myös interaktio memory loadin ja muutoksenhavaitsemisen välillä</p>
+<p>between subject factors kohtaan voisi laittaa muuttujia, jos olisi myös kohenkilöiden välisiä vertailuja</p>
+<p><br></p>
+<p><img src="images/clipboard-3130957519.png" class="img-fluid"></p>
+<ul>
+<li><p>Voidaan piirtää estimated marginal means</p></li>
+<li><p>dependent variable label kohdasta voi määritellä riippuvan muuttujan otsikon</p></li>
+<li><p>kuvaajasta nähdään, että kun muistikuormitus kasvaa niin muutos havaitaan huonommin joka muutostasolla</p></li>
+<li><p>interaktio hiukan vaikea nähdä kuvasta, mutta kun muistikuormitus on pieni niin muutoksen suuruudella on tilastollisesti merkitsevä ero suoriutumiseen. Kun taas kuormitus on suurempi niin, muutoksella ei enää ole suoriutumiseen eli muutoksen havaitsemiseen selkeää vaikutusta. Eli muutoksen vaikutus on erilainen kuormituksen eri tasoilla, joten löytyy interaktiota</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3340716602.png" class="img-fluid"></p>
+<p>toistomittaus-Anovan oletukset</p>
+<ul>
+<li><p>within subjects asetelmassa homogeenisuusoletusta ei tarvita</p></li>
+<li><p>sfäärisyysoletus testataan Mauchly´s sphericity testillä</p></li>
+<li><p>kuvassa oletus täyttyy, sillä p-arvot ovat ei-merkitseviä</p></li>
+<li><p>jos sfäärisyysoletus rikkoutuisi, niin saataisiin greenhouse-geisser kohdasta klikkaamalla lisättyä sfäärisyyskorjaukset p-arvoon</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1967651153.png" class="img-fluid"></p>
+<p>tuloksiin lisättynä Greenhouse-Geisser sfäärisyyskorjatut p-arvot</p>
+<p><br></p>
+<p><img src="images/clipboard-850331050.png" class="img-fluid"></p>
+<p>residuaalien normaalijakautuneisuus syytä tarkastaa q-q plotista</p>
+<ul>
+<li>kuvan residuaalit hyvin nätisti diagonaalilla</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1717119129.png" class="img-fluid"></p>
+<p>Post hoc testillä voidaan katsoa, mistä erot johtuvat</p>
+<ul>
+<li><p>t-testit eli tehdään parittaisvertailut joka testistä</p></li>
+<li><p>nähdään, että kaikki erot ovat merkitseviä</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3243057192.png" class="img-fluid"></p>
+<ul>
+<li><p>interaktioiden parittaisvertailuita voi katsoa, mutta tilanteita tulee niin paljon, että hyvin haastavaa ja harvoin mielekästä tulkita niitä</p></li>
+<li><p>esim. 9 koetilanteen kanssa vertailuja tulee paljon</p></li>
+<li><p>mielekkäämpää tulkita interaktiota kuvaajasta</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2199581401.png" class="img-fluid"></p>
+<p>observed scores kohdasta saa havaintoarvot näkyviin kuvaajaan</p>
+<p><br></p>
+<p><img src="images/clipboard-2203130766.png" class="img-fluid"></p>
+<p>Options kohdasta group summary valitsemalla saa N ja poistetut koehenkilöt näkyviin</p>
+<ul>
+<li>anovassa koehenkilöillä täytyy olla joka tilanteessa arvoja tai poistuu analyysistä</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-986569073.png" class="img-fluid"></p>
+<ul>
+<li>partial n^2 kertoo efektikoon</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3996131084.png" class="img-fluid"></p>
+<p>Tässä aineistona betweensubjects asetelmalla mitattuna samoja asioita 180 koehenkilön tutkimuksessa</p>
+<ul>
+<li>kuitenkin nähdään, että efektikoko ja testisuure F on pienemmät kuin 20 koehenkilön within subjects tutkimuksessa</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>kuvastaa sitä, että within subjects anovalla suurempi tilastollinen voima</p></li>
+<li><p>kannattaa siis suosia toistomittaus koeasetelmia paremman tilastollisen voiman vuoksi sekä helpomman tulosten tulkinnan takia</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4097571971.png" class="img-fluid"></p>
+<p>Mikäli qq-plot näyttäisi siltä, ettei normaalisuusoletus täyty, niin löytyy Friedmanin ei parametrinen toistomittaus-Anova</p>
+<ul>
+<li>suht vähän vaihtoehtoja valittavissa jamovissa tai ylipäätään</li>
+</ul>
+<p>yleensä koeasetelmat suunnitellaan niin, että pystytään käyttämään parametrisiä testejä</p>
+<p><br></p>
+</section>
+</section>
+<section id="faktorianalyysi" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="faktorianalyysi"><span class="header-section-number">7.10</span> Faktorianalyysi</h2>
+<p><img src="images/clipboard-3787216530.png" class="img-fluid"></p>
+<p>latentti rakenne</p>
+<ul>
+<li><p>ominaisuus, jota ei pystytä suoraan mittaamaan, vaan sitä voidaan esimerkiksi arvioida esimerkiksi useita kysymyksiä esittämällä</p></li>
+<li><p>voidaan kehittää mittari mittaamaan latenttia rakennetta ensiksi pohtimalla teoreettisen perustan avulla joukko kysymyksiä ja kysymällä ne. Sitten faktorianalyysillä selvitetään, mitkä kysymykset mittaavat sitä nimenomaista latenttia rakennetta parhaiten.</p></li>
+</ul>
+<p>kaksi erilaista faktorianalyysia</p>
+<ul>
+<li><p>konfirmatorinen faktorianalyysi</p>
+<ul>
+<li>on jo olemassa oleva mittari ja katsotaan, miten se sopii kyseiseen aineistoon</li>
+</ul></li>
+<li><p>Eksploratorinen faktorianalyysi</p>
+<ul>
+<li>mittari kehitteillä ja kysymykset laitetaan faktorianalyysiin. Katsotaan analyysistä, minkälainen latentti rakenne taustalta löytyy.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-553718853.png" class="img-fluid"></p>
+<p>exploratorinen faktorianalyysi</p>
+<ul>
+<li><p>faktorilataukset ovat painokertoimia eli kertovat kuinka paljon tietty kysymys latautuu tietylle faktorille</p>
+<ul>
+<li><p>positiivisuus tai negatiivisuus riippuu siitä, miten päin kysymys on aseteltu</p></li>
+<li><p>kysymykset, jotka korreloivat voimakkaasti keskenään mittaavat samaa faktoria</p></li>
+<li><p>kiinnostavaa on faktorien latauksen voimakkuus</p></li>
+<li><p>kaikki faktorit latautuu tietylle kysymykselle jollain tavalla, mutta määritetään raja-arvo, jonka alittavat lataukset piilotetaan</p></li>
+<li><p>yleensä raja-arvo on 0.3, joka on oletuksena jamovissa</p>
+<ul>
+<li>eli ainoastaan 0.3 ylittävät lataukset ovat tuloksissa näkyvissä</li>
+</ul></li>
+</ul></li>
+<li><p>kiinnostavin tietyn kysymyksen kohdalla on lähinnä se faktori, jolle painokerroin on suurin. Eli kaikilla kysymyksillä on jonkin suuruinen painokerroin joka faktorille, mutta ainoastaan suurin kiinnostaa.</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1367951756.png" class="img-fluid"></p>
+<p>Eigenarvot näkee screeplotista</p>
+<ul>
+<li><p>mitä korkeampi eigenarvo, niin sitä korkeampi niin sitä enemmän kyseinen faktori selittää vaihtelusta</p></li>
+<li><p>screeplotista näkee faktorit x-akselilta ja y-akselilta eigenarvon</p></li>
+<li><p>kuvasta voi tulkita, että faktorit 1, 2, 3, 4 ja 5 selittävät - selkeästi enemmän vaihtelusta kuin loput faktorit</p></li>
+</ul>
+<p>Number of factors kohdasta voi päättää, kuinka monta faktoria analyysissä on</p>
+<ul>
+<li><p>sen voi päättää eigenarvojen mukaan (kuvassa laitettu 1,5 screeplotin tulkinnan myötä)</p></li>
+<li><p>tai aineiston mukaan (based on parallel analysis)</p></li>
+<li><p>tai valita tietyn lukumäärän (fixed number)</p>
+<ul>
+<li>esim. jos teoreettinen perusta antaa antaa perusteen tietylle faktorien määrälle</li>
+</ul></li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3540631304.png" class="img-fluid figure-img"></p>
+<figcaption>factor statistics</figcaption>
+</figure>
+</div>
+<ul>
+<li>% of variance kertoo faktrorin varianssistä selittämän osuuden</li>
+</ul>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1769488559.png" class="img-fluid figure-img"></p>
+<figcaption>Factor correlations</figcaption>
+</figure>
+</div>
+<ul>
+<li>faktoreiden korrelaatiot</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2247169056.png" class="img-fluid"></p>
+<p>löytyy kolme eri tapaa laskea faktorianalyysi</p>
+<ul>
+<li><p>miten fitataan faktorirakenne aineistoon</p></li>
+<li><p>antaa vähän erilaisia tuloksia</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-444088836.png" class="img-fluid"></p>
+<p>hiukan tärkeämpi ja kiinnostavampi on rotaatio</p>
+<p>taustalla ajatus, että meillä on joku latentti rakenne taustalla, joka ei välttämättä osu täsmälleen kohdalleen kysymysten kanssa</p>
+<p>kysymyspatteria ikään kuin ”pyöritellään”, jotta se maksimaalisesti osuu kohdalleen latentin rakenteen eli faktorin kanssa</p>
+<p>löytyy erityyppisiä tapoja</p>
+<ul>
+<li><p>Oblimin</p></li>
+<li><p>Quartimax</p></li>
+<li><p>Promax</p></li>
+<li><p>Varimax</p></li>
+<li><p>Ei mitään</p></li>
+</ul>
+<p>kriittistä se, että miten ajatellaan faktoreiden olevan</p>
+<ul>
+<li><p>jos ajatellaan faktoreiden olevan ortogonaalisia eli toisistaan riippumattomia ja täysin itsenäisiä eli eivät korreloi keskenään</p>
+<ul>
+<li><p>silloin on syytä käyttää varimax rotaatiota</p></li>
+<li><p>helpottaa tulkintaa, kun faktorit pakotetaan olemaan toisistaan riippumattomia ja korrelaatio 0</p></li>
+</ul></li>
+<li><p>jotkin muut rotaatiot eivät oleta ortogonaalisuutta ja siis sallivat faktorien korreloivan keskenään</p>
+<ul>
+<li><p>tällöin tulkinta menee vaikeammaksi, mutta malli voi fitata paremmin dataan</p></li>
+<li><p>koska tulkinta menee vaikeammaksi niin usein parempi käyttää oletusta, että faktorit ovat ortogonaalisia</p></li>
+</ul></li>
+<li><p>esim. jos ajatellaan, että meillä on 5 persoonallisuuspiirrettä, jotka ovat toisistaan riippumattomia niin ei voida käyttää Obliminia, koska siinä faktorien välillä on korrelaatiota</p>
+<ul>
+<li>eli jos halutaan faktorien olevan riippumattomia niin Varimax paras vaihtoehto</li>
+</ul></li>
+<li><p>Rotaation valinta riippuu taustateoriasta</p>
+<ul>
+<li>ajatellaanko faktorien olevan toisistaan riippumattomia vai sallitaanko niiden korreloida keskenään</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1079060360.png" class="img-fluid"></p>
+<p>Varimax rotaatio käytössä</p>
+<ul>
+<li>korrelaatio faktorien välillä 0</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-511393769.png" class="img-fluid"></p>
+<p><img src="images/clipboard-807252542.png" class="img-fluid"></p>
+<p><br></p>
+<p>voidaan valita ortogonaalinen tai obliikki rotaatio</p>
+<p>ensiksi kannattaa testata obliikilla rotaatiolla eli esim. Oblimin tai Promax onko faktorien välillä minkälaista korrelaatiota</p>
+<ul>
+<li><p>mikäli löytyy yli 0.3 korrelaatio joidenkin faktorien välillä niin kannattaa käyttää obliikkia rotaatiota</p></li>
+<li><p>eli, kun korrelaatio &gt; 0.3 -&gt; käytä promax tai oblivin</p></li>
+<li><p>kun korrelaatio &lt; 0.3 -&gt; käytä varimax</p></li>
+<li><p>myös teoreettista taustaa täytyy miettiä eli onko todennäköistä sen pohjalta, että faktorit korreloivat keskenään. &nbsp;</p></li>
+</ul>
+<p>Tiivistys loppuun</p>
+<ul>
+<li><p>mittaria kehitettäessä iso läjä kysymyksiä</p></li>
+<li><p>tehdään faktorianalyysi ja voidaan eksploratiivisesti tutkia minkätyylisiä rakenteita tämä iso läjä kysymyksiä mittaa</p>
+<ul>
+<li><p>voi olla yksi faktori -&gt; kaikki kysyvät samaa asiaa</p></li>
+<li><p>voi olla 2, 3, 4 tai mitä tahansa</p></li>
+<li><p>tutkijan tehtävä on teoreettisen mallin perusteella miettiä, mikä on oikea rakenne</p>
+<ul>
+<li><p>onko ortogonaalinen</p>
+<ul>
+<li>halutaanko, että faktorit ovat korreloivia vai korreloimattomia</li>
+</ul></li>
+<li><p>kuinka monta faktoreita tarvitaan&nbsp;</p></li>
+<li><p>mikä on tavoiteltu selitysosuus</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="bayes-faktori" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="bayes-faktori"><span class="header-section-number">7.11</span> Bayes faktori</h2>
+<p><img src="images/clipboard-405607402.png" class="img-fluid"></p>
+<p>Pääasiassa tällä kurssilla käsitelty frekventistisiä tilastomenetelmiä</p>
+<ul>
+<li><p>perustuvat säännönmukaisuuteen</p></li>
+<li><p>nollahypoteesi joko hylätään tai voimaan, mutta sen todennäköisyydestä ei voi sanoa yhtään mitään</p></li>
+</ul>
+<p>Bayesilaisessa statistiikassa verrataan aina malleja</p>
+<ul>
+<li><p>nollamalli ja vaihtoehtoinen malli, voi olla useampiakin</p>
+<ul>
+<li><p>bayesilaisellä todennäköisyyslaskennalla arvioidaan sitä, onko evidenssin perusteella mikä malli todennäköisesti oikein tai paras</p></li>
+<li><p>Bayesilainen laskenta on symmetristä</p>
+<ul>
+<li>samalla tavalla kuin voidaan laskea nollamallille evidenssiä voidaan myös laskea vaihoehtoiselle hypoteesille</li>
+</ul></li>
+<li><p>Bayes-faktori on myös tavallaan efektikoon mitta</p></li>
+</ul></li>
+</ul>
+<p>Bayes faktori</p>
+<ul>
+<li><p>kun saadaan frekventisitisestä analyysistä nollatulos eli nollahypoteesi jää voimaan, niin voi laskea bayes faktorin avulla löytyykö aineistosta evidenssiä nollatulokselle</p></li>
+<li><p>tulkinnallinen mitta</p>
+<ul>
+<li><p>Arvo 0.33–3 -&gt; ei evidenssiä</p></li>
+<li><p>yli kolme -&gt; evidenssiä vaihtoehtoiselle hypoteesille H<sub>1</sub></p></li>
+<li><p>alle 0.33 -&gt; evidenssiä nollahypoteesille H<sub>0</sub></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-853741446.png" class="img-fluid"></p>
+<p>One sample t-testi</p>
+<ul>
+<li><p>test valuena 1000</p></li>
+<li><p>bayes factor</p></li>
+<li><p>arvo kymmeniä tuhansia eli hyvin voimakas efekti</p></li>
+<li><p>Bayes faktori löytyy kaikista t-testeistä</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-212230756.png" class="img-fluid"></p>
+<p>independent samples t-testi</p>
+<ul>
+<li><p>bayes faktorin tulkinta statistic kohdan testisuureesta</p>
+<ul>
+<li><p>arvo 1,5 eli ei ole evidenssiä ylipäätään sen mukaan</p></li>
+<li><p>p-arvo Welchin t-testissä on merkitsevä eli vaihtoehtoinen hypoteesi tilastollisesti merkitsevä</p></li>
+<li><p>bayesiläisen laskennan mukaan kuitenkin ero on niin pieni ettei siellä juurikaan ole evidenssiä suuntaan tai toiseen</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1404519131.png" class="img-fluid"></p>
+<p>tässä p-arvo ei ole welchin testillä merkitsevä ei nollahypoteesi säilyy</p>
+<p>bayesin faktorilla voi katsoa löytyykö sen mukaan evidenssiä nollahypoteesille</p>
+<ul>
+<li><p>arvo on 0.1599, joka on pienempi kuin 0.3 eli evidenssiä löytyy nollahypoteesille bayes faktorin mukaan</p></li>
+<li><p>voitaisiin sanoa, että aineiston mukaan löytyy evidenssiä sille, että reaktioajat ovat eri koulutustasoryhmien välillä samanlaisia</p></li>
+<li><p>tätä ei samalla tavalla pysty frekventistisellä statistiikalla päättelemään, voidaan ainoastaan sanoa, ettei löytynyt merkitsevää eroa</p></li>
+</ul>
+<p>Jamovissa näkyvä bayes factor<sub>10</sub></p>
+<ul>
+<li><p>alaindeksissä olevat numerot 1ja 0 tarkoittavat, että tulokset tulkitaan siten, että yli 3 arvot tukevat vaihtoehtoista hypoteesia ja alle 0.3 arvot tukevat nollahypoteesia</p></li>
+<li><p>voitaisiin laskea myös toisinpäin, jolloin tulkinta vain kääntyisi päinvastoin</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3431038813.png" class="img-fluid"></p>
+<p>jsq moduulin lataamalla sai lisättyä bayesilaiset anovat yms. tilastoanalyysit</p>
+<p>loppuvideossa käydään läpi Bayesilainen toistomittaus anova -&gt; katso ensin normaali toistmittaus Anova video</p>
+<p><br></p>
+
+
 </section>
 
 </main> <!-- /main -->
