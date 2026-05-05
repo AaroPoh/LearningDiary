@@ -407,7 +407,7 @@ Yksinkertainen usein hyvä
 
 <br>
 
-## Tilastollisen aineistonkäsittelyn vaiheet 
+## Tilastollisen aineistonkäsittelyn vaiheet
 
 Tutkimuksen ja tilasto
 
@@ -423,7 +423,7 @@ Tutkimuksen ja tilasto
 
 <br>
 
-## Chi square testit 
+## Chi square testit
 
 X^2^ testi
 
@@ -431,7 +431,7 @@ X^2^ testi
 
   - jos riippuva muuttuja on kategorinen, lähes aina tehdään x^2^ testi
 
-  -  tai logistinen regressio
+  - tai logistinen regressio
 
 - verrataan odotettuja ja havaittuja frekvenssejä toisiinsa
 
@@ -463,7 +463,7 @@ X^2^ testi
 
 ![](images/clipboard-342286287.png){width="600"}
 
-![kuvassa k, ovat eri vapausasteita ](images/clipboard-3420328570.png)
+![kuvassa k, ovat eri vapausasteita](images/clipboard-3420328570.png)
 
 <br>
 
@@ -471,7 +471,7 @@ X^2^ testi
 
 - pienemmillä vapausasteilla jyrkempi, kun vapausasteet kasvaa muoto liikkuu kohti suurempia arvoja
 
--  kun saadaan testisuurearvo, etsitään kuvaajasta p-arvo testisuureelle
+- kun saadaan testisuurearvo, etsitään kuvaajasta p-arvo testisuureelle
 
 - 1\. taulukkoon havaitut määrät
 
@@ -497,7 +497,7 @@ X^2^ testi
 
 - kuvasta voidaan katsoa vapausasteen 2 eli vihreältä kuvaajalta testisuurearvon 6,62 kohdalta p-arvon suuruus
 
-  -  p-arvo vain 0,036 ja siis tilastollisesti merkitsevä mikä tarkoittaa, että sukupuolet eivät ole jakautuneet samalla tavalla eri ikäluokissa. Eli nollahypoteesin hylkäys tarkoitti sitä, että jakaumissa on eroa.
+  - p-arvo vain 0,036 ja siis tilastollisesti merkitsevä mikä tarkoittaa, että sukupuolet eivät ole jakautuneet samalla tavalla eri ikäluokissa. Eli nollahypoteesin hylkäys tarkoitti sitä, että jakaumissa on eroa.
 
 ### Yhteensopivuustesti
 
@@ -511,7 +511,7 @@ X^2^ testi
 
   - p yli 0,05, eli ei merkitsevä ja nollahypoteesi jää voimaan, joten voidaan todeta, että ryhmien välillä ei ole eroa
 
-### Miten tehdään jamovissa? 
+### Miten tehdään jamovissa?
 
 Goodness of fit
 
@@ -563,7 +563,7 @@ Hypothesis kohdasta voi muuttaa hypoteesin suuntaa
 
 Cramerin V, kuvaa efektikokoa (tsekkaa netistä miten lukuarvoa tulkitaan)
 
--  1 ja 0 välillä, kuvassa siis efektikoko suht pieni
+- 1 ja 0 välillä, kuvassa siis efektikoko suht pieni
 
 <br>
 
@@ -571,7 +571,7 @@ Cramerin V, kuvaa efektikokoa (tsekkaa netistä miten lukuarvoa tulkitaan)
 
 - x^2^ chi square testisuure, (vapausaste), p-arvo ja efektikoko
 
-### Chi square testi r-kielellä 
+### Chi square testi r-kielellä
 
 ![](images/clipboard-862850394.png){width="600"}
 
@@ -579,13 +579,13 @@ r kielellä chi-square test of association:
 
 - table(data\$education,data\$gender)
 
--  chisq.test(data\$education,data\$gender)  testifunktio
+- chisq.test(data\$education,data\$gender)  testifunktio
 
 R-kielellä chi-square goodness of fit testi:
 
 - summary(data\$gender)
 
--  chisq.test( c(494, 1220), p=c(.5,.5))  testifunktio, 494 ja 1220 ovat ryhmien lukumäärät
+- chisq.test( c(494, 1220), p=c(.5,.5))  testifunktio, 494 ja 1220 ovat ryhmien lukumäärät
 
 <br>
 
@@ -603,7 +603,7 @@ Riippumattomuustestissä odotusarvojen laskenta
 
 - sarakkeen summa \* rivin summa / kaikkien summalla
 
-  -  esim. sarake 1 ja rivi 1
+  - esim. sarake 1 ja rivi 1
 
   - 686\*998  / 1763 =
 
@@ -631,9 +631,9 @@ Chi-square testin nollahypoteesi:
 
 ![](images/clipboard-1130543669.png){width="600"}
 
-### One sample T-test jamovissa 
+### One sample T-test jamovissa
 
-![kuvassa test valuena 0 ](images/clipboard-921817120.png)
+![kuvassa test valuena 0](images/clipboard-921817120.png)
 
 <br>
 
@@ -647,11 +647,11 @@ Testin tulkinta
 
 - statistic tarkoittaa t-arvoa eli testisuuretta
 
--  df tarkoittaa vapausastetta
+- df tarkoittaa vapausastetta
 
 - p- arvo on p-arvo
 
--  esim. toisessa kuvassa testisuure t-arvo on 41,3, joka on hyvin suuri arvo, mikä tarkoittaa, että muuttujan keskiarvo poikkeaa paljon 1000 millisekunnista
+- esim. toisessa kuvassa testisuure t-arvo on 41,3, joka on hyvin suuri arvo, mikä tarkoittaa, että muuttujan keskiarvo poikkeaa paljon 1000 millisekunnista
 
 - efektikoko Cohen’s d
 
@@ -663,13 +663,13 @@ Testin tulkinta
 
 - kuvassa cohen’s d on 1,05 eli vähän keskiarvojen ero on vähän yli 1 keskihajonta, mikä tulkitaan isoksi eroksi
 
--  HUOM! aiemmissa kuvissa minulla oli eri aineistoversio käytössä, joten älä ihmettele lukujen pieniä eroja
+- HUOM! aiemmissa kuvissa minulla oli eri aineistoversio käytössä, joten älä ihmettele lukujen pieniä eroja
 
 <br>
 
 ![](images/clipboard-1724643213.png)
 
--  descriptivesisistä saa esille N, keskiarvon, mediaanin, keskihajonnan ja keskivirheen
+- descriptivesisistä saa esille N, keskiarvon, mediaanin, keskihajonnan ja keskivirheen
 
 - descriptive plotsista kuvaajan, josta näkee keskiarvon ja sen luottamusvälit ja mihin se sijoittuu suhteessa vertailtuun arvoon
 
@@ -693,11 +693,11 @@ Ei-parametrinen testi: Wilcoxon rank
 
 <br>
 
-### Paired samples T-testi 
+### Paired samples T-testi
 
 ![](images/clipboard-1987019675.png)
 
--  tähän pätee samat asiat asiat jamovissa kuin one sample t-testiin
+- tähän pätee samat asiat asiat jamovissa kuin one sample t-testiin
 
 - tulos kertoo poikkeavatko kahden mittauskerran keskiarvot toisistaan
 
@@ -705,15 +705,15 @@ Ei-parametrinen testi: Wilcoxon rank
 
 <br>
 
-### Independent samples T-test 
+### Independent samples T-test
 
-![ Independent student’s t-testi olettaa, että ryhmien varianssit ovat lähellä toisiaan ](images/clipboard-3765431397.png)
+![Independent student’s t-testi olettaa, että ryhmien varianssit ovat lähellä toisiaan](images/clipboard-3765431397.png)
 
--  testataan homogeenisuustestillä
+- testataan homogeenisuustestillä
 
-  - Levene’s testi, jos p\<.05 eli merkitsevä tarkoittaa, että varianssit eivät ole samanlaiset
+- Levene’s testi, jos p\<.05 eli merkitsevä tarkoittaa, että varianssit eivät ole samanlaiset
 
-  - Levenen testin nollahypoteesi: Varianssit ovat samanlaiset
+- Levenen testin nollahypoteesi: Varianssit ovat samanlaiset
 
 - Welchin testi -\> käytetään, jos varianssit ovat erilaiset
 
@@ -739,7 +739,7 @@ Mann-Whitney U testi ei parametrinen vaihtoehto
 
 <br>
 
-### Ei-parametriset testit 
+### Ei-parametriset testit
 
 ![](images/clipboard-885331648.png)
 
@@ -759,11 +759,11 @@ Mann-Whitney U testi ei parametrinen vaihtoehto
 
 - Tällöin keskiarvoero mean difference näkyy z-pisteinä
 
-![Cohenin d ja keskiarvojen erotus samankokoiset, kun muuttuja on normalisoitu. Johtuu siitä, että z-pistemuunnoksen jälkeen yksi askel tarkoittaa yhtä keskihajontaa. Cohenin d kuvasi kuinka monta keskihajontaa efektikoko on. ](images/clipboard-2119762161.png)
+![Cohenin d ja keskiarvojen erotus samankokoiset, kun muuttuja on normalisoitu. Johtuu siitä, että z-pistemuunnoksen jälkeen yksi askel tarkoittaa yhtä keskihajontaa. Cohenin d kuvasi kuinka monta keskihajontaa efektikoko on.](images/clipboard-2119762161.png)
 
 <br>
 
-## Korrelaatio 
+## Korrelaatio
 
 ![](images/clipboard-433233015.png){width="600"}
 
@@ -809,7 +809,7 @@ Spearmanin korrelaatio: vertailee kahden muuttujien järjestyksiä
 
 ![](images/clipboard-3381032985.png)
 
-### Korrelaatio Jamovissa 
+### Korrelaatio Jamovissa
 
 ![](images/clipboard-1631833639.png){width="600"}
 
@@ -819,7 +819,7 @@ Tässä piirretty scatterplot kahdesta muuttujasta (avoimuus, sovinnollisuus)
 
 <br>
 
-![Tähän lisätty grouping variableksi koulutus, jolloin nähdään jokaisen koulutustason avoimuuden ja sovinnollisuuden korrelaatioita erikseen ](images/clipboard-2198607338.png)
+![Tähän lisätty grouping variableksi koulutus, jolloin nähdään jokaisen koulutustason avoimuuden ja sovinnollisuuden korrelaatioita erikseen](images/clipboard-2198607338.png)
 
 - tällä voi vertailla ja katsella olisiko jokin tausamuuttuja vaikuttava tekijä, joka täytyisi tarkistaa ja kontrolloida
 
@@ -831,7 +831,7 @@ Tässä avoimuus ja ekstroversio, mitä scatterplotista nähdään on se, että 
 
 <br>
 
-![Correlation matrix, löytyy regressio kohdasta ](images/clipboard-4207268967.png)
+![Correlation matrix, löytyy regressio kohdasta](images/clipboard-4207268967.png)
 
 - kendall’s tau-b vähän samantyylinen kuin Spearman, perustuu myös järjestykseen
 
@@ -855,9 +855,9 @@ Tässä avoimuus ja ekstroversio, mitä scatterplotista nähdään on se, että 
 
 - voi myös plotata
 
-### Partial correlation 
+### Partial correlation
 
-![Partial out -\> taustamuuttujan vaikutus eli otetaan huomioon kontrolloivan muuttujan vaikutus ja vasta sen jälkeen lasketaan korrelaatio ](images/clipboard-1403320763.png)
+![Partial out -\> taustamuuttujan vaikutus eli otetaan huomioon kontrolloivan muuttujan vaikutus ja vasta sen jälkeen lasketaan korrelaatio](images/clipboard-1403320763.png)
 
 - mitä taustalla tapahtuu: tehdään regressioanalyysi, jonka avulla poistetaan kontrolloitavan muuttujan vaikutus, jonka myötä pystytään laskemaan korrelaatio tarkemmin
 
@@ -865,7 +865,7 @@ Tässä avoimuus ja ekstroversio, mitä scatterplotista nähdään on se, että 
 
 - Semi-partial -\>epäsymmetrinen eli kontrolloitavan muuttujan vaikutus otetaan huomioon vain toiseen suuntaan
 
-![Tässä kontrolloitu ikä pois eri persoonallisuuspiirteiden korrelaatioista käyttämällä Partial Correlationia ](images/clipboard-3422946154.png)
+![Tässä kontrolloitu ikä pois eri persoonallisuuspiirteiden korrelaatioista käyttämällä Partial Correlationia](images/clipboard-3422946154.png)
 
 - oikealla kaksi taulukkoa, ylempänä korrelaatiot ilman iän kontrollointia ja alempana ikä kontrolloituna
 
@@ -881,7 +881,7 @@ Tässä tehty semipartial correlation, tarkoittaa, että poistetaan kontrolloita
 
 <br>
 
-![Tässä tehty Partial correlation tunnollisuudelle ja sinnikkyydelle, josta kontrolloituna iän lisäksi kaikki muut mitatut persoonallisuuspiirteet (sovinnollisuus, ekstroversio, neuroottisuus, avoimuus) ](images/clipboard-1509044733.png)
+![Tässä tehty Partial correlation tunnollisuudelle ja sinnikkyydelle, josta kontrolloituna iän lisäksi kaikki muut mitatut persoonallisuuspiirteet (sovinnollisuus, ekstroversio, neuroottisuus, avoimuus)](images/clipboard-1509044733.png)
 
 - saadaan vastauksena korrelaatio, josta poistettu muiden muuttujien vaikutukset molempiin muuttujiin
 

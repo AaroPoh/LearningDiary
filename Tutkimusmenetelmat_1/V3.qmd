@@ -1,0 +1,248 @@
+---
+title: "Kuvia Jamovilla, Rjeditorilla ja Rstudiolla"
+format: html
+---
+
+## Scatterplot, HeatMap ja Rj-editor 
+
+![](images/clipboard-2953196709.png)
+
+<br>
+
+![](images/clipboard-3016152877.png)
+
+- jamovissa haasteena, että piirtää kaikki pisteet joissa useampia havaintoja vain suoraan mustaksi
+
+- rj-editorilla voidaan määritellä transparenssia eli läpinäkyvyyttä sen mukaan kuinka paljon havaintoja tietty arvo on saanut
+
+<br>
+
+![](images/clipboard-2581426480.png){width="600"}
+
+komennot:
+
+- library(tidyverse) -\> hakee kirjaston tidyverse, joka sisältää ggplotin
+
+- ggplot(data, aes(x=Avoimuus, y=Sovinnollisuus)) -\> luo kuvan ja x ja y akselit
+
+- \+ -\> pystyy lisäämään elementtejä kuvaan
+
+- geom_point() -\> lisää pisteet kuvaan
+
+<br>
+
+![](images/clipboard-246901604.png){width="600"}
+
+- geom_point(alpha=.1) -\> alpha määrittelee läpinäkyvyyden tason. 1 ei yhtään läpinäkyvä ja mitä lähempänä 0 sitä läpinäkyvämpi
+
+<br>
+
+![](images/clipboard-1326868906.png){width="600"}
+
+- theme_classic -\> muuttaa teeman
+
+- theme(text = element_text(size=18)) -\> muuttaa tekstin fonttikoon
+
+<br>
+
+![](images/clipboard-3446098647.png){width="600"}
+
+geom_smooth( method=lm, se=TRUE, colour="black")
+
+- piirtää regressiosuoran
+
+<br>
+
+![](images/clipboard-2446288794.png){width="600"}
+
+- geom_point(alpha=.1, colour="blue") -\> lisättiin värikomento ja pisteet muutettiin sinisiksi
+
+<br>
+
+## Heatmap rj-editorilla 
+
+![](images/clipboard-4106596765.png)
+
+cordata \<- data\[ ,c("age", "Sinnikkyys", "Ekstroversio", "Avoimuus",  "Neuroottisuus", "Tunnollisuus") \]
+
+- komennolla saadaan valittua haluttu tietty osa datasta
+
+- reshape2 librarya tarvitaan heatmapin tekemiseen
+
+str(cordata) -\> tällä voi tsekata minkätyyppisiä muuttujat ovat, minulla tuli koko ajan virhe ”x must be numeric”, joka johtui siitä, että ikä oli jäänyt vahingossa kategoriseksi muuttujaksi
+
+<br>
+
+![](images/clipboard-2884801139.png)
+
+round(cor(cordata),2)
+
+- round() -\> pyöristää, kun 2 niin kahteen desimaaliin, kun 4 niin 4 desimaaliin yms
+
+cor(cordata) -\> cor() tekee korrealaatiomatriisin
+
+<br>
+
+![](images/clipboard-195988166.png){width="600"}
+
+\<- komennolla tallennetaan tulokset johonkin muuttujaan
+
+cormat \<- round(cor(cordata), 2), tallentuu cormat muuttujaan
+
+- silloin kun tallennetaan johonkin ne eivät myöskään tulostu näkyviksi
+
+- ne saadaan tulostettua näkyville kirjoittamalla muuttuja, johon ne tallennettiin eli tässä tapauksessa cormat
+
+<br>
+
+![](images/clipboard-2320754989.png){width="600"}
+
+melt(cormat)
+
+- muuttaa numerot datamatriisiksi, jotka pystytään sitten muuttamaan heatmapiksi
+
+<br>
+
+![](images/clipboard-1996364933.png)
+
+käytetään ggplotia kuvan luomiseen
+
+ggplot(data=cormat, aes(x=Var1, y=Var2, fill=value))
+
+- Var1 ja Var2 ovat äskeisen melt funktion luomat muuttujat
+
+<br>
+
+![](images/clipboard-366651246.png)
+
+- geom_tile() -\> lisää värit korrelaation mukaisesti
+
+<br>
+
+![](images/clipboard-2445587008.png)
+
+geom_text( aes(Var2, Var1, label=value) )
+
+- lisää arvot laatikoihin
+
+<br>
+
+![](images/clipboard-2865570167.png)
+
+theme_minimal()
+
+- määrittää teeman
+
+<br>
+
+![](images/clipboard-1017289608.png)
+
+theme(text = element_text(size=16))
+
+- määrittää tekstin koon
+
+theme( axis.text.x = element_text(angle=45, hjust =1), axis.title = element_blank() )
+
+theme( axis.text.x = element_text(angle=45, hjust =1))
+
+- kääntää tekstien kulman 45 asteeseen
+
+axis.title = element_blank()
+
+- poistaa otsikot Var1 ja Var2
+
+<br>
+
+![](images/clipboard-4164992762.png)
+
+scale_fill_gradient2( low="blue", high="red", mid="white")
+
+- määrittää heatmapin värit
+
+<br>
+
+![](images/clipboard-3076656681.png)
+
+scale_fill_gradient2( low="blue", high="red", mid="white",
+
+midpoint= 0, limit = c(-1,1), space="Lab")+
+
+midpoint= 0, limit = c(-1,1), space="Lab"
+
+- lisäyksellä varmistetaan, että värien skaala menee -1:stä 1:n, vaikka arvoissa ei olisi yhtään ääriarvoa.
+
+<br>
+
+![](images/clipboard-1003166007.png)
+
+name = "Pearsonin korrelaatio"
+
+- lisäys muutti skaalan nimeksi Pearsonin korrelaatio
+
+scale_fill_gradient2( low="blue", high="red", mid="white",
+
+midpoint= 0, limit = c(-1,1), space="Lab",
+
+name = "Pearsonin korrelaatio")
+
+<br>
+
+![](images/clipboard-2909423226.png)
+
+\\n tekee rivinvaihdon
+
+name = "Pearsonin\\nkorrelaatio"
+
+-  saatiin Pearsonin ja korrelaatio eri riveille
+
+<br>
+
+![](images/clipboard-3493500007.png)
+
+muutettiin muuttujan ”age” nimi suomenkieliseksi eli ”Ikä”.
+
+- käytiin ensin vaihtamassa data välilehdeltä muuttujan nimi oikeasti ja sitten se piti vielä korjata r-editoriin oikeaksi nimeksi takaisin
+
+<br>
+
+![](images/clipboard-3392774297.png)
+
+Vielä kopioitavana teksinä koko heatmapin koodi:
+
+```{r}
+#| eval: false 
+
+library(tidyverse)
+
+library(reshape2)
+
+cordata <- na.omit (data[ ,c("Ikä", "Sinnikkyys", "Ekstroversio", "Avoimuus",
+
+"Neuroottisuus", "Tunnollisuus") ] )
+
+cormat <-round(cor(cordata), 2)
+
+cormat <- melt(cormat)
+
+ggplot(data=cormat, aes(x=Var1, y=Var2, fill=value))+
+
+geom_tile() +
+
+geom_text( aes(Var2, Var1, label=value), colour="black" )+
+
+theme_minimal() +
+
+theme( axis.text.x = element_text(angle=45, hjust =1),
+
+axis.title = element_blank() ) +
+
+scale_fill_gradient2( low="blue", high="red", mid="white",
+
+midpoint= 0, limit = c(-1,1), space="Lab",
+
+name = "Pearsonin\nkorrelaatio")+
+
+theme(text = element_text(size=16))
+
+
+```
