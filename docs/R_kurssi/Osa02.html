@@ -235,7 +235,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tutkimusmenetelmat_1/V3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kuvia Jamovilla, Rjeditorilla ja Rstudiolla</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Jamovi, Rj-editor ja Rstudio</span></span></a>
   </div>
 </li>
       </ul>
@@ -413,19 +413,19 @@ div.csl-indent {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Age <span class="sc">~</span> Group, <span class="at">data =</span> data, <span class="at">FUN =</span> mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Group   Age
-1 GroupA 42.21
-2 GroupB 42.28
-3 GroupC 39.97</code></pre>
+1 GroupA 43.03
+2 GroupB 41.68
+3 GroupC 39.77</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(data<span class="sc">$</span>WM, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  0%  90% 
- 1.0 89.1 </code></pre>
+<pre><code> 0% 90% 
+  1  90 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(data[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">2</span>, mean) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Age       WM 
-41.48667 50.43667 </code></pre>
+41.49333 50.14000 </code></pre>
 </div>
 </div>
 <p>Aggregate funktiossa ensiksi valitaan numeerinen freimi datasetistä, josta keskiarvo (tai jokin muu) lasketaan, sitten ~ merkin jälkeen # ryhmittelevä tekijä, eli se minkä mukaan data jaotellaan. # data = kohtaan datasetti, # FUN = kohtaan käytettävä funktio, jota käytetään.</p>
