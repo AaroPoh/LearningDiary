@@ -1454,3 +1454,202 @@ hist(facedata$SeenRT)
 
 
 ```
+
+<br> <br>
+
+![](images/clipboard-3241264164.png)
+
+```{r}
+#| eval: false 
+
+
+#Piirretään jakaumat 
+
+figA <- ggplot(facedata, aes(x=SeenRT) ) + 
+  geom_histogram(alpha=.25,fill="blue", colour="black", binwidth=100) + 
+  labs( y="Lukumäärä", x="Tuttu kasvo, RT") + 
+  theme_classic() +
+  ggtitle("A") +
+  theme(text = element_text(size = 14))
+
+figB <- ggplot(facedata, aes(x=NewRT) ) + 
+    geom_histogram(alpha=.25,fill="blue", colour="black", binwidth=100) + 
+    labs( y="Lukumäärä", x="Uusi kasvo, RT") + 
+    theme_classic() +
+    ggtitle("B") +
+    theme(text = element_text(size = 14))
+
+#järjestetään ggarrangella kahteen sarakkeeseen ja tallennetaan ggsavella
+ggarrange(figA, figB, ncol=2, nrow=1)
+
+ggsave("../../figs/RTjakaumat.png", width = 20, height= 10, 
+       units = "cm", dpi = 300)
+
+
+```
+
+<br> <br>
+
+![](images/clipboard-919439964.png)
+
+t-testin tekeminen rstudiolla
+
+- t.test(facedata\$NewRT, facedata\$SeenRT, paired=TRUE)
+
+- testistä nähdään, että ryhmien välillä on tilastollisesti merkitsevä ero
+
+- p-arvo 2.633e-16
+
+format(2.633e-16, scientific = FALSE)
+
+- yllä olevalla komennolla saa näytettyä desimaalimuodossa
+
+  - 0.0000000000000002633
+
+- keskiarvoero ryhmien välillä \~60 millisekuntia
+
+<br> <br>
+
+![cut() funktiolla saadaan leikattua muuttuja ryhmiin eli luokiteltua se ryhmiin](images/clipboard-2082888054.png)
+
+```{r}
+#| eval: false 
+
+# koulutuksen vaikutus reaktioaikoihin 
+
+facedata$edGroup <- cut(facedata$education, breaks = c(0,2,5), labels = c("low", "high"))
+
+sum(facedata$edGroup=="low", na.rm=TRUE)
+
+sum(facedata$edGroup=="high", na.rm=TRUE)
+
+```
+
+<br> <br>
+
+![](images/clipboard-3698253777.png)
+
+t.test( NewRT \~ edGroup, facedata)
+
+- t-testissä verrataan matalan ja korkean koulutuksen uusien kasvojen tunnistuksen reaktioaikojen ryhmäkeskiarvojen eroja.
+
+- ero ei ole tilastollisesti merkitsevä p=0.4248
+
+- korkeakoulutus ka: 1332ms, matala koulutus ka: 1345ms
+
+- komento on ”lauseke- tai yhtälömuodossa”, käytetään \~ merkkiä
+
+  - siis edGroup ”ennustaa” tai järjestää tai määrittää NewRt:tä
+
+  - eli \~ merkkiä edeltävä on ennustettava ja \~ merkin jälkeinen on ennustava
+
+<br> <br>
+
+![](images/clipboard-314648687.png)
+
+sama testi kuin äsken, mutta nyt tutuilla kasvoilla
+
+- tilastollisesti merkitsevä ero, p\<.05
+
+- korkea koulutus ka: 1315ms, matala koulutus ka: 1265ms
+
+- keskiarvon keskivirhe, keskihajonta jaettuna neliöjuuri n:llä
+
+<br> <br>
+
+![](images/clipboard-1804507211.png)
+
+![](images/clipboard-2447256884.png)
+
+piirretään t-testin kuvaaja
+
+- eli ryhmien keskiarvot ja niiden luottamusvälit
+
+```{r}
+#| eval: false 
+
+Conditions1 <- as.factor(c("Uusi", "Tuttu"))
+mean1 <- mean(facedata$NewRT, na.rm=TRUE)
+mean2 <- mean(facedata$SeenRT, na.rm=TRUE)
+
+#lasketaan keskiarvon keskivirhe (standard error of mean)
+    #keskihajonta / neliöjuuri N:llä 
+    #ekaks lasketaan N -> n1 muuttujaan
+    #sitten jaetaan keskihajonta N:n neliöjuurella
+
+    #kun kerrotaan keskiarvon keskivirhe 1,96 saadaan luottamusväli
+
+n1 <- sum(facedata$NewRT>0, na.rm=TRUE)
+sem1 <- 1.96*sd(facedata$NewRT, na.rm=TRUE)/sqrt(n1)
+
+n2 <- sum(facedata$SeenRT>0, na.rm=TRUE)
+sem2 <- 1.96*sd(facedata$SeenRT, na.rm=TRUE)/sqrt(n2)
+
+Means1 <- c(mean1,mean2)
+Sems1 <- c(sem1,sem2)
+
+figA <- ggplot() + 
+  geom_point(aes(y=Means1, x=Conditions1),
+    alpha=.1, colour="skyblue", size=5) +
+  geom_errorbar( aes(x=Conditions1, ymin=Means1-Sems1, ymax=Means1+Sems1),
+                 width=0.1, size=0.5, colour="orange", alpha=0.7) + 
+  ylim(1250,1380) +
+  theme_classic(base_size = 20) +
+  xlab("Kasvot") +
+  ylab("Reaktioaika, ms") +
+  ggtitle("A") 
+  
+figA
+
+
+```
+
+<br> <br>
+
+![](images/clipboard-4231296600.png)
+
+Kuvaaja koulutusryhmien keskiarvoeroista
+
+```{r}
+#| eval: false 
+
+#tehdään kuvaaja myös koulutusryhmien keskiarvoeroista 
+
+Conditions2 <- as.factor(c("Matala", "Korkea"))
+mean1 <- mean(facedata$NewRT[facedata$edGroup=="low"], na.rm=TRUE)
+mean2 <- mean(facedata$NewRT[facedata$edGroup=="high"], na.rm=TRUE)
+
+n1 <- sum(facedata$NewRT[facedata$edGroup=="low"]>0, na.rm=TRUE)
+sem1 <- 1.96*sd(facedata$NewRT[facedata$edGroup=="low"], na.rm=TRUE)/sqrt(n1)
+
+n2 <- sum(facedata$NewRT[facedata$edGroup=="high"]>0, na.rm=TRUE)
+sem2 <- 1.96*sd(facedata$NewRT[facedata$edGroup=="high"], na.rm=TRUE)/sqrt(n2)
+
+Means2 <- c(mean1,mean2)
+Sems2 <- c(sem1,sem2)
+
+figB <- ggplot() + 
+  geom_point(aes(y=Means2, x=Conditions2),
+             alpha=1, colour="skyblue", size=5) +
+  geom_errorbar( aes(x=Conditions2, ymin=Means2-Sems2, ymax=Means2+Sems2),
+                 width=0.1, size=0.5, colour="orange", alpha=0.7) + 
+  ylim(1250,1380) +
+  theme_classic(base_size = 20) +
+  xlab("Koulutustaso") +
+  ylab("Reaktioaika, ms") +
+  ggtitle("B") 
+
+figB
+
+
+```
+
+<br> <br>
+
+![](images/clipboard-71477518.png)
+
+tehtiin vielä sama koulutustasojen keskiarvovertailulle tuttujen kasvojen kohdalla
+
+- ylim() funktiolla saa määritettyä y akselin ala ja ylärajan
+
+  - eka on alaraja ja sitten yläraja

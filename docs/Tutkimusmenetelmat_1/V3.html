@@ -1450,6 +1450,166 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(facedata<span class="sc">$</span>SeenRT)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><br> <br></p>
+<p><img src="images/clipboard-3241264164.png" class="img-fluid"></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Piirretään jakaumat </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>figA <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(facedata, <span class="fu">aes</span>(<span class="at">x=</span>SeenRT) ) <span class="sc">+</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">alpha=</span>.<span class="dv">25</span>,<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">colour=</span><span class="st">"black"</span>, <span class="at">binwidth=</span><span class="dv">100</span>) <span class="sc">+</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">y=</span><span class="st">"Lukumäärä"</span>, <span class="at">x=</span><span class="st">"Tuttu kasvo, RT"</span>) <span class="sc">+</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"A"</span>) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>figB <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(facedata, <span class="fu">aes</span>(<span class="at">x=</span>NewRT) ) <span class="sc">+</span> </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">alpha=</span>.<span class="dv">25</span>,<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">colour=</span><span class="st">"black"</span>, <span class="at">binwidth=</span><span class="dv">100</span>) <span class="sc">+</span> </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>( <span class="at">y=</span><span class="st">"Lukumäärä"</span>, <span class="at">x=</span><span class="st">"Uusi kasvo, RT"</span>) <span class="sc">+</span> </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"B"</span>) <span class="sc">+</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#järjestetään ggarrangella kahteen sarakkeeseen ja tallennetaan ggsavella</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(figA, figB, <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">1</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"../../figs/RTjakaumat.png"</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height=</span> <span class="dv">10</span>, </span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"cm"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br> <br></p>
+<p><img src="images/clipboard-919439964.png" class="img-fluid"></p>
+<p>t-testin tekeminen rstudiolla</p>
+<ul>
+<li><p>t.test(facedata$NewRT, facedata$SeenRT, paired=TRUE)</p></li>
+<li><p>testistä nähdään, että ryhmien välillä on tilastollisesti merkitsevä ero</p></li>
+<li><p>p-arvo 2.633e-16</p></li>
+</ul>
+<p>format(2.633e-16, scientific = FALSE)</p>
+<ul>
+<li><p>yllä olevalla komennolla saa näytettyä desimaalimuodossa</p>
+<ul>
+<li>0.0000000000000002633</li>
+</ul></li>
+<li><p>keskiarvoero ryhmien välillä ~60 millisekuntia</p></li>
+</ul>
+<p><br> <br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2082888054.png" class="img-fluid figure-img"></p>
+<figcaption>cut() funktiolla saadaan leikattua muuttuja ryhmiin eli luokiteltua se ryhmiin</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># koulutuksen vaikutus reaktioaikoihin </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>facedata<span class="sc">$</span>edGroup <span class="ot">&lt;-</span> <span class="fu">cut</span>(facedata<span class="sc">$</span>education, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">5</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"high"</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"low"</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"high"</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br> <br></p>
+<p><img src="images/clipboard-3698253777.png" class="img-fluid"></p>
+<p>t.test( NewRT ~ edGroup, facedata)</p>
+<ul>
+<li><p>t-testissä verrataan matalan ja korkean koulutuksen uusien kasvojen tunnistuksen reaktioaikojen ryhmäkeskiarvojen eroja.</p></li>
+<li><p>ero ei ole tilastollisesti merkitsevä p=0.4248</p></li>
+<li><p>korkeakoulutus ka: 1332ms, matala koulutus ka: 1345ms</p></li>
+<li><p>komento on ”lauseke- tai yhtälömuodossa”, käytetään ~ merkkiä</p>
+<ul>
+<li><p>siis edGroup ”ennustaa” tai järjestää tai määrittää NewRt:tä</p></li>
+<li><p>eli ~ merkkiä edeltävä on ennustettava ja ~ merkin jälkeinen on ennustava</p></li>
+</ul></li>
+</ul>
+<p><br> <br></p>
+<p><img src="images/clipboard-314648687.png" class="img-fluid"></p>
+<p>sama testi kuin äsken, mutta nyt tutuilla kasvoilla</p>
+<ul>
+<li><p>tilastollisesti merkitsevä ero, p&lt;.05</p></li>
+<li><p>korkea koulutus ka: 1315ms, matala koulutus ka: 1265ms</p></li>
+<li><p>keskiarvon keskivirhe, keskihajonta jaettuna neliöjuuri n:llä</p></li>
+</ul>
+<p><br> <br></p>
+<p><img src="images/clipboard-1804507211.png" class="img-fluid"></p>
+<p><img src="images/clipboard-2447256884.png" class="img-fluid"></p>
+<p>piirretään t-testin kuvaaja</p>
+<ul>
+<li>eli ryhmien keskiarvot ja niiden luottamusvälit</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Conditions1 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Uusi"</span>, <span class="st">"Tuttu"</span>))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mean1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(facedata<span class="sc">$</span>NewRT, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mean2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(facedata<span class="sc">$</span>SeenRT, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#lasketaan keskiarvon keskivirhe (standard error of mean)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#keskihajonta / neliöjuuri N:llä </span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ekaks lasketaan N -&gt; n1 muuttujaan</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#sitten jaetaan keskihajonta N:n neliöjuurella</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">#kun kerrotaan keskiarvon keskivirhe 1,96 saadaan luottamusväli</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(facedata<span class="sc">$</span>NewRT<span class="sc">&gt;</span><span class="dv">0</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>sem1 <span class="ot">&lt;-</span> <span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(facedata<span class="sc">$</span>NewRT, <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">sqrt</span>(n1)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(facedata<span class="sc">$</span>SeenRT<span class="sc">&gt;</span><span class="dv">0</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>sem2 <span class="ot">&lt;-</span> <span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(facedata<span class="sc">$</span>SeenRT, <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">sqrt</span>(n2)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>Means1 <span class="ot">&lt;-</span> <span class="fu">c</span>(mean1,mean2)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>Sems1 <span class="ot">&lt;-</span> <span class="fu">c</span>(sem1,sem2)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>figA <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>Means1, <span class="at">x=</span>Conditions1),</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha=</span>.<span class="dv">1</span>, <span class="at">colour=</span><span class="st">"skyblue"</span>, <span class="at">size=</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>( <span class="fu">aes</span>(<span class="at">x=</span>Conditions1, <span class="at">ymin=</span>Means1<span class="sc">-</span>Sems1, <span class="at">ymax=</span>Means1<span class="sc">+</span>Sems1),</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>                 <span class="at">width=</span><span class="fl">0.1</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">colour=</span><span class="st">"orange"</span>, <span class="at">alpha=</span><span class="fl">0.7</span>) <span class="sc">+</span> </span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">1250</span>,<span class="dv">1380</span>) <span class="sc">+</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Kasvot"</span>) <span class="sc">+</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Reaktioaika, ms"</span>) <span class="sc">+</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"A"</span>) </span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>figA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br> <br></p>
+<p><img src="images/clipboard-4231296600.png" class="img-fluid"></p>
+<p>Kuvaaja koulutusryhmien keskiarvoeroista</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tehdään kuvaaja myös koulutusryhmien keskiarvoeroista </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Conditions2 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Matala"</span>, <span class="st">"Korkea"</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>mean1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(facedata<span class="sc">$</span>NewRT[facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"low"</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>mean2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(facedata<span class="sc">$</span>NewRT[facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"high"</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(facedata<span class="sc">$</span>NewRT[facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"low"</span>]<span class="sc">&gt;</span><span class="dv">0</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>sem1 <span class="ot">&lt;-</span> <span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(facedata<span class="sc">$</span>NewRT[facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"low"</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">sqrt</span>(n1)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(facedata<span class="sc">$</span>NewRT[facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"high"</span>]<span class="sc">&gt;</span><span class="dv">0</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>sem2 <span class="ot">&lt;-</span> <span class="fl">1.96</span><span class="sc">*</span><span class="fu">sd</span>(facedata<span class="sc">$</span>NewRT[facedata<span class="sc">$</span>edGroup<span class="sc">==</span><span class="st">"high"</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">sqrt</span>(n2)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>Means2 <span class="ot">&lt;-</span> <span class="fu">c</span>(mean1,mean2)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>Sems2 <span class="ot">&lt;-</span> <span class="fu">c</span>(sem1,sem2)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>figB <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>Means2, <span class="at">x=</span>Conditions2),</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha=</span><span class="dv">1</span>, <span class="at">colour=</span><span class="st">"skyblue"</span>, <span class="at">size=</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>( <span class="fu">aes</span>(<span class="at">x=</span>Conditions2, <span class="at">ymin=</span>Means2<span class="sc">-</span>Sems2, <span class="at">ymax=</span>Means2<span class="sc">+</span>Sems2),</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">width=</span><span class="fl">0.1</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">colour=</span><span class="st">"orange"</span>, <span class="at">alpha=</span><span class="fl">0.7</span>) <span class="sc">+</span> </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">1250</span>,<span class="dv">1380</span>) <span class="sc">+</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Koulutustaso"</span>) <span class="sc">+</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Reaktioaika, ms"</span>) <span class="sc">+</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"B"</span>) </span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>figB</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br> <br></p>
+<p><img src="images/clipboard-71477518.png" class="img-fluid"></p>
+<p>tehtiin vielä sama koulutustasojen keskiarvovertailulle tuttujen kasvojen kohdalla</p>
+<ul>
+<li><p>ylim() funktiolla saa määritettyä y akselin ala ja ylärajan</p>
+<ul>
+<li>eka on alaraja ja sitten yläraja</li>
+</ul></li>
+</ul>
 
 
 </section>
