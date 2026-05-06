@@ -351,6 +351,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#r-studio-aineiston-avaaminen-ja-kuvailu" id="toc-r-studio-aineiston-avaaminen-ja-kuvailu" class="nav-link" data-scroll-target="#r-studio-aineiston-avaaminen-ja-kuvailu"><span class="header-section-number">8.4</span> R-studio, aineiston avaaminen ja kuvailu</a></li>
   <li><a href="#rstudio-summamuuttujat" id="toc-rstudio-summamuuttujat" class="nav-link" data-scroll-target="#rstudio-summamuuttujat"><span class="header-section-number">8.5</span> Rstudio summamuuttujat</a></li>
+  <li><a href="#kuvat-r-kielellä-r-studiossa" id="toc-kuvat-r-kielellä-r-studiossa" class="nav-link" data-scroll-target="#kuvat-r-kielellä-r-studiossa"><span class="header-section-number">8.6</span> Kuvat R-kielellä r-studiossa</a></li>
+  <li><a href="#korrelaatio-ja-muuttujien-tyypin-vaihtaminen-rstudiolla" id="toc-korrelaatio-ja-muuttujien-tyypin-vaihtaminen-rstudiolla" class="nav-link" data-scroll-target="#korrelaatio-ja-muuttujien-tyypin-vaihtaminen-rstudiolla"><span class="header-section-number">8.7</span> Korrelaatio ja muuttujien tyypin vaihtaminen rstudiolla</a></li>
+  <li><a href="#t-testit-rstudio" id="toc-t-testit-rstudio" class="nav-link" data-scroll-target="#t-testit-rstudio"><span class="header-section-number">8.8</span> T-testit Rstudio</a></li>
   </ul>
 </nav>
     </div>
@@ -1081,6 +1084,372 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/clipboard-97909985.png" class="img-fluid"></p>
 <p>normalisoitu boxcox muunnoksen läpikäynyt muuttuja</p>
 <p><br></p>
+</section>
+<section id="kuvat-r-kielellä-r-studiossa" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="kuvat-r-kielellä-r-studiossa"><span class="header-section-number">8.6</span> Kuvat R-kielellä r-studiossa</h2>
+<p><img src="images/clipboard-2241021306.png" class="img-fluid"></p>
+<p>Base r ja paketit</p>
+<p>kaava/formula muoto suht yleinen r-kielellä</p>
+<ul>
+<li>boxplot( y~x, data=mydata)</li>
+</ul>
+<p>ggplotissa</p>
+<ul>
+<li>ensiksi kerrotaan mistä datasta, sitten esteettiset ominaisuudet (aes), x ja y muuttujat ja sitten lisätään erilaisia elementtejä</li>
+</ul>
+<p>ggpubr</p>
+<ul>
+<li><p>tehty ggplotin päälle</p></li>
+<li><p>julkaisuja varten</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4027824513.png" class="img-fluid"></p>
+<ul>
+<li>kuvat samannäköisiä teki kummalla tahansa</li>
+</ul>
+<!-- -->
+<ul>
+<li>kannattaa ymmärtää, jonkin verran kumpaakin</li>
+</ul>
+<!-- -->
+<ul>
+<li>julkaisuja varten tarvitsee todnäk hienostuneempia työkaluja, kuten ggpubr</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1156058367.png" class="img-fluid"></p>
+<p>boxplot r:n kaavamuodolla</p>
+<ul>
+<li><p>boxplotissa 1. muuttuja tulee y-akselilla ja ~ merkin jälkeinen</p></li>
+<li><p>x-akselille. 2. muuttujalla ennustetaan ensimmäistä</p></li>
+<li><p>data =, kohdassa kerrotaan, mistä datasta muuttujat otetaan</p></li>
+<li><p>boxplot( Sinnikkyys ~ ageGroup, data = gritdata)</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3052429658.png" class="img-fluid"></p>
+<p>qqplot</p>
+<ul>
+<li><p>qqnorm() lisää qqplotin ja qqline diagonaaliviivan siihen</p></li>
+<li><p>qqnorm(gritdata$Sinnikkyys)</p></li>
+<li><p>qqline(gritdata$Sinnikkyys)</p></li>
+<li><p>frame=FALSE, poistaa laatikon reunoilta</p></li>
+<li><p>col = ““, muuttaa väriä</p></li>
+<li><p>qqnorm(gritdata$Sinnikkyys, frame=FALSE, col = “blue”)</p></li>
+<li><p>qqline(gritdata$Sinnikkyys, col = “orange”)</p></li>
+</ul>
+<p>?qqnorm</p>
+<ul>
+<li>saa lisätietoja ja vinkkejä</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1533635073.png" class="img-fluid"></p>
+<p>plotit</p>
+<ul>
+<li><p>eka muuttuja x akselille, toka y-akselille</p></li>
+<li><p>xlab=“” ja ylab=““, nimeävät otsikot</p></li>
+<li><p>abline() piirtää regressiosuoran</p></li>
+</ul>
+<p>model1 &lt;- lm( Sinnikkyys ~ age, data = gritdata)</p>
+<p><br></p>
+<p>plot(gritdata$age, gritdata$Sinnikkyys,</p>
+<p>xlab=“ikä”, ylab=“Sinnikkyys”, frame=FALSE, col=“red”)</p>
+<p>abline(model1, col = “blue”)</p>
+<p>lineaarinen malli ja regressiosuora</p>
+<ul>
+<li><p>tämä kaavamuoto hyvin tärkeä opetella</p></li>
+<li><p>esim model2, 1. muuttuja y-akselilla, toiset x-akselilla.</p></li>
+<li><p>~ jälkeiset muuttujat ennustavat ~ merkkiä edeltävää</p></li>
+</ul>
+<p>model2 &lt;- lm( Ekstroversio ~ age, data = gritdata)</p>
+<p>plot(gritdata$age, gritdata$Ekstroversio,</p>
+<p>xlab=“Ikä”, ylab=“Ekstroversio”, frame=FALSE, col=“red”)</p>
+<p>abline(model2, col = “blue”)</p>
+<p><br></p>
+<p>yllä model2 muuttujaan talletetaan lineaarinen malli</p>
+<p>kertauksena</p>
+<ul>
+<li><p>lm(ennustettava muuttuja ~ ennustavat muuttujat, data = datanlähde)</p></li>
+<li><p>labsit nimeävät kuvaajan akselit</p></li>
+</ul>
+<p>plot(model1)</p>
+<ul>
+<li><p>plottaa suoraan regressiomallista asioita</p></li>
+<li><p>esim. qqplotin ja residuaalit</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3674111930.png" class="img-fluid"></p>
+<p>ggplot</p>
+<ul>
+<li><p>ekaks data, sitten aes kohtaan x ja y akselin muuttujat</p></li>
+<li><p>sitten lisäillään asioita</p></li>
+<li><p>qeom_point lisää pisteet</p></li>
+<li><p>geom_smooth(method=lm, se =TRUE) piirtää regressiosuoran ja keskivirheen</p></li>
+<li><p>ggtitle(“a”), voi lisätä otsikon</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gritdata, <span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>Sinnikkyys) ) <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">5</span>, <span class="at">colour=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">se =</span><span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>( <span class="at">y=</span><span class="st">"Sinnikkyys"</span>, <span class="at">x=</span><span class="st">"Ikä"</span>) <span class="sc">+</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-3018122108.png" class="img-fluid"></p>
+<p>asennettiin ggpubr</p>
+<ul>
+<li>install.packages(”ggpubr”)</li>
+</ul>
+<p>lisää kirjasto ylös</p>
+<ul>
+<li>library(ggpubr)</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2461121364.png" class="img-fluid"></p>
+<p>ggboxplot(gritdata, x=“education”, y=“Sinnikkyys”)</p>
+<ul>
+<li><p>luokittelee puuttuvat arvot yhdeksi luokaksi</p>
+<ul>
+<li>tätä ei haluta niin lisätään seuraava juttu</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3254919149.png" class="img-fluid"></p>
+<p>gritdata &lt;- subset(gritdata, complete.cases(education))</p>
+<ul>
+<li>saatiin puuttuvien arvojen luokka pois boxplotista</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-60918165.png" class="img-fluid"></p>
+<p>kuvat voi tallettaa muuttujiksi &lt;- komennolla</p>
+<ul>
+<li>ggarrange komennolla voi plotata kuvat vierekkäin</li>
+</ul>
+<p>ggarrange(figA, figB, ncol=2, nrow=1)</p>
+<ul>
+<li><p>ncol=2, määrittää sarakkaiden määrän kahdeksi</p></li>
+<li><p>nrow=1, määrittää rivien määrän yhdeksi</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1911703221.png" class="img-fluid"></p>
+<p>lisättiin kuviin otsikot</p>
+<ul>
+<li><p>ggtitle(“a”), ggplotissa otsikko</p></li>
+<li><p>title= “b”, ggpubr:ssä otsikko</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>figA <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gritdata, <span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>Sinnikkyys) ) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">5</span>, <span class="at">colour=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">se =</span><span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>( <span class="at">y=</span><span class="st">"Sinnikkyys"</span>, <span class="at">x=</span><span class="st">"Ikä"</span>) <span class="sc">+</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggtitle</span>(<span class="st">"a"</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>gritdata <span class="ot">&lt;-</span> <span class="fu">subset</span>(gritdata, <span class="fu">complete.cases</span>(education))</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>figB <span class="ot">&lt;-</span> <span class="fu">ggboxplot</span>(gritdata, <span class="at">x=</span><span class="st">"education"</span>, <span class="at">y=</span><span class="st">"Sinnikkyys"</span>, <span class="at">title=</span> <span class="st">"b"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-1573967178.png" class="img-fluid"></p>
+<ul>
+<li><p>ggarrangella pystyy rivien ja sarakkeiden määrää asettelemaan kuvia vierekkäin ja päällekkäin enemmänkin</p></li>
+<li><p>ggarrange(figA, figB, figA, figB, ncol=2, nrow=2)</p></li>
+<li><p>löytyy myös ggsave funktio, jota en kuitenkaan saanut toimimaan</p></li>
+<li><p>kuvat pystyy exporttaamaan oikeassa reunassa plot kohdan export valikosta</p></li>
+</ul>
+<p><br> <br></p>
+</section>
+<section id="korrelaatio-ja-muuttujien-tyypin-vaihtaminen-rstudiolla" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="korrelaatio-ja-muuttujien-tyypin-vaihtaminen-rstudiolla"><span class="header-section-number">8.7</span> Korrelaatio ja muuttujien tyypin vaihtaminen rstudiolla</h2>
+<p><img src="images/clipboard-2929659028.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="images/clipboard-3352871051.png" class="img-fluid"></p>
+<p>muuttujan tyypin vaihtaminen</p>
+<ul>
+<li><p>as.factor muuntaa jatkuvan kategoriseksi/faktoriksi</p></li>
+<li><p>as.numeric muuntaa muuttujan jatkuvaksi</p></li>
+</ul>
+<p>gritdata$education &lt;- as.factor(gritdata$education)</p>
+<p><br></p>
+<p><img src="images/clipboard-4059682698.png" class="img-fluid"></p>
+<p>poista puuttuvat arvot</p>
+<ul>
+<li>subset poistaa rivin/koehenkilön koko datasta, jos tässä tapauksessa educationista puuttuu arvoja.Eli vain complete cases säilyvät</li>
+</ul>
+<p>gritdata &lt;- subset( gritdata, complete.cases(education))</p>
+<p><br></p>
+<p><img src="images/clipboard-3290895438.png" class="img-fluid"></p>
+<p>histogrammin koodi ggplotilla</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gritdata, <span class="fu">aes</span>(<span class="at">x=</span>Sinnikkyys) ) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">alpha=</span>.<span class="dv">5</span>,<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">colour=</span><span class="st">"black"</span>, <span class="at">binwidth=</span>.<span class="dv">25</span>) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">y=</span><span class="st">"Lukumäärä"</span>, <span class="at">x=</span><span class="st">"Sinnikkyys"</span>) <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"a"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p><img src="images/clipboard-708431875.png" class="img-fluid"></p>
+<p>tehtiin jokaisesta persoonallisuuspiirteestä histogrammi, joka talletettiin fig komentoon ja ggarrange() funktiolla piirrettiin ne kahteen riviin ja kolmeen sarakkeeseen</p>
+<ul>
+<li>ggarrange(figC, figD, figE, figF, figG, figH, ncol=3, nrow=2)</li>
+</ul>
+<p>ggsave(“../../figs/piirrejakaumat.png”)</p>
+<ul>
+<li><p>nyt onnistuin tallentamaan ggsave funktiolla kuvan</p></li>
+<li><p>oletan, että ../ siirtää yhden kansiotason taaksepäin</p></li>
+<li><p>eli nyt kun käytin kaksi kertaa ../../ niin tallennus onnistui</p></li>
+</ul>
+<p>ggsave(“../../figs/piirrejakaumat.png”, width = 30, height= 20, units = “cm”, dpi = 300)</p>
+<ul>
+<li>tässä vielä määritettynä kuvan koko ja resoluutio (dpi)</li>
+</ul>
+<p><br> <br></p>
+<p><img src="images/clipboard-2042587784.png" class="img-fluid"></p>
+<p>muuttujan uudelleennimeäminen</p>
+<ul>
+<li><p>rename(data, “uusi nimi” = “vanha nimi”)</p></li>
+<li><p>saa nimettyä muuttujan uudelleen</p></li>
+</ul>
+<p>gritdata &lt;- rename(gritdata, “Ikä” = “age”)</p>
+<p><br><br></p>
+<p><img src="images/clipboard-3056341969.png" class="img-fluid"></p>
+<p>voidaan valita tietyt muuttujat ja luoda uusi datasetti, jossa vain ne muuttujat mukana</p>
+<ul>
+<li>selectVariables &lt;- c(“Sinnikkyys”, “Tunnollisuus”, “Neuroottisuus”, “Sovinnollisuus”, “Avoimuus”, “Ekstroversio”, “Ikä”)</li>
+</ul>
+<p>selecetedData &lt;- gritdata[, selectVariables]</p>
+<ul>
+<li>nuolifunktiolla talletetaan ensin tietyt sarakkeet selectVariables muuttujaan ja sen jälkeen nuolifunktiolla talletetaan gritdatasta seletVariables muuttuja SelectedDataan uuteen dataframeen</li>
+</ul>
+<p><br> <br></p>
+<p><img src="images/clipboard-1300271322.png" class="img-fluid"></p>
+<p>korrelaatioiden laskeminen rstudiossa</p>
+<ul>
+<li><p>funktiolla cor() korrelaatio</p></li>
+<li><p>method valitsee mitä kerrointa käytetään</p></li>
+<li><p>use = “complete.obs” , otetaan huomioon vain täydelliset havainnot eli puuttuvat arvot jätetään huomiotta</p></li>
+<li><p>funktio round() pyöristää tulokset</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(selectedData, <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">use =</span><span class="st">"complete.obs"</span>),<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br> <br></p>
+<p><img src="images/clipboard-1889609495.png" class="img-fluid"></p>
+<p>Korrelaatioheatmapin tekeminen</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">cor</span>(selectedData, <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">use =</span><span class="st">"complete.obs"</span>),<span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>longcormat <span class="ot">&lt;-</span> <span class="fu">melt</span>(cormat)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>longcormat, <span class="fu">aes</span>(<span class="at">x=</span>Var1, <span class="at">y=</span>Var2, <span class="at">fill=</span>value))<span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>( <span class="fu">aes</span>(Var2, Var1, <span class="at">label=</span>value), <span class="at">colour=</span><span class="st">"black"</span> )<span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>( <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust =</span><span class="dv">1</span>),</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">axis.title =</span> <span class="fu">element_blank</span>()     ) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>( <span class="at">low=</span><span class="st">"blue"</span>, <span class="at">high=</span><span class="st">"red"</span>, <span class="at">mid=</span><span class="st">"white"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">midpoint=</span> <span class="dv">0</span>, <span class="at">limit =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="at">space=</span><span class="st">"Lab"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">"Pearsonin</span><span class="sc">\n</span><span class="st">korrelaatio"</span>)<span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>melt() funktio muuttaa datan pitkään matriisimuotoon, josta pystyy tekemään heatmapin</p>
+<ul>
+<li>muuttaa datan kahteen kolumniin</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3989982805.png" class="img-fluid"></p>
+<p>talletetaan ggsavella</p>
+<ul>
+<li><p>ggsave(“../../figs/piirreHeatmap.png”, width = 30, height= 20, units = “cm”, dpi = 300, bg=“white”)</p></li>
+<li><p>bg=”white” muuttaa taustan valkoiseksi</p></li>
+</ul>
+<p><br> <br></p>
+</section>
+<section id="t-testit-rstudio" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="t-testit-rstudio"><span class="header-section-number">8.8</span> T-testit Rstudio</h2>
+<p><img src="images/clipboard-2078974654.png" class="img-fluid"></p>
+<p>rm(list = ls())</p>
+<ul>
+<li><p>tyhjentää enviroment ikkunan kokonaan</p></li>
+<li><p>rm() funktiolla voi poistaa myös yksittäisiä objekteja</p></li>
+</ul>
+<p><br> <br></p>
+<p><img src="images/clipboard-695030772.png" class="img-fluid"></p>
+<p>työskentelykansion määritys, datan avaaminen, nolla-arvojen merkintä puuttuviksi</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#määritellään työskentelykansio</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&amp;_ Face"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#avataan data</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>facedata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"facedata.csv"</span>, <span class="at">sep=</span><span class="st">","</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#rm(list = ls())</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#tyhjentää enviroment ikkunan kokonaan</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">#nolla-arvojen merkitseminen puuttuviksi </span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>facedata[facedata <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(facedata<span class="sc">$</span>age)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">#yli 100 ikäarvojen merkitseminen puuttuviksi </span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>facedata<span class="sc">$</span>age[ facedata<span class="sc">$</span>age<span class="sc">&gt;</span><span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>facedata<span class="sc">$</span>age[ facedata<span class="sc">$</span>age<span class="sc">&lt;</span><span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br> <br></p>
+<p><img src="images/clipboard-567926308.png" class="img-fluid"></p>
+<p>muuttujan tyypin tarkastaminen</p>
+<ul>
+<li><p>str(facedata)</p></li>
+<li><p>funktiolla str() voi tarkastaa ovatko muuttujat kategorisia vai jatkuvia&nbsp;</p></li>
+</ul>
+<p><br> <br></p>
+<p><img src="images/clipboard-2043161727.png" class="img-fluid"></p>
+<p>Muuttujan tyypin vaihtaminen</p>
+<ul>
+<li><p>facedata$NewRT &lt;- as.numeric(facedata$NewRT)</p></li>
+<li><p>facedata$SeenRT &lt;- as.numeric(facedata$SeenRT)</p></li>
+</ul>
+<p><br> <br></p>
+<p><img src="images/clipboard-1060260142.png" class="img-fluid"></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#talletetaan mediaani medVal muuttujaan</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ja mad arvo madVal muuttujaan </span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>medVal <span class="ot">&lt;-</span> <span class="fu">median</span>(facedata<span class="sc">$</span>MeanRT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>madVal <span class="ot">&lt;-</span> <span class="fu">mad</span>(facedata<span class="sc">$</span>MeanRT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lasketaan outliereiden kriteerit MAD arvoilla </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>lowlimit <span class="ot">&lt;-</span> medVal <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>madVal</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>highlimit <span class="ot">&lt;-</span> medVal <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>madVal</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#poistetaan lowlimitin alittavat arvot ja highlimitin ylittävät</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>facedata<span class="sc">$</span>SeenRT[ facedata<span class="sc">$</span>SeenRT<span class="sc">&lt;</span>lowlimit ] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>facedata<span class="sc">$</span>SeenRT[ facedata<span class="sc">$</span>SeenRT<span class="sc">&gt;</span>highlimit ] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>facedata<span class="sc">$</span>NewRT[ facedata<span class="sc">$</span>NewRT<span class="sc">&lt;</span>lowlimit ] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>facedata<span class="sc">$</span>NewRT[ facedata<span class="sc">$</span>NewRT<span class="sc">&gt;</span>highlimit ] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(facedata<span class="sc">$</span>SeenRT)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 </section>

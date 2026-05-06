@@ -957,3 +957,500 @@ onnistuu scale funktiolla
 normalisoitu boxcox muunnoksen läpikäynyt muuttuja
 
 <br>
+
+## Kuvat R-kielellä r-studiossa
+
+![](images/clipboard-2241021306.png)
+
+Base r ja paketit
+
+kaava/formula muoto suht yleinen r-kielellä
+
+- boxplot( y\~x, data=mydata)
+
+ggplotissa
+
+- ensiksi kerrotaan mistä datasta, sitten esteettiset ominaisuudet (aes), x ja y muuttujat ja sitten lisätään erilaisia elementtejä
+
+ggpubr
+
+- tehty ggplotin päälle
+
+- julkaisuja varten
+
+<br>
+
+![](images/clipboard-4027824513.png)
+
+- kuvat samannäköisiä teki kummalla tahansa
+
+<!-- -->
+
+- kannattaa ymmärtää, jonkin verran kumpaakin
+
+<!-- -->
+
+- julkaisuja varten tarvitsee todnäk hienostuneempia työkaluja, kuten ggpubr
+
+<br>
+
+![](images/clipboard-1156058367.png)
+
+boxplot r:n kaavamuodolla
+
+- boxplotissa 1. muuttuja tulee y-akselilla ja \~ merkin jälkeinen
+
+- x-akselille. 2. muuttujalla ennustetaan ensimmäistä
+
+- data =, kohdassa kerrotaan, mistä datasta muuttujat otetaan
+
+- boxplot( Sinnikkyys \~ ageGroup, data = gritdata)
+
+<br>
+
+![](images/clipboard-3052429658.png)
+
+qqplot
+
+- qqnorm() lisää qqplotin ja qqline diagonaaliviivan siihen
+
+- qqnorm(gritdata\$Sinnikkyys)
+
+- qqline(gritdata\$Sinnikkyys)
+
+- frame=FALSE, poistaa laatikon reunoilta
+
+- col = "", muuttaa väriä
+
+- qqnorm(gritdata\$Sinnikkyys, frame=FALSE, col = "blue")
+
+- qqline(gritdata\$Sinnikkyys, col = "orange")
+
+?qqnorm
+
+- saa lisätietoja ja vinkkejä
+
+<br>
+
+![](images/clipboard-1533635073.png)
+
+plotit
+
+- eka muuttuja x akselille, toka y-akselille
+
+- xlab="" ja ylab="", nimeävät otsikot
+
+- abline() piirtää regressiosuoran
+
+model1 \<- lm( Sinnikkyys \~ age, data = gritdata)
+
+<br>
+
+plot(gritdata\$age, gritdata\$Sinnikkyys,
+
+xlab="ikä", ylab="Sinnikkyys", frame=FALSE, col="red")
+
+abline(model1, col = "blue")
+
+lineaarinen malli ja regressiosuora
+
+- tämä kaavamuoto hyvin tärkeä opetella
+
+- esim model2, 1. muuttuja y-akselilla, toiset x-akselilla.
+
+- \~ jälkeiset muuttujat ennustavat \~ merkkiä edeltävää
+
+model2 \<- lm( Ekstroversio \~ age, data = gritdata)
+
+plot(gritdata\$age, gritdata\$Ekstroversio,
+
+xlab="Ikä", ylab="Ekstroversio", frame=FALSE, col="red")
+
+abline(model2, col = "blue")
+
+<br>
+
+yllä model2 muuttujaan talletetaan lineaarinen malli
+
+kertauksena
+
+- lm(ennustettava muuttuja \~ ennustavat muuttujat, data = datanlähde)
+
+- labsit nimeävät kuvaajan akselit
+
+plot(model1)
+
+- plottaa suoraan regressiomallista asioita
+
+- esim. qqplotin ja residuaalit
+
+<br>
+
+![](images/clipboard-3674111930.png)
+
+ggplot
+
+- ekaks data, sitten aes kohtaan x ja y akselin muuttujat
+
+- sitten lisäillään asioita
+
+- qeom_point lisää pisteet
+
+- geom_smooth(method=lm, se =TRUE) piirtää regressiosuoran ja keskivirheen
+
+- ggtitle("a"), voi lisätä otsikon
+
+```{r}
+#| eval: false 
+
+ggplot(gritdata, aes(x=age, y=Sinnikkyys) ) + 
+
+geom_point(alpha=.5, colour="red") + 
+
+geom_smooth(method=lm, se =TRUE, colour = "blue") + 
+
+labs( y="Sinnikkyys", x="Ikä") + 
+
+theme_classic() + 
+
+theme(text = element_text(size = 18))
+
+```
+
+<br>
+
+![](images/clipboard-3018122108.png)
+
+asennettiin ggpubr
+
+- install.packages(”ggpubr”)
+
+lisää kirjasto ylös
+
+- library(ggpubr)
+
+<br>
+
+![](images/clipboard-2461121364.png)
+
+ggboxplot(gritdata, x="education", y="Sinnikkyys")
+
+- luokittelee puuttuvat arvot yhdeksi luokaksi
+
+  - tätä ei haluta niin lisätään seuraava juttu
+
+<br>
+
+![](images/clipboard-3254919149.png)
+
+gritdata \<- subset(gritdata, complete.cases(education))
+
+- saatiin puuttuvien arvojen luokka pois boxplotista
+
+<br>
+
+![](images/clipboard-60918165.png)
+
+kuvat voi tallettaa muuttujiksi \<- komennolla
+
+- ggarrange komennolla voi plotata kuvat vierekkäin
+
+ggarrange(figA, figB, ncol=2, nrow=1)
+
+- ncol=2, määrittää sarakkaiden määrän kahdeksi
+
+- nrow=1, määrittää rivien määrän yhdeksi
+
+<br>
+
+![](images/clipboard-1911703221.png)
+
+lisättiin kuviin otsikot
+
+- ggtitle("a"), ggplotissa otsikko
+
+- title= "b", ggpubr:ssä otsikko
+
+```{r}
+#| eval: false 
+
+figA <- ggplot(gritdata, aes(x=age, y=Sinnikkyys) ) + 
+
+geom_point(alpha=.5, colour="red") + 
+
+geom_smooth(method=lm, se =TRUE, colour = "blue") + 
+
+labs( y="Sinnikkyys", x="Ikä") + 
+
+theme_classic() +
+
+ggtitle("a") +
+
+theme(text = element_text(size = 16))
+
+gritdata <- subset(gritdata, complete.cases(education))
+
+figB <- ggboxplot(gritdata, x="education", y="Sinnikkyys", title= "b")
+
+```
+
+<br>
+
+![](images/clipboard-1573967178.png)
+
+- ggarrangella pystyy rivien ja sarakkeiden määrää asettelemaan kuvia vierekkäin ja päällekkäin enemmänkin
+
+- ggarrange(figA, figB, figA, figB, ncol=2, nrow=2)
+
+- löytyy myös ggsave funktio, jota en kuitenkaan saanut toimimaan
+
+- kuvat pystyy exporttaamaan oikeassa reunassa plot kohdan export valikosta
+
+<br> <br>
+
+## Korrelaatio ja muuttujien tyypin vaihtaminen rstudiolla 
+
+![](images/clipboard-2929659028.png)
+
+<br>
+
+![](images/clipboard-3352871051.png)
+
+muuttujan tyypin vaihtaminen
+
+- as.factor muuntaa jatkuvan kategoriseksi/faktoriksi
+
+- as.numeric muuntaa muuttujan jatkuvaksi
+
+gritdata\$education \<- as.factor(gritdata\$education)
+
+<br>
+
+![](images/clipboard-4059682698.png)
+
+poista puuttuvat arvot
+
+- subset poistaa rivin/koehenkilön koko datasta, jos tässä tapauksessa educationista puuttuu arvoja.Eli vain complete cases säilyvät
+
+gritdata \<- subset( gritdata, complete.cases(education))
+
+<br>
+
+![](images/clipboard-3290895438.png)
+
+histogrammin koodi ggplotilla
+
+```{r}
+#| eval: false 
+
+ggplot(gritdata, aes(x=Sinnikkyys) ) + 
+  geom_histogram(alpha=.5,fill="blue", colour="black", binwidth=.25) + 
+  labs( y="Lukumäärä", x="Sinnikkyys") + 
+  theme_classic() +
+  ggtitle("a") +
+  theme(text = element_text(size = 14))
+
+
+```
+
+<br>
+
+![](images/clipboard-708431875.png)
+
+tehtiin jokaisesta persoonallisuuspiirteestä histogrammi, joka talletettiin fig komentoon ja ggarrange() funktiolla piirrettiin ne kahteen riviin ja kolmeen sarakkeeseen
+
+- ggarrange(figC, figD, figE, figF, figG, figH, ncol=3, nrow=2)
+
+ggsave("../../figs/piirrejakaumat.png")
+
+- nyt onnistuin tallentamaan ggsave funktiolla kuvan
+
+- oletan, että ../ siirtää yhden kansiotason taaksepäin
+
+- eli nyt kun käytin kaksi kertaa ../../ niin tallennus onnistui
+
+ggsave("../../figs/piirrejakaumat.png", width = 30, height= 20, units = "cm", dpi = 300)
+
+- tässä vielä määritettynä kuvan koko ja resoluutio (dpi)
+
+<br> <br>
+
+![](images/clipboard-2042587784.png)
+
+muuttujan uudelleennimeäminen
+
+- rename(data, "uusi nimi" = "vanha nimi")
+
+- saa nimettyä muuttujan uudelleen
+
+gritdata \<- rename(gritdata, "Ikä" = "age")
+
+<br><br>
+
+![](images/clipboard-3056341969.png)
+
+voidaan valita tietyt muuttujat ja luoda uusi datasetti, jossa vain ne muuttujat mukana
+
+- selectVariables \<- c("Sinnikkyys", "Tunnollisuus", "Neuroottisuus", "Sovinnollisuus", "Avoimuus", "Ekstroversio", "Ikä")
+
+selecetedData \<- gritdata\[, selectVariables\]
+
+- nuolifunktiolla talletetaan ensin tietyt sarakkeet selectVariables muuttujaan ja sen jälkeen nuolifunktiolla talletetaan gritdatasta seletVariables muuttuja SelectedDataan uuteen dataframeen
+
+<br> <br>
+
+![](images/clipboard-1300271322.png)
+
+korrelaatioiden laskeminen rstudiossa
+
+- funktiolla cor() korrelaatio
+
+- method valitsee mitä kerrointa käytetään
+
+- use = "complete.obs" , otetaan huomioon vain täydelliset havainnot eli puuttuvat arvot jätetään huomiotta
+
+- funktio round() pyöristää tulokset
+
+```{r}
+#| eval: false 
+
+
+round(cor(selectedData, method = "pearson", use ="complete.obs"),2)
+```
+
+<br> <br>
+
+![](images/clipboard-1889609495.png)
+
+Korrelaatioheatmapin tekeminen
+
+```{r}
+#| eval: false 
+
+cormat <- round(cor(selectedData, method = "pearson", use ="complete.obs"),2)
+
+longcormat <- melt(cormat)
+
+ggplot(data=longcormat, aes(x=Var1, y=Var2, fill=value))+
+  geom_tile() +
+  geom_text( aes(Var2, Var1, label=value), colour="black" )+
+  theme_minimal() +
+  theme( axis.text.x = element_text(angle=45, hjust =1),
+         axis.title = element_blank()     ) +
+  scale_fill_gradient2( low="blue", high="red", mid="white",
+                        midpoint= 0, limit = c(-1,1), space="Lab",
+                        name = "Pearsonin\nkorrelaatio")+
+  theme(text = element_text(size=16))
+
+
+```
+
+- melt() funktio muuttaa datan pitkään matriisimuotoon, josta pystyy tekemään heatmapin
+
+  - muuttaa datan kahteen kolumniin
+
+<br>
+
+![](images/clipboard-3989982805.png)
+
+talletetaan ggsavella
+
+- ggsave("../../figs/piirreHeatmap.png", width = 30, height= 20, units = "cm", dpi = 300, bg="white")
+
+- bg=”white” muuttaa taustan valkoiseksi
+
+<br> <br>
+
+## T-testit Rstudio
+
+![](images/clipboard-2078974654.png)
+
+rm(list = ls())
+
+- tyhjentää enviroment ikkunan kokonaan
+
+- rm() funktiolla voi poistaa myös yksittäisiä objekteja
+
+<br> <br>
+
+![](images/clipboard-695030772.png)
+
+työskentelykansion määritys, datan avaaminen, nolla-arvojen merkintä puuttuviksi
+
+```{r}
+#| eval: false 
+
+library(psych)
+library(tidyverse)
+library(ggpubr)
+
+#määritellään työskentelykansio
+setwd("C:/Users/OMISTAJA/OneDrive - University of Helsinki/Varmuuskopio omasta koneesta/Tiedostot/Soveltava Psykologia/Tutkimusmenetelmät_1/Data/Grit_&_ Face")
+
+#avataan data
+facedata <- read.csv("facedata.csv", sep=",")
+
+    #rm(list = ls())
+    #tyhjentää enviroment ikkunan kokonaan
+
+#nolla-arvojen merkitseminen puuttuviksi 
+facedata[facedata == 0] <- NA
+
+hist(facedata$age)
+
+#yli 100 ikäarvojen merkitseminen puuttuviksi 
+facedata$age[ facedata$age>100] <- NA 
+facedata$age[ facedata$age<10] <- NA
+
+
+```
+
+<br> <br>
+
+![](images/clipboard-567926308.png)
+
+muuttujan tyypin tarkastaminen
+
+- str(facedata)
+
+- funktiolla str() voi tarkastaa ovatko muuttujat kategorisia vai jatkuvia 
+
+<br> <br>
+
+![](images/clipboard-2043161727.png)
+
+Muuttujan tyypin vaihtaminen
+
+- facedata\$NewRT \<- as.numeric(facedata\$NewRT)
+
+- facedata\$SeenRT \<- as.numeric(facedata\$SeenRT)
+
+<br> <br>
+
+![](images/clipboard-1060260142.png)
+
+```{r}
+#| eval: false 
+
+#talletetaan mediaani medVal muuttujaan
+# ja mad arvo madVal muuttujaan 
+medVal <- median(facedata$MeanRT, na.rm = TRUE)
+madVal <- mad(facedata$MeanRT, na.rm = TRUE)
+
+#lasketaan outliereiden kriteerit MAD arvoilla 
+
+lowlimit <- medVal - 3*madVal
+highlimit <- medVal + 3*madVal
+
+#poistetaan lowlimitin alittavat arvot ja highlimitin ylittävät
+
+facedata$SeenRT[ facedata$SeenRT<lowlimit ] <- NA
+facedata$SeenRT[ facedata$SeenRT>highlimit ] <- NA
+
+facedata$NewRT[ facedata$NewRT<lowlimit ] <- NA
+facedata$NewRT[ facedata$NewRT>highlimit ] <- NA
+
+hist(facedata$SeenRT)
+
+
+```
