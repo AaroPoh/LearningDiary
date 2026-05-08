@@ -92,15 +92,15 @@ print(summa)
 
 Permutaatio tarkoittaa järjestystä tai uudelleenjärjestelyä
 
--   Esim. lukujoukko (1,2,3) tai kirjainsarja (A, B, C) voivat saada 6 eri permutaatiota eli uniikkia järjestystä
+- Esim. lukujoukko (1,2,3) tai kirjainsarja (A, B, C) voivat saada 6 eri permutaatiota eli uniikkia järjestystä
 
--   Mahdollisten permutaatioden määrä lasketaan käyttämällä kertomaa (merkitään !)
+- Mahdollisten permutaatioden määrä lasketaan käyttämällä kertomaa (merkitään !)
 
 P(n)=n!
 
--   missä P tarkoittaa permutaatioden määrää ja n alkioiden lukumäärää
--   Esim. kun 4 alkiota lasketaan 4! = 4 \* 3 \* 2 \* 1 = 24
--   Tai kun 3 alkiota 3! = 3 \* 2 \* 1 = 6
+- missä P tarkoittaa permutaatioden määrää ja n alkioiden lukumäärää
+- Esim. kun 4 alkiota lasketaan 4! = 4 \* 3 \* 2 \* 1 = 24
+- Tai kun 3 alkiota 3! = 3 \* 2 \* 1 = 6
 
 Kertoma lasketaan R-kielellä factorial() funktiolla
 
@@ -110,7 +110,7 @@ factorial(4)
 
 Permutaatiotesti on ei-parametrinen eli toimii millä tahansa aineistoilla
 
--   Datan ei tarvitse siis täyttää normaalisuusoletusta
+- Datan ei tarvitse siis täyttää normaalisuusoletusta
 
 Permutaatiotestillä saadaan laskettua p-arvo eli kuinka todennäköisesti sattumalta saadaan sama tulos.
 
@@ -231,6 +231,178 @@ Pval
 t.test(value ~ group, data = data) 
 
 t.test(group1, group2)
+
+
+```
+
+<br>
+
+## Tutkimusavustajatehtävä 
+
+Tehtävänanto
+
+> Olet töissä tutkimusavustajana projektissa, jossa tutkitaan lasten matematiikan oppimista. Tutkimusprojektissa 1-4 luokkalaiset lapset ratkaiset vaihtelevan tasoisia matemaattisia tehtäviä. Tutkimus tehdään 7 koulussa. Jokaisesta koulusta on valittu 4 luokkaa joissa on 30 oppilasta. Sinun tehtävänäsi on tuottaa matematiikan tehtäviä lapsille. Lapset ratkaisevat tehtävät paperille omaan tahtiin. Aineiston keruussa lasten toimintaa ei rajoiteta, eli he näkevät myös toistensa paperit. Tämän vuoksi jokaiselle lapselle pitää tehdä omat tehtävät, etteivät he kopio vastauksia toisiltaan.
+>
+> Tee skripti, joka tuottaa jokaiselle koululaiselle satunnaisesti 5 helppoa ja 5 vaikeampaa matematiikan tehtävää. Koosta tehtävät jokaiselle koululaiselle yhteen tekstitiedostoon. Organisoi tekstitiedostot omiin kansioihin, koulun ja luokan mukaan. Ohjelman pitää tuottaa siis 840 tekstitiedostoa, joissa yhteensä 8400 laskutehtävää. Vaikeat ja helpot tehtävät tulevat olla satunnaisessa järjestyksessä.
+>
+> Lisähaasteena voit tehdä tehtävistä monivalintatehtäviä. Eli tuota 4 eri vastaustvaihtoehtoa (a, b, c, d), joista yksi oikea. Ja oikea vastaus satunnaisesti ja tasaisesti joko a, b, c, tai d.
+>
+> Hyödyllisiä funktioita voi olla:
+>
+> paste() -muuttujien yhdistäminen
+>
+> dir.create() -kansioiden luominen
+>
+> writeLines() - tekstitiedostoon kirjoittaminen
+>
+> sample() -satunnaistus
+>
+> for-loop
+>
+> palauta kaksi tiedostoa: R-skripti (.R) ja yksi skriptin tuottama tekstitiedosto (.txt).
+
+```{r}
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+#| eval: false 
+
+
+# 7 koulua, 4 luokkaa, 30 oppilasta per luokka 
+# 
+# 840 oppilasta 
+# 
+# joka lapselle omat tehtävät 
+# 
+# skripti, joka tuottaa satunnaisesti 5 helppoa ja 5 vaikeaa matematiikan tehtävää
+# vaikeat ja helpot satunnaisessa järjestyksessä 
+# 
+# joka lapselle omat tehtävät omaan tekstitiedostoon 
+# 
+# organisoi tekstitiedostot omiin kansioihin koulun ja luokan mukaan 
+# 
+# 
+# miten teen 1 oppilaalle satunnaiset tehtävät
+#   talleta tehtävät tekstitiedosstoon
+#     toista 30 kertaa 
+#       talleta 30 tekstitiedostoa kansioon luokka 1 
+#         toista aiempi 2 luokalle, 3 luokalle ja 4 luokalle 
+#           talleta kansioon koulu 1, 
+#             toista kaikki aiemmat vaiheet ja talleta kansioihin koulu 2,3,4,5,6,7
+#           
+#   miten 30 oppilaalle 
+#     miten luokittelen koulut ja luokat 
+
+
+# 1 oppilaalle satunnaiset 5 helppoa ja 5 vaikeaa tehtävää 
+#   teen 10 tehtävän vektorin, jossa 5 vaikeaa 5 helppoa 
+#     joka tehtävään satunnaisesti valikoituvat luvut 
+#       talletetaan ne vektoriin
+#         tehdään joka oppilaalle oma permutaatio / satunnaistus 
+#       sample() funktiolla ilman takaisinpanoa tehtävät satunnaiseen järjestykseen 
+
+#helpoissa tehtävissä lukuja väliltä 1-10 ja vaikeissa lukuja väliltä 100-1000 
+
+# luodaan laskettavat helpot ja vaikeat numerot 
+
+  
+TehtVaik <- 100:1000
+TehtHelp  <- 1:10
+
+# joka tehtävään tarvitaan kaksi joko helppoa tai vaikeaa lukua eli tehdään parit 
+  # luodaan for looppi, joka tekee tehtävien arpomisen ja allokaation uudestaan sekä 
+    # tallentaa 30 tekstitiedostoa joka luokalta x 4 luokkaaa x 7 koulua 
+      # sisimmäksi looppi, joka tekee yhden luokan oppilaille monisteen
+        # kerrosta ulommaksi looppi, joka tallettaa kansioihin luokista 1 - 4 
+          # uloimmaksi looppi joka tallettaa kouluittain kansioihin 
+
+
+for(i in 1:7){
+  
+  koulu_nimi <- paste0("Koulu",i)
+  dir.create(koulu_nimi)
+  
+  
+  
+for(j in 1:4){
+  luokka_nimi <- paste0("Luokka",j)
+  luokka_polku <- file.path(koulu_nimi, luokka_nimi)
+  
+  dir.create(luokka_polku)
+
+for(k in 1:30){
+
+helppo1 <- c(paste(sample(TehtHelp,1)," + ", sample(TehtHelp,1)))
+helppo2 <- c(paste(sample(TehtHelp,1)," - ", sample(TehtHelp,1)))
+helppo3 <- c(paste(sample(TehtHelp,1)," * ", sample(TehtHelp,1)))
+helppo4 <- c(paste(sample(TehtHelp,1)," / ", sample(TehtHelp,1)))
+helppo5 <- c(paste(sample(TehtHelp,1)," + ", sample(TehtHelp,1)))
+
+vaikea1 <- c(paste(sample(TehtVaik,1), " + ", sample(TehtVaik, 1)))
+vaikea2 <- c(paste(sample(TehtVaik,1), " - ", sample(TehtVaik, 1)))
+vaikea3 <- c(paste(sample(TehtVaik,1), " * ", sample(TehtVaik, 1)))
+vaikea4 <- c(paste(sample(TehtVaik,1), " / ", sample(TehtVaik, 1)))
+vaikea5 <- c(paste(sample(TehtVaik,1), " + ", sample(TehtVaik, 1)))
+
+#luodaan tehtävämoniste, johon helpot ja vaikeat tehtävät tulevat satunnaisessa järjestyksessä 
+  #luodaan vektori, jossa on kaikki tehtävät 
+    #sekoitetaan vekorin järjestys 
+      # sen jälkeen syötetään tehtävät monisteeseen 
+
+Kaikki <- c(helppo1,helppo2,helppo3,helppo4,helppo5,vaikea1,vaikea2,vaikea3,vaikea4,vaikea5)
+
+KaikkiSek <- sample(Kaikki)
+
+
+teksti <- c("Tehtävämoniste 1 - 4 luokkalaisille", 
+            "Ratkaise seuraavat 10 tehtävää:", 
+            "", 
+            paste("Tehtävä 1: " , KaikkiSek[1], " = "), 
+            "",
+            paste("Tehtävä 2: " ,KaikkiSek[2]," = " ), 
+            "",
+            paste("Tehtävä 3: " , KaikkiSek[3], " = "),
+            "",
+            paste("Tehtävä 4: " , KaikkiSek[4], " = "), 
+            "",
+            paste("Tehtävä 5: " ,KaikkiSek[5], " = "), 
+            "",
+            paste("Tehtävä 6: " , KaikkiSek[6], " = "),
+            "",
+            paste("Tehtävä 7: " , KaikkiSek[7], " = "), 
+            "",
+            paste("Tehtävä 8: " ,KaikkiSek[8], " = "), 
+            "",
+            paste("Tehtävä 9: " , KaikkiSek[9], " = "),
+            "",
+            paste("Tehtävä 10: " , KaikkiSek[10], " = "),
+            ""
+            )
+
+  tiedosto_nimi <- paste0("matikkatehtavat",k,".txt")
+  tiedosto_polku <- file.path(luokka_polku, tiedosto_nimi) 
+  
+  writeLines(teksti, tiedosto_polku)
+  
+}
+}
+}
+
+# luodaan uusi yläkansio if-lauseella, jotta se ajaa itsensä vain kerran 
+uusi_paakansio <- "Koulutehtava"
+
+if (!dir.exists(uusi_paakansio)) {
+  dir.create(uusi_paakansio)
+}
+
+# siirretään for loopilla kaikki koulukansiot uuteen kansioon 
+
+for (i in 1:7) {
+  vanha_nimi <- paste0("Koulu", i)
+  uusi_nimi <- file.path(uusi_paakansio, vanha_nimi)
+  
+  # file.rename siirtää koko kansion sisältöineen päivineen
+  file.rename(from = vanha_nimi, to = uusi_nimi)
+}
 
 
 ```

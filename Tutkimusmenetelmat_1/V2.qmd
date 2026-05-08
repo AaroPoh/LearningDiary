@@ -913,7 +913,7 @@ y = a + bx + e
 
 - e = virhe (selittämättä jäävä vaihtelu), error, residuaali
 
-  -  -\> ero joka jää suoran ja datapisteen väliin, kuvassa punaiset viivat
+  - -\> ero joka jää suoran ja datapisteen väliin, kuvassa punaiset viivat
 
 <br>
 
@@ -949,7 +949,7 @@ Selitysaste eli kuinka hyvin malli/viiva sopii aineistoon
 
 <br>
 
-### Regressiosuora excelillä 
+### Regressiosuora excelillä
 
 ![](images/clipboard-1893459007.png)
 
@@ -959,7 +959,7 @@ Selitysaste eli kuinka hyvin malli/viiva sopii aineistoon
 
 <br>
 
-![<br> ](images/clipboard-1132693906.png)
+![<br>](images/clipboard-1132693906.png)
 
 sinisessä näkyy datan oikeat arvot ja mallin ennustamat arvot tietyille x:n pisteille
 
@@ -1015,7 +1015,7 @@ Toinen laskutapa regressiosuoran betakertoimelle ja vakiolle, jota en jaksanut o
 
 <br>
 
-![<br> ](images/clipboard-782276204.png)
+![<br>](images/clipboard-782276204.png)
 
 Jos enemmän muuttujia niin lisätään betakertoimia, joka muuttujalle
 
@@ -1203,7 +1203,7 @@ Durbin-watson
 
 <br>
 
-![<br> ](images/clipboard-4026268106.png)
+![<br>](images/clipboard-4026268106.png)
 
 ![](images/clipboard-1415492765.png)
 
@@ -1335,7 +1335,7 @@ Poistetaan toisen muuttujan vaikutus toisesta regressioanalyysin avulla
 
 <br>
 
-![<br> ](images/clipboard-4089838155.png)
+![<br>](images/clipboard-4089838155.png)
 
 ![](images/clipboard-2790388496.png)
 
@@ -1409,7 +1409,7 @@ F \> 1
 
 <br>
 
-![1-suuntaisen Anovan oletukset ](images/clipboard-617655837.png)
+![1-suuntaisen Anovan oletukset](images/clipboard-617655837.png)
 
 <br>
 
@@ -1439,7 +1439,7 @@ Yksisuuntainen ANOVA, jossa riippuvana muuttujana sinnikkyys ja riippumattomana 
 
 <br>
 
-![Levenen testin nollahypoteesi: Varianssit ovat samanlaiset ](images/clipboard-2058789270.png)
+![Levenen testin nollahypoteesi: Varianssit ovat samanlaiset](images/clipboard-2058789270.png)
 
 - p-arvo ei ole merkitsevä eli toisinsanottuna testillä ei löydetty riittävästi todisteita varianssien eroavaisuudesta. Eli voitaisiin käyttää myös Fisherin testiä
 
@@ -1497,11 +1497,13 @@ Kuvassa on eri tilanteita, joissa kaikissa faktorilla B on kaksi tasoa ja faktor
 
 - 1\. kuva -\> ei muutoksia B:n tasoilla 1. eikä 2. -\> ei interaktiota
 
--  2. ja 3. kuva -\> muutokset ovat B:n tasoilla 1 ja. 2. samanlaiset ja samansuuntaiset -\> ei interaktiota
+- 
 
-  - Ainoastaan, jos toisen faktorin B tasot poikkeavat toisistaan siten, että A:n tasot vaikuttavat, voidaan sanoa olevan interaktiota
+  2.  ja 3. kuva -\> muutokset ovat B:n tasoilla 1 ja. 2. samanlaiset ja samansuuntaiset -\> ei interaktiota
 
-  - kuvissa 4., 5 ja 6. on interaktiota, koska B:n tasot ovat erilaiset ja muuttuvat eri suuntiin A:n tasojen mukaan
+- Ainoastaan, jos toisen faktorin B tasot poikkeavat toisistaan siten, että A:n tasot vaikuttavat, voidaan sanoa olevan interaktiota
+
+- kuvissa 4., 5 ja 6. on interaktiota, koska B:n tasot ovat erilaiset ja muuttuvat eri suuntiin A:n tasojen mukaan
 
 - Kuva 4.
 
@@ -1647,7 +1649,7 @@ Ei parametriset ANOVAT
 
 ### Toistomittaus-ANOVA
 
-![otetaan huomioon, että jokainen koehenkilö tekee monta koetilannetta ](images/clipboard-2748348074.png)
+![otetaan huomioon, että jokainen koehenkilö tekee monta koetilannetta](images/clipboard-2748348074.png)
 
 <br>
 
@@ -1843,7 +1845,7 @@ yleensä koeasetelmat suunnitellaan niin, että pystytään käyttämään param
 
 <br>
 
-## Faktorianalyysi 
+## Faktorianalyysi
 
 ![](images/clipboard-3787216530.png)
 
@@ -1909,13 +1911,13 @@ Number of factors kohdasta voi päättää, kuinka monta faktoria analyysissä o
 
 <br>
 
-![factor statistics ](images/clipboard-3540631304.png)
+![factor statistics](images/clipboard-3540631304.png)
 
 - \% of variance kertoo faktrorin varianssistä selittämän osuuden
 
 <br>
 
-![Factor correlations ](images/clipboard-1769488559.png)
+![Factor correlations](images/clipboard-1769488559.png)
 
 - faktoreiden korrelaatiot
 
@@ -2009,7 +2011,7 @@ Tiivistys loppuun
 
   - voi olla yksi faktori -\> kaikki kysyvät samaa asiaa
 
-  -  voi olla 2, 3, 4 tai mitä tahansa
+  - voi olla 2, 3, 4 tai mitä tahansa
 
   - tutkijan tehtävä on teoreettisen mallin perusteella miettiä, mikä on oikea rakenne
 

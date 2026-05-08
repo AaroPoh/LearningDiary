@@ -5,7 +5,7 @@ project:
 book:
   title: "Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit"
   author: "Aaro Pohjalainen"
-  date: "3/5/2026"
+  date: "08.05.2026"
   chapters:
     - index.qmd
     - part: R_kurssi/R_kurssinMT.qmd 
@@ -15,6 +15,7 @@ book:
         - R_kurssi/Osa03.qmd
         - R_kurssi/Osa04.qmd
         - R_kurssi/Osa05.qmd
+        - R_kurssi/Osa06.qmd
     - part: Tutkimusmenetelmat_1/Tutkimusmenetelmat1.qmd
       chapters: 
         - Tutkimusmenetelmat_1/V1.qmd
@@ -37,7 +38,6 @@ book:
         - Tilastotiede/PoikkeavatHavainnot.qmd
         - Tilastotiede/NormaalisuudenTestaaminen.qmd
         - Tilastotiede/MatematiikanLaskusääntöjä.qmd
-    - summary.qmd
     - references.qmd
 
       

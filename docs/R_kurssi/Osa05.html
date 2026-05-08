@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Osa5 - Versionhallinta, Anova ja Regressio – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
+<title>5&nbsp; Osa5 - Versionhallinta, Anova ja Matikka-aineiston käsittelytehtävä – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,7 +87,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Tutkimusmenetelmat_1/Tutkimusmenetelmat1.html" rel="next">
+<link href="../R_kurssi/Osa06.html" rel="next">
 <link href="../R_kurssi/Osa04.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -168,7 +168,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_kurssi/R_kurssinMT.html">R-kurssin tehtävät ja muistiinpanot</a></li><li class="breadcrumb-item"><a href="../R_kurssi/Osa05.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Regressio</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_kurssi/R_kurssinMT.html">R-kurssin tehtävät ja muistiinpanot</a></li><li class="breadcrumb-item"><a href="../R_kurssi/Osa05.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Matikka-aineiston käsittelytehtävä</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -196,7 +196,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Oppimispäiväkirjan esittely</span></a>
+ <span class="menu-text">Oppimispäiväkirjan esittely (LUE TÄMÄ!)</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -235,7 +235,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_kurssi/Osa05.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Regressio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Matikka-aineiston käsittelytehtävä</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../R_kurssi/Osa06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regressio, mediaatio ja moderaatio</span></span></a>
   </div>
 </li>
       </ul>
@@ -252,19 +258,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tutkimusmenetelmat_1/V1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Hajontalukuja, jakauman kuvailua, muuttujamuunnoksia ja hypoteesintestausta</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hajontalukuja, jakauman kuvailua, muuttujamuunnoksia ja hypoteesintestausta</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tutkimusmenetelmat_1/V2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Tilastotestit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tilastotestit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tutkimusmenetelmat_1/V3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Jamovi, Rj-editor ja Rstudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Jamovi, Rj-editor ja Rstudio</span></span></a>
   </div>
 </li>
       </ul>
@@ -281,61 +287,61 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/KuvaajienPiirto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Kuvaajien piirtäminen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kuvaajien piirtäminen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot paketti</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot paketti</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/DatasetinLuominen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Datasetin luominen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Datasetin luominen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Tilastotesteja.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tilastotestejä</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tilastotestejä</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Matemaattisia_funktioita.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Matemaattisia funktioita</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Matemaattisia funktioita</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Tekstikomentoja.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tekstikomentoja</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tekstikomentoja</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Varmuuskopiointi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Varmuuskopiointi</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Varmuuskopiointi</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Indeksointi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Indeksointi / subsetting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Indeksointi / subsetting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/FunktionLuominenJaKutsuminen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funktion luominen ja kutsuminen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../R_komentoja/Sekalaista.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sekalaista</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Sekalaista</span></span></a>
   </div>
 </li>
       </ul>
@@ -352,29 +358,23 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tilastotiede/PoikkeavatHavainnot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Poikkeavat havainnot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Poikkeavat havainnot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tilastotiede/NormaalisuudenTestaaminen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Normaalisuuden testaaminen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Normaalisuuden testaaminen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Tilastotiede/MatematiikanLaskusääntöjä.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Matematiikan laskusääntöjä</span></span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -418,6 +418,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#skripti-1" id="toc-skripti-1" class="nav-link" data-scroll-target="#skripti-1"><span class="header-section-number">5.8.1</span> Skripti 1</a></li>
   <li><a href="#skripti-2" id="toc-skripti-2" class="nav-link" data-scroll-target="#skripti-2"><span class="header-section-number">5.8.2</span> Skripti 2</a></li>
+  <li><a href="#skripti-3" id="toc-skripti-3" class="nav-link" data-scroll-target="#skripti-3"><span class="header-section-number">5.8.3</span> Skripti 3</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -425,9 +426,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_kurssi/R_kurssinMT.html">R-kurssin tehtävät ja muistiinpanot</a></li><li class="breadcrumb-item"><a href="../R_kurssi/Osa05.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Regressio</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../R_kurssi/R_kurssinMT.html">R-kurssin tehtävät ja muistiinpanot</a></li><li class="breadcrumb-item"><a href="../R_kurssi/Osa05.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Matikka-aineiston käsittelytehtävä</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Regressio</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Osa5 - Versionhallinta, Anova ja Matikka-aineiston käsittelytehtävä</span></h1>
 </div>
 
 
@@ -1306,6 +1307,135 @@ window.Quarto = {
 </section>
 <section id="skripti-2" class="level3" data-number="5.8.2">
 <h3 data-number="5.8.2" class="anchored" data-anchor-id="skripti-2"><span class="header-section-number">5.8.2</span> Skripti 2</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Näytä koodi</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">################################</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA matikka-aineistolle </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="do">################################</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Mitä tehdään? </span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   ANOVA matikka-aineistolle: Selvitetään onko koulujen, luokkien tai sukupuolien oikeinvastausprosentissa merkitsevää eroa </span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     Jos on voidaan tehdä post hoc vertailuja ja katsoa minkä ryhmien välillä on eroa </span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#       Anova olettaa datan normaalijakautuneisuuden ja varianssien homogeenisyyden, joten  täytyy testata ne  </span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"MatikkaAineistonPreprosessointi.R"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Valmistelu (muunnetaan muuttujat faktoreiksi)</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>yhdistetty_data<span class="sc">$</span>Koulu <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(yhdistetty_data<span class="sc">$</span>Koulu)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>yhdistetty_data<span class="sc">$</span>Luokka <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(yhdistetty_data<span class="sc">$</span>Luokka)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>yhdistetty_data<span class="sc">$</span>Sukupuoli <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(yhdistetty_data<span class="sc">$</span>Sukupuoli)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Anova() funktio vaatii syötteekseen lm- tai glm-objektin</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Luodaan siksi ensin malli lm()-funktiolla (Linear Model)</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>malli_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Pisteet_Prt <span class="sc">~</span> Koulu <span class="sc">*</span> Luokka <span class="sc">*</span> Sukupuoli, <span class="at">data =</span> yhdistetty_data)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Aja varsinainen Anova-funktio</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Tyyppi 3 oli paras, koska ottaa huomioon muiden muuttujien vaikutuksen ja järjestyksellä ei ollut väliä </span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>tulokset_tyyppi3 <span class="ot">&lt;-</span> <span class="fu">Anova</span>(malli_lm, <span class="at">type =</span> <span class="st">"3"</span>)</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Ainoa merkitsevä päävaikutus on koulujen välillä. Muut päävaikutukset eivät ole merkitseviä ja interaktioita ei löytynyt"</span>)</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Lasketaan keskiarvot koulujen välille</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 'malli_lm' on se malli, joka luotiin lm()-funktiolla ja syötettiin Anova() funktiolle </span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co"># emmeans() laskee arvioidut marginaaliset keskiarvot eli estimated marginal meansit</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>koulujen_keskiarvot <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(malli_lm, <span class="st">"Koulu"</span>)</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Suoritetaan parittaiset vertailut (vastaa Tukeyta)</span></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>vertailut <span class="ot">&lt;-</span> <span class="fu">pairs</span>(koulujen_keskiarvot, <span class="at">adjust =</span> <span class="st">"tukey"</span>)</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>vertailut_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(vertailut)</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vertailut_df)</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a><span class="co"># OLETUSTEN TARKISTUS</span></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Testataan Anovan oletuksien täyttyminen"</span>)</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Normaalijakautuneisuus (Jäännökset)</span></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Piirretään Q-Q plot. Jos pisteet seuraavat suoraa viivaa, oletus täyttyy.</span></span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(malli_lm, <span class="at">which =</span> <span class="dv">2</span>, <span class="at">main =</span> <span class="st">"Normaalijakautuneisuuden tarkistus (Q-Q Plot)"</span>)</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Tehdään kolmogorov-smirnov testi, jotta varmistutaan aineiston noudattava normaaliusoletusta </span></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Suoritetaan testi vertaamalla jäännöksiä normaalijakaumaan ("pnorm")</span></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Lasketaan ensin jäännösten keskiarvo ja keskihajonta vertailua varten</span></span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Haetaan jäännökset mallista</span></span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">residuals</span>(malli_lm)</span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(res, <span class="st">"pnorm"</span>, <span class="at">mean =</span> <span class="fu">mean</span>(res), <span class="at">sd =</span> <span class="fu">sd</span>(res))</span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"qqplot noudattaa melko nätisti viivaa ja Kolmogorov-Smirnov testin tulos (p = 0.05231) ei ole merkitsevä: Aineisto on normaalisti jakautunutta"</span>)</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Varianssien yhtenäisyys (Homoskedastisuus)</span></span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Piirretään Residuals vs Fitted. Jos hajonta on tasainen, oletus täyttyy.</span></span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(malli_lm, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">main =</span> <span class="st">"Varianssien tasaisuuden tarkistus"</span>)</span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Tilastollinen testi variansseille (Levenen testi)</span></span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Vaatii car-paketin. Jos p &gt; 0.05, varianssit ovat riittävän tasaiset.</span></span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a>levene_tulos <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(Pisteet_Prt <span class="sc">~</span> Koulu <span class="sc">*</span> Luokka <span class="sc">*</span> Sukupuoli, <span class="at">data =</span> yhdistetty_data)</span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(levene_tulos)</span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Levenen testi oli merkitsevä, mikä viittaa varianssien heteroskedastisuuteen"</span>)</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Testataan onko suurin varianssi alle 4 kertaa suurempi kuin pienin varianssi (Speekenbrinkin peukalosääntö) </span></span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Lasketaan varianssi jokaiselle yhdistelmälle (Koulu x Luokka x Sukupuoli)</span></span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>yhdistelma_varianssit <span class="ot">&lt;-</span> yhdistetty_data <span class="sc">%&gt;%</span></span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Koulu, Sukupuoli, Luokka) <span class="sc">%&gt;%</span></span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">ryhma_var =</span> <span class="fu">var</span>(Pisteet_Prt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_ryhma =</span> <span class="fu">n</span>(), <span class="co"># Seurataan myös ryhmäkokoa</span></span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Poistetaan mahdolliset ryhmät, joissa on liian vähän havaintoja varianssin laskemiseen</span></span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_ryhma <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="co"># Lasketaan suhdeluku</span></span>
+<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a>max_v <span class="ot">&lt;-</span> <span class="fu">max</span>(yhdistelma_varianssit<span class="sc">$</span>ryhma_var, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a>min_v <span class="ot">&lt;-</span> <span class="fu">min</span>(yhdistelma_varianssit<span class="sc">$</span>ryhma_var, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a>suhde_kaikki <span class="ot">&lt;-</span> max_v <span class="sc">/</span> min_v</span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Tulostetaan yhteenveto</span></span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Kaikkien alaryhmien suurin varianssi:"</span>, <span class="fu">round</span>(max_v, <span class="dv">2</span>)))</span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Kaikkien alaryhmien pienin varianssi:"</span>, <span class="fu">round</span>(min_v, <span class="dv">2</span>)))</span>
+<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Varianssien suhde (Kaikki ryhmät):"</span>, <span class="fu">round</span>(suhde_kaikki, <span class="dv">2</span>)))</span>
+<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Katsotaan 5 pienintä varianssia</span></span>
+<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a>yhdistelma_varianssit <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(ryhma_var) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span>
+<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Katsotaan 5 suurinta varianssia</span></span>
+<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a>yhdistelma_varianssit <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(ryhma_var)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">5</span>)</span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Tämä kuvaaja näyttää yksittäiset havaintopisteet kouluittain ja havainnollistaa varianssia </span></span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(yhdistetty_data, <span class="fu">aes</span>(<span class="at">x =</span> Koulu, <span class="at">y =</span> Pisteet_Prt)) <span class="sc">+</span></span>
+<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Lisätään taustalle "jitter"-pisteet, jotka näyttävät todellisen hajonnan</span></span>
+<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitten vasta keskiarvot ja virhepalkit päälle</span></span>
+<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> mean, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Yhteenveto: Anovan oletukset täyttyivät normaalisuuden (Kolmogorov-Smirnov &gt; 0.05) osalta, mutta eivät </span></span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a><span class="st">        varianssien homogeenisuuden osalta (Levene's p&lt;0.05). Speekenbrinkin kirjassa mainitaan, että ANOVAN voi </span></span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a><span class="st">        tehdä, vaikka Levenen testi olisi merkitsevä, mikäli suurin varianssi on alle 4 kertaa suurempi kuin pienin </span></span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a><span class="st">        varianssi. Suurin varianssi on kuitenkin noin 30-kertainen pienimpään varianssiin verrattuna tarkasteltaessa </span></span>
+<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a><span class="st">        kaikkia ryhmiä (koulu, sukupuol ja luokka). Yksittäisiä ryhmiä tarkasteltaessa suurimman ja pienimmän varians-</span></span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a><span class="st">        sin ero oli sukupuoli- ja luokkaryhmissä todella vähäinen (Suhdeluku vain hiukan yli 1). Kouluryhmässä puolestaan</span></span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a><span class="st">        ero oli 20 kertainen. Tästä voi päätellä, että varianssi oli tasaista ja homogeenistä aineiston jakautuessa luokittain </span></span>
+<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a><span class="st">        tai sukupuolittain, mutta ei jaoteltaessa kouluittain.</span></span>
+<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="st">        ANOVAA on kuvailtu kuitenkin robustiksi menetelmäksi, joten tein sen, koska ryhmät ovat tasakokoisia, varianssi on heteroskedastinen </span></span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a><span class="st">        vain koululla ryhmitellen, residuals vs. fitted plotissa aineisto ei näyttänyt vinolta ja muut oletukset täyttyvät. </span></span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a><span class="st">        Kolmisuuntaisen ANOVAn (Prosenttiosuus tehtävistä oikein ~ Koulu * Sukupuoli * Luokka)</span></span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a><span class="st">        ainoa merkitsevä tulos oli, että Koulujen välisissä tuloksissa on eroa. Post hoc vertailuissa löytyi, että Koulu 2:n ja 7:n völillä oli</span></span>
+<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="st">        suurin ero (estimate: 45.89795). Koulujen 1 ja 7 sekä koulujen 3,4 ja 5 välillä ei ollut merkitsevää eroa. Muiden koulujen välillä oli </span></span>
+<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a><span class="st">        merkitseviä eroja, joita tarkastellaan hiukan tarkemmin seuraavassa skriptissä."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Anovan oletusten testaus</p>
 <ul>
 <li><p>qq-plotin piirtäminen</p>
@@ -1316,6 +1446,119 @@ window.Quarto = {
 </ul></li>
 </ul></li>
 </ul>
+<p><br> <br></p>
+</section>
+<section id="skripti-3" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="skripti-3"><span class="header-section-number">5.8.3</span> Skripti 3</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Näytä koodi</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">###################################</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Anovan visualisointi </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="do">###################################</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Skripti havainnollistaa koulujen väliset erot (Keskiarvot &amp; 95% Luottamusvälit)</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"MatikkaAineistonPreprosessointi.R"</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"Anova.R"</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Haetaan arvioidut marginaaliset keskiarvot (EMMeans)</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Käytetään samaa emmeans-kutsua Anova.R skriptistä .</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Se huomioi mallin muut muuttujat (Luokka, Sukupuoli) "kontrolloituina".</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>koulujen_emm <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(malli_lm, <span class="st">"Koulu"</span>)</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Muutetaan emmeans-objekti data frameksi ggplotia varten</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(koulujen_emm)</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Piirretään kuvaaja ggplotilla</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="co"># -----------------------------------------------------------------</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> Koulu, <span class="at">y =</span> emmean)) <span class="sc">+</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Piirretään 95% luottamusvälit (virhepalkit)</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.CL, <span class="at">ymax =</span> upper.CL), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Piirretään keskiarvot pisteinä</span></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Piirretään keskiarvot myös pystypalkkeina (valinnainen, mutta selkeä)</span></span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Asetukset ja otsikot</span></span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="sc">+</span> <span class="co"># Pisteasteikko 0-100%</span></span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Oppilaiden onnistumisprosentti eri kouluissa"</span>,</span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"(Keskiarvot ja 95% luottamusvälit)"</span>,</span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Koulu"</span>,</span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Onnistumisprosentti (%)"</span>) <span class="sc">+</span></span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Siisti teema</span></span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Kattava visualisointi (Koulu x Luokka x Sukupuoli)</span></span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Valmistelu (Luodaan uusi data frame)</span></span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Tällä kertaa haetaan emmeans kaikille kolmelle muuttujalle</span></span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a>kaikki_emm <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(malli_lm, <span class="sc">~</span> Koulu <span class="sc">*</span> Luokka <span class="sc">*</span> Sukupuoli)</span>
+<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>plot_data_kaikki <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(kaikki_emm)</span>
+<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Piirretään kuvaaja ggplotilla</span></span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------------</span></span>
+<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(plot_data_kaikki, <span class="fu">aes</span>(<span class="at">x =</span> Luokka, <span class="at">y =</span> emmean, <span class="at">color =</span> Sukupuoli, <span class="at">group =</span> Sukupuoli)) <span class="sc">+</span></span>
+<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Piirretään 95% luottamusvälit (virhepalkit)</span></span>
+<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.CL, <span class="at">ymax =</span> upper.CL), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.3</span>)) <span class="sc">+</span></span>
+<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Piirretään keskiarvot pisteinä</span></span>
+<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.3</span>)) <span class="sc">+</span></span>
+<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Jaetaan kuvaaja ruutuihin koulun perusteella</span></span>
+<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Koulu) <span class="sc">+</span></span>
+<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Asetukset ja otsikot</span></span>
+<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Onnistumisprosentti: Koulu x Luokka x Sukupuoli"</span>,</span>
+<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"(Keskiarvot ja 95% luottamusvälit)"</span>,</span>
+<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Luokka"</span>,</span>
+<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Onnistumisprosentti (%)"</span>) <span class="sc">+</span></span>
+<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Värit</span></span>
+<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"darkred"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"darkgreen"</span>)) <span class="sc">+</span></span>
+<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Siisti teema</span></span>
+<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>), <span class="co"># Koulujen nimet</span></span>
+<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="co"># Luokkien nimet vinoon</span></span>
+<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(<span class="sc">!</span><span class="fu">is.null</span>(<span class="fu">dev.list</span>())) <span class="fu">dev.off</span>()</span>
+<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a>yhdistetty_kuva <span class="ot">&lt;-</span> p1 <span class="sc">/</span> p2</span>
+<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/AnovanVisualisointi.pdf"</span>, </span>
+<span id="cb21-102"><a href="#cb21-102" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> yhdistetty_kuva, </span>
+<span id="cb21-103"><a href="#cb21-103" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">10</span>, </span>
+<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">14</span>) <span class="co"># Korkeutta kannattaa lisätä, jotta molemmat mahtuvat</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -1737,8 +1980,8 @@ Salmela, Viljami. 2026. <em>SPK-3003 <span>R</span>-Ohjelmointi 2026 [Luentosarj
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Tutkimusmenetelmat_1/Tutkimusmenetelmat1.html" class="pagination-link" aria-label="Tutkimusmenetelmät 1 - oppimispäiväkirja">
-        <span class="nav-page-text">Tutkimusmenetelmät 1 - oppimispäiväkirja</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../R_kurssi/Osa06.html" class="pagination-link" aria-label="Regressio, mediaatio ja moderaatio">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regressio, mediaatio ja moderaatio</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

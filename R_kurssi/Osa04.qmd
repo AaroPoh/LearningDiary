@@ -530,3 +530,71 @@ dev.off()
 
 
 ```
+
+<br>
+
+## Skriptien parantelu tekoälyllä 
+
+Tehtävänanto:
+
+> Käy läpi tähän asti kirjoittamasi skriptit. Kysy tekoälyltä miten niiden rakennetta tai tehokkuutta voisi parantaa, keskustele/pyydä parannuksia iteratiivisesti. Palauta yksi esimerkki, missä tekoälyn avulla sait koodin selkeästi paremmaksi. Palauta 2 tiedostoa, alkuperäinen skripti ja paranneltu skripti.
+
+Alkuperäinen skripti löytyy osan 3 tutkimusavustajatehtävästä. Tässä paranneltu skripti:
+
+```{r}
+
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+#| eval: false 
+
+# Asetukset
+paakansio <- "Koulutehtava_AI"
+n_koulua <- 7
+n_luokkaa <- 4
+n_oppilasta <- 30
+n_teht_tyyppi <- 5  # 5 helppoa ja 5 vaikeaa
+
+# Luodaan pääkansio heti
+if (!dir.exists(paakansio)) dir.create(paakansio)
+
+# Funktio tehtävien luomiseen
+luo_tehtavat <- function(luku_vali) {
+  operaattorit <- sample(c("+", "-", "*", "/"), n_teht_tyyppi, replace = TRUE)
+  luku1 <- sample(luku_vali, n_teht_tyyppi, replace = TRUE)
+  luku2 <- sample(luku_vali, n_teht_tyyppi, replace = TRUE)
+  return(paste(luku1, operaattorit, luku2))
+}
+
+# Pääsilmukat
+for (i in 1:n_koulua) {
+  for (j in 1:n_luokkaa) {
+    
+    # Luodaan polku valmiiksi (esim. Koulutehtava/Koulu1/Luokka1)
+    polku <- file.path(paakansio, paste0("Koulu", i), paste0("Luokka", j))
+    dir.create(polku, recursive = TRUE, showWarnings = FALSE)
+    
+    for (k in 1:n_oppilasta) {
+      
+      # Generoidaan tehtävät
+      helpot <- luo_tehtavat(1:10)
+      vaikeat <- luo_tehtavat(100:1000)
+      
+      # Sekoitetaan kaikki
+      kaikki_sekaisin <- sample(c(helpot, vaikeat))
+      
+      # Luodaan tekstisisältö siistimmin
+      otsikko <- c("Tehtävämoniste 1 - 4 luokkalaisille", "Ratkaise seuraavat 10 tehtävää:", "")
+      tehtava_rivit <- paste0("Tehtävä ", 1:10, ": ", kaikki_sekaisin, " = ")
+      
+      # Yhdistetään ja tallennetaan
+      sisalto <- c(otsikko, as.vector(rbind(tehtava_rivit, ""))) # Lisää tyhjän rivin joka tehtävän väliin
+      
+      tiedosto_nimi <- file.path(polku, paste0("oppilas_", k, ".txt"))
+      writeLines(sisalto, tiedosto_nimi)
+    }
+  }
+}
+
+message("Valmis! 840 tiedostoa luotu kansioon: ", paakansio)
+
+```

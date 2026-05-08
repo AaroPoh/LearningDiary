@@ -1,4 +1,4 @@
-# Oppimispäiväkirjan esittely {.unnumbered}
+# Oppimispäiväkirjan esittely (LUE TÄMÄ!)  {.unnumbered}
 
 Kirja sisältää ominaisuuksia, jotka eivät pdf versiossa toimi kunnolla, kuten lukijan ajettavissa olevia skriptejä sekä piilotettavia koodilohkoja. Siitä syystä ehdottomasti suosittelen lukemaan kirjaa verkkosivuversiona osoitteesta: <https://aaropoh.github.io/LearningDiary/>
 
@@ -8,4 +8,4 @@ Kirja koostuu pääasiassa muistiinpanoista liittyen Ohjelmoinnin perusteet R-oh
 
 <br>
 
-Kirja on jaettu neljään osaan: Tutkimusmenetelmät 1 - oppimispäiväkirja, R-kurssin tehtävät ja muistiinpanot, R-komentoja ja Tilastotiede. Tutkimusmenetelmät 1 osio sisältää aiemman tilastokurssin muistiinpanoja ja R-kurssin tehtävät ja muistiinpanot osio sisältää tekemäni luentomuistiinpanot, tehtävien skriptit, selitykset ja niiden lomassa opittuja asioita. R-komentoja ja Tilastotiede osiin olen pyrkinyt jaottelemaan kurssin mittaan opittuja R-kielen komentoja ja tilastotieteen teoriaa.
+Kirja on jaettu neljään osaan: R-kurssin tehtävät ja muistiinpanot, Tutkimusmenetelmät 1 - oppimispäiväkirja, R-komentoja sekä Tilastotiede. R-kurssin tehtävät ja muistiinpanot osio sisältää tekemäni luentomuistiinpanot, tehtävien skriptit, selitykset ja niiden lomassa opittuja asioita. Tutkimusmenetelmät 1 osio sisältää aiemman tilastokurssin muistiinpanot kokonaisuudessaan. R-komentoja ja Tilastotiede osiin olen pyrkinyt jaottelemaan kurssin mittaan opittuja R-kielen komentoja ja tilastotieteen teoriaa.

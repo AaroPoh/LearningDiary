@@ -1208,7 +1208,7 @@ figB <- ggboxplot(gritdata, x="education", y="Sinnikkyys", title= "b")
 
 <br> <br>
 
-## Korrelaatio ja muuttujien tyypin vaihtaminen rstudiolla 
+## Korrelaatio ja muuttujien tyypin vaihtaminen rstudiolla
 
 ![](images/clipboard-2929659028.png)
 

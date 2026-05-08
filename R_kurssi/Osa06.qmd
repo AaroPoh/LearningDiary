@@ -1,0 +1,96 @@
+---
+title: "Regressio, mediaatio ja moderaatio"
+format: html
+---
+
+## ComputerUse aineiston regressiotehtävä
+
+Tehtävänanto:
+
+> Tarkastele ComputerUse -aineistoa (Lintunen et al, 2024) erilaisten regressiomallien avulla.
+>
+> Tutki joko tehtävien yli laskettuja keskiarvoja, tai valikoi jotkin tehtävät ja keskiarvoista ne. Tarkastele joko kaikkia outcome-muuttujia (%-oikein, kulunut aika, mentaalinen kuormitus) tai valitse jokin/jotkin niistä.
+>
+> Tutki mallien avulla erilaisia päävaikutuksia ja interaktiota. Selvittele löytyykö moderoivia tai medioivia yhteyksiä muuttujien välillä.
+>
+> Ensin mieti muutamia kiinnostavia kysymyksiä. Sitten mieti minkälaiset mallit pitää rakentaa niiden selvittämiseksi. Vasta sitten tee mallit ja analyysit. Eli älä kokeile kaikkea sattumanvaraisesti, vaan yritä miettiä muutama teoreettisesti järkevä kysymys, ja selvittele niitä. 
+>
+> Palauta .R-skripti ja lyhyt selitys (pdf) jossa kerrot mitä teit ja mitä löysit.
+
+<br>
+
+### Skripti 
+
+```{r}
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+#| eval: false 
+
+################################################
+# Regressio, moderaatio ja mediaatio 
+################################################
+# ennustaako koulutustaso task correctia? 
+# medioiko cuse vaikutuksen tai toimiiko ikä moderoivana tekijänä? 
+
+CompUse <- read.csv("data/ComputerUse/ComputerUse.csv")
+View(CompUse)
+
+################
+# AI:n tekemää koodia + omia lisäyksiä 
+################
+
+# 1. Tarvittavien kirjastojen lataus
+# Asenna nämä ensin tarvittaessa: install.packages(c("tidyverse", "mediation", "psych"))
+library(tidyverse)
+library(mediation)
+library(psych)
+library(purrr)
+library(interactions)
+
+
+str(CompUse)
+
+# --- OSA A: MODERAATIO (Ikä moderoi koulutuksen vaikutusta suoriutumiseen) ---
+# Malli: t_c ~ ed * age
+malli_moderaatio <- lm(t_c ~ ed * age, data = CompUse)
+
+malli <- lm(t_c ~ ed, data = CompUse)
+print(summary(malli))
+
+cat("--- MODERAATIOANALYYSI (ed * age -> t_c) ---\n")
+print(summary(malli_moderaatio))
+# Tulkinta: Jos vuorovaikutustermi (ed_c:age_c) on merkitsevä (p < .05), 
+# ikä moderoi koulutustason ja suoriutumisen välistä yhteyttä.
+
+
+# --- OSA B: MEDIAATIO (cuse välittää koulutuksen vaikutusta suoriutumiseen) ---
+# Tässä tutkitaan kulkeeko koulutuksen vaikutus onnistumiseen (t_c) 
+# tietokonekyvykkyyden (cuse) kautta.
+
+# Vaihe 1: Ennustetaan mediaattoria (ed -> cuse)
+malli_a <- lm(cuse ~ ed, data = CompUse)
+
+# Vaihe 2: Ennustetaan lopputulosta (ed + cuse -> t_c)
+malli_b <- lm(t_c ~ ed + cuse, data = CompUse)
+
+# Vaihe 3: Mediaation testaus bootstrap-menetelmällä
+set.seed(123) # Toistettavuuden varmistamiseksi
+mediaatio_tulos <- mediation::mediate(malli_a, malli_b, 
+                           treat = "ed", 
+                           mediator = "cuse", 
+                           boot = TRUE, 
+                           sims = 9999)
+
+cat("\n--- MEDIAATIOANALYYSI (ed -> cuse -> t_c) ---\n")
+print(summary(mediaatio_tulos))
+
+# Tulkinta:
+# ACME (Average Causal Mediation Effect): Epäsuora vaikutus (mediaatio). Jos p < .05, mediaatio on merkitsevä.
+# ADE (Average Direct Effect): Suora vaikutus ilman mediaattoria.
+# Total Effect: Kokonaisvaikutus.
+
+# 4. Visualisointi (Valinnainen: Moderaation visualisointi)
+interact_plot(malli_moderaatio, pred = ed, modx = age)
+
+
+```

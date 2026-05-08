@@ -6,9 +6,15 @@ R-ohjelmointikielen kurssin toisen viikon muistiinpanot ja tehtävät.
 
 <br><br><br>
 
-## Apply, quantile & aggregate
+## Apply, quantile & aggregate tehtävä
 
-Ensiksi luotiin datafreimi data.frame() funktiolla
+Tehtävänanto:
+
+> Tee skripti, joka laskee alla olevasta aineistosta aggregate-funktiolla ryhmien keskiarvoiät, quantile-funktiolla WM-suorituksen 90 persentiilin, ja apply-funktiolla Age ja WM muuttujien keskiarvon
+
+<br>
+
+Ratkaisu:
 
 ```{r}
 data <- data.frame(
@@ -21,6 +27,8 @@ aggregate(Age ~ Group, data = data, FUN = mean)
 quantile(data$WM, probs = seq(0, 1, 0.9))
 apply(data[,2:3], 2, mean) 
 ```
+
+Ensiksi luotiin datafreimi data.frame() funktiolla
 
 Aggregate funktiossa ensiksi valitaan numeerinen freimi datasetistä, josta keskiarvo (tai jokin muu) lasketaan, sitten \~ merkin jälkeen \# ryhmittelevä tekijä, eli se minkä mukaan data jaotellaan. \# data = kohtaan datasetti, \# FUN = kohtaan käytettävä funktio, jota käytetään.
 
@@ -192,15 +200,15 @@ print(data3)
 
 Tehtävänanto:
 
-Tee ohjelma, jolla voit syöttää muuttujalle arvot. Eli ohjelma ensin kysyy käyttäjältä kuinka monta havaintoa talletetaan ja sitten ohjelma kysyy jokaisen havainnon arvon. Ja nämä talletetaan data.frame:en. lopuksi skripti tulostaa datan. palauta R-skripti
-
-Lisähaasteena voit tehdä niin, että ohjelma kysyy kuinka monta muuttujaa talletetaan, ja muuttujien nimet, ja sitten vuorotellen kaikille muuttujille havaintojen arvot. 
-
-Tarpeellisia funktiota voi olla: readline() , esim: readline(prompt = "Anna havaintojen määrä: ") data.frame() , uuden data-kehikon luominen paste() , muuttujien yhdistäminen, esim. paste("Anna havainnon", i, "arvo: ") for-loop, esim. 
-
-for (i in 1:num_obs) {\
-  ....\
-} names(data) , data-kehikon muuttujien nimet print()
+> Tee ohjelma, jolla voit syöttää muuttujalle arvot. Eli ohjelma ensin kysyy käyttäjältä kuinka monta havaintoa talletetaan ja sitten ohjelma kysyy jokaisen havainnon arvon. Ja nämä talletetaan data.frame:en. lopuksi skripti tulostaa datan. palauta R-skripti
+>
+> Lisähaasteena voit tehdä niin, että ohjelma kysyy kuinka monta muuttujaa talletetaan, ja muuttujien nimet, ja sitten vuorotellen kaikille muuttujille havaintojen arvot. 
+>
+> Tarpeellisia funktiota voi olla: readline() , esim: readline(prompt = "Anna havaintojen määrä: ") data.frame() , uuden data-kehikon luominen paste() , muuttujien yhdistäminen, esim. paste("Anna havainnon", i, "arvo: ") for-loop, esim. 
+>
+> for (i in 1:num_obs) {\
+>   ....\
+> } names(data) , data-kehikon muuttujien nimet print()
 
 Ratkaisu:
 

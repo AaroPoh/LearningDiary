@@ -1,5 +1,5 @@
 ---
-title: "Osa5 - Versionhallinta, Anova ja Regressio"
+title: "Osa5 - Versionhallinta, Anova ja Matikka-aineiston käsittelytehtävä"
 ---
 
 Tässä osassa kahden luennon muistiinpanot.
@@ -798,7 +798,7 @@ list.files(pattern = ".txt", fixed = TRUE)
 ```
 
 |  |  |  |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | **Merkki** | **Merkitys** | **Esimerkki** |
 | **`.`** | Mikä tahansa yksittäinen merkki (paitsi rivinvaihto). | `k.t` löytää "kat", "kot", "k-t". |
 | **`^`** | Rivin alku. | `^Moi` löytää vain rivit, jotka alkavat sanalla "Moi". |
@@ -905,7 +905,7 @@ left_join()
 Suositus myös ajaa `nrows()` datakehikoiden yhdistämisen jälkeen, jotta näkee onko rivien määrä säilynyt samana.
 
 | Ominaisuus | **cbind()** | **left_join()** |
-|:---|:---|:---|
+|:-----------------------|:-----------------------|:-----------------------|
 | **Luotettavuus** | Matala (perustuu sijaintiin) | Korkea (perustuu ID-tunnukseen) |
 | **Järjestys** | Pakko olla sama | Järjestysksellä ei väliä |
 | **Rivin monistuminen** | Ei koskaan (antaa virheen) | Voi tapahtua, jos avain ei ole uniikki |
@@ -948,7 +948,135 @@ trimws()
 #| code-summary: "Näytä koodi"
 #| eval: false 
 
+################################
+# ANOVA matikka-aineistolle 
+################################
 
+# Mitä tehdään? 
+#   ANOVA matikka-aineistolle: Selvitetään onko koulujen, luokkien tai sukupuolien oikeinvastausprosentissa merkitsevää eroa 
+#     Jos on voidaan tehdä post hoc vertailuja ja katsoa minkä ryhmien välillä on eroa 
+#       Anova olettaa datan normaalijakautuneisuuden ja varianssien homogeenisyyden, joten  täytyy testata ne  
+
+source("MatikkaAineistonPreprosessointi.R")
+library(car)
+library(emmeans)
+
+# Valmistelu (muunnetaan muuttujat faktoreiksi)
+yhdistetty_data$Koulu <- as.factor(yhdistetty_data$Koulu)
+yhdistetty_data$Luokka <- as.factor(yhdistetty_data$Luokka)
+yhdistetty_data$Sukupuoli <- as.factor(yhdistetty_data$Sukupuoli)
+
+
+# Anova() funktio vaatii syötteekseen lm- tai glm-objektin
+# Luodaan siksi ensin malli lm()-funktiolla (Linear Model)
+malli_lm <- lm(Pisteet_Prt ~ Koulu * Luokka * Sukupuoli, data = yhdistetty_data)
+
+# Aja varsinainen Anova-funktio
+# Tyyppi 3 oli paras, koska ottaa huomioon muiden muuttujien vaikutuksen ja järjestyksellä ei ollut väliä 
+tulokset_tyyppi3 <- Anova(malli_lm, type = "3")
+message("Ainoa merkitsevä päävaikutus on koulujen välillä. Muut päävaikutukset eivät ole merkitseviä ja interaktioita ei löytynyt")
+
+# Lasketaan keskiarvot koulujen välille
+# 'malli_lm' on se malli, joka luotiin lm()-funktiolla ja syötettiin Anova() funktiolle 
+# emmeans() laskee arvioidut marginaaliset keskiarvot eli estimated marginal meansit
+koulujen_keskiarvot <- emmeans(malli_lm, "Koulu")
+
+# Suoritetaan parittaiset vertailut (vastaa Tukeyta)
+vertailut <- pairs(koulujen_keskiarvot, adjust = "tukey")
+vertailut_df <- as.data.frame(vertailut)
+print(vertailut_df)
+
+
+# ------------------------------------------------------------------
+# OLETUSTEN TARKISTUS
+# ------------------------------------------------------------------
+
+
+message("Testataan Anovan oletuksien täyttyminen")
+# Normaalijakautuneisuus (Jäännökset)
+# Piirretään Q-Q plot. Jos pisteet seuraavat suoraa viivaa, oletus täyttyy.
+plot(malli_lm, which = 2, main = "Normaalijakautuneisuuden tarkistus (Q-Q Plot)")
+
+
+# Tehdään kolmogorov-smirnov testi, jotta varmistutaan aineiston noudattava normaaliusoletusta 
+# Suoritetaan testi vertaamalla jäännöksiä normaalijakaumaan ("pnorm")
+# Lasketaan ensin jäännösten keskiarvo ja keskihajonta vertailua varten
+# Haetaan jäännökset mallista
+res <- residuals(malli_lm)
+ks.test(res, "pnorm", mean = mean(res), sd = sd(res))
+
+message("qqplot noudattaa melko nätisti viivaa ja Kolmogorov-Smirnov testin tulos (p = 0.05231) ei ole merkitsevä: Aineisto on normaalisti jakautunutta")
+
+# Varianssien yhtenäisyys (Homoskedastisuus)
+# Piirretään Residuals vs Fitted. Jos hajonta on tasainen, oletus täyttyy.
+plot(malli_lm, which = 1, main = "Varianssien tasaisuuden tarkistus")
+
+# Tilastollinen testi variansseille (Levenen testi)
+# Vaatii car-paketin. Jos p > 0.05, varianssit ovat riittävän tasaiset.
+
+levene_tulos <- leveneTest(Pisteet_Prt ~ Koulu * Luokka * Sukupuoli, data = yhdistetty_data)
+print(levene_tulos)
+
+message("Levenen testi oli merkitsevä, mikä viittaa varianssien heteroskedastisuuteen")
+
+# Testataan onko suurin varianssi alle 4 kertaa suurempi kuin pienin varianssi (Speekenbrinkin peukalosääntö) 
+
+# Lasketaan varianssi jokaiselle yhdistelmälle (Koulu x Luokka x Sukupuoli)
+yhdistelma_varianssit <- yhdistetty_data %>%
+  group_by(Koulu, Sukupuoli, Luokka) %>%
+  summarise(
+    ryhma_var = var(Pisteet_Prt, na.rm = TRUE),
+    n_ryhma = n(), # Seurataan myös ryhmäkokoa
+    .groups = 'drop'
+  ) %>%
+  # Poistetaan mahdolliset ryhmät, joissa on liian vähän havaintoja varianssin laskemiseen
+  filter(n_ryhma > 1)
+
+# Lasketaan suhdeluku
+max_v <- max(yhdistelma_varianssit$ryhma_var, na.rm = TRUE)
+min_v <- min(yhdistelma_varianssit$ryhma_var, na.rm = TRUE)
+suhde_kaikki <- max_v / min_v
+
+# Tulostetaan yhteenveto
+print(paste("Kaikkien alaryhmien suurin varianssi:", round(max_v, 2)))
+print(paste("Kaikkien alaryhmien pienin varianssi:", round(min_v, 2)))
+print(paste("Varianssien suhde (Kaikki ryhmät):", round(suhde_kaikki, 2)))
+
+
+# Katsotaan 5 pienintä varianssia
+yhdistelma_varianssit %>% arrange(ryhma_var) %>% head(5)
+
+# Katsotaan 5 suurinta varianssia
+yhdistelma_varianssit %>% arrange(desc(ryhma_var)) %>% head(5)
+
+# Tämä kuvaaja näyttää yksittäiset havaintopisteet kouluittain ja havainnollistaa varianssia 
+ggplot(yhdistetty_data, aes(x = Koulu, y = Pisteet_Prt)) +
+  # Lisätään taustalle "jitter"-pisteet, jotka näyttävät todellisen hajonnan
+  geom_jitter(alpha = 0.1, width = 0.2, color = "blue") + 
+  # Sitten vasta keskiarvot ja virhepalkit päälle
+  geom_point(stat = "summary", fun = mean, size = 4, color = "red")
+
+
+message("Yhteenveto: Anovan oletukset täyttyivät normaalisuuden (Kolmogorov-Smirnov > 0.05) osalta, mutta eivät 
+        varianssien homogeenisuuden osalta (Levene's p<0.05). Speekenbrinkin kirjassa mainitaan, että ANOVAN voi 
+        tehdä, vaikka Levenen testi olisi merkitsevä, mikäli suurin varianssi on alle 4 kertaa suurempi kuin pienin 
+        varianssi. Suurin varianssi on kuitenkin noin 30-kertainen pienimpään varianssiin verrattuna tarkasteltaessa 
+        kaikkia ryhmiä (koulu, sukupuol ja luokka). Yksittäisiä ryhmiä tarkasteltaessa suurimman ja pienimmän varians-
+        sin ero oli sukupuoli- ja luokkaryhmissä todella vähäinen (Suhdeluku vain hiukan yli 1). Kouluryhmässä puolestaan
+        ero oli 20 kertainen. Tästä voi päätellä, että varianssi oli tasaista ja homogeenistä aineiston jakautuessa luokittain 
+        tai sukupuolittain, mutta ei jaoteltaessa kouluittain.
+        
+        ANOVAA on kuvailtu kuitenkin robustiksi menetelmäksi, joten tein sen, koska ryhmät ovat tasakokoisia, varianssi on heteroskedastinen 
+        vain koululla ryhmitellen, residuals vs. fitted plotissa aineisto ei näyttänyt vinolta ja muut oletukset täyttyvät. 
+        Kolmisuuntaisen ANOVAn (Prosenttiosuus tehtävistä oikein ~ Koulu * Sukupuoli * Luokka)
+        ainoa merkitsevä tulos oli, että Koulujen välisissä tuloksissa on eroa. Post hoc vertailuissa löytyi, että Koulu 2:n ja 7:n völillä oli
+        suurin ero (estimate: 45.89795). Koulujen 1 ja 7 sekä koulujen 3,4 ja 5 välillä ei ollut merkitsevää eroa. Muiden koulujen välillä oli 
+        merkitseviä eroja, joita tarkastellaan hiukan tarkemmin seuraavassa skriptissä.")
+        
+        
+        
+        
+        
 
 ```
 
@@ -959,3 +1087,121 @@ Anovan oletusten testaus
   - plot(malli, which = 2)
 
     - which = 2 tarkoittaa nimenomaan Q-Q-plotia
+
+<br> <br>
+
+### Skripti 3 
+
+```{r}
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+#| eval: false 
+
+
+###################################
+# Anovan visualisointi 
+###################################
+
+
+# Skripti havainnollistaa koulujen väliset erot (Keskiarvot & 95% Luottamusvälit)
+
+
+
+library(ggplot2)
+library(dplyr)
+library(emmeans)
+library(patchwork)
+source("MatikkaAineistonPreprosessointi.R")
+source("Anova.R")
+
+
+
+# ------------------------------------------------------------------
+# Haetaan arvioidut marginaaliset keskiarvot (EMMeans)
+# ------------------------------------------------------------------
+# Käytetään samaa emmeans-kutsua Anova.R skriptistä .
+# Se huomioi mallin muut muuttujat (Luokka, Sukupuoli) "kontrolloituina".
+koulujen_emm <- emmeans(malli_lm, "Koulu")
+
+# Muutetaan emmeans-objekti data frameksi ggplotia varten
+plot_data <- as.data.frame(koulujen_emm)
+
+# ------------------------------------------------------------------
+# Piirretään kuvaaja ggplotilla
+# -----------------------------------------------------------------
+
+p1 <- ggplot(plot_data, aes(x = Koulu, y = emmean)) +
+  
+  # Piirretään 95% luottamusvälit (virhepalkit)
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.2, color = "black") +
+  
+  # Piirretään keskiarvot pisteinä
+  geom_point(size = 4, color = "darkblue") +
+  
+  # Piirretään keskiarvot myös pystypalkkeina (valinnainen, mutta selkeä)
+  geom_bar(stat = "identity", fill = "lightblue", alpha = 0.5) +
+  
+  # Asetukset ja otsikot
+  scale_y_continuous(limits = c(0, 100)) + # Pisteasteikko 0-100%
+  labs(title = "Oppilaiden onnistumisprosentti eri kouluissa",
+       subtitle = "(Keskiarvot ja 95% luottamusvälit)",
+       x = "Koulu",
+       y = "Onnistumisprosentti (%)") +
+  
+  
+  # Siisti teema
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5))
+
+# ------------------------------------------------------------------
+# Kattava visualisointi (Koulu x Luokka x Sukupuoli)
+# ------------------------------------------------------------------
+
+# Valmistelu (Luodaan uusi data frame)
+# Tällä kertaa haetaan emmeans kaikille kolmelle muuttujalle
+kaikki_emm <- emmeans(malli_lm, ~ Koulu * Luokka * Sukupuoli)
+plot_data_kaikki <- as.data.frame(kaikki_emm)
+
+# ------------------------------------------------------------------
+# Piirretään kuvaaja ggplotilla
+# ------------------------------------------------------------------
+p2 <- ggplot(plot_data_kaikki, aes(x = Luokka, y = emmean, color = Sukupuoli, group = Sukupuoli)) +
+  
+  # Piirretään 95% luottamusvälit (virhepalkit)
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.2, position = position_dodge(0.3)) +
+  
+  # Piirretään keskiarvot pisteinä
+  geom_point(size = 2, position = position_dodge(0.3)) +
+  
+  # Jaetaan kuvaaja ruutuihin koulun perusteella
+  facet_wrap(~ Koulu) +
+  
+  # Asetukset ja otsikot
+  scale_y_continuous(limits = c(0, 100)) +
+  labs(title = "Onnistumisprosentti: Koulu x Luokka x Sukupuoli",
+       subtitle = "(Keskiarvot ja 95% luottamusvälit)",
+       x = "Luokka",
+       y = "Onnistumisprosentti (%)") +
+  
+  # Värit
+  scale_color_manual(values = c("1" = "darkred", "2" = "darkgreen")) +
+  
+  # Siisti teema
+  theme_light() +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5),
+        strip.text = element_text(face = "bold"), # Koulujen nimet
+        axis.text.x = element_text(angle = 45, hjust = 1)) # Luokkien nimet vinoon
+
+while(!is.null(dev.list())) dev.off()
+yhdistetty_kuva <- p1 / p2
+
+
+ggsave("figs/AnovanVisualisointi.pdf", 
+       plot = yhdistetty_kuva, 
+       width = 10, 
+       height = 14) # Korkeutta kannattaa lisätä, jotta molemmat mahtuvat
+
+
+```

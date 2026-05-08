@@ -16,21 +16,123 @@ View(PerceptualLearnData)
 
 ```
 
--   readr paketista saa csv tiedostojen lukemisen komennot
+- readr paketista saa csv tiedostojen lukemisen komennot
 
--   read_csv()
+- read_csv()
 
-    -   hakee tiedoston
+  - hakee tiedoston
 
-    -   tiedoston täytyy olla projektikansiossa ja mikäli se sijaitsee projektikansion alakansiossa täytyy kirjoittaa koko polku projektikansiosta eteenpäin
+  - tiedoston täytyy olla projektikansiossa ja mikäli se sijaitsee projektikansion alakansiossa täytyy kirjoittaa koko polku projektikansiosta eteenpäin
 
-        -   Esim. Projektikansiossa alakansio data ja sen alakansio PerceptualLearn, jossa tiedosto sijaitsee
+    - Esim. Projektikansiossa alakansio data ja sen alakansio PerceptualLearn, jossa tiedosto sijaitsee
 
-        -   kirjoitetaan "data/PerceptualLearn/PerceptualLearnData.csv"
+    - kirjoitetaan "data/PerceptualLearn/PerceptualLearnData.csv"
 
--   View()
+- View()
 
-    -   näyttää haetun ja muuttujaan talletetun tiedoston
+  - näyttää haetun ja muuttujaan talletetun tiedoston
+
+<br>
+
+### Datasetin avaaminen ja kuvailu 
+@thulin2024modern
+
+```{r}
+#| code-fold: true
+#| code-summary: "Näytä koodi"
+#| eval: false 
+
+library(palmerpenguins)
+library(ggplot2)
+
+#näytä datasetti
+View(msleep)
+
+#Huomaat, että joillakin soluilla on arvo NA oikean arvon sijaan. 
+#NA on lyhenne sanoista Not Available, ja se on paikkamerkki, 
+#jota R käyttää puuttuvien tietojen osoittamiseen. 
+
+
+
+head(msleep)
+tail(msleep)
+dim(msleep)
+str(msleep)
+names(msleep)
+
+
+
+#dim palauttaa tietokehyksen rivien ja sarakkeiden lukumäärän
+
+#str palauttaa tiedot 11 muuttujasta. 
+  #Erityisen tärkeitä ovat muuttujien tietotyypit (tässä tapauksessa chr ja num), 
+  #jotka kertovat meille, millaista dataa käsittelemme 
+  #(numeerinen, kategorinen, päivämäärät tai jotain muuta).
+      # näyttää myös datasetin rakenteen kohdassa tibble [83 x 11]
+      # tarkoittaa 83 riviä ja 11 saraketta 
+      # [rivit, sarakkeet] indeksissä aina viitataan ensin riviin ja sitten sarakkeisiin
+
+# head() näyttää datasetin 6 ekaa riviä ja tail() 6 vikaa
+#         tibble kohta kertoo näytettävän datasetin rakenteen esim. 6 x 11 
+#         tarkoittaa 6 riviä ja 11 saraketta  
+
+#names() näyttää sarakkeiden nimet, tarkalleen palauttaa vektorin, joka sisältää 
+#         sarakkeiden nimet 
+
+
+data(msleep)
+
+# data() komennolla saa lisättyä setin Enviroment näkymään 
+
+summary(msleep)
+
+# summary palauttaa minimin, maksimin, 1. ja kolmannen kvartiilin, mediaanin ja keskiarvon
+
+msleep$sleep_total
+
+# dollarimerkillä $ saadaan viitattua haluttuun datasetin vektoriin 
+
+
+
+mean(msleep$sleep_total)      # Mean
+median(msleep$sleep_total)    # Median
+max(msleep$sleep_total)       # Max
+min(msleep$sleep_total)       # Min
+sd(msleep$sleep_total)        # Standard deviation
+var(msleep$sleep_total)       # Variance
+quantile(msleep$sleep_total)  # Various quantiles
+
+# keskiarvo, mediaani, maksimi, minimi, keskihajonta, vaianssi ja kvantiilit
+
+sum(msleep$sleep_total > 8)   # Frequency (count)
+mean(msleep$sleep_total > 8)  # Relative frequency (proportion)
+
+# sum(data$vektori > 8) komennolla katsottiin moniko eläin nukkuu yli 8 tuntia päivässä
+# mean(data$vektori > 8) komennolla nähdään yli 8 h nukkuvien eläinten suhteellinen frekvenssi 
+
+
+mean(msleep$sleep_rem)
+mean(msleep$sleep_rem, na.rm = TRUE)
+
+# na.rm = TRUE komennolla saadaan puuttuvat arvot jätettyä huomiotta laskussa 
+#     ilman komentoa keskiarvoa ei pystytä laskemaan, koska puuttuvat arvot ovat sekoittamassa 
+#         Huom! na.rm ei poista arvoja, vaan vain jättää ne huomiomatta kyseisessä funktiossa
+
+
+
+
+# Kategorinen data, kutusutaan usein faktoreiksi (factors) 
+
+table(msleep$vore)
+
+# table(data$vektori) näyttää tietyn vektorin / sarakkeen frekvenssit 
+
+
+proportions(table(msleep$vore))
+
+# näyttää suhteelliset osuudet, eli suhteelliset frekvenssit 
+
+```
 
 <br><br>
 
@@ -43,21 +145,21 @@ aggregate() funktiolla
 aggregate(Confidence ~ Session, data = PerceptualLearnData, FUN = mean)
 ```
 
--   Voidaan laskea annettusta datasetistä asioita halutulla funktioilla ryhmitellen
+- Voidaan laskea annettusta datasetistä asioita halutulla funktioilla ryhmitellen
 
--   data = \<- datasetti, josta tiedot haetaan
+- data = \<- datasetti, josta tiedot haetaan
 
-    -   datasetistä PerceptualLearnData löytyy sarakkeet Confidence ja Session
+  - datasetistä PerceptualLearnData löytyy sarakkeet Confidence ja Session
 
--   "Confidence" paikalle sarake, jossa on haluttu tieto
+- "Confidence" paikalle sarake, jossa on haluttu tieto
 
--   "Session" paikalle ryhmittelevä muuttuja eli sarake, jonka mukaan tiedot jaetaan ryhmiin
+- "Session" paikalle ryhmittelevä muuttuja eli sarake, jonka mukaan tiedot jaetaan ryhmiin
 
-    -   Esimerkissiä oli 3 eri sessiota, jossa mitattiin itseluottamusta
+  - Esimerkissiä oli 3 eri sessiota, jossa mitattiin itseluottamusta
 
-    -   Tuloksena tulee siis 3:n eri session itseluottamusten keskiarvot eriteltynä
+  - Tuloksena tulee siis 3:n eri session itseluottamusten keskiarvot eriteltynä
 
--   FUN = \<- funktio, jotka käytetään. Esimerkissä mean() eli keskiarvo
+- FUN = \<- funktio, jotka käytetään. Esimerkissä mean() eli keskiarvo
 
 <br>
 
@@ -74,11 +176,11 @@ aggregate(arvo ~ ryhmä, data = data, FUN = mean)
 
 ```
 
--   Tässä havainnollistuksen vuoksi laskettiin aggregate funktiolla keskiarvot ryhmille 1 ja 2.
+- Tässä havainnollistuksen vuoksi laskettiin aggregate funktiolla keskiarvot ryhmille 1 ja 2.
 
--   R1 keskiarvoksi määritettiin rnorm() funktiolla 1 ja R2 funktiolle 3
+- R1 keskiarvoksi määritettiin rnorm() funktiolla 1 ja R2 funktiolle 3
 
--   aggregate() funktiolla saatiin laskettua ryhmitellyt keskiarvot
+- aggregate() funktiolla saatiin laskettua ryhmitellyt keskiarvot
 
 <br><br>
 
@@ -89,9 +191,9 @@ summary() funktiolla
 summary(PerceptualLearnData$Confidence)
 ```
 
--   antaa datasetin minimin, 1. kvartiilin mediaanin, keskiarvon, 3. kvartiilin ja maksimin sarakkeittain
+- antaa datasetin minimin, 1. kvartiilin mediaanin, keskiarvon, 3. kvartiilin ja maksimin sarakkeittain
 
--   voi valita myös vain yhden sarakkeen viittaamalla \$ merkillä
+- voi valita myös vain yhden sarakkeen viittaamalla \$ merkillä
 
 <br><br>
 
@@ -106,7 +208,7 @@ data <- data.frame(arvo = c(R1,R2), ryhmä = rep(c(1,2), each=5))
 names(data)
 ```
 
--   palauttaa datasetin sarakkeiden nimet
+- palauttaa datasetin sarakkeiden nimet
 
 <br><br>
 
@@ -117,15 +219,15 @@ names(data)
 rnorm(n, mean, sd) 
 ```
 
--   luo normaalijakaumaa noudattavan vektorin, jossa
+- luo normaalijakaumaa noudattavan vektorin, jossa
 
-    -   n —\> lukumäärä
+  - n —\> lukumäärä
 
-    -   mean —\> keskiarvo (oletuksena 0)
+  - mean —\> keskiarvo (oletuksena 0)
 
-    -   sd —\> keskihajonta (oletuksena 1)
+  - sd —\> keskihajonta (oletuksena 1)
 
--   Esim. alla luodaan normaalijakaumaa noudattava 10 alkion vektori, jonka keskiarvo on 6 ja keskihajonta 2.
+- Esim. alla luodaan normaalijakaumaa noudattava 10 alkion vektori, jonka keskiarvo on 6 ja keskihajonta 2.
 
 ```{r}
 rnorm(10, 6, 2) 
@@ -163,11 +265,11 @@ set.seed(123)
 
 ```
 
--   Määrittää mitä satunnaislukuja käytetään
+- Määrittää mitä satunnaislukuja käytetään
 
--   laitetaan (yleensä) vain kerran skriptin alkuun
+- laitetaan (yleensä) vain kerran skriptin alkuun
 
--   Hyöty on se, että määrittää joka kerta samat satunnaisluvut eli jos ajaa saman skriptin kaksi kertaa molemmilla kerroilla laskelmiin tulee samat luvut ja kuvaajat näyttävät samanlaisilta
+- Hyöty on se, että määrittää joka kerta samat satunnaisluvut eli jos ajaa saman skriptin kaksi kertaa molemmilla kerroilla laskelmiin tulee samat luvut ja kuvaajat näyttävät samanlaisilta
 
 ### Havainnollistava esimerkki
 
@@ -180,9 +282,9 @@ Jatkopiste <- rnorm(1)
 data.frame("Alku" = Alkupiste, "Jatkopiste" = Jatkopiste)
 ```
 
--   Ensimmäinen luotu satunnaisluku eli Alkupiste on set.seed(123) listan ensimmäinen luku
+- Ensimmäinen luotu satunnaisluku eli Alkupiste on set.seed(123) listan ensimmäinen luku
 
--   Toinen luotu satunnaisluku eli Jatkopiste on set.seed(123) listan toinen luku
+- Toinen luotu satunnaisluku eli Jatkopiste on set.seed(123) listan toinen luku
 
 ```{r}
 set.seed(123)
@@ -194,11 +296,11 @@ uusialkupiste <- rnorm(1)
 data.frame("Alku" = alkupiste, "UusiAlku" = uusialkupiste)
 ```
 
--   Ensimmäinen satunnaisluku set.seed(123) listan ensimmäinen luku
+- Ensimmäinen satunnaisluku set.seed(123) listan ensimmäinen luku
 
--   Koska set.seed(123) laitettiin skriptiin uudelleen se nollaa listan ja sitä lähdetään käymään uudelleen läpi
+- Koska set.seed(123) laitettiin skriptiin uudelleen se nollaa listan ja sitä lähdetään käymään uudelleen läpi
 
-    -   Siksi toinen luotu satunnaisluku eli UusiAlku on sama
+  - Siksi toinen luotu satunnaisluku eli UusiAlku on sama
 
 #### Ero rnorm() funktiossa set.seed() kanssa ja ilman
 
@@ -240,19 +342,19 @@ data
 
 data.frame(sarake1, sarake2, sarake3, ...)
 
--   Eli sulkuihin erotellaan pilkuilla eri sarakkeisiin menevä data
+- Eli sulkuihin erotellaan pilkuilla eri sarakkeisiin menevä data
 
--   sarakkeet pystyy nimeämään laittamalla arvojen eteen nimen ja = (esim. arvo=R1)
+- sarakkeet pystyy nimeämään laittamalla arvojen eteen nimen ja = (esim. arvo=R1)
 
--   esimerkissä käytetty c() eli combine funktiota, joka yhdistää kahdesta vektorista yhden
+- esimerkissä käytetty c() eli combine funktiota, joka yhdistää kahdesta vektorista yhden
 
-    -   c() funktiolla saa siis yhdistettyä useamman vektorin yhden sarakkeen alle
+  - c() funktiolla saa siis yhdistettyä useamman vektorin yhden sarakkeen alle
 
--   row.names= argumentilla saa rivit nimettyä
+- row.names= argumentilla saa rivit nimettyä
 
-    -   täytyy viitata vektoriin esim. ylemmässä keskiarvo ja keskihajonta tehtävässä luotiin kirjainvektori RivNimet, johon sitten viitattiin
+  - täytyy viitata vektoriin esim. ylemmässä keskiarvo ja keskihajonta tehtävässä luotiin kirjainvektori RivNimet, johon sitten viitattiin
 
-        -   RivNimet \<- c("Keskiarvo" , "Keskihajonta")
+    - RivNimet \<- c("Keskiarvo" , "Keskihajonta")
 
 ## Satunnaistaminen tai satunnaisnumero sample() funktiolla
 
@@ -262,25 +364,25 @@ sample(x, size, replace = FALSE, prob = NULL)
 
 ```
 
--   x -\> datajoukko, josta numerot vedetään
+- x -\> datajoukko, josta numerot vedetään
 
-    -   esim. 1:10, generoi numeroita väliltä 1-10
+  - esim. 1:10, generoi numeroita väliltä 1-10
 
-    -   voi myös viitata muuttujaan
+  - voi myös viitata muuttujaan
 
--   size -\> montako numeroa otetaan
+- size -\> montako numeroa otetaan
 
-    -   esim 1 palauttaa yhden lukuarvon ja 2 2 lukuarvoa jne
+  - esim 1 palauttaa yhden lukuarvon ja 2 2 lukuarvoa jne
 
--   replace = FALSE -\> palautetaanko jo nostetut arvot koriin, jolloin niitä voidaan käyttää uudelleen vai käytetäänko jokaista arvoa maksimissaan kerran
+- replace = FALSE -\> palautetaanko jo nostetut arvot koriin, jolloin niitä voidaan käyttää uudelleen vai käytetäänko jokaista arvoa maksimissaan kerran
 
-    -   oletuksena FALSE eli arvoja käytetään vain kerran
+  - oletuksena FALSE eli arvoja käytetään vain kerran
 
-        -   esim. permutaatiotestissä joka arvoa käyteetään vain kerran
+    - esim. permutaatiotestissä joka arvoa käyteetään vain kerran
 
-    -   jos vaihtaa TRUE niin arvoja voidaan käyttää useampaan otteeseen
+  - jos vaihtaa TRUE niin arvoja voidaan käyttää useampaan otteeseen
 
-        -   bootstrap menetelmässä arvoja puolestaan käytetään useampaan otteeseseen
+    - bootstrap menetelmässä arvoja puolestaan käytetään useampaan otteeseseen
 
 ## Uuden kansion luominen dir.create()
 
@@ -289,26 +391,26 @@ sample(x, size, replace = FALSE, prob = NULL)
 dir.create("uusi_kansio") 
 ```
 
--   Luo uuden kansion työskentelykansioon
+- Luo uuden kansion työskentelykansioon
 
-    -   työskentelykansion voi aina tarkistaa getwd() funktiolla
+  - työskentelykansion voi aina tarkistaa getwd() funktiolla
 
 ```{r}
 #| eval: false
 dir.create("kurssi/viikko1", recursive = TRUE)
 ```
 
--   recursive = TRUE -\> mahdollistaa yhdellä kerralla kansion ja alikansion luomisen
+- recursive = TRUE -\> mahdollistaa yhdellä kerralla kansion ja alikansion luomisen
 
-    -   esimerkissä luo kansion kurssi ja siihen alikansion viikko1 kansion
+  - esimerkissä luo kansion kurssi ja siihen alikansion viikko1 kansion
 
 Hyvä muistaa
 
--   Ei ylikirjoita olemassaolevien kansioiden päälle, vaan antaa varoituksen
+- Ei ylikirjoita olemassaolevien kansioiden päälle, vaan antaa varoituksen
 
--   varmista, että nojaviivat ovat eteenpäin, jos ei toimi
+- varmista, että nojaviivat ovat eteenpäin, jos ei toimi
 
-    -   vain yksi kenoviiva kansioiden välille
+  - vain yksi kenoviiva kansioiden välille
 
 ## Kansion luominen if-lauseen kanssa
 
@@ -323,21 +425,21 @@ if (!dir.exists(uusi_paakansio)) {
 
 ```
 
--   Kansio voi olla järkevää luoda if lausekkeen kanssa koska
+- Kansio voi olla järkevää luoda if lausekkeen kanssa koska
 
-    -   se yrittää luoda kansion, vain jos sen nimistä kansiota ei vielä ole olemassa
+  - se yrittää luoda kansion, vain jos sen nimistä kansiota ei vielä ole olemassa
 
-    -   Eli sen jälkeen, kun kansio on jo luotu, niin seuraavilla ajokerroilla ei yritetä turhaan luoda sitä uudestaan
+  - Eli sen jälkeen, kun kansio on jo luotu, niin seuraavilla ajokerroilla ei yritetä turhaan luoda sitä uudestaan
 
-        -   olemassa olevalle kansiolle ei käy mitään uusilla ajokerroilla, vaikka sitä pyrittäisiin luomaan uudestaan, mutta se antaa virheilmoituksen/varoituksen konsoliin, joka tekee siitä sekavamman
+    - olemassa olevalle kansiolle ei käy mitään uusilla ajokerroilla, vaikka sitä pyrittäisiin luomaan uudestaan, mutta se antaa virheilmoituksen/varoituksen konsoliin, joka tekee siitä sekavamman
 
--   ! \<- merkki tarkoittaa loogista ei operaattoria
+- ! \<- merkki tarkoittaa loogista ei operaattoria
 
-    -   eli if lauseen ehto menee: jos uusi_paakansio nimistä kansiota ei ole olemassa niin tee seuraava asia
+  - eli if lauseen ehto menee: jos uusi_paakansio nimistä kansiota ei ole olemassa niin tee seuraava asia
 
-        -   luo uusi kansio dir.create() funktiolla
+    - luo uusi kansio dir.create() funktiolla
 
-    -   ilman ! merkkiä ehto menisi siis: jos uusi_paakansio on olemassa niin tee seuraava asia
+  - ilman ! merkkiä ehto menisi siis: jos uusi_paakansio on olemassa niin tee seuraava asia
 
 ## Tiedosto ja kansiopolun muuttaminen file.rename()
 
@@ -348,11 +450,11 @@ file.rename(from, to)
 
 ```
 
--   file.rename() funktiossa
+- file.rename() funktiossa
 
-    -   from kohtaan alkuperäinen siirrettävän kansion nimi
+  - from kohtaan alkuperäinen siirrettävän kansion nimi
 
-    -   to kohtaan uuden yläkansion nimi / siirrettävän kansion nimi
+  - to kohtaan uuden yläkansion nimi / siirrettävän kansion nimi
 
 ```{r}
 #| eval: false 
@@ -364,13 +466,13 @@ file.rename("kurssi","Salatut_elamat/kurssi")
 
 Esim.
 
--   Luotiin kansio kurssi ja sen alakansio viikko1
+- Luotiin kansio kurssi ja sen alakansio viikko1
 
--   Lisäksi luotiin kansio Salatut_elamat
+- Lisäksi luotiin kansio Salatut_elamat
 
--   file.rename() funktiolla saadaan siirrettyä kurssi kansio Salatut_elamat kansion alle
+- file.rename() funktiolla saadaan siirrettyä kurssi kansio Salatut_elamat kansion alle
 
-    -   koko "kurssi" kansio siirtyy eli sen alla oleva viikko1 siirtyy samalla
+  - koko "kurssi" kansio siirtyy eli sen alla oleva viikko1 siirtyy samalla
 
 ## Tiedostopolun kirjoittaminen file.path() funktiolla
 
@@ -391,17 +493,17 @@ Kun kirjoittaa file.path() funktioon esimerkin mukaisesti R rakentaa sen näin:
 
 4.  Lisää erottimen / jne.
 
--   Eli file.path() funktiolla saa tiedostopolun helposti talteen ilman virheitä ja kenoviivojen kanssa sähläämistä
+- Eli file.path() funktiolla saa tiedostopolun helposti talteen ilman virheitä ja kenoviivojen kanssa sähläämistä
 
 ## Tiedostojen hakeminen ylä- tai alakansioista
 
 ..
 
--   kaksi pistettä tiedostonimessä tarkoittaa, että siirrytään yksi kansiotaso ylöspäin
+- kaksi pistettä tiedostonimessä tarkoittaa, että siirrytään yksi kansiotaso ylöspäin
 
 ```{r}
 #| eval: false 
 data <- read_csv("../data/PerceptualLearnData.csv")
 ```
 
--   esimerkissä skripti on pääkansion alakansiossa ja haluttiin siirtyä yläkansioon ja sieltä toiseen alakansioon nimeltä data, jossa PerceptualLearnData.csv sijaitsee.
+- esimerkissä skripti on pääkansion alakansiossa ja haluttiin siirtyä yläkansioon ja sieltä toiseen alakansioon nimeltä data, jossa PerceptualLearnData.csv sijaitsee.
