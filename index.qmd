@@ -1,4 +1,4 @@
-# Oppimispäiväkirjan esittely (LUE TÄMÄ!)  {.unnumbered}
+# Oppimispäiväkirjan esittely (LUE TÄMÄ!) {.unnumbered}
 
 Kirja sisältää ominaisuuksia, jotka eivät pdf versiossa toimi kunnolla, kuten lukijan ajettavissa olevia skriptejä sekä piilotettavia koodilohkoja. Siitä syystä ehdottomasti suosittelen lukemaan kirjaa verkkosivuversiona osoitteesta: <https://aaropoh.github.io/LearningDiary/>
 

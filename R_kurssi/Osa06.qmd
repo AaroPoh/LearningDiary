@@ -19,7 +19,7 @@ Tehtävänanto:
 
 <br>
 
-### Skripti 
+### Skripti
 
 ```{r}
 #| code-fold: true

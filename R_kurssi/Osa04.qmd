@@ -533,7 +533,7 @@ dev.off()
 
 <br>
 
-## Skriptien parantelu tekoälyllä 
+## Skriptien parantelu tekoälyllä
 
 Tehtävänanto:
 

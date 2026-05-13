@@ -798,7 +798,7 @@ list.files(pattern = ".txt", fixed = TRUE)
 ```
 
 |  |  |  |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | **Merkki** | **Merkitys** | **Esimerkki** |
 | **`.`** | Mikä tahansa yksittäinen merkki (paitsi rivinvaihto). | `k.t` löytää "kat", "kot", "k-t". |
 | **`^`** | Rivin alku. | `^Moi` löytää vain rivit, jotka alkavat sanalla "Moi". |
@@ -905,7 +905,7 @@ left_join()
 Suositus myös ajaa `nrows()` datakehikoiden yhdistämisen jälkeen, jotta näkee onko rivien määrä säilynyt samana.
 
 | Ominaisuus | **cbind()** | **left_join()** |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | **Luotettavuus** | Matala (perustuu sijaintiin) | Korkea (perustuu ID-tunnukseen) |
 | **Järjestys** | Pakko olla sama | Järjestysksellä ei väliä |
 | **Rivin monistuminen** | Ei koskaan (antaa virheen) | Voi tapahtua, jos avain ei ole uniikki |
@@ -1090,7 +1090,7 @@ Anovan oletusten testaus
 
 <br> <br>
 
-### Skripti 3 
+### Skripti 3
 
 ```{r}
 #| code-fold: true

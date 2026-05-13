@@ -237,7 +237,7 @@ t.test(group1, group2)
 
 <br>
 
-## Tutkimusavustajatehtävä 
+## Tutkimusavustajatehtävä
 
 Tehtävänanto
 
