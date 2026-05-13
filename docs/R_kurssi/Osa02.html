@@ -424,19 +424,19 @@ div.csl-indent {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Age <span class="sc">~</span> Group, <span class="at">data =</span> data, <span class="at">FUN =</span> mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Group   Age
-1 GroupA 39.63
-2 GroupB 41.74
-3 GroupC 41.68</code></pre>
+1 GroupA 40.95
+2 GroupB 42.53
+3 GroupC 40.10</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(data<span class="sc">$</span>WM, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 0% 90% 
-  1  89 </code></pre>
+  1  88 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(data[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">2</span>, mean) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Age       WM 
-41.01667 49.95000 </code></pre>
+41.19333 48.62000 </code></pre>
 </div>
 </div>
 <p>Ensiksi luotiin datafreimi data.frame() funktiolla</p>

@@ -2403,9 +2403,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(arvo <span class="sc">~</span> ryhmä, <span class="at">data =</span> data, <span class="at">FUN =</span> mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  ryhmä      arvo
-1     1 0.9995135
-2     2 2.9837852</code></pre>
+<pre><code>  ryhmä     arvo
+1     1 0.990131
+2     2 3.009906</code></pre>
 </div>
 </div>
 <ul>
@@ -2457,8 +2457,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 6.209169 9.565994 3.293572 7.033728 7.990266 7.652167 7.179407 7.781660
- [9] 9.716053 2.655526</code></pre>
+<pre><code> [1]  6.267257  2.086670  3.904348 11.642896  8.301201  4.890931  6.146737
+ [8]  5.873772  8.740514  5.838183</code></pre>
 </div>
 </div>
 <p>Tarkistetaan, että keskiarvo ja keskihajonta pitävät paikkansa.</p>
@@ -2478,8 +2478,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">N10 =</span> <span class="fu">c</span>(m1,sd1), <span class="at">N100 =</span> <span class="fu">c</span>(m2,sd2), <span class="at">N1000 =</span> <span class="fu">c</span>(m3, sd3), <span class="at">row.names =</span> RivNimet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  N10     N100    N1000
-Keskiarvo    6.674839 5.905069 5.902530
-Keskihajonta 1.852244 1.932488 1.981483</code></pre>
+Keskiarvo    6.871318 6.174028 6.011122
+Keskihajonta 1.589542 2.010571 2.039906</code></pre>
 </div>
 </div>
 <p>Isommalla n:llä näyttäisi osuvan vielä tarkemmin kohdalleen.</p>

@@ -147,9 +147,7 @@ Toinen sääntö
 
 ## Todennäköisyyden ominaisuuksia 
 
-![](images/Näyttökuva 2026-05-13 kello 17.31.51.png)
-
-Tapahtuman A todennäköisyyttä merkataan P(A)
+![](images/clipboard-2144518456.png)Tapahtuman A todennäköisyyttä merkataan P(A)
 
 1\) 0 ≤ P(A) ≤ 1
 
