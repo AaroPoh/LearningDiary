@@ -295,3 +295,17 @@ k-permutaatiolla tarkoitetaan sitä kuinka moneen eri k alkiota sisältävään 
 ### Binomikerroin
 
 ![](images/clipboard-991391295.png)
+
+Monellako eri kahden henkilön kokoonpanolla Marketta, Kalevi, Terttu ja Birgitta voivat käydä kaupassa? Tässä merkille pantavaa on se, että ei mietitä nyt järjestyksiä, vaan osajoukkoja. Siis kokoonpanot {Terttu, Marketta} ja {Marketta, Terttu} ovat sama asia.
+
+- Saadaan selville binomikertoimella
+
+Binomikerroin
+
+![](images/clipboard-3098399216.png){width="220"}
+
+n = koko joukon alkioiden lukumäärä
+
+k = kombinaation koko. Esim. jos halutaan tietää monellako eri 2 henkilön kokoonpanolla 4 ihmistä voivat käydä kaupassa on tuo kahden henkilön kokoonpano kombinaatio.
+
+- Kaava on siis koko joukon alkioiden kertoma jaettuna kombinaation koon kertomalla kerrottuna (n - k) kertomalla
