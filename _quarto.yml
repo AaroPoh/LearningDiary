@@ -39,6 +39,7 @@ book:
         - Tilastotiede/NormaalisuudenTestaaminen.qmd
         - Tilastotiede/MatematiikanLaskusääntöjä.qmd
         - Tilastotiede/TilastotJaRTutuksi.qmd
+        - Tilastotiede/Tilastot_ja_r_tutuksi_tehtavat.qmd
     - references.qmd
 
       
