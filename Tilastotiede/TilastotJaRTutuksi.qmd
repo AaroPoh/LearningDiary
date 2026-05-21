@@ -7,9 +7,10 @@ format: html
 
 ![](images/clipboard-1961124269.png)
 
-Perusjoukko = joukko, joka sisältää tapahtuman kaikki alkeistapaukset eikä muita alkioita
+Perusjoukko = joukko, joka sisältää tapahtuman (experiment) kaikki alkeistapaukset eikä muita alkioita
 
 - merkataan omegalla Ω tai isolla S:llä
+- Sample space
 
 Alkeistapaus = tapahtuman mahdollinen lopputulos, esim. nopan silmäluku
 
@@ -17,7 +18,7 @@ Alkeistapaus = tapahtuman mahdollinen lopputulos, esim. nopan silmäluku
 
 - Esim Tapahtuma A = "nopanheiton silmäluku on parillinen" = {2,4,6}
 
-Tapahtumaa, merkitään yleensä isolla kirjaimella esim. A, B tai C
+Tapahtumaa, merkitään yleensä isolla kirjaimella esim. A, B tai C (Event)
 
 <br>
 
@@ -34,6 +35,7 @@ Osajoukko = pienempi osa perusjoukosta, tai toisesta osajoukosta
 Leikkaus = kahden joukon yhteiset alkeistapaukset
 
 - merkataan päälaelleen käännetyllä U:lla ∩
+- englanniksi intersection
 
 ![](images/clipboard-1808211236.png){width="300"}
 
@@ -42,6 +44,7 @@ Leikkaus = kahden joukon yhteiset alkeistapaukset
 Yhdiste = kahden joukon yhdistelmä eli kaikki alkeistapaukset, jotka kuuluvat joukkoon A tai joukkoon B
 
 - inklusiivinen TAI eli yhdisteeseen kuuluu kaikki alkiot, jotka kuuluvat jompaan kumpaan joukkoon tai molempiin.
+- englanniksi union
 
 <!-- -->
 
@@ -68,6 +71,8 @@ Tapahtuma C = "Silmäluku on 5" = {5}
 Erilliset joukot ovat sellaisia, joilla ei ole yhtään yhteistä alkiota
 
 - Esim joukot C ={5} ja A = {2,4,6} ovat erilliset
+
+- Englanniksi disjoint
 
 - C:n ja A:n leikkaus on tyhjä joukko eli siinä ei ole yhtään alkiota
 
@@ -214,3 +219,79 @@ g\) A:n ja B:n komplementtien yhdiste on sama kuin A:n ja B:n leikkauksen komple
 h\) A:n ja B:n komplementtien leikkaus on sama kuin A:n ja B:n yhdisteen komplementti
 
 - Lasketaan yhdisteen komplementti vähentämälle A:n ja B:n yhdiste 1:stä
+
+<br> <br>
+
+## Kombinatoriikka 
+
+### Tuloperiaate 
+
+![](images/clipboard-2214040398.png)
+
+Tuloperiaate:
+
+- kerrotaan kaikkien vaiheiden vaihtoehtojen lukumäärät keskenään
+
+- Kuvan esimerkissä Alkuruoalle on kaksi vaihtoehtoa, pääruoalle kolme ja jälkiruoalle 2
+
+  - vastaus saadaan laskemalla 2 \* 3 \* 2 = 12
+
+<br>
+
+### Osajoukkojen lukumäärä 
+
+![](images/clipboard-3515852481.png)
+
+Esimerkissä selvitettiin monellako eri tavalla voidaan valita vaihtoehdot alkuruoka, pääruoka ja jälkiruoka
+
+- alkuruoka joko syödään tai jätetään syömättä, pääruoka joko syödään tai jätetään syömättä, jälkiruoka joko syödään tai jätetään syömättä
+
+- joka vaiheessa on 2 vaihtoehtoa, joten 2 \* 2 \* 2 = 8
+
+Osajoukkojen lukumäärä:
+
+- Kun alkuperäisessä joukossa on n alkiota, niin osajoukkojen lukumäärä on 2\^n
+
+<br>
+
+### Kertoma ja permutaatiot 
+
+![](images/clipboard-1811126302.png)
+
+Kuinka moneen eri järjestykseen marketta, kalevi ja terttu voivat mennä istumaan?
+
+- A = {M, K, T} 
+
+- Puukaaviosta nähdään, että mahdollisia eri järjestyksiä on 6. Ensimmäiselle paikalle on kolme vaihtoehtoa, sen jälkeen toiselle paikalle 2 ja viimeiselle paikalle 1.
+
+- Ilman puukaaviota saadaan laskettua tuloperiaatteen avulla 3 \* 2 \* 1 = 6
+
+- Laskevaa tuloa kutsutaan kertomaksi: 3 \* 2 \* 1 = 3!
+
+Permutaatio tarkoittaa jonojen / järjestysten lukumäärää
+
+- Lasketaan joukon alkioden kertomalla: n!
+
+- n! = n \* (n - 1) \* (n - 2) ... 2 \* 1
+
+<br>
+
+### k-permutaatio
+
+![](images/clipboard-3933540618.png)
+
+Kuinka monella eri tavalla Marketta, Kalevi, Terttu ja Birgitta voivat istua kahdelle paikalle?
+
+- Ensimmäiselle penkille on 4 vaihtoehtoa. Toiselle penkille joka vaihtoehdon kohdalla 3, joten tuloperiaatteen avulla laskettuna vastaus on 4 \* 3 = 12
+
+k-permutaatiolla tarkoitetaan sitä kuinka moneen eri k alkiota sisältävään jonoon / järjestykseen voidaan luvut asettaa
+
+- n! / (n - k)!
+
+- eli lasketaan koko joukon permutaatiot jaettuna koko joukon alkioden lukumäärän ja jonon pituuden erotuksen permutaatioilla
+
+<br>
+
+### Binomikerroin
+
+![](images/clipboard-991391295.png)
