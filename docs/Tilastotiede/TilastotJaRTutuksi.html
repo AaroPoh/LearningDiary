@@ -331,6 +331,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#k-permutaatio" id="toc-k-permutaatio" class="nav-link" data-scroll-target="#k-permutaatio"><span class="header-section-number">23.4.4</span> k-permutaatio</a></li>
   <li><a href="#binomikerroin" id="toc-binomikerroin" class="nav-link" data-scroll-target="#binomikerroin"><span class="header-section-number">23.4.5</span> Binomikerroin</a></li>
   </ul></li>
+  <li><a href="#riippumattomuus" id="toc-riippumattomuus" class="nav-link" data-scroll-target="#riippumattomuus"><span class="header-section-number">23.5</span> Riippumattomuus</a></li>
+  <li><a href="#ehdollinen-kertolaskusääntö" id="toc-ehdollinen-kertolaskusääntö" class="nav-link" data-scroll-target="#ehdollinen-kertolaskusääntö"><span class="header-section-number">23.6</span> Ehdollinen kertolaskusääntö</a></li>
   </ul>
 </nav>
     </div>
@@ -587,9 +589,43 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Kaava on siis koko joukon alkioiden kertoma jaettuna kombinaation koon kertomalla kerrottuna (n - k) kertomalla</li>
 </ul>
-
-
+<p><br></p>
 </section>
+</section>
+<section id="riippumattomuus" class="level2" data-number="23.5">
+<h2 data-number="23.5" class="anchored" data-anchor-id="riippumattomuus"><span class="header-section-number">23.5</span> Riippumattomuus</h2>
+<p><img src="images/clipboard-3207878934.png" class="img-fluid"></p>
+<p>Tapahtumat ovat riippumattomia, kun toinen ei vaikuta toiseen. Esim. kun nostetaan kaksi palloa takaisinpanolla.</p>
+<p><img src="images/clipboard-612893353.png" class="img-fluid" width="556"></p>
+<p>Kun tapahtumat ovat riippumattomia, niiden leikkauksen todennäköisyys saadaan kertolaskusäännöllä tapahtumien todennäköisuuksien tulosta.</p>
+<ul>
+<li>Eli, kun A ja B ovat riippumattomat. A:n ja B:n leikkauksen todennäköisyys on P(A) * P(B)</li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-4120616805.png" class="img-fluid"></p>
+<p>Esimerkki tilanteesta, jossa tapahtumat ovat riippuvaisia. Ensimmäisen heiton (H1) lopputulos vaikuttaa toiseen heittoon (H2). Todistettiin riippuvuus laskemalla tapahtumien todennäköisyyksien tulo (P(H1) * P(H2) = 5/16) ja verrattiin sitä tapahtumien leikkauksen todennäköisyyteen (1/4) ja ne ovat erisuuret.</p>
+<p>Tapahtumien leikkauksen todennäköisyys katsottiin puukaaviosta vertaamalla suotuisia lopputuloksia kaikkiin. Lopputuloksia on kaikkiaan 8 ja suotuisia 2, joten todnäk on 1/4.</p>
+<p><br></p>
+</section>
+<section id="ehdollinen-kertolaskusääntö" class="level2" data-number="23.6">
+<h2 data-number="23.6" class="anchored" data-anchor-id="ehdollinen-kertolaskusääntö"><span class="header-section-number">23.6</span> Ehdollinen kertolaskusääntö</h2>
+<p><img src="images/clipboard-779612613.png" class="img-fluid"></p>
+<p>Kun nostetaan kaksi palloa ilman takaisinpanoa tapahtumat eivät ole riippumattomia. Ei siis voida käyttää riippumattomien tapahtumien kertolaskusääntöä. Täytyy käyttää ehdollista kertolaskusääntöä.</p>
+<p><img src="images/clipboard-225940661.png" class="img-fluid" width="389"></p>
+<p>Ehdollinen kertolaskusääntö: A:n ja B:n leikkauksen todennäköisyys on yhtä suuri kuin A:n todennäköisyys kertaa B:n todennäköisyys ehdolla, että A tapahtui. Ehdollista todennäköisyyttä merkataan pystyviivalla.</p>
+<p><img src="images/clipboard-1514345769.png" width="246" height="38"></p>
+<p>B|A = “Tapahtuma B ehdolla, että A toteutuu</p>
+<p><br></p>
+<p>Kertolaskusääntöä voi käyttää usemmallekin tapahtumalle.</p>
+<p><img src="images/clipboard-105640367.png" class="img-fluid" width="781"></p>
+<p>Tällöin myöhempien tapahtumien ehtona on, että kaikki aiemmat ovat tapahtuneet.</p>
+<p><br></p>
+<p><img src="images/clipboard-1070931347.png" class="img-fluid"></p>
+<p>Lasketaan millä todennäköisyydellä satunnaisesti valituilla 3 henkilöllä kaikilla on hattu. Ensimmäisen todennäköisyys on 4/5, sillä henkilöitä on 5 ja hattupäitä 4. Toisena valitun todennäköisyys on 3/4 sillä henkilöitä on 4 ja hattupäitä 3. Viimeisenä valittavan todnäk on 2/3, sillä henkilöitä on 3 ja hattupäitä 2.</p>
+<p><img src="images/clipboard-2078237709.png" class="img-fluid" width="625"></p>
+<p>Lasketaan kertolaskusäännöllä ehdollisten todennäköisyyksein tulo ja saadaan tulokseksi 2/5</p>
+
+
 </section>
 
 </main> <!-- /main -->

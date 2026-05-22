@@ -1346,5 +1346,27 @@
     "crumbs": [
       "References"
     ]
+  },
+  {
+    "objectID": "Tilastotiede/TilastotJaRTutuksi.html#riippumattomuus",
+    "href": "Tilastotiede/TilastotJaRTutuksi.html#riippumattomuus",
+    "title": "23  Tilastot Ja R Tutuksi",
+    "section": "23.5 Riippumattomuus",
+    "text": "23.5 Riippumattomuus\n\nTapahtumat ovat riippumattomia, kun toinen ei vaikuta toiseen. Esim. kun nostetaan kaksi palloa takaisinpanolla.\n\nKun tapahtumat ovat riippumattomia, niiden leikkauksen todennäköisyys saadaan kertolaskusäännöllä tapahtumien todennäköisuuksien tulosta.\n\nEli, kun A ja B ovat riippumattomat. A:n ja B:n leikkauksen todennäköisyys on P(A) * P(B)\n\n\n\nEsimerkki tilanteesta, jossa tapahtumat ovat riippuvaisia. Ensimmäisen heiton (H1) lopputulos vaikuttaa toiseen heittoon (H2). Todistettiin riippuvuus laskemalla tapahtumien todennäköisyyksien tulo (P(H1) * P(H2) = 5/16) ja verrattiin sitä tapahtumien leikkauksen todennäköisyyteen (1/4) ja ne ovat erisuuret.\nTapahtumien leikkauksen todennäköisyys katsottiin puukaaviosta vertaamalla suotuisia lopputuloksia kaikkiin. Lopputuloksia on kaikkiaan 8 ja suotuisia 2, joten todnäk on 1/4.",
+    "crumbs": [
+      "Tilastotiede",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Tilastot Ja R Tutuksi</span>"
+    ]
+  },
+  {
+    "objectID": "Tilastotiede/TilastotJaRTutuksi.html#ehdollinen-kertolaskusääntö",
+    "href": "Tilastotiede/TilastotJaRTutuksi.html#ehdollinen-kertolaskusääntö",
+    "title": "23  Tilastot Ja R Tutuksi",
+    "section": "23.6 Ehdollinen kertolaskusääntö",
+    "text": "23.6 Ehdollinen kertolaskusääntö\n\nKun nostetaan kaksi palloa ilman takaisinpanoa tapahtumat eivät ole riippumattomia. Ei siis voida käyttää riippumattomien tapahtumien kertolaskusääntöä. Täytyy käyttää ehdollista kertolaskusääntöä.\n\nEhdollinen kertolaskusääntö: A:n ja B:n leikkauksen todennäköisyys on yhtä suuri kuin A:n todennäköisyys kertaa B:n todennäköisyys ehdolla, että A tapahtui. Ehdollista todennäköisyyttä merkataan pystyviivalla.\n\nB|A = “Tapahtuma B ehdolla, että A toteutuu\n\nKertolaskusääntöä voi käyttää usemmallekin tapahtumalle.\n\nTällöin myöhempien tapahtumien ehtona on, että kaikki aiemmat ovat tapahtuneet.\n\n\nLasketaan millä todennäköisyydellä satunnaisesti valituilla 3 henkilöllä kaikilla on hattu. Ensimmäisen todennäköisyys on 4/5, sillä henkilöitä on 5 ja hattupäitä 4. Toisena valitun todennäköisyys on 3/4 sillä henkilöitä on 4 ja hattupäitä 3. Viimeisenä valittavan todnäk on 2/3, sillä henkilöitä on 3 ja hattupäitä 2.\n\nLasketaan kertolaskusäännöllä ehdollisten todennäköisyyksein tulo ja saadaan tulokseksi 2/5",
+    "crumbs": [
+      "Tilastotiede",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Tilastot Ja R Tutuksi</span>"
+    ]
   }
 ]
