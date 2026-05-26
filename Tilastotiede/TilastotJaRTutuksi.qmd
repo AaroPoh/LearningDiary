@@ -150,7 +150,7 @@ Toinen sääntö
 
 <br> <br>
 
-## Todennäköisyyden ominaisuuksia 
+## Todennäköisyyden ominaisuuksia
 
 ![](images/clipboard-2144518456.png)Tapahtuman A todennäköisyyttä merkataan P(A)
 
@@ -222,9 +222,9 @@ h\) A:n ja B:n komplementtien leikkaus on sama kuin A:n ja B:n yhdisteen komplem
 
 <br> <br>
 
-## Kombinatoriikka 
+## Kombinatoriikka
 
-### Tuloperiaate 
+### Tuloperiaate
 
 ![](images/clipboard-2214040398.png)
 
@@ -238,7 +238,7 @@ Tuloperiaate:
 
 <br>
 
-### Osajoukkojen lukumäärä 
+### Osajoukkojen lukumäärä
 
 ![](images/clipboard-3515852481.png)
 
@@ -254,7 +254,7 @@ Osajoukkojen lukumäärä:
 
 <br>
 
-### Kertoma ja permutaatiot 
+### Kertoma ja permutaatiot
 
 ![](images/clipboard-1811126302.png)
 
@@ -312,7 +312,7 @@ k = kombinaation koko. Esim. jos halutaan tietää monellako eri 2 henkilön kok
 
 <br>
 
-## Riippumattomuus 
+## Riippumattomuus
 
 ![](images/clipboard-3207878934.png)
 
@@ -334,7 +334,7 @@ Tapahtumien leikkauksen todennäköisyys katsottiin puukaaviosta vertaamalla suo
 
 <br>
 
-## Ehdollinen kertolaskusääntö 
+## Ehdollinen todennäköisyys ja kertolaskusääntö
 
 ![](images/clipboard-779612613.png)
 
@@ -365,3 +365,81 @@ Lasketaan millä todennäköisyydellä satunnaisesti valituilla 3 henkilöllä k
 ![](images/clipboard-2078237709.png){width="625"}
 
 Lasketaan kertolaskusäännöllä ehdollisten todennäköisyyksein tulo ja saadaan tulokseksi 2/5
+
+<br>
+
+## Ehdollinen todennäköisyys
+
+![](images/clipboard-2211406493.png){width="563"}
+
+Ehdollisen todennäköisyyden määritelmä:
+
+- P(B\|A) = P(A:n ja B:n leikkaus) / P(A)
+
+- Eli todennäköisyys tapahtumalle B ehdolla, että A on tapahtunut saadaan laskettua jakamalla A:n ja B:n leikkauksen todennäköisyys ehdon eli A:n todennäköisyydellä.
+
+<br>
+
+![](images/clipboard-2160543390.png)
+
+Mikä on todennäkisyys, että musta pallo nostettiin laatikosta A?
+
+- Laatikon A valitsemisen todnäk on 1/2
+
+- Laatikon A valitseminen ehdolla, että nostettiin musta pallo todennäköisyys on nolla
+
+  - Laatikon A ja mustan pallon leikkauksen todennäköisyys on nolla, joten 0 jaettuna ehdon eli mustan pallon todenäköisyydellä on 0
+
+<br>
+
+![](images/clipboard-3564468134.png)
+
+Millä todennäköisyydellä valittiin laatikko A, kun nostettiin valkoinen pallo?
+
+- Puukaaviosta nähdään, että mahdollisia lopputuloksia on yhteensä 4, ja A:lle ja valkoiselle pallolle suotuisia on 2. A:n ja valkoisen pallon leikkauksen todennäköisyys on siis 2 / 4
+
+- Ehdon eli valkoisen pallon todennäköisyys puolestaan on 3/4
+
+- Ehdollisen todennäköisyyden kaavalla saadaan vastaukseksi 2/3
+
+<br>
+
+![](images/clipboard-1594105699.png)
+
+Millä todennäköisyydellä valittiin laatikko A ehdolla, että valittiin musta pallo?
+
+- Lasketaan A:n ja mustan pallon leikkauksen todennäköisyys jaettuna ehdon eli mustan pallon todennäköisyydellä
+
+  - P(A:n ja. mustan pallon leikkaus) = 1/8, koska kahdeksasta alkeistapauksesta yksi on suotuinen sekä A:lle että mustalle pallolle
+
+  - P(musta pallo) = 3/8, koska alkeistapauksista 3 on suotuisia mustalle pallolle
+
+- Jaetaan leikkauksen todennäköisyys ehdon todennäköisyydellä ja saadaan vastaukseksi ehdollinen todennäköisyys 1/3
+
+<br>
+
+![](images/clipboard-224626866.png)
+
+Lasketaan todennäköisyys sille, että valittu henkilö on alle 30v ehdolla, että hän on nainen
+
+<br>
+
+## Kokonaistodennäköisyys 
+
+![](images/clipboard-1047136156.png)
+
+Kokonaistodennäköisyys selvittää todennäköisyyden tilanteessa, jossa lopputulokseen voi päästä monta eri kautta
+
+<br>
+
+![](images/clipboard-582482479.png){width="479"}
+
+Kokonaistodennäköisyyden kaava
+
+<br>
+
+## Bayesin kaava
+
+![](images/clipboard-3873419731.png)
+
+![](images/clipboard-4147427590.png){width="501"}

@@ -165,7 +165,7 @@ str(presidents)
 
 <br>
 
-### Setti A.2. 
+### Setti A.2.
 
 Tehtävänanto:
 
@@ -227,7 +227,7 @@ n50 <- length(yli50[ ,2])
 
 <br>
 
-### Setti A.3 
+### Setti A.3
 
 ![](images/clipboard-122019527.png)
 

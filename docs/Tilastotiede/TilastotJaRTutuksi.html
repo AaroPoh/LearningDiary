@@ -332,7 +332,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#binomikerroin" id="toc-binomikerroin" class="nav-link" data-scroll-target="#binomikerroin"><span class="header-section-number">23.4.5</span> Binomikerroin</a></li>
   </ul></li>
   <li><a href="#riippumattomuus" id="toc-riippumattomuus" class="nav-link" data-scroll-target="#riippumattomuus"><span class="header-section-number">23.5</span> Riippumattomuus</a></li>
-  <li><a href="#ehdollinen-kertolaskusääntö" id="toc-ehdollinen-kertolaskusääntö" class="nav-link" data-scroll-target="#ehdollinen-kertolaskusääntö"><span class="header-section-number">23.6</span> Ehdollinen kertolaskusääntö</a></li>
+  <li><a href="#ehdollinen-todennäköisyys-ja-kertolaskusääntö" id="toc-ehdollinen-todennäköisyys-ja-kertolaskusääntö" class="nav-link" data-scroll-target="#ehdollinen-todennäköisyys-ja-kertolaskusääntö"><span class="header-section-number">23.6</span> Ehdollinen todennäköisyys ja kertolaskusääntö</a></li>
+  <li><a href="#ehdollinen-todennäköisyys" id="toc-ehdollinen-todennäköisyys" class="nav-link" data-scroll-target="#ehdollinen-todennäköisyys"><span class="header-section-number">23.7</span> Ehdollinen todennäköisyys</a></li>
+  <li><a href="#kokonaistodennäköisyys" id="toc-kokonaistodennäköisyys" class="nav-link" data-scroll-target="#kokonaistodennäköisyys"><span class="header-section-number">23.8</span> Kokonaistodennäköisyys</a></li>
+  <li><a href="#bayesin-kaava" id="toc-bayesin-kaava" class="nav-link" data-scroll-target="#bayesin-kaava"><span class="header-section-number">23.9</span> Bayesin kaava</a></li>
   </ul>
 </nav>
     </div>
@@ -607,8 +610,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Tapahtumien leikkauksen todennäköisyys katsottiin puukaaviosta vertaamalla suotuisia lopputuloksia kaikkiin. Lopputuloksia on kaikkiaan 8 ja suotuisia 2, joten todnäk on 1/4.</p>
 <p><br></p>
 </section>
-<section id="ehdollinen-kertolaskusääntö" class="level2" data-number="23.6">
-<h2 data-number="23.6" class="anchored" data-anchor-id="ehdollinen-kertolaskusääntö"><span class="header-section-number">23.6</span> Ehdollinen kertolaskusääntö</h2>
+<section id="ehdollinen-todennäköisyys-ja-kertolaskusääntö" class="level2" data-number="23.6">
+<h2 data-number="23.6" class="anchored" data-anchor-id="ehdollinen-todennäköisyys-ja-kertolaskusääntö"><span class="header-section-number">23.6</span> Ehdollinen todennäköisyys ja kertolaskusääntö</h2>
 <p><img src="images/clipboard-779612613.png" class="img-fluid"></p>
 <p>Kun nostetaan kaksi palloa ilman takaisinpanoa tapahtumat eivät ole riippumattomia. Ei siis voida käyttää riippumattomien tapahtumien kertolaskusääntöä. Täytyy käyttää ehdollista kertolaskusääntöä.</p>
 <p><img src="images/clipboard-225940661.png" class="img-fluid" width="389"></p>
@@ -624,6 +627,63 @@ ul.task-list li input[type="checkbox"] {
 <p>Lasketaan millä todennäköisyydellä satunnaisesti valituilla 3 henkilöllä kaikilla on hattu. Ensimmäisen todennäköisyys on 4/5, sillä henkilöitä on 5 ja hattupäitä 4. Toisena valitun todennäköisyys on 3/4 sillä henkilöitä on 4 ja hattupäitä 3. Viimeisenä valittavan todnäk on 2/3, sillä henkilöitä on 3 ja hattupäitä 2.</p>
 <p><img src="images/clipboard-2078237709.png" class="img-fluid" width="625"></p>
 <p>Lasketaan kertolaskusäännöllä ehdollisten todennäköisyyksein tulo ja saadaan tulokseksi 2/5</p>
+<p><br></p>
+</section>
+<section id="ehdollinen-todennäköisyys" class="level2" data-number="23.7">
+<h2 data-number="23.7" class="anchored" data-anchor-id="ehdollinen-todennäköisyys"><span class="header-section-number">23.7</span> Ehdollinen todennäköisyys</h2>
+<p><img src="images/clipboard-2211406493.png" class="img-fluid" width="563"></p>
+<p>Ehdollisen todennäköisyyden määritelmä:</p>
+<ul>
+<li><p>P(B|A) = P(A:n ja B:n leikkaus) / P(A)</p></li>
+<li><p>Eli todennäköisyys tapahtumalle B ehdolla, että A on tapahtunut saadaan laskettua jakamalla A:n ja B:n leikkauksen todennäköisyys ehdon eli A:n todennäköisyydellä.</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-2160543390.png" class="img-fluid"></p>
+<p>Mikä on todennäkisyys, että musta pallo nostettiin laatikosta A?</p>
+<ul>
+<li><p>Laatikon A valitsemisen todnäk on 1/2</p></li>
+<li><p>Laatikon A valitseminen ehdolla, että nostettiin musta pallo todennäköisyys on nolla</p>
+<ul>
+<li>Laatikon A ja mustan pallon leikkauksen todennäköisyys on nolla, joten 0 jaettuna ehdon eli mustan pallon todenäköisyydellä on 0</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-3564468134.png" class="img-fluid"></p>
+<p>Millä todennäköisyydellä valittiin laatikko A, kun nostettiin valkoinen pallo?</p>
+<ul>
+<li><p>Puukaaviosta nähdään, että mahdollisia lopputuloksia on yhteensä 4, ja A:lle ja valkoiselle pallolle suotuisia on 2. A:n ja valkoisen pallon leikkauksen todennäköisyys on siis 2 / 4</p></li>
+<li><p>Ehdon eli valkoisen pallon todennäköisyys puolestaan on 3/4</p></li>
+<li><p>Ehdollisen todennäköisyyden kaavalla saadaan vastaukseksi 2/3</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-1594105699.png" class="img-fluid"></p>
+<p>Millä todennäköisyydellä valittiin laatikko A ehdolla, että valittiin musta pallo?</p>
+<ul>
+<li><p>Lasketaan A:n ja mustan pallon leikkauksen todennäköisyys jaettuna ehdon eli mustan pallon todennäköisyydellä</p>
+<ul>
+<li><p>P(A:n ja. mustan pallon leikkaus) = 1/8, koska kahdeksasta alkeistapauksesta yksi on suotuinen sekä A:lle että mustalle pallolle</p></li>
+<li><p>P(musta pallo) = 3/8, koska alkeistapauksista 3 on suotuisia mustalle pallolle</p></li>
+</ul></li>
+<li><p>Jaetaan leikkauksen todennäköisyys ehdon todennäköisyydellä ja saadaan vastaukseksi ehdollinen todennäköisyys 1/3</p></li>
+</ul>
+<p><br></p>
+<p><img src="images/clipboard-224626866.png" class="img-fluid"></p>
+<p>Lasketaan todennäköisyys sille, että valittu henkilö on alle 30v ehdolla, että hän on nainen</p>
+<p><br></p>
+</section>
+<section id="kokonaistodennäköisyys" class="level2" data-number="23.8">
+<h2 data-number="23.8" class="anchored" data-anchor-id="kokonaistodennäköisyys"><span class="header-section-number">23.8</span> Kokonaistodennäköisyys</h2>
+<p><img src="images/clipboard-1047136156.png" class="img-fluid"></p>
+<p>Kokonaistodennäköisyys selvittää todennäköisyyden tilanteessa, jossa lopputulokseen voi päästä monta eri kautta</p>
+<p><br></p>
+<p><img src="images/clipboard-582482479.png" class="img-fluid" width="479"></p>
+<p>Kokonaistodennäköisyyden kaava</p>
+<p><br></p>
+</section>
+<section id="bayesin-kaava" class="level2" data-number="23.9">
+<h2 data-number="23.9" class="anchored" data-anchor-id="bayesin-kaava"><span class="header-section-number">23.9</span> Bayesin kaava</h2>
+<p><img src="images/clipboard-3873419731.png" class="img-fluid"></p>
+<p><img src="images/clipboard-4147427590.png" class="img-fluid" width="501"></p>
 
 
 </section>
