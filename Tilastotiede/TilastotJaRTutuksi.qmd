@@ -424,7 +424,7 @@ Lasketaan todennäköisyys sille, että valittu henkilö on alle 30v ehdolla, et
 
 <br>
 
-## Kokonaistodennäköisyys 
+## Kokonaistodennäköisyys
 
 ![](images/clipboard-1047136156.png)
 
@@ -443,3 +443,59 @@ Kokonaistodennäköisyyden kaava
 ![](images/clipboard-3873419731.png)
 
 ![](images/clipboard-4147427590.png){width="501"}
+
+<br>
+
+## Diskreetit satunnaismuuttujat 
+
+### Pistetodennäköisyysfunktio 
+
+![](images/clipboard-2622764222.png)
+
+Satunnaiskoe
+
+- Koe jonka lopputulosta ei tiedetä
+
+- Esim. nopanheitto
+
+Satunnaismuuttuja
+
+- satunnaiskokeeseen liittyvä muuttuja
+
+- esim. nopanheitossa nopan silmäluku
+
+Arvojoukko
+
+- Sisältää kaikki satunnaismuuttujan mahdolliset lopputulokset
+
+- Esim nopanheitossa silmäluvut {1,2,3,4,5,6}
+
+Diskreetti satunnaismuuttuja
+
+- arvojoukko voidaan esittää pisteinä lukusuoralla
+
+- Esim. kokonaisluvut {1,2,3, ... n}
+
+Jatkuva satunnaismuuttuja
+
+- Arvojoukkoa ei voida esittää pisteinä lukusuoralla
+
+- Esim reaaliluvut välillä 0 - 1
+
+<br>
+
+![](images/clipboard-873564813.png){width="569"}
+
+∈ merkillä merkataan jonkin alkion kuulumista johonkin joukkoon
+
+- Yllä pistetodennäköisyysfunktio f(x) kertoo todennäköisyyden, että satunnaismuuttuja X saa arvon x pisteessä x.
+
+<br>
+
+![](images/clipboard-4246195070.png)
+
+Pistetodennäköisyysfunktion ominaisuuksia
+
+- Pistetodennäköisyysfunktion arvo on todennäköisyys, joten sen arvon tulee olla suurempi tai yhtä suuri kuin 0
+
+- Jos kaikki arvojoukon pistetodennäköisyydet summataan yhteen tulee summan olla yksi.
