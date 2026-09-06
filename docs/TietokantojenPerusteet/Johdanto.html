@@ -367,8 +367,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#kyselyn-yleiskuva" id="toc-kyselyn-yleiskuva" class="nav-link active" data-scroll-target="#kyselyn-yleiskuva"><span class="header-section-number">25.0.1</span> Kyselyn yleiskuva</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -517,8 +523,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Hakee Products taulun minimi ja maksimihinnat</li>
 </ul>
+<p>DISTINCT komennolla saadaan laskettua montako eri arvoa tietyssä sarakkeessa on</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> price) <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>IFNULL() Muutetaan puuttuvat arvot nolliksi</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> IFNULL(<span class="fu">SUM</span>(price), <span class="dv">0</span>) <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>IFNULL(annettava komento() , puuttuvan arvon korvaava arvo)</li>
+</ul>
+<p><br></p>
+<p>GROUP BY</p>
+<ul>
+<li>komennolla jaetaan rivit ryhmiin annetun sarakkeen mukaan ja lasketaan aggrekaattifunktio jokaiselle ryhmälle erikseen</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> company, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> Employees <span class="kw">GROUP</span> <span class="kw">BY</span> company;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Jakaa Employees taulun ryhmittäin company sarakkeen mukaan ja laskee rivien lukumäärän ryhmittäin</li>
+</ul>
+<section id="kyselyn-yleiskuva" class="level3" data-number="25.0.1">
+<h3 data-number="25.0.1" class="anchored" data-anchor-id="kyselyn-yleiskuva"><span class="header-section-number">25.0.1</span> Kyselyn yleiskuva</h3>
+<p>SQL-kyselyn yleiskuva on seuraava:</p>
+<p>SELECT -&gt; FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; ORDER BY -&gt; LIMIT</p>
+<p>Kyselystä riippuu, mitkä näistä osista siinä esiintyvät. Tämä on kuitenkin aina järjestys, jossa kyselyn osat sijaitsevat toisiinsa nähden.</p>
+<p>Kaikki sivun tiedot ovat peräsin Antti Laaksosen kurssimateriaaleista 2026.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
