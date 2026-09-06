@@ -1416,12 +1416,12 @@
   {
     "objectID": "TietokantojenPerusteet/Johdanto.html",
     "href": "TietokantojenPerusteet/Johdanto.html",
-    "title": "25  Johdanto",
+    "title": "25  SQL Peruskomennot",
     "section": "",
-    "text": "Johdantopohdanto",
+    "text": "CREATE TABLE\n\nLuo taulukon\n\n Esim:\nCREATE TABLE Products ( id INTEGER PRIMARY KEY, name TEXT, price INTEGER );\nLuotiin taulukko, jossa on kolme saraketta: id, name ja price\n\nINSERT INTO\n\nlisää uuden rivin taulukkoon\n\nEsim\nINSERT INTO Products (name, price) VALUES ('retiisi', 7);\n\nSELECT\n\nhaetaan tietoa tietystä taulusta\n\nSELECT * FROM Products;\n\ntähtimerkki tarkoittaa, että haetaan kaikkea\n\nSELECT name FROM Products;\n\nvalitsee sarakkeen name taulusta products\n\nSELECT name, price FROM Products;\n\nhakee kahdesta sarakkeesta name ja price\n\n\nWHERE lisää ehdon kyselyyn\nSELECT * FROM Products WHERE name = 'lanttu';\n\nhakee kaiken Products taulusta, jossa nimi on lanttu\n\n\nSELECT * FROM Products WHERE price &gt;= 4 AND price &lt;= 6;\n\nhakee kaiken Products taulusta ehdolla, että price on suurempi tai yhtäsuuri kuin 4 JA pienempi tai yhtäsuuri kuin 6\n\n\n&lt;&gt; Tarkoittaa erisuuruutta\n\n\n\nSELECT * FROM Products WHERE price &lt;&gt; 4;\n\nantaa tuloksena erisuuret kuin 4\n\n\nORDER BY\n\njärjestää tulostaulun tiettyyn järjestykseen\n\nEsim.\nSELECT * FROM Products ORDER BY name;\n\nJärjestää sarakkeen name mukaan aakkosjärjestykseen\n\nDESC komennolla voi kääntää järjestyksen laskevaksi\nSELECT * FROM Products ORDER BY name DESC;\nASC komennolla nousevaksi, mutta tämä on yleensä oletuksena, joten ei tarvitse lähtökohtaisesti merkata\n\nSELECT DISTINCT\n\nantaa tuloksena vain erilaiset rivit\n\nSELECT DISTINCT price FROM Products;\n\nLIMIT\n\nrajoittaa tulostauluun tulevien rivien määrän\n\nLIMIT 3\n\nNäyttää vain kolme ensimmäistä riviä\n\nSELECT * FROM Products ORDER BY price LIMIT 3 OFFSET 1;\n\nOFFSET siirtää rajoituksen alkua annetulla määrällä rivejä eteenpäin. Tässä esimerkissä näytetään siis vain rivit 2, 3 ja 4\n\n\nUPDATE\n\nmuuttaa haluttuja taulun rivejä. Jos WHERE ehtoa ei anneta, niin vaikuttaa koko tauluun\n\nUPDATE Products SET price = 6 WHERE id = 2;\n\nmuuttaa id 2 rivin price arvoksi 6\n\nUPDATE Products SET name = 'ananas', price = 6 WHERE id = 2;\n\nMuuttaa id 2 rivin name arvoksi ananas ja price arvoksi kuusi\nkaksi SET komentoa on eroteltuna pilkulla\n\n\nDELETE FROM\nDELETE FROM Products WHERE id = 5;\n\nPoistaa id 5 rivin\n\nDROP TABLE\n\npoistaa koko taulun\n\n\nYhteenveto / aggregaattifunktiot\n\nCOUNT(): rivien määrä\nSUM(): arvojen summa\nMIN(): pienin arvo\nMAX(): suurin arvo\nAVG(): arvojen keskiarvo\n\n\nSELECT COUNT(*) FROM Products WHERE price = 4;\n\nlaskee Procusts taulukon rivien lukumäärän, joissa price on 4\n\nSELECT MIN(price), MAX(price) FROM Products;\n\nHakee Products taulun minimi ja maksimihinnat",
     "crumbs": [
       "Tietokantojen Perusteet",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Johdanto</span>"
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>SQL Peruskomennot</span>"
     ]
   },
   {

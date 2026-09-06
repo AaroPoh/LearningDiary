@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>25&nbsp; Johdanto – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
+<title>25&nbsp; SQL Peruskomennot – Oppimispäiväkirja: R-kielen perusteet, datankäsittely ja tilastotestit</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -85,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/TietokantojenPerusteet.html">Tietokantojen Perusteet</a></li><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/Johdanto.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Johdanto</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/TietokantojenPerusteet.html">Tietokantojen Perusteet</a></li><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/Johdanto.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">SQL Peruskomennot</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -316,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../TietokantojenPerusteet/Johdanto.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Johdanto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">SQL Peruskomennot</span></span></a>
   </div>
 </li>
       </ul>
@@ -338,9 +373,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/TietokantojenPerusteet.html">Tietokantojen Perusteet</a></li><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/Johdanto.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Johdanto</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/TietokantojenPerusteet.html">Tietokantojen Perusteet</a></li><li class="breadcrumb-item"><a href="../TietokantojenPerusteet/Johdanto.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">SQL Peruskomennot</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Johdanto</span></h1>
+<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">SQL Peruskomennot</span></h1>
 </div>
 
 
@@ -357,7 +392,131 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Johdantopohdanto</p>
+<p>CREATE TABLE</p>
+<ul>
+<li>Luo taulukon</li>
+</ul>
+<p><br> Esim:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Products ( <span class="kw">id</span> <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, name TEXT, price <span class="dt">INTEGER</span> );</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Luotiin taulukko, jossa on kolme saraketta: id, name ja price</p>
+<p><br></p>
+<p>INSERT INTO</p>
+<ul>
+<li>lisää uuden rivin taulukkoon</li>
+</ul>
+<p>Esim</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Products (name, price) <span class="kw">VALUES</span> (<span class="st">'retiisi'</span>, <span class="dv">7</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>SELECT</p>
+<ul>
+<li>haetaan tietoa tietystä taulusta</li>
+</ul>
+<p>SELECT * FROM Products;</p>
+<ul>
+<li>tähtimerkki tarkoittaa, että haetaan kaikkea</li>
+</ul>
+<p>SELECT name FROM Products;</p>
+<ul>
+<li>valitsee sarakkeen name taulusta products</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name, price <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>hakee kahdesta sarakkeesta name ja price</li>
+</ul>
+<p><br></p>
+<p>WHERE lisää ehdon kyselyyn</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">WHERE</span> name <span class="op">=</span> <span class="st">'lanttu'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>hakee kaiken Products taulusta, jossa nimi on lanttu</li>
+</ul>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">WHERE</span> price <span class="op">&gt;=</span> <span class="dv">4</span> <span class="kw">AND</span> price <span class="op">&lt;=</span> <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>hakee kaiken Products taulusta ehdolla, että price on suurempi tai yhtäsuuri kuin 4 JA pienempi tai yhtäsuuri kuin 6</li>
+</ul>
+<p><br></p>
+<p>&lt;&gt; Tarkoittaa erisuuruutta</p>
+<ul>
+<li></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">WHERE</span> price <span class="op">&lt;&gt;</span> <span class="dv">4</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>antaa tuloksena erisuuret kuin 4</li>
+</ul>
+<p><br></p>
+<p>ORDER BY</p>
+<ul>
+<li>järjestää tulostaulun tiettyyn järjestykseen</li>
+</ul>
+<p>Esim.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">ORDER</span> <span class="kw">BY</span> name;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Järjestää sarakkeen name mukaan aakkosjärjestykseen</li>
+</ul>
+<p>DESC komennolla voi kääntää järjestyksen laskevaksi</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">ORDER</span> <span class="kw">BY</span> name <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>ASC komennolla nousevaksi, mutta tämä on yleensä oletuksena, joten ei tarvitse lähtökohtaisesti merkata</p>
+<p><br></p>
+<p>SELECT DISTINCT</p>
+<ul>
+<li>antaa tuloksena vain erilaiset rivit</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> price <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>LIMIT</p>
+<ul>
+<li>rajoittaa tulostauluun tulevien rivien määrän</li>
+</ul>
+<p>LIMIT 3</p>
+<ul>
+<li>Näyttää vain kolme ensimmäistä riviä</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">ORDER</span> <span class="kw">BY</span> price <span class="kw">LIMIT</span> <span class="dv">3</span> OFFSET <span class="dv">1</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>OFFSET siirtää rajoituksen alkua annetulla määrällä rivejä eteenpäin. Tässä esimerkissä näytetään siis vain rivit 2, 3 ja 4</li>
+</ul>
+<p><br></p>
+<p>UPDATE</p>
+<ul>
+<li>muuttaa haluttuja taulun rivejä. Jos WHERE ehtoa ei anneta, niin vaikuttaa koko tauluun</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Products <span class="kw">SET</span> price <span class="op">=</span> <span class="dv">6</span> <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">2</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>muuttaa id 2 rivin price arvoksi 6</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Products <span class="kw">SET</span> name <span class="op">=</span> <span class="st">'ananas'</span>, price <span class="op">=</span> <span class="dv">6</span> <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">2</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p>Muuttaa id 2 rivin name arvoksi ananas ja price arvoksi kuusi</p></li>
+<li><p>kaksi SET komentoa on eroteltuna pilkulla</p></li>
+</ul>
+<p><br></p>
+<p>DELETE FROM</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> Products <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">5</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Poistaa id 5 rivin</li>
+</ul>
+<p>DROP TABLE</p>
+<ul>
+<li>poistaa koko taulun</li>
+</ul>
+<p><br></p>
+<p>Yhteenveto / aggregaattifunktiot</p>
+<ul>
+<li><p><code>COUNT()</code>: rivien määrä</p></li>
+<li><p><code>SUM()</code>: arvojen summa</p></li>
+<li><p><code>MIN()</code>: pienin arvo</p></li>
+<li><p><code>MAX()</code>: suurin arvo</p></li>
+<li><p><code>AVG()</code>: arvojen keskiarvo</p></li>
+</ul>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> Products <span class="kw">WHERE</span> price <span class="op">=</span> <span class="dv">4</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>laskee Procusts taulukon rivien lukumäärän, joissa price on 4</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">MIN</span>(price), <span class="fu">MAX</span>(price) <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Hakee Products taulun minimi ja maksimihinnat</li>
+</ul>
 
 
 

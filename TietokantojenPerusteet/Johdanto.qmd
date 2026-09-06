@@ -1,6 +1,226 @@
 ---
-title: "Johdanto"
+title: "SQL Peruskomennot"
 format: html
 ---
 
-Johdantopohdanto 
+CREATE TABLE
+
+- Luo taulukon
+
+<br> Esim:
+
+``` sql
+CREATE TABLE Products ( id INTEGER PRIMARY KEY, name TEXT, price INTEGER );
+```
+
+Luotiin taulukko, jossa on kolme saraketta: id, name ja price
+
+<br>
+
+INSERT INTO
+
+- lisää uuden rivin taulukkoon
+
+Esim
+
+``` sql
+INSERT INTO Products (name, price) VALUES ('retiisi', 7);
+```
+
+<br>
+
+SELECT
+
+- haetaan tietoa tietystä taulusta
+
+SELECT \* FROM Products;
+
+- tähtimerkki tarkoittaa, että haetaan kaikkea
+
+SELECT name FROM Products;
+
+- valitsee sarakkeen name taulusta products
+
+``` sql
+SELECT name, price FROM Products;
+```
+
+- hakee kahdesta sarakkeesta name ja price
+
+<br>
+
+WHERE lisää ehdon kyselyyn
+
+``` sql
+SELECT * FROM Products WHERE name = 'lanttu';
+```
+
+- hakee kaiken Products taulusta, jossa nimi on lanttu
+
+<br>
+
+``` sql
+SELECT * FROM Products WHERE price >= 4 AND price <= 6;
+```
+
+- hakee kaiken Products taulusta ehdolla, että price on suurempi tai yhtäsuuri kuin 4 JA pienempi tai yhtäsuuri kuin 6
+
+<br>
+
+\<\> Tarkoittaa erisuuruutta
+
+- 
+
+``` sql
+SELECT * FROM Products WHERE price <> 4;
+```
+
+- antaa tuloksena erisuuret kuin 4
+
+<br>
+
+ORDER BY
+
+- järjestää tulostaulun tiettyyn järjestykseen
+
+Esim.
+
+``` sql
+SELECT * FROM Products ORDER BY name;
+```
+
+- Järjestää sarakkeen name mukaan aakkosjärjestykseen
+
+DESC komennolla voi kääntää järjestyksen laskevaksi
+
+``` sql
+SELECT * FROM Products ORDER BY name DESC;
+```
+
+ASC komennolla nousevaksi, mutta tämä on yleensä oletuksena, joten ei tarvitse lähtökohtaisesti merkata
+
+<br>
+
+SELECT DISTINCT
+
+- antaa tuloksena vain erilaiset rivit
+
+``` sql
+SELECT DISTINCT price FROM Products;
+```
+
+<br>
+
+LIMIT
+
+- rajoittaa tulostauluun tulevien rivien määrän
+
+LIMIT 3
+
+- Näyttää vain kolme ensimmäistä riviä
+
+``` sql
+SELECT * FROM Products ORDER BY price LIMIT 3 OFFSET 1;
+```
+
+- OFFSET siirtää rajoituksen alkua annetulla määrällä rivejä eteenpäin. Tässä esimerkissä näytetään siis vain rivit 2, 3 ja 4
+
+<br>
+
+UPDATE
+
+- muuttaa haluttuja taulun rivejä. Jos WHERE ehtoa ei anneta, niin vaikuttaa koko tauluun
+
+``` sql
+UPDATE Products SET price = 6 WHERE id = 2;
+```
+
+- muuttaa id 2 rivin price arvoksi 6
+
+``` sql
+UPDATE Products SET name = 'ananas', price = 6 WHERE id = 2;
+```
+
+- Muuttaa id 2 rivin name arvoksi ananas ja price arvoksi kuusi
+
+- kaksi SET komentoa on eroteltuna pilkulla
+
+<br>
+
+DELETE FROM
+
+``` sql
+DELETE FROM Products WHERE id = 5;
+```
+
+- Poistaa id 5 rivin
+
+DROP TABLE
+
+- poistaa koko taulun
+
+<br>
+
+Yhteenveto / aggregaattifunktiot
+
+- `COUNT()`: rivien määrä
+
+- `SUM()`: arvojen summa
+
+- `MIN()`: pienin arvo
+
+- `MAX()`: suurin arvo
+
+- `AVG()`: arvojen keskiarvo
+
+<br>
+
+``` sql
+SELECT COUNT(*) FROM Products WHERE price = 4;
+```
+
+- laskee Procusts taulukon rivien lukumäärän, joissa price on 4
+
+``` sql
+SELECT MIN(price), MAX(price) FROM Products;
+```
+
+- Hakee Products taulun minimi ja maksimihinnat
+
+DISTINCT komennolla saadaan laskettua montako eri arvoa tietyssä sarakkeessa on
+
+``` sql
+SELECT COUNT(DISTINCT price) FROM Products;
+```
+
+<br>
+
+IFNULL() Muutetaan puuttuvat arvot nolliksi
+
+``` sql
+SELECT IFNULL(SUM(price), 0) FROM Products;
+```
+
+- IFNULL(annettava komento() , puuttuvan arvon korvaava arvo)
+
+<br>
+
+GROUP BY
+
+- komennolla jaetaan rivit ryhmiin annetun sarakkeen mukaan ja lasketaan aggrekaattifunktio jokaiselle ryhmälle erikseen
+
+``` sql
+SELECT company, COUNT(*) FROM Employees GROUP BY company;
+```
+
+- Jakaa Employees taulun ryhmittäin company sarakkeen mukaan ja laskee rivien lukumäärän ryhmittäin
+
+### Kyselyn yleiskuva
+
+SQL-kyselyn yleiskuva on seuraava:
+
+SELECT -\> FROM -\> WHERE -\> GROUP BY -\> HAVING -\> ORDER BY -\> LIMIT
+
+Kyselystä riippuu, mitkä näistä osista siinä esiintyvät. Tämä on kuitenkin aina järjestys, jossa kyselyn osat sijaitsevat toisiinsa nähden.
+
+Kaikki sivun tiedot ovat peräsin Antti Laaksosen kurssimateriaaleista 2026.
