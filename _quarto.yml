@@ -40,6 +40,9 @@ book:
         - Tilastotiede/MatematiikanLaskusääntöjä.qmd
         - Tilastotiede/TilastotJaRTutuksi.qmd
         - Tilastotiede/Tilastot_ja_r_tutuksi_tehtavat.qmd
+    - part: TietokantojenPerusteet/TietokantojenPerusteet.qmd 
+      chapters: 
+        - TietokantojenPerusteet/Johdanto.qmd
     - references.qmd
 
       

@@ -446,9 +446,9 @@ Kokonaistodennäköisyyden kaava
 
 <br>
 
-## Diskreetit satunnaismuuttujat 
+## Diskreetit satunnaismuuttujat
 
-### Pistetodennäköisyysfunktio 
+### Pistetodennäköisyysfunktio
 
 ![](images/clipboard-2622764222.png)
 
@@ -499,3 +499,21 @@ Pistetodennäköisyysfunktion ominaisuuksia
 - Pistetodennäköisyysfunktion arvo on todennäköisyys, joten sen arvon tulee olla suurempi tai yhtä suuri kuin 0
 
 - Jos kaikki arvojoukon pistetodennäköisyydet summataan yhteen tulee summan olla yksi.
+
+<br>
+
+### Odotusarvo
+
+![](images/clipboard-1808901854.png)
+
+Odotusarvo = satunnaismuuttujan odotettu arvo
+
+![](images/clipboard-3444794355.png){width="291"}
+
+Diskreetin satunnaismuuttujan odotusarvo
+
+- Todennäköisyyksillä painotettu keskiarvo satunnaismuuttujan mahdollisista arvoista. Toisinsanottuna diskreetin satunnaismuuttujan odotusarvo on summa sen mahdollisista arvoista kerrottuna todennäköisyyksillä.
+
+- Lasketaan siis summa arvojoukon arvoista kerrottuna jokainen omalla todennäköisyydellään.
+
+- Merkataan ∈(x)

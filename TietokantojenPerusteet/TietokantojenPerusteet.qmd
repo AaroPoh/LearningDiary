@@ -1,0 +1,6 @@
+---
+title: "Tietokantojen Perusteet"
+format: html
+---
+
+Tähän osioon tulee sisältöä Tietokantojen perusteet kurssilta. 
