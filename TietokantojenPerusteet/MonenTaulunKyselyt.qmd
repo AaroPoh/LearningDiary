@@ -1,0 +1,28 @@
+---
+title: "Monen taulun kyselyt"
+format: html
+---
+
+![](images/clipboard-1152536311.png)
+
+Samaan tauluun viittaus yhdessä kyselyssä:
+
+- Jos haluaa viitata samaan tauluun yhden kyselyn aikana täytyy taulu nimetä kahdella tavalla
+
+- Mallivastauksessa taulu Cities on nimetty A:ksi ja B:ksi
+
+``` sql
+SELECT A.name, B.name FROM Teachers A, Teachers B;
+```
+
+Hakee kaikki mahdolliset nimien parit taulusta Teachers
+
+![](images/clipboard-3548498919.png)
+
+<br>
+
+## Liitostaulut
+
+![](images/clipboard-1484305724.png)
+
+Liitostaululla voi yhdistää kaksi toisiinsa liittyvää tauluja id-numeroiden avulla
