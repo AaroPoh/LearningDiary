@@ -26,3 +26,9 @@ Hakee kaikki mahdolliset nimien parit taulusta Teachers
 ![](images/clipboard-1484305724.png)
 
 Liitostaululla voi yhdistää kaksi toisiinsa liittyvää tauluja id-numeroiden avulla
+
+<br>
+
+### JOIN 
+
+JOIN komennolla saa kyselyssä liitettyä kaksi taulua yhteen

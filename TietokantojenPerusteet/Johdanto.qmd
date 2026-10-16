@@ -3,7 +3,7 @@ title: "SQL Peruskomennot"
 format: html
 ---
 
-CREATE TABLE
+### CREATE TABLE
 
 - Luo taulukon
 
@@ -17,7 +17,7 @@ Luotiin taulukko, jossa on kolme saraketta: id, name ja price
 
 <br>
 
-INSERT INTO
+### INSERT INTO
 
 - lisää uuden rivin taulukkoon
 
@@ -29,7 +29,7 @@ INSERT INTO Products (name, price) VALUES ('retiisi', 7);
 
 <br>
 
-SELECT
+### SELECT
 
 - haetaan tietoa tietystä taulusta
 
@@ -49,7 +49,7 @@ SELECT name, price FROM Products;
 
 <br>
 
-WHERE lisää ehdon kyselyyn
+### WHERE lisää ehdon kyselyyn
 
 ``` sql
 SELECT * FROM Products WHERE name = 'lanttu';
@@ -79,7 +79,7 @@ SELECT * FROM Products WHERE price <> 4;
 
 <br>
 
-ORDER BY
+### ORDER BY
 
 - järjestää tulostaulun tiettyyn järjestykseen
 
@@ -101,7 +101,7 @@ ASC komennolla nousevaksi, mutta tämä on yleensä oletuksena, joten ei tarvits
 
 <br>
 
-SELECT DISTINCT
+### SELECT DISTINCT
 
 - antaa tuloksena vain erilaiset rivit
 
@@ -111,7 +111,7 @@ SELECT DISTINCT price FROM Products;
 
 <br>
 
-LIMIT
+### LIMIT
 
 - rajoittaa tulostauluun tulevien rivien määrän
 
@@ -127,7 +127,7 @@ SELECT * FROM Products ORDER BY price LIMIT 3 OFFSET 1;
 
 <br>
 
-UPDATE
+### UPDATE
 
 - muuttaa haluttuja taulun rivejä. Jos WHERE ehtoa ei anneta, niin vaikuttaa koko tauluun
 
@@ -147,7 +147,7 @@ UPDATE Products SET name = 'ananas', price = 6 WHERE id = 2;
 
 <br>
 
-DELETE FROM
+### DELETE FROM
 
 ``` sql
 DELETE FROM Products WHERE id = 5;
@@ -155,13 +155,13 @@ DELETE FROM Products WHERE id = 5;
 
 - Poistaa id 5 rivin
 
-DROP TABLE
+### DROP TABLE
 
 - poistaa koko taulun
 
 <br>
 
-Yhteenveto / aggregaattifunktiot
+### Yhteenveto / aggregaattifunktiot
 
 - `COUNT()`: rivien määrä
 
@@ -195,7 +195,9 @@ SELECT COUNT(DISTINCT price) FROM Products;
 
 <br>
 
-IFNULL() Muutetaan puuttuvat arvot nolliksi
+### IFNULL() 
+
+Muutetaan puuttuvat arvot nolliksi
 
 ``` sql
 SELECT IFNULL(SUM(price), 0) FROM Products;
@@ -205,7 +207,7 @@ SELECT IFNULL(SUM(price), 0) FROM Products;
 
 <br>
 
-GROUP BY
+### GROUP BY
 
 - komennolla jaetaan rivit ryhmiin annetun sarakkeen mukaan ja lasketaan aggrekaattifunktio jokaiselle ryhmälle erikseen
 
@@ -215,6 +217,115 @@ SELECT company, COUNT(*) FROM Employees GROUP BY company;
 
 - Jakaa Employees taulun ryhmittäin company sarakkeen mukaan ja laskee rivien lukumäärän ryhmittäin
 
+<br>
+
+### HAVING
+
+- Rajaa tuloksia GROUP BY ryhmittelyn jälkeen
+
+Esimerkiksi seuraava kysely hakee yritykset, joissa on ainakin kaksi työntekijää:
+
+``` sql
+SELECT
+  company, COUNT(*)
+FROM
+  Employees
+GROUP BY
+  company
+HAVING
+  COUNT(*) >= 2;
+```
+
+``` sql
+company  COUNT(*)
+-------  --------
+Amazon   2       
+Google   3       
+```
+
+Voimme myös käyttää koostefunktiota vain `HAVING`-osassa:
+
+``` sql
+SELECT
+  company
+FROM
+  Employees
+GROUP BY
+  company
+HAVING
+  COUNT(*) >= 2;
+```
+
+```         
+company
+-------
+Amazon    
+Google    
+```
+
+<br>
+
+### IN
+
+Lauseke `x IN (...)` on tosi, jos `x` on jokin annetuista arvoista. Esimerkiksi kysely
+
+``` sql
+SELECT
+  SUM(price)
+FROM
+  Products
+WHERE
+  name IN ('lanttu', 'nauris', 'selleri');
+```
+
+hakee lantun, nauriin ja sellerin yhteishinnan.
+
+- Eli IN operaattorilla saa haettua tietyn asian sisältävät kohteet.
+
+<br>
+
+### LIKE 
+
+Lauseke a LIKE p on tosi, jos merkkijono a vastaa kuvausta p. Kuvauksessa voi käyttää erikoismerkkejä:
+
+- Merkki: \_ tarkoittaa mitä tahansa yksittäistä merkkiä
+
+- Merkki: % tarkoittaa mitä tahansa määrää mitä tahansa merkkejä.
+
+``` sql
+SELECT * FROM Products WHERE name LIKE '%aa%';
+```
+
+Kysely hakee Products taulusta kohteet sarakkeesta name, jotka sisältävät merkkijonon 'aa'.
+
+<br>
+
+### FUNKTIOT
+
+Lausekkeiden osana voi esiintyä funktioita samaan tapaan kuin ohjelmoinnissa. Tässä on esimerkkinä joitakin SQLiten funktioita:
+
+- `ABS(x)`: luvun `x` itseisarvo
+
+- `LENGTH(s)`: merkkijonon `s` pituus
+
+- `LOWER(s)`: merkkijono `s` pienillä kirjaimilla
+
+- `MAX(x, y)`: suurempi luvuista `x` ja `y`
+
+- `MIN(x, y)`: pienempi luvuista `x` ja `y`
+
+- `RANDOM()`: satunnainen luku
+
+- `ROUND(x, d)`: luku `x` pyöristettynä `d` desimaalin tarkkuudelle
+
+- `SUBSTR(s, a, b)`: merkkijonon `s` kohdasta `a` alkaen `b` merkkiä
+
+  - Hakee aliosan merkkijonosta
+
+- `UPPER(s)`: merkkijono `s` suurilla kirjaimilla
+
+<br>
+
 ### Kyselyn yleiskuva
 
 SQL-kyselyn yleiskuva on seuraava:
@@ -222,5 +333,79 @@ SQL-kyselyn yleiskuva on seuraava:
 SELECT -\> FROM -\> WHERE -\> GROUP BY -\> HAVING -\> ORDER BY -\> LIMIT
 
 Kyselystä riippuu, mitkä näistä osista siinä esiintyvät. Tämä on kuitenkin aina järjestys, jossa kyselyn osat sijaitsevat toisiinsa nähden.
+
+<br>
+
+### SQLITE käyttäminen 
+
+Macilla SQlite tulkki avataan päätteen kautta.
+
+- Etsi "pääte" spotlightista ja avaa se
+
+- Syötä päätteeseen komento: sqlite3
+
+- Tulkki avautuu
+
+Oletuksena tulkki avaa uuden tyhjän tietokannan, joka häviää, kun pääte suljetaan. Käynnistyksen yhteydessä voi antaa tiedostonimen, jolloin tulkkiin syötetyt asiat tallennetaan siihen. Vaihtoehtoisesti voi syöttää siihen olemassaolevan tietokannan nimen, jolloin se avataan. Tulkki toimii käyttäjät kansiossa (aaropohjalainen), joten tietokanta täytyy joko siirtää sinne tai sen eteen täytyy syöttää vaadittava tiedostopolku.
+
+- Jos avaa pelkästään sqlite 3 komennolla tyhjän tulkin niin saa avattua databasen komennolla .open "TIEDOSTONIMI.db"
+
+<br>
+
+- .mode table
+
+  - komennolla saa tulkissa taulut tulostumaan selkeämmässä muodossa
+
+- .mode column
+
+  - jokaisella sarakkeella on kiinteä leveys
+
+- .headers on
+
+  - sarakkeiden nimet näytetään
+
+- .quit
+
+  - komennolla saa suljettua tulkin
+
+- .tables
+
+  - näyttää kaikki tietokannan taulut
+
+<br>
+
+### Sarakkeiden tietotyypit 
+
+INTEGER
+
+- kokonaisluku
+
+TEXT
+
+- merkkijono
+
+TIMESTAMP
+
+- ajan hetki
+
+REAL
+
+- liukuluku eli käytännössä desimaaliluku
+
+BLOB
+
+- raakadata eli esim. mp3, mp4, jpeg, png, pdf, zip ynnä muut tiedostot
+
+VARCHAR
+
+- SQL:n perinteinen tapa tallettaa merkkijono. Siitä huono, että vaatii maksimipituuden määrityksen. Esim. VARCHAR(10) tarkoittaa, että merkkijonossa voi olla max 10 merkkiä. TEXT tyypissä ei tarvitse määrittää maksimimäärää merkeille, joten se on helpompi.
+
+PRIMARY KEY
+
+- tämä ei ole tietotyyppi, vaan taulun pääavain. Sarake, joka määritetään PRIMARY KEY:ksi yksilöi taulun jokaisen rivin eli millään kahdella taulun rivillä ei voi olla samaa arvoa PRIMARY KEY sarakkeessa. Yleensä PRIMARY KEY on kokonaislukumuotoinen (INTEGER) id numero.
+
+  - Pääavainsarakkeelle yleensä halutaan juokseva numerointi. SQLitessä INTEGER tyyppinen PRIMARY KEY sarake saa juoksevan numeroinnin automaattisesti. Eri tietokannoissa se voi toimia eri tavalla.
+
+<br>
 
 Kaikki sivun tiedot ovat peräsin Antti Laaksosen kurssimateriaaleista 2026.

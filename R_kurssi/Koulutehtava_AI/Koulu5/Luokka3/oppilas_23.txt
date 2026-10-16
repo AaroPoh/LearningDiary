@@ -1,23 +1,23 @@
 Tehtävämoniste 1 - 4 luokkalaisille
 Ratkaise seuraavat 10 tehtävää:
 
-Tehtävä 1: 10 / 3 = 
+Tehtävä 1: 10 * 6 = 
 
-Tehtävä 2: 5 / 10 = 
+Tehtävä 2: 9 * 3 = 
 
-Tehtävä 3: 2 - 6 = 
+Tehtävä 3: 256 + 893 = 
 
-Tehtävä 4: 240 - 643 = 
+Tehtävä 4: 506 / 131 = 
 
-Tehtävä 5: 142 - 732 = 
+Tehtävä 5: 388 * 531 = 
 
-Tehtävä 6: 10 + 9 = 
+Tehtävä 6: 1 / 6 = 
 
-Tehtävä 7: 945 + 107 = 
+Tehtävä 7: 418 * 356 = 
 
-Tehtävä 8: 506 / 875 = 
+Tehtävä 8: 2 * 4 = 
 
-Tehtävä 9: 7 - 9 = 
+Tehtävä 9: 526 / 415 = 
 
-Tehtävä 10: 739 * 136 = 
+Tehtävä 10: 2 - 1 = 
 

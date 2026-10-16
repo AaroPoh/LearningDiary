@@ -373,6 +373,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">SQL Peruskomennot</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../TietokantojenPerusteet/MonenTaulunKyselyt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Monen taulun kyselyt</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -447,19 +453,19 @@ div.csl-indent {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Age <span class="sc">~</span> Group, <span class="at">data =</span> data, <span class="at">FUN =</span> mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Group   Age
-1 GroupA 40.83
-2 GroupB 41.91
-3 GroupC 40.13</code></pre>
+1 GroupA 42.50
+2 GroupB 42.61
+3 GroupC 42.36</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(data<span class="sc">$</span>WM, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 0% 90% 
-  1  87 </code></pre>
+  1  91 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(data[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">2</span>, mean) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Age       WM 
-40.95667 49.97333 </code></pre>
+42.49000 51.00667 </code></pre>
 </div>
 </div>
 <p>Ensiksi luotiin datafreimi data.frame() funktiolla</p>

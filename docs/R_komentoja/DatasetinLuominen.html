@@ -1926,6 +1926,12 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">SQL Peruskomennot</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../TietokantojenPerusteet/MonenTaulunKyselyt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Monen taulun kyselyt</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -2426,9 +2432,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(arvo <span class="sc">~</span> ryhmä, <span class="at">data =</span> data, <span class="at">FUN =</span> mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  ryhmä      arvo
-1     1 0.9769311
-2     2 3.0208645</code></pre>
+<pre><code>  ryhmä     arvo
+1     1 1.008167
+2     2 3.015443</code></pre>
 </div>
 </div>
 <ul>
@@ -2480,8 +2486,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  5.895710  7.880687  5.327975  5.227689  8.517566 10.606737  6.457831
- [8]  7.152821  5.381796  8.732042</code></pre>
+<pre><code> [1]  6.549882 10.532802  2.080989  5.246662  5.604704  1.208261  3.837958
+ [8]  4.403577  9.883366  4.801102</code></pre>
 </div>
 </div>
 <p>Tarkistetaan, että keskiarvo ja keskihajonta pitävät paikkansa.</p>
@@ -2501,8 +2507,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">N10 =</span> <span class="fu">c</span>(m1,sd1), <span class="at">N100 =</span> <span class="fu">c</span>(m2,sd2), <span class="at">N1000 =</span> <span class="fu">c</span>(m3, sd3), <span class="at">row.names =</span> RivNimet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  N10     N100    N1000
-Keskiarvo    6.068046 5.938637 6.045993
-Keskihajonta 1.792327 2.069371 2.015215</code></pre>
+Keskiarvo    5.946160 6.420938 6.049571
+Keskihajonta 2.592467 1.933690 2.008813</code></pre>
 </div>
 </div>
 <p>Isommalla n:llä näyttäisi osuvan vielä tarkemmin kohdalleen.</p>

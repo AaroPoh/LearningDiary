@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
+<link href="../TietokantojenPerusteet/MonenTaulunKyselyt.html" rel="next">
 <link href="../TietokantojenPerusteet/TietokantojenPerusteet.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -354,6 +354,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">SQL Peruskomennot</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../TietokantojenPerusteet/MonenTaulunKyselyt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Monen taulun kyselyt</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -372,7 +378,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#kyselyn-yleiskuva" id="toc-kyselyn-yleiskuva" class="nav-link active" data-scroll-target="#kyselyn-yleiskuva"><span class="header-section-number">25.0.1</span> Kyselyn yleiskuva</a></li>
+  <li><a href="#create-table" id="toc-create-table" class="nav-link active" data-scroll-target="#create-table"><span class="header-section-number">25.0.1</span> CREATE TABLE</a></li>
+  <li><a href="#insert-into" id="toc-insert-into" class="nav-link" data-scroll-target="#insert-into"><span class="header-section-number">25.0.2</span> INSERT INTO</a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">25.0.3</span> SELECT</a></li>
+  <li><a href="#where-lisää-ehdon-kyselyyn" id="toc-where-lisää-ehdon-kyselyyn" class="nav-link" data-scroll-target="#where-lisää-ehdon-kyselyyn"><span class="header-section-number">25.0.4</span> WHERE lisää ehdon kyselyyn</a></li>
+  <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="header-section-number">25.0.5</span> ORDER BY</a></li>
+  <li><a href="#select-distinct" id="toc-select-distinct" class="nav-link" data-scroll-target="#select-distinct"><span class="header-section-number">25.0.6</span> SELECT DISTINCT</a></li>
+  <li><a href="#limit" id="toc-limit" class="nav-link" data-scroll-target="#limit"><span class="header-section-number">25.0.7</span> LIMIT</a></li>
+  <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update"><span class="header-section-number">25.0.8</span> UPDATE</a></li>
+  <li><a href="#delete-from" id="toc-delete-from" class="nav-link" data-scroll-target="#delete-from"><span class="header-section-number">25.0.9</span> DELETE FROM</a></li>
+  <li><a href="#drop-table" id="toc-drop-table" class="nav-link" data-scroll-target="#drop-table"><span class="header-section-number">25.0.10</span> DROP TABLE</a></li>
+  <li><a href="#yhteenveto-aggregaattifunktiot" id="toc-yhteenveto-aggregaattifunktiot" class="nav-link" data-scroll-target="#yhteenveto-aggregaattifunktiot"><span class="header-section-number">25.0.11</span> Yhteenveto / aggregaattifunktiot</a></li>
+  <li><a href="#ifnull" id="toc-ifnull" class="nav-link" data-scroll-target="#ifnull"><span class="header-section-number">25.0.12</span> IFNULL()</a></li>
+  <li><a href="#group-by" id="toc-group-by" class="nav-link" data-scroll-target="#group-by"><span class="header-section-number">25.0.13</span> GROUP BY</a></li>
+  <li><a href="#having" id="toc-having" class="nav-link" data-scroll-target="#having"><span class="header-section-number">25.0.14</span> HAVING</a></li>
+  <li><a href="#in" id="toc-in" class="nav-link" data-scroll-target="#in"><span class="header-section-number">25.0.15</span> IN</a></li>
+  <li><a href="#like" id="toc-like" class="nav-link" data-scroll-target="#like"><span class="header-section-number">25.0.16</span> LIKE</a></li>
+  <li><a href="#funktiot" id="toc-funktiot" class="nav-link" data-scroll-target="#funktiot"><span class="header-section-number">25.0.17</span> FUNKTIOT</a></li>
+  <li><a href="#kyselyn-yleiskuva" id="toc-kyselyn-yleiskuva" class="nav-link" data-scroll-target="#kyselyn-yleiskuva"><span class="header-section-number">25.0.18</span> Kyselyn yleiskuva</a></li>
+  <li><a href="#sqlite-käyttäminen" id="toc-sqlite-käyttäminen" class="nav-link" data-scroll-target="#sqlite-käyttäminen"><span class="header-section-number">25.0.19</span> SQLITE käyttäminen</a></li>
+  <li><a href="#sarakkeiden-tietotyypit" id="toc-sarakkeiden-tietotyypit" class="nav-link" data-scroll-target="#sarakkeiden-tietotyypit"><span class="header-section-number">25.0.20</span> Sarakkeiden tietotyypit</a></li>
   </ul>
 </nav>
     </div>
@@ -398,7 +423,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>CREATE TABLE</p>
+<section id="create-table" class="level3" data-number="25.0.1">
+<h3 data-number="25.0.1" class="anchored" data-anchor-id="create-table"><span class="header-section-number">25.0.1</span> CREATE TABLE</h3>
 <ul>
 <li>Luo taulukon</li>
 </ul>
@@ -406,14 +432,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Products ( <span class="kw">id</span> <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, name TEXT, price <span class="dt">INTEGER</span> );</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Luotiin taulukko, jossa on kolme saraketta: id, name ja price</p>
 <p><br></p>
-<p>INSERT INTO</p>
+</section>
+<section id="insert-into" class="level3" data-number="25.0.2">
+<h3 data-number="25.0.2" class="anchored" data-anchor-id="insert-into"><span class="header-section-number">25.0.2</span> INSERT INTO</h3>
 <ul>
 <li>lisää uuden rivin taulukkoon</li>
 </ul>
 <p>Esim</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> Products (name, price) <span class="kw">VALUES</span> (<span class="st">'retiisi'</span>, <span class="dv">7</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
-<p>SELECT</p>
+</section>
+<section id="select" class="level3" data-number="25.0.3">
+<h3 data-number="25.0.3" class="anchored" data-anchor-id="select"><span class="header-section-number">25.0.3</span> SELECT</h3>
 <ul>
 <li>haetaan tietoa tietystä taulusta</li>
 </ul>
@@ -430,7 +460,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>hakee kahdesta sarakkeesta name ja price</li>
 </ul>
 <p><br></p>
-<p>WHERE lisää ehdon kyselyyn</p>
+</section>
+<section id="where-lisää-ehdon-kyselyyn" class="level3" data-number="25.0.4">
+<h3 data-number="25.0.4" class="anchored" data-anchor-id="where-lisää-ehdon-kyselyyn"><span class="header-section-number">25.0.4</span> WHERE lisää ehdon kyselyyn</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">WHERE</span> name <span class="op">=</span> <span class="st">'lanttu'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>hakee kaiken Products taulusta, jossa nimi on lanttu</li>
@@ -450,7 +482,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>antaa tuloksena erisuuret kuin 4</li>
 </ul>
 <p><br></p>
-<p>ORDER BY</p>
+</section>
+<section id="order-by" class="level3" data-number="25.0.5">
+<h3 data-number="25.0.5" class="anchored" data-anchor-id="order-by"><span class="header-section-number">25.0.5</span> ORDER BY</h3>
 <ul>
 <li>järjestää tulostaulun tiettyyn järjestykseen</li>
 </ul>
@@ -463,13 +497,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">ORDER</span> <span class="kw">BY</span> name <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>ASC komennolla nousevaksi, mutta tämä on yleensä oletuksena, joten ei tarvitse lähtökohtaisesti merkata</p>
 <p><br></p>
-<p>SELECT DISTINCT</p>
+</section>
+<section id="select-distinct" class="level3" data-number="25.0.6">
+<h3 data-number="25.0.6" class="anchored" data-anchor-id="select-distinct"><span class="header-section-number">25.0.6</span> SELECT DISTINCT</h3>
 <ul>
 <li>antaa tuloksena vain erilaiset rivit</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> price <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
-<p>LIMIT</p>
+</section>
+<section id="limit" class="level3" data-number="25.0.7">
+<h3 data-number="25.0.7" class="anchored" data-anchor-id="limit"><span class="header-section-number">25.0.7</span> LIMIT</h3>
 <ul>
 <li>rajoittaa tulostauluun tulevien rivien määrän</li>
 </ul>
@@ -482,7 +520,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>OFFSET siirtää rajoituksen alkua annetulla määrällä rivejä eteenpäin. Tässä esimerkissä näytetään siis vain rivit 2, 3 ja 4</li>
 </ul>
 <p><br></p>
-<p>UPDATE</p>
+</section>
+<section id="update" class="level3" data-number="25.0.8">
+<h3 data-number="25.0.8" class="anchored" data-anchor-id="update"><span class="header-section-number">25.0.8</span> UPDATE</h3>
 <ul>
 <li>muuttaa haluttuja taulun rivejä. Jos WHERE ehtoa ei anneta, niin vaikuttaa koko tauluun</li>
 </ul>
@@ -496,17 +536,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>kaksi SET komentoa on eroteltuna pilkulla</p></li>
 </ul>
 <p><br></p>
-<p>DELETE FROM</p>
+</section>
+<section id="delete-from" class="level3" data-number="25.0.9">
+<h3 data-number="25.0.9" class="anchored" data-anchor-id="delete-from"><span class="header-section-number">25.0.9</span> DELETE FROM</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> Products <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">5</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Poistaa id 5 rivin</li>
 </ul>
-<p>DROP TABLE</p>
+</section>
+<section id="drop-table" class="level3" data-number="25.0.10">
+<h3 data-number="25.0.10" class="anchored" data-anchor-id="drop-table"><span class="header-section-number">25.0.10</span> DROP TABLE</h3>
 <ul>
 <li>poistaa koko taulun</li>
 </ul>
 <p><br></p>
-<p>Yhteenveto / aggregaattifunktiot</p>
+</section>
+<section id="yhteenveto-aggregaattifunktiot" class="level3" data-number="25.0.11">
+<h3 data-number="25.0.11" class="anchored" data-anchor-id="yhteenveto-aggregaattifunktiot"><span class="header-section-number">25.0.11</span> Yhteenveto / aggregaattifunktiot</h3>
 <ul>
 <li><p><code>COUNT()</code>: rivien määrä</p></li>
 <li><p><code>SUM()</code>: arvojen summa</p></li>
@@ -526,13 +572,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>DISTINCT komennolla saadaan laskettua montako eri arvoa tietyssä sarakkeessa on</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> price) <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
-<p>IFNULL() Muutetaan puuttuvat arvot nolliksi</p>
+</section>
+<section id="ifnull" class="level3" data-number="25.0.12">
+<h3 data-number="25.0.12" class="anchored" data-anchor-id="ifnull"><span class="header-section-number">25.0.12</span> IFNULL()</h3>
+<p>Muutetaan puuttuvat arvot nolliksi</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> IFNULL(<span class="fu">SUM</span>(price), <span class="dv">0</span>) <span class="kw">FROM</span> Products;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>IFNULL(annettava komento() , puuttuvan arvon korvaava arvo)</li>
 </ul>
 <p><br></p>
-<p>GROUP BY</p>
+</section>
+<section id="group-by" class="level3" data-number="25.0.13">
+<h3 data-number="25.0.13" class="anchored" data-anchor-id="group-by"><span class="header-section-number">25.0.13</span> GROUP BY</h3>
 <ul>
 <li>komennolla jaetaan rivit ryhmiin annetun sarakkeen mukaan ja lasketaan aggrekaattifunktio jokaiselle ryhmälle erikseen</li>
 </ul>
@@ -540,11 +591,164 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Jakaa Employees taulun ryhmittäin company sarakkeen mukaan ja laskee rivien lukumäärän ryhmittäin</li>
 </ul>
-<section id="kyselyn-yleiskuva" class="level3" data-number="25.0.1">
-<h3 data-number="25.0.1" class="anchored" data-anchor-id="kyselyn-yleiskuva"><span class="header-section-number">25.0.1</span> Kyselyn yleiskuva</h3>
+<p><br></p>
+</section>
+<section id="having" class="level3" data-number="25.0.14">
+<h3 data-number="25.0.14" class="anchored" data-anchor-id="having"><span class="header-section-number">25.0.14</span> HAVING</h3>
+<ul>
+<li>Rajaa tuloksia GROUP BY ryhmittelyn jälkeen</li>
+</ul>
+<p>Esimerkiksi seuraava kysely hakee yritykset, joissa on ainakin kaksi työntekijää:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  company, <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  Employees</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  company</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;=</span> <span class="dv">2</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>company  <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">-------  --------</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>Amazon   <span class="dv">2</span>       </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>Google   <span class="dv">3</span>       </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Voimme myös käyttää koostefunktiota vain&nbsp;<code>HAVING</code>-osassa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  company</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  Employees</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  company</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;=</span> <span class="dv">2</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>company
+-------
+Amazon    
+Google    </code></pre>
+<p><br></p>
+</section>
+<section id="in" class="level3" data-number="25.0.15">
+<h3 data-number="25.0.15" class="anchored" data-anchor-id="in"><span class="header-section-number">25.0.15</span> IN</h3>
+<p>Lauseke&nbsp;<code>x IN (...)</code>&nbsp;on tosi, jos&nbsp;<code>x</code>&nbsp;on jokin annetuista arvoista. Esimerkiksi kysely</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(price)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  Products</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  name <span class="kw">IN</span> (<span class="st">'lanttu'</span>, <span class="st">'nauris'</span>, <span class="st">'selleri'</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>hakee lantun, nauriin ja sellerin yhteishinnan.</p>
+<ul>
+<li>Eli IN operaattorilla saa haettua tietyn asian sisältävät kohteet.</li>
+</ul>
+<p><br></p>
+</section>
+<section id="like" class="level3" data-number="25.0.16">
+<h3 data-number="25.0.16" class="anchored" data-anchor-id="like"><span class="header-section-number">25.0.16</span> LIKE</h3>
+<p>Lauseke a LIKE p on tosi, jos merkkijono a vastaa kuvausta p.&nbsp;Kuvauksessa voi käyttää erikoismerkkejä:</p>
+<ul>
+<li><p>Merkki: _ tarkoittaa mitä tahansa yksittäistä merkkiä</p></li>
+<li><p>Merkki: % tarkoittaa mitä tahansa määrää mitä tahansa merkkejä.</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Products <span class="kw">WHERE</span> name <span class="kw">LIKE</span> <span class="st">'%aa%'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Kysely hakee Products taulusta kohteet sarakkeesta name, jotka sisältävät merkkijonon ‘aa’.</p>
+<p><br></p>
+</section>
+<section id="funktiot" class="level3" data-number="25.0.17">
+<h3 data-number="25.0.17" class="anchored" data-anchor-id="funktiot"><span class="header-section-number">25.0.17</span> FUNKTIOT</h3>
+<p>Lausekkeiden osana voi esiintyä funktioita samaan tapaan kuin ohjelmoinnissa. Tässä on esimerkkinä joitakin SQLiten funktioita:</p>
+<ul>
+<li><p><code>ABS(x)</code>: luvun&nbsp;<code>x</code>&nbsp;itseisarvo</p></li>
+<li><p><code>LENGTH(s)</code>: merkkijonon&nbsp;<code>s</code>&nbsp;pituus</p></li>
+<li><p><code>LOWER(s)</code>: merkkijono&nbsp;<code>s</code>&nbsp;pienillä kirjaimilla</p></li>
+<li><p><code>MAX(x, y)</code>: suurempi luvuista&nbsp;<code>x</code>&nbsp;ja&nbsp;<code>y</code></p></li>
+<li><p><code>MIN(x, y)</code>: pienempi luvuista&nbsp;<code>x</code>&nbsp;ja&nbsp;<code>y</code></p></li>
+<li><p><code>RANDOM()</code>: satunnainen luku</p></li>
+<li><p><code>ROUND(x, d)</code>: luku&nbsp;<code>x</code>&nbsp;pyöristettynä&nbsp;<code>d</code>&nbsp;desimaalin tarkkuudelle</p></li>
+<li><p><code>SUBSTR(s, a, b)</code>: merkkijonon&nbsp;<code>s</code>&nbsp;kohdasta&nbsp;<code>a</code>&nbsp;alkaen&nbsp;<code>b</code>&nbsp;merkkiä</p>
+<ul>
+<li>Hakee aliosan merkkijonosta</li>
+</ul></li>
+<li><p><code>UPPER(s)</code>: merkkijono&nbsp;<code>s</code>&nbsp;suurilla kirjaimilla</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="kyselyn-yleiskuva" class="level3" data-number="25.0.18">
+<h3 data-number="25.0.18" class="anchored" data-anchor-id="kyselyn-yleiskuva"><span class="header-section-number">25.0.18</span> Kyselyn yleiskuva</h3>
 <p>SQL-kyselyn yleiskuva on seuraava:</p>
 <p>SELECT -&gt; FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; ORDER BY -&gt; LIMIT</p>
 <p>Kyselystä riippuu, mitkä näistä osista siinä esiintyvät. Tämä on kuitenkin aina järjestys, jossa kyselyn osat sijaitsevat toisiinsa nähden.</p>
+<p><br></p>
+</section>
+<section id="sqlite-käyttäminen" class="level3" data-number="25.0.19">
+<h3 data-number="25.0.19" class="anchored" data-anchor-id="sqlite-käyttäminen"><span class="header-section-number">25.0.19</span> SQLITE käyttäminen</h3>
+<p>Macilla SQlite tulkki avataan päätteen kautta.</p>
+<ul>
+<li><p>Etsi “pääte” spotlightista ja avaa se</p></li>
+<li><p>Syötä päätteeseen komento: sqlite3</p></li>
+<li><p>Tulkki avautuu</p></li>
+</ul>
+<p>Oletuksena tulkki avaa uuden tyhjän tietokannan, joka häviää, kun pääte suljetaan. Käynnistyksen yhteydessä voi antaa tiedostonimen, jolloin tulkkiin syötetyt asiat tallennetaan siihen. Vaihtoehtoisesti voi syöttää siihen olemassaolevan tietokannan nimen, jolloin se avataan. Tulkki toimii käyttäjät kansiossa (aaropohjalainen), joten tietokanta täytyy joko siirtää sinne tai sen eteen täytyy syöttää vaadittava tiedostopolku.</p>
+<ul>
+<li>Jos avaa pelkästään sqlite 3 komennolla tyhjän tulkin niin saa avattua databasen komennolla .open “TIEDOSTONIMI.db”</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>.mode table</p>
+<ul>
+<li>komennolla saa tulkissa taulut tulostumaan selkeämmässä muodossa</li>
+</ul></li>
+<li><p>.mode column</p>
+<ul>
+<li>jokaisella sarakkeella on kiinteä leveys</li>
+</ul></li>
+<li><p>.headers on</p>
+<ul>
+<li>sarakkeiden nimet näytetään</li>
+</ul></li>
+<li><p>.quit</p>
+<ul>
+<li>komennolla saa suljettua tulkin</li>
+</ul></li>
+<li><p>.tables</p>
+<ul>
+<li>näyttää kaikki tietokannan taulut</li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="sarakkeiden-tietotyypit" class="level3" data-number="25.0.20">
+<h3 data-number="25.0.20" class="anchored" data-anchor-id="sarakkeiden-tietotyypit"><span class="header-section-number">25.0.20</span> Sarakkeiden tietotyypit</h3>
+<p>INTEGER</p>
+<ul>
+<li>kokonaisluku</li>
+</ul>
+<p>TEXT</p>
+<ul>
+<li>merkkijono</li>
+</ul>
+<p>TIMESTAMP</p>
+<ul>
+<li>ajan hetki</li>
+</ul>
+<p>REAL</p>
+<ul>
+<li>liukuluku eli käytännössä desimaaliluku</li>
+</ul>
+<p>BLOB</p>
+<ul>
+<li>raakadata eli esim. mp3, mp4, jpeg, png, pdf, zip ynnä muut tiedostot</li>
+</ul>
+<p>VARCHAR</p>
+<ul>
+<li>SQL:n perinteinen tapa tallettaa merkkijono. Siitä huono, että vaatii maksimipituuden määrityksen. Esim. VARCHAR(10) tarkoittaa, että merkkijonossa voi olla max 10 merkkiä. TEXT tyypissä ei tarvitse määrittää maksimimäärää merkeille, joten se on helpompi.</li>
+</ul>
+<p>PRIMARY KEY</p>
+<ul>
+<li><p>tämä ei ole tietotyyppi, vaan taulun pääavain. Sarake, joka määritetään PRIMARY KEY:ksi yksilöi taulun jokaisen rivin eli millään kahdella taulun rivillä ei voi olla samaa arvoa PRIMARY KEY sarakkeessa. Yleensä PRIMARY KEY on kokonaislukumuotoinen (INTEGER) id numero.</p>
+<ul>
+<li>Pääavainsarakkeelle yleensä halutaan juokseva numerointi. SQLitessä INTEGER tyyppinen PRIMARY KEY sarake saa juoksevan numeroinnin automaattisesti. Eri tietokannoissa se voi toimia eri tavalla.</li>
+</ul></li>
+</ul>
+<p><br></p>
 <p>Kaikki sivun tiedot ovat peräsin Antti Laaksosen kurssimateriaaleista 2026.</p>
 
 
@@ -958,8 +1162,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../TietokantojenPerusteet/MonenTaulunKyselyt.html" class="pagination-link" aria-label="Monen taulun kyselyt">
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Monen taulun kyselyt</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
