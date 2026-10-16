@@ -43,6 +43,7 @@ book:
     - part: TietokantojenPerusteet/TietokantojenPerusteet.qmd 
       chapters: 
         - TietokantojenPerusteet/Johdanto.qmd
+        - MonenTaulunKyselyt.qmd
     - references.qmd
 
       
